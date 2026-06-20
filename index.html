@@ -502,6 +502,19 @@
     position: relative;
     z-index: 1;
   }
+  .opt-btn-img {
+    text-align: center;
+  }
+  .opt-img {
+    display: block;
+    margin: 0 auto 0.4rem;
+    position: relative;
+    z-index: 1;
+  }
+  .foot-shape-icon {
+    width: 56px;
+    height: 80px;
+  }
 
   /* NAV */
   .quiz-nav {
@@ -1643,6 +1656,7 @@ function rowToShoe(r) {
     width:         r.width        ? r.width.split('|').map(s=>s.trim())       : ['medium'],
     climbType:     r.climbing_types ? r.climbing_types.split('|').map(s=>s.trim()) : [],
     rock_type:     r.rock_type,
+    footShape:     r.foot_shape ? r.foot_shape.trim().toLowerCase() : '',
     buyUrl:        r.buy_url,
     imageUrl:      r.image_url,
     locations:     r.locations ? r.locations.split('|').map(s=>s.trim()) : [],
@@ -1671,6 +1685,24 @@ function trackClick(brand, model, url) {
   }
   const dest = (url && url !== '#') ? url + UTM : url;
   window.open(dest, '_blank');
+}
+
+// Builds the little foot-outline icon used on the foot-shape question.
+// `heights` is the relative length of each toe, big toe (index 0) to
+// little toe (index 4) — a higher number means a longer toe.
+function footShapeSvg(heights) {
+  const xs = [20, 33, 46, 59, 70];
+  const radii = [8, 7, 6, 5, 4.5];
+  const baseline = 50;
+  const toes = xs.map((x, i) => ({ x, r: radii[i], cy: baseline - heights[i] }));
+  const toeCircles = toes.map(t => `<circle cx="${t.x}" cy="${t.cy}" r="${t.r}" fill="#fff" stroke="#2b2b2b" stroke-width="2"/>`).join('');
+  const linePoints = toes.map(t => `${t.x},${t.cy - t.r}`).join(' ');
+  return `
+    <svg viewBox="0 0 90 130" class="foot-shape-icon" aria-hidden="true">
+      <path d="M14 54 C4 64, 6 84, 14 100 C20 112, 30 124, 45 126 C60 124, 70 112, 76 100 C84 84, 86 64, 76 54 C68 46, 56 50, 45 50 C34 50, 22 46, 14 54 Z" fill="#fff" stroke="#2b2b2b" stroke-width="2"/>
+      <polyline points="${linePoints}" fill="none" stroke="#1f9d8a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      ${toeCircles}
+    </svg>`;
 }
 
 const questions = [
@@ -1705,6 +1737,16 @@ const questions = [
       { label:"Narrow", desc:"Slim feet that taper sharply to the toes", value:"narrow" },
       { label:"Medium", desc:"Average width — most shoes fit well", value:"medium" },
       { label:"Wide", desc:"Broad across the toes, hard to squeeze in", value:"wide" },
+    ]
+  },
+  {
+    id:"footShape",
+    text:"What shape are your toes?",
+    hint:"This is about toe length, not width — it helps us find a shoe whose toe box matches your foot for a comfier, more precise fit.",
+    options:[
+      { label:"Classic", desc:"Egyptian — big toe longest", value:"classic", img: footShapeSvg([26, 20, 15, 10, 5]) },
+      { label:"Centred", desc:"Greek — second toe longest", value:"centred", img: footShapeSvg([20, 26, 19, 12, 5]) },
+      { label:"Square", desc:"Roman — first three equal", value:"square", img: footShapeSvg([22, 22, 22, 12, 5]) },
     ]
   },
   {
@@ -1800,7 +1842,7 @@ function renderQuizProgressSummary() {
   try {
     // Build a summary of answers so far (excluding the current question)
     const tags = [];
-    const qIds = ['experience', 'style', 'footWidth', 'aggression', 'rockType', 'fastening', 'budget'];
+    const qIds = ['experience', 'style', 'footWidth', 'footShape', 'aggression', 'rockType', 'fastening', 'budget'];
     qIds.forEach(qid => {
       const q = questions.find(qq => qq.id === qid);
       if (!q) return;
@@ -1826,6 +1868,8 @@ function renderQuizProgressSummary() {
         tags.push(answerLabel('experience', val));
       } else if (qid === 'footWidth') {
         tags.push(answerLabel('footWidth', val) + ' feet');
+      } else if (qid === 'footShape') {
+        tags.push(answerLabel('footShape', val) + ' toes');
       } else if (qid === 'aggression') {
         tags.push(answerLabel('aggression', val));
       }
@@ -1911,8 +1955,9 @@ function renderQuestion() {
   }
 
   const optionsHtml = optsArr.map(opt => `
-          <button class="opt-btn ${isSelected(opt.value) ? 'selected' : ''}"
+          <button class="opt-btn ${opt.img ? 'opt-btn-img' : ''} ${isSelected(opt.value) ? 'selected' : ''}"
             onclick="selectOption('${q.id}','${opt.value}',this,${!!q.multi})">
+            ${opt.img ? `<span class="opt-img">${opt.img}</span>` : ''}
             <span class="opt-label">${opt.label}</span>
             <span class="opt-desc">${opt.desc}</span>
           </button>
@@ -2109,6 +2154,19 @@ function scoreShoe(shoe) {
     else if (hasNarrow || hasWide) { score += 10; reasons.push('Specialist width may still fit'); }
   }
 
+  // ── Foot shape match ─────────────────────────────────────────────────────
+  // Lots of shoes in the sheet don't have a foot_shape value yet, so a
+  // mismatch is a soft penalty rather than a hard exclusion — but a shoe
+  // with no shape data still ranks below one that's a confirmed good match.
+  if (a.footShape) {
+    if (shoe.footShape && shoe.footShape === a.footShape) {
+      score += 12;
+      reasons.push('Great match for your toe shape');
+    } else if (shoe.footShape) {
+      score -= 8;
+    }
+  }
+
   // ── Fastening ─────────────────────────────────────────────────────────────
   // Beginners who didn't state a fastening preference get a gentle nudge
   // toward Velcro/Slip-on for bouldering or Lace for sport climbing —
@@ -2181,6 +2239,7 @@ function renderAnswersSummary() {
   const styles = Array.isArray(a.style) ? a.style : (a.style ? [a.style] : []);
   styles.forEach(s => { if (s !== 'outdoor') tags.push({ qid:'style', label: answerLabel('style', s) }); });
   if (a.footWidth) tags.push({ qid:'footWidth', label: answerLabel('footWidth', a.footWidth) + ' feet' });
+  if (a.footShape) tags.push({ qid:'footShape', label: answerLabel('footShape', a.footShape) + ' toes' });
   if (a.experience === 'beginner') tags.push({ qid:null, label:'Flat & comfortable', static:true });
   else if (a.aggression) tags.push({ qid:'aggression', label: answerLabel('aggression', a.aggression) });
   const rockTypes = Array.isArray(a.rockType) ? a.rockType : (a.rockType ? [a.rockType] : []);
