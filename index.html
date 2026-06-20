@@ -450,12 +450,14 @@
     transition: opacity 0.15s;
     border-radius: inherit;
   }
-  .opt-btn:hover {
-    border-color: var(--moss-light);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 14px rgba(74, 103, 65, 0.13);
+  @media (hover: hover) and (pointer: fine) {
+    .opt-btn:hover {
+      border-color: var(--moss-light);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 14px rgba(74, 103, 65, 0.13);
+    }
+    .opt-btn:hover::before { opacity: 1; }
   }
-  .opt-btn:hover::before { opacity: 1; }
   .opt-btn.selected {
     border-color: var(--moss);
     background: var(--moss-pale);
@@ -595,6 +597,19 @@
     color: var(--bark);
     border: 1px solid var(--pebble);
     letter-spacing: 0.03em;
+  }
+  .answers-summary button.tag-answer {
+    font-family: 'Nunito', sans-serif;
+    cursor: pointer;
+    transition: border-color 0.15s, background 0.15s, color 0.15s;
+  }
+  .answers-summary button.tag-answer:hover {
+    border-color: var(--moss-light);
+    background: var(--moss-pale);
+    color: var(--moss);
+  }
+  .answers-summary .tag-answer.static {
+    cursor: default;
   }
 
   /* SHOE CARDS */
@@ -754,6 +769,23 @@
     background: var(--moss-pale);
     transform: translateY(-1px);
   }
+
+  .btn-disagree {
+    display: block;
+    width: 100%;
+    background: none;
+    border: none;
+    color: var(--stone);
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: underline;
+    cursor: pointer;
+    padding: 0.4rem 0;
+    margin-bottom: 0.4rem;
+  }
+  .btn-disagree:hover { color: var(--moss); }
 
   /* SHOE IMAGE */
   .shoe-img-wrap {
@@ -1747,7 +1779,7 @@ function renderQuizProgressSummary() {
         }
       } else if (qid === 'budget') {
         const { min, max } = val;
-        tags.push(`£${min} – ${max >= 250 ? max + '+' : max}`);
+        tags.push(`£${min} – £${max}`);
       } else if (qid === 'experience') {
         tags.push(answerLabel('experience', val));
       } else if (qid === 'footWidth') {
@@ -1782,8 +1814,14 @@ function renderQuestion() {
 
   if (q.type === 'slider') {
     try {
-      // Budget slider question
-      const saved = answers[q.id] || { min: q.defaultMin, max: q.defaultMax };
+      // Budget slider question — bounds auto-adjust to the price range of
+      // shoes that match the user's other answers so far.
+      let { min: sliderMin, max: sliderMax } = computeBudgetRange();
+      if (sliderMax - sliderMin < q.sliderStep) sliderMax = sliderMin + q.sliderStep;
+      let saved = answers[q.id];
+      saved = saved
+        ? { min: Math.min(Math.max(saved.min, sliderMin), sliderMax), max: Math.max(Math.min(saved.max, sliderMax), sliderMin) }
+        : { min: sliderMin, max: sliderMax };
       document.getElementById('question-container').innerHTML = `
         ${progressSummary}
         <div class="question-block">
@@ -1795,21 +1833,21 @@ function renderQuestion() {
             <div class="budget-range-display">
               <span class="budget-value" id="bmin-label">£${saved.min}</span>
               <span class="budget-sep">–</span>
-              <span class="budget-value" id="bmax-label">£${saved.max === q.sliderMax ? saved.max + '+' : saved.max}</span>
+              <span class="budget-value" id="bmax-label">£${saved.max}</span>
               <span class="budget-label">your price range</span>
             </div>
             <div class="dual-range" id="dual-range">
               <div class="range-track"><div class="range-fill" id="range-fill"></div></div>
-              <input type="range" id="slider-min" min="${q.sliderMin}" max="${q.sliderMax}" step="${q.sliderStep}" value="${saved.min}">
-              <input type="range" id="slider-max" min="${q.sliderMin}" max="${q.sliderMax}" step="${q.sliderStep}" value="${saved.max}">
+              <input type="range" id="slider-min" min="${sliderMin}" max="${sliderMax}" step="${q.sliderStep}" value="${saved.min}">
+              <input type="range" id="slider-max" min="${sliderMin}" max="${sliderMax}" step="${q.sliderStep}" value="${saved.max}">
             </div>
             <div class="range-ticks">
-              <span>£${q.sliderMin}</span><span>£${Math.round((q.sliderMin+q.sliderMax)/2)}</span><span>£${q.sliderMax}+</span>
+              <span>£${sliderMin}</span><span>£${Math.round((sliderMin+sliderMax)/2)}</span><span>£${sliderMax}</span>
             </div>
             <div class="budget-hint-tags" id="budget-tags"></div>
           </div>
         </div>`;
-      initBudgetSlider(q);
+      initBudgetSlider({ ...q, sliderMin, sliderMax });
       answers[q.id] = saved;
       if (nextBtn) nextBtn.classList.add('active');
     } catch (e) {
@@ -1891,7 +1929,7 @@ function initBudgetSlider(q) {
   function updateLabels() {
     const mn = +sMin.value, mx = +sMax.value;
     minLabel.textContent = '£' + mn;
-    maxLabel.textContent = mx === q.sliderMax ? '£' + mx + '+' : '£' + mx;
+    maxLabel.textContent = '£' + mx;
     answers['budget'] = { min: mn, max: mx };
 
     // Hint tags — how many shoes fall in this price range, and how many of
@@ -1899,7 +1937,7 @@ function initBudgetSlider(q) {
     const inRange = s => {
       const p = s.price || 0;
       if (p === 0) return true;
-      return p >= mn && p <= (mx === q.sliderMax ? 9999 : mx);
+      return p >= mn && p <= mx;
     };
     const pool = CASTLE_MODE
       ? shoes.filter(s => (s.castleStock || '').toString().trim().toLowerCase() === 'yes')
@@ -1956,6 +1994,23 @@ function nextQuestion() {
 
 function prevQuestion() {
   if (current > 0) { current--; renderQuestion(); }
+}
+
+// Lowest/highest price among shoes that match the user's other answers so
+// far (budget itself is ignored). Falls back to £90–£150 if nothing matches.
+function computeBudgetRange() {
+  const savedBudget = answers.budget;
+  answers.budget = { min: 0, max: 999999 };
+  const pool = CASTLE_MODE
+    ? shoes.filter(s => (s.castleStock || '').toString().trim().toLowerCase() === 'yes')
+    : shoes;
+  const prices = pool
+    .filter(s => scoreShoe(s).score > -999)
+    .map(s => s.price)
+    .filter(p => p && p > 0);
+  answers.budget = savedBudget;
+  if (!prices.length) return { min: 90, max: 150 };
+  return { min: Math.floor(Math.min(...prices)), max: Math.ceil(Math.max(...prices)) };
 }
 
 function scoreShoe(shoe) {
@@ -2015,8 +2070,22 @@ function scoreShoe(shoe) {
   }
 
   // ── Fastening ─────────────────────────────────────────────────────────────
- if (!a.fastening || a.fastening === 'any' || (shoe.fastening || '').toLowerCase() === (String(a.fastening) || '').toLowerCase()) score += 15;
-  else score -= 5;
+  // Beginners who didn't state a fastening preference get a gentle nudge
+  // toward Velcro/Slip-on for bouldering or Lace for sport climbing —
+  // a soft preference, so it never hard-penalises other shoes.
+  let fasteningPref = Array.isArray(a.fastening) ? a.fastening : (a.fastening ? [a.fastening] : []);
+  let fasteningIsSoftDefault = false;
+  if (a.experience === 'beginner' && (fasteningPref.length === 0 || fasteningPref.includes('any'))) {
+    const stylesForFastening = Array.isArray(a.style) ? a.style : (a.style ? [a.style] : []);
+    const gentle = [];
+    if (stylesForFastening.includes('boulder')) gentle.push('velcro', 'slip-on');
+    if (stylesForFastening.includes('sport')) gentle.push('lace');
+    if (gentle.length) { fasteningPref = gentle; fasteningIsSoftDefault = true; }
+  }
+  const shoeFastening = (shoe.fastening || '').toLowerCase();
+  const fasteningMatches = fasteningPref.some(f => f.toLowerCase() === shoeFastening);
+  if (!fasteningPref.length || fasteningPref.includes('any') || fasteningMatches) score += 15;
+  else if (!fasteningIsSoftDefault) score -= 5;
 
   // ── Experience fit ────────────────────────────────────────────────────────
   const expFit = Math.abs(avgAggr - targetAggr);
@@ -2039,8 +2108,8 @@ function scoreShoe(shoe) {
 
   // ── Budget (price already in GBP) ────────────────────────────────────────
   const price = shoe.price || 0;
-  const minP = a.budget?.min || 0;
-  const maxP = (a.budget?.max >= 250) ? 9999 : (a.budget?.max || 9999);
+  const minP = a.budget?.min ?? 0;
+  const maxP = a.budget?.max ?? 9999;
   if (price === 0)                        score += 10;
   else if (price >= minP && price <= maxP) score += 10;
   else if (price < minP)                  score -= 5;
@@ -2062,31 +2131,47 @@ function answerLabel(qid, value) {
 function renderAnswersSummary() {
   const a = answers;
   const tags = [];
-  if (a.experience) tags.push(answerLabel('experience', a.experience));
+  if (a.experience) tags.push({ qid:'experience', label: answerLabel('experience', a.experience) });
   const styles = Array.isArray(a.style) ? a.style : (a.style ? [a.style] : []);
-  styles.forEach(s => { if (s !== 'outdoor') tags.push(answerLabel('style', s)); });
-  if (a.footWidth) tags.push(answerLabel('footWidth', a.footWidth) + ' feet');
-  if (a.experience === 'beginner') tags.push('Flat & comfortable');
-  else if (a.aggression) tags.push(answerLabel('aggression', a.aggression));
+  styles.forEach(s => { if (s !== 'outdoor') tags.push({ qid:'style', label: answerLabel('style', s) }); });
+  if (a.footWidth) tags.push({ qid:'footWidth', label: answerLabel('footWidth', a.footWidth) + ' feet' });
+  if (a.experience === 'beginner') tags.push({ qid:null, label:'Flat & comfortable', static:true });
+  else if (a.aggression) tags.push({ qid:'aggression', label: answerLabel('aggression', a.aggression) });
   const rockTypes = Array.isArray(a.rockType) ? a.rockType : (a.rockType ? [a.rockType] : []);
-  rockTypes.forEach(rt => { if (rt !== 'whatever') tags.push(answerLabel('rockType', rt)); });
+  rockTypes.forEach(rt => { if (rt !== 'whatever') tags.push({ qid:'rockType', label: answerLabel('rockType', rt) }); });
   if (a.fastening) {
     if (Array.isArray(a.fastening)) {
       if (a.fastening.includes('any')) {
-        tags.push('Any fastening');
+        tags.push({ qid:'fastening', label:'Any fastening' });
       } else {
-        a.fastening.forEach(f => tags.push(answerLabel('fastening', f)));
+        a.fastening.forEach(f => tags.push({ qid:'fastening', label: answerLabel('fastening', f) }));
       }
     } else {
-      tags.push(a.fastening === 'any' ? 'Any fastening' : answerLabel('fastening', a.fastening));
+      tags.push({ qid:'fastening', label: a.fastening === 'any' ? 'Any fastening' : answerLabel('fastening', a.fastening) });
     }
   }
   if (a.budget) {
     const { min, max } = a.budget;
-    tags.push(`£${min} – ${max >= 250 ? max + '+' : max}`);
+    tags.push({ qid:'budget', label: `£${min} – £${max}` });
   }
-  document.getElementById('answers-summary').innerHTML =
-    tags.map(t => `<span class="tag-answer">${t}</span>`).join('');
+  document.getElementById('answers-summary').innerHTML = tags.map(t => t.static
+    ? `<span class="tag-answer static">${t.label}</span>`
+    : `<button type="button" class="tag-answer" onclick="editAnswer('${t.qid}')">${t.label}</button>`
+  ).join('');
+}
+
+// Jump back to a specific question from the results screen so the user can
+// change just that answer, without redoing the whole quiz.
+function editAnswer(qid) {
+  const active = getActiveQuestions();
+  const idx = active.findIndex(q => q.id === qid);
+  if (idx === -1) return;
+  current = idx;
+  document.getElementById('results').style.display = 'none';
+  document.getElementById('quiz').style.display = 'block';
+  window.scrollTo({ top:0, behavior:'smooth' });
+  initStepIcons();
+  renderQuestion();
 }
 
 const MAX_RESULTS = 10;
@@ -2141,11 +2226,12 @@ function buildCard({ shoe, score, reasons }, rank, maxScore) {
     : `<button onclick="trackClick('${shoe.brand.replace(/'/g,"\\'")}','${shoe.model.replace(/'/g,"\\'")}','${url}')" class="btn-buy ${buyClass}">${buyLabel}</button>`;
 
   const widthDisplay = shoe.width.map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(', ');
+  const isBeginner = answers.experience === 'beginner';
 
   const attrHtml = [
-    shoe.downturn !== null ? `<div class="attr"><span class="attr-label tooltip-host">Downturn<span class="tooltip-text">How much the toe curves downward. 0 = flat and comfortable, 2 = aggressively curved for steep climbing.</span></span>${dotHtml(shoe.downturn)}</div>` : '',
-    shoe.asym    !== null ? `<div class="attr"><span class="attr-label tooltip-host">Asymmetry<span class="tooltip-text">How much the shoe curves toward the big toe. 0 = straight, 2 = strongly curved for precise footwork.</span></span>${dotHtml(shoe.asym)}</div>` : '',
-    shoe.heel    !== null ? `<div class="attr"><span class="attr-label tooltip-host">Heel<span class="tooltip-text">How aggressively the heel cup grips. 0 = relaxed, 2 = tight and powerful for heel hooks.</span></span>${dotHtml(shoe.heel)}</div>` : '',
+    (!isBeginner && shoe.downturn !== null) ? `<div class="attr"><span class="attr-label tooltip-host">Downturn<span class="tooltip-text">How much the toe curves downward. 0 = flat and comfortable, 2 = aggressively curved for steep climbing.</span></span>${dotHtml(shoe.downturn)}</div>` : '',
+    (!isBeginner && shoe.asym    !== null) ? `<div class="attr"><span class="attr-label tooltip-host">Asymmetry<span class="tooltip-text">How much the shoe curves toward the big toe. 0 = straight, 2 = strongly curved for precise footwork.</span></span>${dotHtml(shoe.asym)}</div>` : '',
+    (!isBeginner && shoe.heel    !== null) ? `<div class="attr"><span class="attr-label tooltip-host">Heel<span class="tooltip-text">How aggressively the heel cup grips. 0 = relaxed, 2 = tight and powerful for heel hooks.</span></span>${dotHtml(shoe.heel)}</div>` : '',
     shoe.fastening ? `<div class="attr"><span class="attr-label">Fastening</span><span class="attr-val">${shoe.fastening}</span></div>` : '',
     widthDisplay ? `<div class="attr"><span class="attr-label">Width</span><span class="attr-val">${widthDisplay}</span></div>` : '',
     shoe.stiffness ? `<div class="attr"><span class="attr-label">Stiffness</span><span class="attr-val">${shoe.stiffness}</span></div>` : '',
@@ -2170,6 +2256,7 @@ function buildCard({ shoe, score, reasons }, rank, maxScore) {
         <span class="currency">£</span>${shoe.price ? shoe.price.toFixed(0) : '—'}
       </div>
       ${buyButtonHtml}
+      <button class="btn-disagree" onclick="disagreeWithShoe('${shoe.brand.replace(/'/g,"\\'")}','${shoe.model.replace(/'/g,"\\'")}')">Disagree with this?</button>
     </div>`;
 }
 
@@ -2201,6 +2288,13 @@ function openFeedback() {
 function closeFeedback(e) {
   if (e && e.target !== document.getElementById('fb-overlay')) return;
   document.getElementById('fb-overlay').classList.remove('open');
+}
+
+function disagreeWithShoe(brand, model) {
+  openFeedback();
+  document.getElementById('fb-message').value =
+    `shoe:${brand} ${model}\n` +
+    `"User disagrees with: Hi! Please tell me your experience with this shoe and what you disagree with. For example 'I've been wearing these for a year now'. You have them down as stiff but I find them much softer than the Katanas, for example'`;
 }
 
 // Star rating
