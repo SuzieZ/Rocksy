@@ -1199,16 +1199,6 @@
     outline: none;
     border-color: var(--moss);
   }
-  .fb-stars { display: flex; gap: 0.3rem; }
-  .fb-stars span {
-    font-size: 1.6rem;
-    color: var(--pebble);
-    cursor: pointer;
-    transition: color 0.1s, transform 0.1s;
-    line-height: 1;
-  }
-  .fb-stars span:hover, .fb-stars span.lit { color: #f0b429; }
-  .fb-stars span:hover { transform: scale(1.15); }
   .fb-error { color: #c0392b; font-size: 0.8rem; min-height: 1.2rem; margin-bottom: 0.5rem; }
   .fb-send {
     width: 100%;
@@ -1462,19 +1452,17 @@
       <h3 class="fb-title">Share Your Thoughts</h3>
       <p class="fb-sub">Your feedback goes to an unpaid human - be nice.</p>
 
+      <div class="fb-field" id="fb-shoe-field" style="display:none">
+        <label>Shoe</label>
+        <input type="text" id="fb-shoe" readonly>
+      </div>
       <div class="fb-field">
         <label>Your name <span class="fb-optional">(optional)</span></label>
         <input type="text" id="fb-name" placeholder="e.g. Sarah">
       </div>
       <div class="fb-field">
-        <label>Your feedback <span class="fb-required">*</span></label>
-        <textarea id="fb-message" rows="5" placeholder="What worked well? What could be better? What models would you like to see added? do you disagree with one shoe's attributes?"></textarea>
-      </div>
-      <div class="fb-field">
-        <label>Rating</label>
-        <div class="fb-stars" id="fb-stars">
-          <span data-v="1">★</span><span data-v="2">★</span><span data-v="3">★</span><span data-v="4">★</span><span data-v="5">★</span>
-        </div>
+        <label id="fb-message-label">Your feedback <span class="fb-required">*</span></label>
+        <textarea id="fb-message" rows="5" placeholder="What worked well? What could be better? What models would you like to see added?"></textarea>
       </div>
       <p class="fb-error" id="fb-error"></p>
       <button class="fb-send" onclick="sendFeedback()">Send Feedback →</button>
@@ -2275,12 +2263,14 @@ function restart() {
 // Your email address is stored only on Formspree's servers — never in this file.
 const FORMSPREE_URL = 'https://formspree.io/f/mlgzgypo'; // ← replace this
 
-let fbRating = 0;
-
 function openFeedback() {
   document.getElementById('fb-form-view').style.display = 'block';
   document.getElementById('fb-success-view').style.display = 'none';
   document.getElementById('fb-error').textContent = '';
+  document.getElementById('fb-shoe-field').style.display = 'none';
+  document.getElementById('fb-shoe').value = '';
+  document.getElementById('fb-message-label').innerHTML = 'Your feedback <span class="fb-required">*</span>';
+  document.getElementById('fb-message').placeholder = "What worked well? What could be better? What models would you like to see added?";
   document.getElementById('fb-overlay').classList.add('open');
 }
 function closeFeedback(e) {
@@ -2290,34 +2280,15 @@ function closeFeedback(e) {
 
 function disagreeWithShoe(brand, model) {
   openFeedback();
+  document.getElementById('fb-shoe-field').style.display = 'block';
+  document.getElementById('fb-shoe').value = `${brand} ${model}`;
+  document.getElementById('fb-message-label').innerHTML = 'What you disagree with <span class="fb-required">*</span>';
   document.getElementById('fb-message').value =
-    `shoe:${brand} ${model}\n` +
-    `"User disagrees with: Hi! Please tell me your experience with this shoe and what you disagree with. For example 'I've been wearing these for a year now'. You have them down as stiff but I find them much softer than the Katanas, for example'`;
+    `Hi! Please tell me your experience with this shoe and what you disagree with. For example: "I've been wearing these for a year now. You have them down as stiff but I find them much softer than the Katanas."`;
 }
 
-// Star rating
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('#fb-stars span').forEach(star => {
-    star.addEventListener('click', () => {
-      fbRating = +star.dataset.v;
-      document.querySelectorAll('#fb-stars span').forEach(s => {
-        s.classList.toggle('lit', +s.dataset.v <= fbRating);
-      });
-    });
-    star.addEventListener('mouseenter', () => {
-      document.querySelectorAll('#fb-stars span').forEach(s => {
-        s.classList.toggle('lit', +s.dataset.v <= +star.dataset.v);
-      });
-    });
-    star.addEventListener('mouseleave', () => {
-      document.querySelectorAll('#fb-stars span').forEach(s => {
-        s.classList.toggle('lit', +s.dataset.v <= fbRating);
-      });
-    });
-  });
-});
-
 async function sendFeedback() {
+  const shoe = document.getElementById('fb-shoe').value.trim();
   const message = document.getElementById('fb-message').value.trim();
   const name = document.getElementById('fb-name').value.trim();
   const errEl = document.getElementById('fb-error');
@@ -2335,8 +2306,8 @@ async function sendFeedback() {
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
       body: JSON.stringify({
         name: name || 'Anonymous',
+        shoe: shoe || undefined,
         message,
-        rating: fbRating ? `${fbRating}/5 stars` : 'No rating given',
       })
     });
 
@@ -2345,7 +2316,7 @@ async function sendFeedback() {
       document.getElementById('fb-success-view').style.display = 'block';
       document.getElementById('fb-message').value = '';
       document.getElementById('fb-name').value = '';
-      fbRating = 0;
+      document.getElementById('fb-shoe').value = '';
     } else {
       errEl.textContent = 'Something went wrong — please try again.';
     }
