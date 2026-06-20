@@ -97,16 +97,24 @@
 
 <!-- ═══════════════════════════════════════════════════════════
      GOOGLE ANALYTICS 4
+     Only loads after cookie consent is given (see cookie banner JS below).
      1. Go to analytics.google.com and create a free account
      2. Create a Property → get your Measurement ID (looks like G-XXXXXXXXXX)
      3. Replace YOUR_MEASUREMENT_ID below with your actual ID
      ═══════════════════════════════════════════════════════════ -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-FLGTN7H34C"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){ dataLayer.push(arguments); }
-  gtag('js', new Date());
-  gtag('config', 'G-FLGTN7H34C');
+  function loadGoogleAnalytics() {
+    if (window.gaLoaded) return;
+    window.gaLoaded = true;
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-FLGTN7H34C';
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function(){ dataLayer.push(arguments); };
+    gtag('js', new Date());
+    gtag('config', 'G-FLGTN7H34C');
+  }
 </script>
 
 <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400;1,700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
@@ -986,6 +994,83 @@
   margin-top: 10px; /* creates space below text */
 }
 
+.footer-cookie-link {
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  text-decoration: underline;
+  text-transform: inherit;
+  cursor: pointer;
+  padding: 0;
+  margin-top: 0.6rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.footer-cookie-link:hover { color: #fff; }
+
+  /* COOKIE CONSENT BANNER */
+  .cookie-banner {
+    display: none;
+    position: fixed;
+    bottom: 1rem;
+    left: 1rem;
+    right: 1rem;
+    max-width: 480px;
+    margin: 0 auto;
+    background: #1a1a1a;
+    color: #fff;
+    border-radius: 14px;
+    padding: 1.1rem 1.3rem;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.35);
+    z-index: 400;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .cookie-banner.show { display: flex; }
+  .cookie-banner p {
+    flex: 1 1 220px;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin: 0;
+    color: rgba(255,255,255,0.9);
+  }
+  .cookie-actions {
+    display: flex;
+    gap: 0.6rem;
+    flex-shrink: 0;
+  }
+  .btn-cookie-accept {
+    background: var(--moss);
+    color: #fff;
+    border: none;
+    padding: 0.55rem 1.2rem;
+    border-radius: 50px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 800;
+    cursor: pointer;
+    letter-spacing: 0.02em;
+    transition: background 0.15s, transform 0.1s;
+  }
+  .btn-cookie-accept:hover { background: var(--moss-light); transform: translateY(-1px); }
+  .btn-cookie-decline {
+    background: none;
+    border: 1.5px solid rgba(255,255,255,0.35);
+    color: rgba(255,255,255,0.8);
+    padding: 0.55rem 1.2rem;
+    border-radius: 50px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: border-color 0.15s, color 0.15s;
+  }
+  .btn-cookie-decline:hover { border-color: rgba(255,255,255,0.6); color: #fff; }
+
   /* FEEDBACK FAB */
   .feedback-fab {
     position: fixed;
@@ -1305,10 +1390,20 @@
   </div>
 </div>
 
+<!-- COOKIE CONSENT BANNER -->
+<div class="cookie-banner" id="cookie-banner">
+  <p>🍪 Climbers need cookies. So does this site — just a couple, to see how many of you actually finish the quiz.</p>
+  <div class="cookie-actions">
+    <button class="btn-cookie-decline" onclick="declineCookies()">Hard pass</button>
+    <button class="btn-cookie-accept" onclick="acceptCookies()">Whatever</button>
+  </div>
+</div>
+
 <footer>
   <div class="footer-text">
     © Rocksy Adventures · Shoe Finder · rocksyadventures.com
   </div>
+  <button class="footer-cookie-link" onclick="reopenCookieBanner()">Manage cookies</button>
   <div class="footer-seal">
     <span id="siteseal">
       <script async type="text/javascript" src="https://seal.godaddy.com/getSealBasic?sealID=sRAIJ3iP81kLWVIz3jKGw4wqrbfOmntVC7QA6QcdEz3OLfDJgqazzaxlDTfU"> 
@@ -1402,6 +1497,33 @@ function initCastleMode() {
     "Here's what we've got in stock at The Castle that matches your climbing style, foot shape, and goals — head to the shop counter to try them on.";
 }
 initCastleMode();
+
+// ── Cookie consent ───────────────────────────────────────────────────────────
+const COOKIE_CONSENT_KEY = 'rocksy-cookie-consent';
+
+function initCookieConsent() {
+  const consent = localStorage.getItem(COOKIE_CONSENT_KEY);
+  if (consent === 'accepted') { loadGoogleAnalytics(); return; }
+  if (consent === 'declined') return;
+  document.getElementById('cookie-banner').classList.add('show');
+}
+
+function acceptCookies() {
+  localStorage.setItem(COOKIE_CONSENT_KEY, 'accepted');
+  document.getElementById('cookie-banner').classList.remove('show');
+  loadGoogleAnalytics();
+}
+
+function declineCookies() {
+  localStorage.setItem(COOKIE_CONSENT_KEY, 'declined');
+  document.getElementById('cookie-banner').classList.remove('show');
+}
+
+function reopenCookieBanner() {
+  document.getElementById('cookie-banner').classList.add('show');
+}
+
+initCookieConsent();
 
 // ── State ────────────────────────────────────────────────────────────────────
 let shoes = [];   // populated on load from Google Sheet
