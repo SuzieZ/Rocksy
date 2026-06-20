@@ -1656,7 +1656,7 @@ function rowToShoe(r) {
     width:         r.width        ? r.width.split('|').map(s=>s.trim())       : ['medium'],
     climbType:     r.climbing_types ? r.climbing_types.split('|').map(s=>s.trim()) : [],
     rock_type:     r.rock_type,
-    footShape:     r.foot_shape ? r.foot_shape.trim().toLowerCase() : '',
+    footShape:     r.toe_shape ? r.toe_shape.trim().toLowerCase() : '',
     buyUrl:        r.buy_url,
     imageUrl:      r.image_url,
     locations:     r.locations ? r.locations.split('|').map(s=>s.trim()) : [],
@@ -2155,7 +2155,7 @@ function scoreShoe(shoe) {
   }
 
   // ── Foot shape match ─────────────────────────────────────────────────────
-  // Lots of shoes in the sheet don't have a foot_shape value yet, so a
+  // Lots of shoes in the sheet don't have a toe_shape value yet, so a
   // mismatch is a soft penalty rather than a hard exclusion — but a shoe
   // with no shape data still ranks below one that's a confirmed good match.
   if (a.footShape) {
@@ -2296,7 +2296,13 @@ function showResults() {
     ...item,
     matchPct: Math.min(99, Math.round((item.score / (maxScore + 5)) * 100))
   }));
-  const top = scoredWithPct.filter(item => item.matchPct >= 70).slice(0, MAX_RESULTS);
+  // Prefer strong (70%+) matches, but if fewer than 3 shoes clear that bar,
+  // backfill with the next-best eligible shoes so the user still gets at
+  // least 3 to try on (hard-excluded shoes, score -999, never show).
+  const eligible = scoredWithPct.filter(item => item.score > -999);
+  let top = eligible.filter(item => item.matchPct >= 70);
+  if (top.length < 3) top = eligible.slice(0, 3);
+  top = top.slice(0, MAX_RESULTS);
   const grid = document.getElementById('shoes-grid');
   if (!top.length) {
     grid.innerHTML = CASTLE_MODE
@@ -2355,6 +2361,7 @@ function buildCard({ shoe, score, reasons }, rank, maxScore) {
     (!isBeginner && shoe.heel    !== null) ? `<div class="attr"><span class="attr-label tooltip-host">Heel<span class="tooltip-text">How aggressively the heel cup grips. 0 = relaxed, 2 = tight and powerful for heel hooks.</span></span>${dotHtml(shoe.heel)}</div>` : '',
     shoe.fastening ? `<div class="attr"><span class="attr-label">Fastening</span><span class="attr-val">${shoe.fastening}</span></div>` : '',
     widthDisplay ? `<div class="attr"><span class="attr-label">Width</span><span class="attr-val">${widthDisplay}</span></div>` : '',
+    shoe.footShape ? `<div class="attr"><span class="attr-label">Toe Shape</span><span class="attr-val">${shoe.footShape.charAt(0).toUpperCase() + shoe.footShape.slice(1)}</span></div>` : '',
     shoe.stiffness ? `<div class="attr"><span class="attr-label">Stiffness</span><span class="attr-val">${shoe.stiffness}</span></div>` : '',
   ].filter(Boolean).join('');
 
