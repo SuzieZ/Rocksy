@@ -512,8 +512,8 @@
     z-index: 1;
   }
   .foot-shape-icon {
-    width: 56px;
-    height: 80px;
+    width: 64px;
+    height: 90px;
   }
 
   /* NAV */
@@ -1691,15 +1691,15 @@ function trackClick(brand, model, url) {
 // `heights` is the relative length of each toe, big toe (index 0) to
 // little toe (index 4) — a higher number means a longer toe.
 function footShapeSvg(heights) {
-  const xs = [20, 33, 46, 59, 70];
-  const radii = [8, 7, 6, 5, 4.5];
-  const baseline = 50;
+  const xs = [16, 34, 52, 68, 82];
+  const radii = [7, 6, 5.3, 4.7, 4.2];
+  const baseline = 48;
   const toes = xs.map((x, i) => ({ x, r: radii[i], cy: baseline - heights[i] }));
   const toeCircles = toes.map(t => `<circle cx="${t.x}" cy="${t.cy}" r="${t.r}" fill="#fff" stroke="#2b2b2b" stroke-width="2"/>`).join('');
   const linePoints = toes.map(t => `${t.x},${t.cy - t.r}`).join(' ');
   return `
-    <svg viewBox="0 0 90 130" class="foot-shape-icon" aria-hidden="true">
-      <path d="M14 54 C4 64, 6 84, 14 100 C20 112, 30 124, 45 126 C60 124, 70 112, 76 100 C84 84, 86 64, 76 54 C68 46, 56 50, 45 50 C34 50, 22 46, 14 54 Z" fill="#fff" stroke="#2b2b2b" stroke-width="2"/>
+    <svg viewBox="0 0 100 140" class="foot-shape-icon" aria-hidden="true">
+      <path d="M14 50 C4 60, 4 76, 10 90 C14 100, 12 112, 22 122 C30 130, 40 134, 50 134 C60 134, 70 130, 78 122 C88 112, 86 100, 90 90 C96 76, 96 60, 86 50 C78 42, 64 46, 50 46 C36 46, 22 42, 14 50 Z" fill="#fff" stroke="#2b2b2b" stroke-width="2"/>
       <polyline points="${linePoints}" fill="none" stroke="#1f9d8a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
       ${toeCircles}
     </svg>`;
@@ -1744,9 +1744,9 @@ const questions = [
     text:"What shape are your toes?",
     hint:"This is about toe length, not width — it helps us find a shoe whose toe box matches your foot for a comfier, more precise fit.",
     options:[
-      { label:"Classic", desc:"Egyptian — big toe longest", value:"classic", img: footShapeSvg([26, 20, 15, 10, 5]) },
-      { label:"Centred", desc:"Greek — second toe longest", value:"centred", img: footShapeSvg([20, 26, 19, 12, 5]) },
-      { label:"Square", desc:"Roman — first three equal", value:"square", img: footShapeSvg([22, 22, 22, 12, 5]) },
+      { label:"Classic", desc:"Egyptian — big toe longest", value:"classic", img: footShapeSvg([24, 18, 13, 9, 4]) },
+      { label:"Centred", desc:"Greek — second toe longest", value:"centred", img: footShapeSvg([18, 24, 17, 10, 4]) },
+      { label:"Square", desc:"Roman — first three equal", value:"square", img: footShapeSvg([20, 20, 20, 10, 4]) },
     ]
   },
   {
