@@ -710,9 +710,22 @@
     border-color: var(--moss);
   }
 
+  .shoe-try-on {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-bottom: 0.9rem;
+  }
+  .try-on-label {
+    font-size: 0.74rem;
+    font-weight: 600;
+    color: var(--stone);
+  }
+  .try-on-logo { height: 18px; display: inline-block; }
+
   .shoe-price {
     font-family: 'Oswald', sans-serif;
-    
+
     font-size: 1.35rem;
     color: var(--ink);
     margin-bottom: 0.9rem;
@@ -1487,10 +1500,21 @@ const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRmxyA2ED
 
 // ═══════════════════════════════════════════════════════════════════════════
 // CASTLE IN-STORE MODE — activated via ?location=castle in the URL (QR code)
-// Restricts results to shoes with castle_stock = Yes and re-themes to match
-// The Castle's branding.
+// Restricts results to shoes whose "locations" column includes Castle and
+// re-themes to match The Castle's branding.
 // ═══════════════════════════════════════════════════════════════════════════
 const CASTLE_MODE = new URLSearchParams(window.location.search).get('location') === 'castle';
+
+// Logos shown in the "Try it on here" section for each gym a shoe is
+// stocked at. Add an entry here when a new gym is added to the sheet's
+// locations column.
+const LOCATION_LOGOS = {
+  castle: { src: 'images/Castle.png', alt: 'The Castle' },
+};
+
+function shoeIsAtLocation(shoe, name) {
+  return (shoe.locations || []).some(l => l.toLowerCase() === name.toLowerCase());
+}
 
 function goCastleMode() {
   const url = new URL(window.location.href);
@@ -1592,7 +1616,7 @@ function rowToShoe(r) {
     rock_type:     r.rock_type,
     buyUrl:        r.buy_url,
     imageUrl:      r.image_url,
-    castleStock:   r.castle_stock,
+    locations:     r.locations ? r.locations.split('|').map(s=>s.trim()) : [],
   };
 }
 
@@ -1929,7 +1953,7 @@ function initBudgetSlider(q) {
       return p >= mn && p <= mx;
     };
     const pool = CASTLE_MODE
-      ? shoes.filter(s => (s.castleStock || '').toString().trim().toLowerCase() === 'yes')
+      ? shoes.filter(s => shoeIsAtLocation(s, 'castle'))
       : shoes;
     const totalCount = pool.filter(inRange).length;
     const matchCount = pool.filter(s => inRange(s) && scoreShoe(s).score >= 20).length;
@@ -1991,7 +2015,7 @@ function computeBudgetRange() {
   const savedBudget = answers.budget;
   answers.budget = { min: 0, max: 999999 };
   const pool = CASTLE_MODE
-    ? shoes.filter(s => (s.castleStock || '').toString().trim().toLowerCase() === 'yes')
+    ? shoes.filter(s => shoeIsAtLocation(s, 'castle'))
     : shoes;
   const prices = pool
     .filter(s => scoreShoe(s).score > -999)
@@ -2109,7 +2133,7 @@ function scoreShoe(shoe) {
   else                                    score -= 15;
 
   // ── Castle Rock stock bonus ───────────────────────────────────────────────
-  if (shoe.castleStock && shoe.castleStock.toString().trim() !== '') score += 3;
+  if (shoeIsAtLocation(shoe, 'castle')) score += 3;
 
   return { shoe, score, reasons };
 }
@@ -2176,7 +2200,7 @@ function showResults() {
   renderAnswersSummary();
   // show only items that meet a minimum match percentage (70%)
   const pool = CASTLE_MODE
-    ? shoes.filter(s => (s.castleStock || '').toString().trim().toLowerCase() === 'yes')
+    ? shoes.filter(s => shoeIsAtLocation(s, 'castle'))
     : shoes;
   const scored = pool.map(scoreShoe).sort((a,b) => b.score - a.score);
   const maxScore = scored[0]?.score || 0;
@@ -2206,9 +2230,18 @@ function buildCard({ shoe, score, reasons }, rank, maxScore) {
     return `<div class="attr-dots">${d}</div>`;
   };
 
-  const hasCastleStock = shoe.castleStock && shoe.castleStock.toString().toLowerCase() === 'yes';
-  const castleLogo = hasCastleStock ? `<img src="images/Castle.png" alt="In stock at Castle" style="height:20px; margin-right:0.5rem; display:inline-block;" />` : '';
   const tagHtml = reasons.slice(0,2).map(r => `<span class="tag tag-terra">${r}</span>`).join('');
+
+  // "Try it on here" — shown outside Castle mode so shoppers browsing from
+  // home can see which physical gyms stock this shoe.
+  const locationLogosHtml = (shoe.locations || [])
+    .map(loc => LOCATION_LOGOS[loc.toLowerCase()])
+    .filter(Boolean)
+    .map(l => `<img src="${l.src}" alt="${l.alt}" title="${l.alt}" class="try-on-logo">`)
+    .join('');
+  const tryOnHtml = (!CASTLE_MODE && locationLogosHtml)
+    ? `<div class="shoe-try-on"><span class="try-on-label">Try it on here:</span>${locationLogosHtml}</div>`
+    : '';
 
   const url = shoe.buyUrl || '#';
   const hasLink = url && url !== '#';
@@ -2242,9 +2275,9 @@ function buildCard({ shoe, score, reasons }, rank, maxScore) {
       <h3 class="shoe-name">${shoe.model}</h3>
       <div class="shoe-tags">
         ${tagHtml}
-        ${castleLogo}
       </div>
       <div class="shoe-attrs">${attrHtml}</div>
+      ${tryOnHtml}
       <div class="shoe-price">
         <span class="currency">£</span>${shoe.price ? shoe.price.toFixed(0) : '—'}
       </div>
