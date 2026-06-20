@@ -994,6 +994,23 @@
   margin-top: 10px; /* creates space below text */
 }
 
+.footer-cookie-link {
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  text-decoration: underline;
+  text-transform: inherit;
+  cursor: pointer;
+  padding: 0;
+  margin-top: 0.6rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.footer-cookie-link:hover { color: #fff; }
+
   /* COOKIE CONSENT BANNER */
   .cookie-banner {
     display: none;
@@ -1386,6 +1403,7 @@
   <div class="footer-text">
     © Rocksy Adventures · Shoe Finder · rocksyadventures.com
   </div>
+  <button class="footer-cookie-link" onclick="reopenCookieBanner()">Manage cookies</button>
   <div class="footer-seal">
     <span id="siteseal">
       <script async type="text/javascript" src="https://seal.godaddy.com/getSealBasic?sealID=sRAIJ3iP81kLWVIz3jKGw4wqrbfOmntVC7QA6QcdEz3OLfDJgqazzaxlDTfU"> 
@@ -1499,6 +1517,10 @@ function acceptCookies() {
 function declineCookies() {
   localStorage.setItem(COOKIE_CONSENT_KEY, 'declined');
   document.getElementById('cookie-banner').classList.remove('show');
+}
+
+function reopenCookieBanner() {
+  document.getElementById('cookie-banner').classList.add('show');
 }
 
 initCookieConsent();
