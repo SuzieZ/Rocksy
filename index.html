@@ -830,6 +830,17 @@
     max-height: 100%;
     object-fit: contain;
   }
+  .shoe-img-btn {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+  }
   .shoe-img-placeholder {
     font-size: 2.5rem;
     opacity: 0.3;
@@ -2268,11 +2279,13 @@ function buildCard({ shoe, score, reasons }, rank, maxScore) {
 
   const url = shoe.buyUrl || '#';
   const hasLink = url && url !== '#';
-  const buyLabel = hasLink ? 'Buy now →' : 'Coming soon';
+  const buyLabel = hasLink ? 'View Online →' : 'Coming soon';
   const buyClass = hasLink ? '' : 'no-stock';
+  const safeBrand = shoe.brand.replace(/'/g,"\\'");
+  const safeModel = shoe.model.replace(/'/g,"\\'");
   const buyButtonHtml = CASTLE_MODE
-    ? (hasLink ? `<button onclick="trackClick('${shoe.brand.replace(/'/g,"\\'")}','${shoe.model.replace(/'/g,"\\'")}','${url}')" class="btn-buy btn-buy-outline">View online →</button>` : '')
-    : `<button onclick="trackClick('${shoe.brand.replace(/'/g,"\\'")}','${shoe.model.replace(/'/g,"\\'")}','${url}')" class="btn-buy ${buyClass}">${buyLabel}</button>`;
+    ? (hasLink ? `<button onclick="trackClick('${safeBrand}','${safeModel}','${url}')" class="btn-buy btn-buy-outline">View Online →</button>` : '')
+    : `<button onclick="trackClick('${safeBrand}','${safeModel}','${url}')" class="btn-buy ${buyClass}">${buyLabel}</button>`;
 
   const widthDisplay = shoe.width.map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(', ');
   const isBeginner = answers.experience === 'beginner';
@@ -2287,7 +2300,10 @@ function buildCard({ shoe, score, reasons }, rank, maxScore) {
   ].filter(Boolean).join('');
 
   const imgSrc = shoe.imageUrl || 'images/NoPicture.png';
-  const imgHtml = `<img class="shoe-img" src="${imgSrc}" alt="${shoe.brand} ${shoe.model}" loading="lazy" onerror="this.onerror=null;this.src='images/NoPicture.png';">`;
+  const img = `<img class="shoe-img" src="${imgSrc}" alt="${shoe.brand} ${shoe.model}" loading="lazy" onerror="this.onerror=null;this.src='images/NoPicture.png';">`;
+  const imgHtml = hasLink
+    ? `<button type="button" class="shoe-img-btn" aria-label="View ${shoe.brand} ${shoe.model} online" onclick="trackClick('${safeBrand}','${safeModel}','${url}')">${img}</button>`
+    : img;
 
   return `
     <div class="shoe-card ${isTop ? 'top-pick' : ''}">
