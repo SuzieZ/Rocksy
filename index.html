@@ -190,19 +190,26 @@
   }
 
   @media (max-width: 768px) {
+    header { padding: 0.5rem 1rem; }
     .logo {
-      font-size: 0.47rem;
-      padding: 0.28rem 0.67rem;
+      font-size: 1rem;
+      padding: 0.5rem 1rem;
     }
     .logo-leaf {
-      width: 7px;
-      height: 7px;
+      width: 16px;
+      height: 16px;
     }
     .header-tag {
-      font-size: 0.24rem;
-      padding: 0.1rem 0.33rem;
-      margin-right: 0.67rem;
+      font-size: 0.62rem;
+      padding: 0.22rem 0.6rem;
+      margin-right: 0.8rem;
     }
+    #hero { padding: 3rem 1.2rem 2.5rem; }
+    #quiz, #results { padding: 2rem 1.2rem 4rem; }
+    .options-grid { grid-template-columns: 1fr; }
+    .shoes-grid { grid-template-columns: 1fr; }
+    .fun-strip { gap: 1rem; }
+    .hero-deco { display: none; }
   }
 
   /* HERO */
@@ -1113,15 +1120,6 @@
     place-items: center;
     margin: 0 auto 1rem;
     font-weight: 700;
-  }
-
-    header { padding: 0.9rem 1.2rem; }
-    #hero { padding: 3rem 1.2rem 2.5rem; }
-    #quiz, #results { padding: 2rem 1.2rem 4rem; }
-    .options-grid { grid-template-columns: 1fr; }
-    .shoes-grid { grid-template-columns: 1fr; }
-    .fun-strip { gap: 1rem; }
-    .hero-deco { display: none; }
   }
 
   /* ── Tooltip for Downturn / Asymmetry ─────────────────────────────────── */
