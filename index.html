@@ -2054,13 +2054,11 @@ function scoreShoe(shoe) {
     score += 10;
   } else if (userW === 'wide') {
     if (hasWide) { score += 20; reasons.push('Good width match'); }
-    else if (hasMedium) { score += 10; reasons.push('Medium width may still work'); }
     else {
       return { shoe, score: -999, reasons: ['Not suitable for wide feet'] };
     }
   } else if (userW === 'narrow') {
     if (hasNarrow) { score += 20; reasons.push('Good width match'); }
-    else if (hasMedium) { score += 10; reasons.push('Medium width may still work'); }
     else {
       return { shoe, score: -999, reasons: ['Not suitable for narrow feet'] };
     }
