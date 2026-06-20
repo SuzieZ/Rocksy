@@ -1589,6 +1589,7 @@ function rowToShoe(r) {
     experience:    r.experience  ? r.experience.split('|').map(s=>s.trim())  : [],
     width:         r.width        ? r.width.split('|').map(s=>s.trim())       : ['medium'],
     climbType:     r.climbing_types ? r.climbing_types.split('|').map(s=>s.trim()) : [],
+    rock_type:     r.rock_type,
     buyUrl:        r.buy_url,
     imageUrl:      r.image_url,
     castleStock:   r.castle_stock,
@@ -2080,15 +2081,21 @@ function scoreShoe(shoe) {
   else                   score -= 8;
 
   // ── Rock type match ──────────────────────────────────────────────────────
-  // Only filter if user selected specific rock types (not just 'whatever')
+  // Only score if user selected specific rock types (not just 'whatever').
+  // A mismatch is a soft penalty rather than a hard exclusion, since the
+  // sheet doesn't have rock_type data for every shoe — missing data
+  // shouldn't be treated as "definitely doesn't match".
   const rockTypeAnswers = Array.isArray(a.rockType) ? a.rockType : (a.rockType ? [a.rockType] : []);
   const hasSpecificRockTypes = rockTypeAnswers.length > 0 && !rockTypeAnswers.every(rt => rt === 'whatever');
   if (hasSpecificRockTypes) {
     const shoeRockTypes = shoe.rock_type ? shoe.rock_type.split('|').map(rt => rt.trim().toLowerCase()) : [];
     const selectedRockTypes = rockTypeAnswers.filter(rt => rt !== 'whatever').map(rt => rt.toLowerCase());
     const rockTypeMatch = selectedRockTypes.some(rt => shoeRockTypes.some(srt => srt.includes(rt) || rt.includes(srt)));
-    if (!rockTypeMatch) {
-      return { shoe, score: -999, reasons: ['Not suitable for your rock type'] };
+    if (rockTypeMatch) {
+      score += 10;
+      reasons.push('Good for your rock type');
+    } else if (shoeRockTypes.length > 0) {
+      score -= 15;
     }
   }
 
