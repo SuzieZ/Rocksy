@@ -721,7 +721,20 @@
     font-weight: 600;
     color: var(--stone);
   }
-  .try-on-logo { height: 18px; display: inline-block; }
+  .try-on-logo-btn {
+    display: inline-block;
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+    line-height: 0;
+    transition: transform 0.15s ease;
+  }
+  .try-on-logo-btn:hover,
+  .try-on-logo-btn:focus-visible {
+    transform: scale(1.08);
+  }
+  .try-on-logo { height: 26px; display: inline-block; }
 
   .shoe-price {
     font-family: 'Oswald', sans-serif;
@@ -1507,9 +1520,14 @@ const CASTLE_MODE = new URLSearchParams(window.location.search).get('location') 
 
 // Logos shown in the "Try it on here" section for each gym a shoe is
 // stocked at. Add an entry here when a new gym is added to the sheet's
-// locations column.
+// locations column — mapsUrl is optional, but if set the logo becomes
+// clickable and opens that location in Google Maps in a new tab.
 const LOCATION_LOGOS = {
-  castle: { src: 'images/Castle.png', alt: 'The Castle' },
+  castle: {
+    src: 'images/Castle.png',
+    alt: 'The Castle',
+    mapsUrl: 'https://maps.app.goo.gl/S6nRdjQ2aDFUnTbW7',
+  },
 };
 
 function shoeIsAtLocation(shoe, name) {
@@ -2237,7 +2255,12 @@ function buildCard({ shoe, score, reasons }, rank, maxScore) {
   const locationLogosHtml = (shoe.locations || [])
     .map(loc => LOCATION_LOGOS[loc.toLowerCase()])
     .filter(Boolean)
-    .map(l => `<img src="${l.src}" alt="${l.alt}" title="${l.alt}" class="try-on-logo">`)
+    .map(l => {
+      const img = `<img src="${l.src}" alt="${l.alt}" title="${l.alt}" class="try-on-logo">`;
+      return l.mapsUrl
+        ? `<button type="button" class="try-on-logo-btn" aria-label="Find ${l.alt} on Google Maps" onclick="window.open('${l.mapsUrl}', '_blank', 'noopener')">${img}</button>`
+        : img;
+    })
     .join('');
   const tryOnHtml = (!CASTLE_MODE && locationLogosHtml)
     ? `<div class="shoe-try-on"><span class="try-on-label">Try it on here:</span>${locationLogosHtml}</div>`
