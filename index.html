@@ -1666,7 +1666,9 @@ function rowToShoe(r) {
 // ── Load data then start ─────────────────────────────────────────────────────
 async function loadShoes() {
   try {
-    const res = await fetch(SHEET_CSV_URL);
+    // Bust caching (browser and Google's CDN) so edits to the sheet show up
+    // immediately instead of waiting out a stale cached CSV response.
+    const res = await fetch(`${SHEET_CSV_URL}&_=${Date.now()}`, { cache: 'no-store' });
     if (!res.ok) throw new Error('fetch failed');
     const text = await res.text();
     shoes = parseCSV(text).map(rowToShoe);
