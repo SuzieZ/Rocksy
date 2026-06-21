@@ -2326,7 +2326,9 @@ function buildCard({ shoe, score, reasons }, rank, maxScore) {
     return `<div class="attr-dots">${d}</div>`;
   };
 
-  const tagHtml = reasons.slice(0,2).map(r => `<span class="tag tag-terra">${r}</span>`).join('');
+  const isBeginner = answers.experience === 'beginner';
+  const visibleReasons = isBeginner ? reasons.filter(r => r !== 'Perfect aggression level') : reasons;
+  const tagHtml = visibleReasons.slice(0,2).map(r => `<span class="tag tag-terra">${r}</span>`).join('');
 
   // "Try it on here" — shown outside Castle mode so shoppers browsing from
   // home can see which physical gyms stock this shoe.
@@ -2355,7 +2357,6 @@ function buildCard({ shoe, score, reasons }, rank, maxScore) {
     : `<button onclick="trackClick('${safeBrand}','${safeModel}','${url}')" class="btn-buy ${buyClass}">${buyLabel}</button>`;
 
   const widthDisplay = shoe.width.map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(', ');
-  const isBeginner = answers.experience === 'beginner';
 
   const attrHtml = [
     (!isBeginner && shoe.downturn !== null) ? `<div class="attr"><span class="attr-label tooltip-host">Downturn<span class="tooltip-text">How much the toe curves downward. 0 = flat and comfortable, 2 = aggressively curved for steep climbing.</span></span>${dotHtml(shoe.downturn)}</div>` : '',
