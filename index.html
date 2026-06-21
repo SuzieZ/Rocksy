@@ -1093,6 +1093,30 @@
 }
 .footer-cookie-link:hover { color: #fff; }
 
+.footer-links {
+  margin-top: 0.6rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+.footer-links .footer-cookie-link {
+  margin: 0;
+  display: inline;
+}
+.footer-links a {
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  text-decoration: underline;
+  text-transform: inherit;
+}
+.footer-links a:hover { color: #fff; }
+
+.cookie-banner a {
+  color: #fff;
+  text-decoration: underline;
+}
+
   /* COOKIE CONSENT BANNER */
   .cookie-banner {
     display: none;
@@ -1464,7 +1488,7 @@
 
 <!-- COOKIE CONSENT BANNER -->
 <div class="cookie-banner" id="cookie-banner">
-  <p>🍪 Climbers need cookies. So does this site — just a couple, to see how many of you actually finish the quiz.</p>
+  <p>🍪 Climbers need cookies. So does this site — just a couple, to see how many of you actually finish the quiz. See our <a href="/privacy.shtml" target="_blank" rel="noopener">Privacy Policy</a> for details.</p>
   <div class="cookie-actions">
     <button class="btn-cookie-decline" onclick="declineCookies()">Hard pass</button>
     <button class="btn-cookie-accept" onclick="acceptCookies()">Whatever</button>
@@ -1475,7 +1499,10 @@
   <div class="footer-text">
     © Rocksy Adventures · Shoe Finder · rocksyadventures.com
   </div>
-  <button class="footer-cookie-link" onclick="reopenCookieBanner()">Manage cookies</button>
+  <div class="footer-links">
+    <a href="/privacy.shtml">Privacy Policy</a>
+    <button class="footer-cookie-link" onclick="reopenCookieBanner()">Manage cookies</button>
+  </div>
   <div class="footer-seal">
     <span id="siteseal">
       <script async type="text/javascript" src="https://seal.godaddy.com/getSealBasic?sealID=sRAIJ3iP81kLWVIz3jKGw4wqrbfOmntVC7QA6QcdEz3OLfDJgqazzaxlDTfU"> 

@@ -4,3 +4,4 @@ deployment:
     - export DEPLOYPATH=/home/l3ttwd5wuz56/public_html/
     - /bin/cp -v index.html $DEPLOYPATH
     - /bin/cp -v 404.shtml $DEPLOYPATH
+    - /bin/cp -v privacy.shtml $DEPLOYPATH
