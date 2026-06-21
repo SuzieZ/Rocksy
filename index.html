@@ -723,31 +723,52 @@
     border-color: var(--moss);
   }
 
-  .shoe-try-on {
+  .shoe-actions {
     display: flex;
-    align-items: center;
-    gap: 0.4rem;
+    flex-wrap: wrap;
+    gap: 0.6rem;
     margin-bottom: 0.9rem;
   }
-  .try-on-label {
-    font-size: 0.74rem;
-    font-weight: 600;
-    color: var(--stone);
+  .shoe-actions > * {
+    flex: 1 1 130px;
+    min-width: 0;
   }
-  .try-on-logo-btn {
-    display: inline-block;
-    border: none;
+  .btn-tryon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
     background: none;
-    padding: 0;
+    color: var(--moss);
+    border: 2px solid var(--moss);
+    text-decoration: none;
+    text-align: center;
+    padding: 0.65rem 0.8rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.02em;
     cursor: pointer;
-    line-height: 0;
-    transition: transform 0.15s ease;
+    transition: transform 0.1s, background 0.15s;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family: 'Nunito', sans-serif;
   }
-  .try-on-logo-btn:hover,
-  .try-on-logo-btn:focus-visible {
-    transform: scale(1.08);
+  .btn-tryon:hover,
+  .btn-tryon:focus-visible {
+    background: var(--moss-pale);
+    transform: translateY(-1px);
   }
-  .try-on-logo { height: 26px; display: inline-block; }
+  .btn-tryon .try-on-logo {
+    height: 18px;
+    width: auto;
+    flex-shrink: 0;
+  }
+  .btn-tryon .try-on-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 
   .shoe-price {
     font-family: 'Oswald', sans-serif;
@@ -1716,6 +1737,58 @@ function trackClick(brand, model, url) {
   window.open(dest, '_blank');
 }
 
+function trackTryOn(brand, model, location, mapsUrl) {
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'try_on_click', { shoe_brand: brand, shoe_model: model, try_on_location: location });
+  }
+  window.open(mapsUrl, '_blank', 'noopener');
+}
+
+// Buckets a quiz session's budget range for friendlier GA4 breakdowns,
+// alongside the raw min/max sent for precise BigQuery-side analysis.
+function budgetBand(min, max) {
+  const mid = (min + max) / 2;
+  if (mid < 100) return 'under_100';
+  if (mid < 140) return '100_140';
+  if (mid < 180) return '140_180';
+  if (mid < 220) return '180_220';
+  return '220_plus';
+}
+
+// Anonymized, per-completion demand signal: what combination of answers did
+// this user have, and did we actually have a good shoe for them? No
+// individual-level data is sent — just the answer combo + match quality.
+function trackQuizCompleted(scoredWithPct, top) {
+  if (typeof gtag === 'undefined') return;
+  const a = answers;
+  const join = v => (Array.isArray(v) ? v : v ? [v] : []).join('|') || 'n/a';
+  const bestPct = scoredWithPct.length ? scoredWithPct[0].matchPct : 0;
+  // The shoe actually shown as the top result — distinct from scoredWithPct[0]
+  // in rare hard-exclusion cases — is what matters for "did we show them
+  // something nobody stocks", the core supply-gap signal for demand reports.
+  const bestShoe = top[0]?.shoe;
+  const bestHasStock = !!(bestShoe && (bestShoe.buyUrl || (bestShoe.locations || []).length));
+  gtag('event', 'quiz_completed', {
+    experience:              a.experience || 'n/a',
+    style:                    join(a.style),
+    foot_width:               a.footWidth || 'n/a',
+    foot_shape:               a.footShape || 'n/a',
+    aggression:               a.aggression || 'n/a',
+    rock_type:                join(a.rockType),
+    fastening:                join(a.fastening),
+    budget_min:               a.budget?.min ?? 0,
+    budget_max:               a.budget?.max ?? 0,
+    budget_band:              budgetBand(a.budget?.min ?? 0, a.budget?.max ?? 0),
+    top_match_pct:            bestPct,
+    no_good_match:            bestPct < 70 ? 'true' : 'false',
+    results_shown_count:      top.length,
+    best_match_shoe:          bestShoe ? `${bestShoe.brand} ${bestShoe.model}` : 'n/a',
+    best_match_has_buy_link:  bestShoe?.buyUrl ? 'true' : 'false',
+    best_match_try_on_count:  bestShoe ? (bestShoe.locations || []).length : 0,
+    best_match_unstocked:     bestShoe ? (bestHasStock ? 'false' : 'true') : 'n/a',
+  });
+}
+
 // Builds the little foot-outline icon used on the foot-shape question.
 // `heights` is the relative length of each toe, big toe (index 0) to
 // little toe (index 4) — a higher number means a longer toe.
@@ -2332,6 +2405,7 @@ function showResults() {
   let top = eligible.filter(item => item.matchPct >= 70);
   if (top.length < 3) top = eligible.slice(0, 3);
   top = top.slice(0, MAX_RESULTS);
+  trackQuizCompleted(scoredWithPct, top);
   const grid = document.getElementById('shoes-grid');
   if (!top.length) {
     grid.innerHTML = CASTLE_MODE
@@ -2357,28 +2431,29 @@ function buildCard({ shoe, score, reasons }, rank, maxScore) {
   const visibleReasons = isBeginner ? reasons.filter(r => r !== 'Perfect aggression level') : reasons;
   const tagHtml = visibleReasons.slice(0,2).map(r => `<span class="tag tag-terra">${r}</span>`).join('');
 
-  // "Try it on here" — shown outside Castle mode so shoppers browsing from
-  // home can see which physical gyms stock this shoe.
-  const locationLogosHtml = (shoe.locations || [])
+  const safeBrand = shoe.brand.replace(/'/g,"\\'");
+  const safeModel = shoe.model.replace(/'/g,"\\'");
+
+  // "Try it on here" — one pill button per stocked location, sized to match
+  // the buy button so trying-on-locally reads as an equally valid choice,
+  // not an afterthought. Shown outside Castle mode (you're already there).
+  const tryOnHtml = CASTLE_MODE ? '' : (shoe.locations || [])
     .map(loc => LOCATION_LOGOS[loc.toLowerCase()])
     .filter(Boolean)
     .map(l => {
-      const img = `<img src="${l.src}" alt="${l.alt}" title="${l.alt}" class="try-on-logo">`;
+      const img = `<img src="${l.src}" alt="" class="try-on-logo">`;
+      const safeLoc = l.alt.replace(/'/g,"\\'");
+      const label = `<span class="try-on-text">Try at ${l.alt}</span>`;
       return l.mapsUrl
-        ? `<button type="button" class="try-on-logo-btn" aria-label="Find ${l.alt} on Google Maps" onclick="window.open('${l.mapsUrl}', '_blank', 'noopener')">${img}</button>`
-        : img;
+        ? `<button type="button" class="btn-tryon" aria-label="Find ${l.alt} on Google Maps" onclick="trackTryOn('${safeBrand}','${safeModel}','${safeLoc}','${l.mapsUrl}')">${img}${label}</button>`
+        : `<span class="btn-tryon" aria-disabled="true">${img}${label}</span>`;
     })
     .join('');
-  const tryOnHtml = (!CASTLE_MODE && locationLogosHtml)
-    ? `<div class="shoe-try-on"><span class="try-on-label">Try it on here:</span>${locationLogosHtml}</div>`
-    : '';
 
   const url = shoe.buyUrl || '#';
   const hasLink = url && url !== '#';
   const buyLabel = hasLink ? 'View Online →' : 'Coming soon';
   const buyClass = hasLink ? '' : 'no-stock';
-  const safeBrand = shoe.brand.replace(/'/g,"\\'");
-  const safeModel = shoe.model.replace(/'/g,"\\'");
   const buyButtonHtml = CASTLE_MODE
     ? (hasLink ? `<button onclick="trackClick('${safeBrand}','${safeModel}','${url}')" class="btn-buy btn-buy-outline">View Online →</button>` : '')
     : `<button onclick="trackClick('${safeBrand}','${safeModel}','${url}')" class="btn-buy ${buyClass}">${buyLabel}</button>`;
@@ -2412,12 +2487,14 @@ function buildCard({ shoe, score, reasons }, rank, maxScore) {
         ${tagHtml}
       </div>
       <div class="shoe-attrs">${attrHtml}</div>
-      ${tryOnHtml}
       <div class="shoe-price">
         <span class="currency">£</span>${shoe.price ? shoe.price.toFixed(0) : '—'}
       </div>
-      ${buyButtonHtml}
-      <button class="btn-disagree" onclick="disagreeWithShoe('${shoe.brand.replace(/'/g,"\\'")}','${shoe.model.replace(/'/g,"\\'")}')">Disagree with this?</button>
+      <div class="shoe-actions">
+        ${buyButtonHtml}
+        ${tryOnHtml}
+      </div>
+      <button class="btn-disagree" onclick="disagreeWithShoe('${safeBrand}','${safeModel}')">Disagree with this?</button>
     </div>`;
 }
 
