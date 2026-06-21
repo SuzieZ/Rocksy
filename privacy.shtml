@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Privacy Policy | Rocksy Adventures</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://rocksyadventures.com/privacy.shtml">
+  <link rel="stylesheet" href="layout-styles.css">
+  <style type="text/css">
+    .policy-wrap {
+      margin-top: 50px;
+      padding: 0 20px 80px;
+    }
+
+    .policy-card {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 42px 34px 38px;
+      background: #ffffff;
+      border-top: 8px solid #7FB141;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+      text-align: left;
+    }
+
+    .policy-card h1 {
+      margin: 0 0 6px;
+    }
+
+    .policy-updated {
+      color: #777;
+      font-size: 13px;
+      margin-bottom: 30px;
+    }
+
+    .policy-card h2 {
+      font-size: 20px;
+      line-height: 1.3;
+      margin-top: 34px;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .policy-card h2:first-of-type {
+      margin-top: 0;
+    }
+
+    .policy-card p {
+      margin: 0 0 14px;
+      color: #424242;
+    }
+
+    .policy-card ul {
+      margin: 0 0 14px;
+      padding-left: 22px;
+      color: #424242;
+    }
+
+    .policy-card li {
+      margin-bottom: 6px;
+    }
+
+    .policy-card table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 10px 0 18px;
+      font-size: 13px;
+    }
+
+    .policy-card th, .policy-card td {
+      text-align: left;
+      padding: 8px 10px;
+      border: 1px solid #ddd;
+      vertical-align: top;
+    }
+
+    .policy-card th {
+      background: #f5f5f5;
+      font-weight: bold;
+    }
+
+    .policy-back {
+      margin-top: 34px;
+    }
+
+    @media (max-width: 600px) {
+      .welcome-container {
+        width: 100%;
+      }
+
+      .policy-wrap {
+        margin-top: 30px;
+      }
+
+      .policy-card {
+        padding: 30px 20px 28px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="top-bar"></div>
+
+    <main class="welcome-container policy-wrap" id="privacy">
+      <section class="policy-card">
+        <h1>Privacy Policy</h1>
+        <p class="policy-updated">Last updated: 21 June 2026</p>
+
+        <p>Rocksy Adventures ("we", "us", "our") runs the Climbing Shoe Finder at rocksyadventures.com. This page explains what data we collect, why, and what choices you have. We're a small business — we keep this simple, and we don't collect more than we need.</p>
+
+        <h2>Who we are</h2>
+        <p>Rocksy Adventures is the data controller for the personal data described below. If you have questions, use the Feedback button on the site to get in touch.</p>
+
+        <h2>What we collect</h2>
+        <table>
+          <tr><th>Data</th><th>When</th><th>Why</th></tr>
+          <tr><td>Name (optional)</td><td>If you submit the feedback form</td><td>So we can credit or follow up with you, if you choose to share it</td></tr>
+          <tr><td>Feedback message</td><td>If you submit the feedback form</td><td>To improve the quiz and our shoe recommendations</td></tr>
+          <tr><td>Star rating</td><td>If you submit the feedback form</td><td>To gauge how well the tool is working</td></tr>
+          <tr><td>Quiz answers (experience, style, foot width, budget, etc.)</td><td>While using the quiz</td><td>To generate your shoe recommendations — processed in your browser, not stored by us</td></tr>
+          <tr><td>Usage data (pages viewed, button clicks, approximate location/device)</td><td>Automatically, via Google Analytics</td><td>To understand how the tool is used and improve it</td></tr>
+          <tr><td>Outbound link clicks ("Buy now")</td><td>When you click through to a retailer</td><td>To understand which shoes are popular and measure referral activity</td></tr>
+        </table>
+
+        <h2>Quiz answers aren't stored</h2>
+        <p>Your answers to the shoe-finder questions stay in your browser to generate results. We don't save your quiz answers on our servers.</p>
+
+        <h2>Feedback form</h2>
+        <p>If you use the Feedback button, your name (if given), message, and rating are sent via Formspree, a third-party form processing service, to our inbox. Formspree processes this data on our behalf as a data processor. We don't sell or share this information with anyone else. We periodically delete old feedback submissions we no longer need.</p>
+
+        <h2>Analytics</h2>
+        <p>We use Google Analytics 4 to understand how people use the quiz — for example, which questions cause drop-off, and which "Buy now" links get clicked. This involves cookies or similar identifiers set by Google. Analytics data is aggregated and not used to identify you personally by us.</p>
+
+        <h2>Outbound retailer links</h2>
+        <p>"Buy now" buttons take you to third-party retailers (such as Banana Fingers, La Sportiva, Scarpa, Adidas/Five Ten, or Evolv). These links may include tracking parameters (UTM tags, and in future, affiliate identifiers) so we can see which products are popular and, where applicable, earn a commission. Once you leave our site, the retailer's own privacy policy applies — we have no control over their data practices.</p>
+
+        <h2>Cookies</h2>
+        <p>This site uses cookies set by Google Analytics to recognise repeat visits and measure usage. We don't currently use cookies for advertising or to identify you personally.</p>
+
+        <h2>Legal basis for processing</h2>
+        <p>Where UK/EU GDPR applies, we rely on:</p>
+        <ul>
+          <li><strong>Consent</strong> — for feedback you choose to submit, including your name if provided.</li>
+          <li><strong>Legitimate interests</strong> — for analytics and outbound click tracking, to understand and improve the tool, balanced against your privacy.</li>
+        </ul>
+
+        <h2>How long we keep data</h2>
+        <p>Feedback submissions are kept only as long as useful for improving the site, and are deleted periodically. Analytics data is retained according to Google Analytics' standard retention settings.</p>
+
+        <h2>Your rights</h2>
+        <p>If UK/EU data protection law applies to you, you have the right to ask us to access, correct, or delete personal data we hold about you (such as a feedback submission), and to object to or restrict certain processing. To make a request, use the Feedback button to contact us with enough detail (e.g. your name and approximate submission date) for us to find your entry.</p>
+
+        <h2>Third parties we use</h2>
+        <ul>
+          <li><strong>Formspree</strong> — processes feedback form submissions</li>
+          <li><strong>Google Analytics</strong> — usage analytics</li>
+          <li><strong>GoDaddy</strong> — website hosting</li>
+        </ul>
+
+        <h2>Changes to this policy</h2>
+        <p>We may update this page as the site evolves — for example, when we add affiliate tracking. We'll update the "last updated" date above when we do.</p>
+
+        <div class="policy-back">
+          <a class="btn btn-primary" href="/">Back to base camp</a>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
