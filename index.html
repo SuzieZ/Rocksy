@@ -1763,20 +1763,29 @@ function trackQuizCompleted(scoredWithPct, top) {
   const a = answers;
   const join = v => (Array.isArray(v) ? v : v ? [v] : []).join('|') || 'n/a';
   const bestPct = scoredWithPct.length ? scoredWithPct[0].matchPct : 0;
+  // The shoe actually shown as the top result — distinct from scoredWithPct[0]
+  // in rare hard-exclusion cases — is what matters for "did we show them
+  // something nobody stocks", the core supply-gap signal for demand reports.
+  const bestShoe = top[0]?.shoe;
+  const bestHasStock = !!(bestShoe && (bestShoe.buyUrl || (bestShoe.locations || []).length));
   gtag('event', 'quiz_completed', {
-    experience:          a.experience || 'n/a',
-    style:                join(a.style),
-    foot_width:           a.footWidth || 'n/a',
-    foot_shape:           a.footShape || 'n/a',
-    aggression:           a.aggression || 'n/a',
-    rock_type:            join(a.rockType),
-    fastening:            join(a.fastening),
-    budget_min:           a.budget?.min ?? 0,
-    budget_max:           a.budget?.max ?? 0,
-    budget_band:          budgetBand(a.budget?.min ?? 0, a.budget?.max ?? 0),
-    top_match_pct:        bestPct,
-    no_good_match:        bestPct < 70 ? 'true' : 'false',
-    results_shown_count:  top.length,
+    experience:              a.experience || 'n/a',
+    style:                    join(a.style),
+    foot_width:               a.footWidth || 'n/a',
+    foot_shape:               a.footShape || 'n/a',
+    aggression:               a.aggression || 'n/a',
+    rock_type:                join(a.rockType),
+    fastening:                join(a.fastening),
+    budget_min:               a.budget?.min ?? 0,
+    budget_max:               a.budget?.max ?? 0,
+    budget_band:              budgetBand(a.budget?.min ?? 0, a.budget?.max ?? 0),
+    top_match_pct:            bestPct,
+    no_good_match:            bestPct < 70 ? 'true' : 'false',
+    results_shown_count:      top.length,
+    best_match_shoe:          bestShoe ? `${bestShoe.brand} ${bestShoe.model}` : 'n/a',
+    best_match_has_buy_link:  bestShoe?.buyUrl ? 'true' : 'false',
+    best_match_try_on_count:  bestShoe ? (bestShoe.locations || []).length : 0,
+    best_match_unstocked:     bestShoe ? (bestHasStock ? 'false' : 'true') : 'n/a',
   });
 }
 
