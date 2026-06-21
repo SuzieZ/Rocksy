@@ -1,44 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>Privacy Policy | Rocksy Adventures</title>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://rocksyadventures.com/privacy.shtml">
-  <link rel="stylesheet" href="layout-styles.css">
-  <style type="text/css">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400;1,700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #ffffff;
+      --moss: #2eada6;
+      --moss-light: #3dbfb8;
+      --ink: #1a1a1a;
+      --stone: #666;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: 'Nunito', sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      display: block;
+      height: 4px;
+      background: var(--moss);
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--moss);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 600;
+      font-size: 1.4rem;
+      color: #fff;
+      padding: 0.85rem 2rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+    .header-tag {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--moss);
+      background: #fff;
+      padding: 0.3rem 1rem;
+      margin-right: 2rem;
+      text-decoration: none;
+    }
+    @media (max-width: 768px) {
+      header { padding: 0.5rem 1rem; }
+      .logo { font-size: 1rem; padding: 0.5rem 1rem; }
+      .header-tag { font-size: 0.62rem; padding: 0.22rem 0.6rem; margin-right: 0.8rem; }
+    }
+
     .policy-wrap {
-      margin-top: 50px;
-      padding: 0 20px 80px;
+      padding: clamp(2rem, 5vw, 3.5rem) clamp(1.2rem, 4vw, 3rem) 5rem;
     }
 
     .policy-card {
-      max-width: 720px;
+      max-width: 960px;
+      width: 100%;
       margin: 0 auto;
-      padding: 42px 34px 38px;
+      padding: clamp(1.8rem, 4vw, 3rem) clamp(1.5rem, 5vw, 3.2rem) clamp(1.8rem, 4vw, 2.6rem);
       background: #ffffff;
-      border-top: 8px solid #7FB141;
+      border-top: 8px solid var(--moss);
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
       text-align: left;
     }
 
     .policy-card h1 {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
       margin: 0 0 6px;
     }
 
     .policy-updated {
-      color: #777;
+      color: var(--stone);
       font-size: 13px;
       margin-bottom: 30px;
     }
 
     .policy-card h2 {
-      font-size: 20px;
+      font-family: 'Oswald', sans-serif;
+      font-weight: 600;
+      font-size: 1.25rem;
       line-height: 1.3;
-      margin-top: 34px;
+      margin-top: 2.2rem;
       margin-bottom: 10px;
-      color: #333;
+      color: var(--ink);
     }
 
     .policy-card h2:first-of-type {
@@ -47,13 +115,15 @@
 
     .policy-card p {
       margin: 0 0 14px;
-      color: #424242;
+      color: var(--stone);
+      line-height: 1.6;
     }
 
     .policy-card ul {
       margin: 0 0 14px;
       padding-left: 22px;
-      color: #424242;
+      color: var(--stone);
+      line-height: 1.6;
     }
 
     .policy-card li {
@@ -64,109 +134,167 @@
       width: 100%;
       border-collapse: collapse;
       margin: 10px 0 18px;
-      font-size: 13px;
+      font-size: 0.85rem;
     }
 
     .policy-card th, .policy-card td {
       text-align: left;
       padding: 8px 10px;
-      border: 1px solid #ddd;
+      border: 1px solid #e2e2e2;
       vertical-align: top;
     }
 
     .policy-card th {
       background: #f5f5f5;
-      font-weight: bold;
+      font-weight: 700;
     }
 
     .policy-back {
-      margin-top: 34px;
+      margin-top: 2.2rem;
     }
 
+    .btn-primary {
+      display: inline-block;
+      background: var(--moss);
+      color: #fff;
+      border: none;
+      padding: 0.85rem 2.2rem;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 800;
+      border-radius: 50px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+      box-shadow: 0 4px 0 #1d7b76;
+      letter-spacing: 0.03em;
+    }
+    .btn-primary:hover {
+      background: var(--moss-light);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 0 #1d7b76;
+    }
+    .btn-primary:active {
+      transform: translateY(1px);
+      box-shadow: 0 2px 0 #1d7b76;
+    }
+
+    footer {
+      background: #1a1a1a;
+      padding: 2rem 2.5rem;
+      text-align: center;
+      color: rgba(255,255,255,0.5);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .footer-links {
+      margin-top: 0.6rem;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+    .footer-links a {
+      color: inherit;
+      font: inherit;
+      letter-spacing: inherit;
+      text-decoration: underline;
+      text-transform: inherit;
+    }
+    .footer-links a:hover { color: #fff; }
+    .footer-seal { margin-top: 10px; }
+
     @media (max-width: 600px) {
-      .welcome-container {
-        width: 100%;
-      }
-
-      .policy-wrap {
-        margin-top: 30px;
-      }
-
-      .policy-card {
-        padding: 30px 20px 28px;
-      }
+      .policy-card { padding: 1.8rem 1.2rem 2rem; }
     }
   </style>
 </head>
 
 <body>
-  <div class="wrap">
-    <div class="top-bar"></div>
+  <header>
+    <a class="logo" href="/">Rocksy Adventures</a>
+    <a class="header-tag" href="/">Shoe Finder</a>
+  </header>
 
-    <main class="welcome-container policy-wrap" id="privacy">
-      <section class="policy-card">
-        <h1>Privacy Policy</h1>
-        <p class="policy-updated">Last updated: 21 June 2026</p>
+  <main class="policy-wrap" id="privacy">
+    <section class="policy-card">
+      <h1>Privacy Policy</h1>
+      <p class="policy-updated">Last updated: 21 June 2026</p>
 
-        <p>Rocksy Adventures ("we", "us", "our") runs the Climbing Shoe Finder at rocksyadventures.com. This page explains what data we collect, why, and what choices you have. We're a small business — we keep this simple, and we don't collect more than we need.</p>
+      <p>Rocksy Adventures ("we", "us", "our") runs the Climbing Shoe Finder at rocksyadventures.com. This page explains what data we collect, why, and what choices you have. We're a small business — we keep this simple, and we don't collect more than we need.</p>
 
-        <h2>Who we are</h2>
-        <p>Rocksy Adventures is the data controller for the personal data described below. If you have questions, use the Feedback button on the site to get in touch.</p>
+      <h2>Who we are</h2>
+      <p>Rocksy Adventures is the data controller for the personal data described below. If you have questions, use the Feedback button on the site to get in touch.</p>
 
-        <h2>What we collect</h2>
-        <table>
-          <tr><th>Data</th><th>When</th><th>Why</th></tr>
-          <tr><td>Name (optional)</td><td>If you submit the feedback form</td><td>So we can credit or follow up with you, if you choose to share it</td></tr>
-          <tr><td>Feedback message</td><td>If you submit the feedback form</td><td>To improve the quiz and our shoe recommendations</td></tr>
-          <tr><td>Star rating</td><td>If you submit the feedback form</td><td>To gauge how well the tool is working</td></tr>
-          <tr><td>Quiz answers (experience, style, foot width, budget, etc.)</td><td>While using the quiz</td><td>To generate your shoe recommendations — processed in your browser, not stored by us</td></tr>
-          <tr><td>Usage data (pages viewed, button clicks, approximate location/device)</td><td>Automatically, via Google Analytics</td><td>To understand how the tool is used and improve it</td></tr>
-          <tr><td>Outbound link clicks ("Buy now")</td><td>When you click through to a retailer</td><td>To understand which shoes are popular and measure referral activity</td></tr>
-        </table>
+      <h2>What we collect</h2>
+      <table>
+        <tr><th>Data</th><th>When</th><th>Why</th></tr>
+        <tr><td>Name (optional)</td><td>If you submit the feedback form</td><td>So we can credit or follow up with you, if you choose to share it</td></tr>
+        <tr><td>Feedback message</td><td>If you submit the feedback form</td><td>To improve the quiz and our shoe recommendations</td></tr>
+        <tr><td>Star rating</td><td>If you submit the feedback form</td><td>To gauge how well the tool is working</td></tr>
+        <tr><td>Quiz answers (experience, style, foot width, budget, etc.)</td><td>While using the quiz</td><td>To generate your shoe recommendations — processed in your browser, not stored by us</td></tr>
+        <tr><td>Usage data (pages viewed, button clicks, approximate location/device)</td><td>Automatically, via Google Analytics</td><td>To understand how the tool is used and improve it</td></tr>
+        <tr><td>Outbound link clicks ("Buy now")</td><td>When you click through to a retailer</td><td>To understand which shoes are popular and measure referral activity</td></tr>
+      </table>
 
-        <h2>Quiz answers aren't stored</h2>
-        <p>Your answers to the shoe-finder questions stay in your browser to generate results. We don't save your quiz answers on our servers.</p>
+      <h2>Quiz answers aren't stored</h2>
+      <p>Your answers to the shoe-finder questions stay in your browser to generate results. We don't save your quiz answers on our servers.</p>
 
-        <h2>Feedback form</h2>
-        <p>If you use the Feedback button, your name (if given), message, and rating are sent via Formspree, a third-party form processing service, to our inbox. Formspree processes this data on our behalf as a data processor. We don't sell or share this information with anyone else. We periodically delete old feedback submissions we no longer need.</p>
+      <h2>Feedback form</h2>
+      <p>If you use the Feedback button, your name (if given), message, and rating are sent via Formspree, a third-party form processing service, to our inbox. Formspree processes this data on our behalf as a data processor. We don't sell or share this information with anyone else. We periodically delete old feedback submissions we no longer need.</p>
 
-        <h2>Analytics</h2>
-        <p>We use Google Analytics 4 to understand how people use the quiz — for example, which questions cause drop-off, and which "Buy now" links get clicked. This involves cookies or similar identifiers set by Google. Analytics data is aggregated and not used to identify you personally by us.</p>
+      <h2>Analytics</h2>
+      <p>We use Google Analytics 4 to understand how people use the quiz — for example, which questions cause drop-off, and which "Buy now" links get clicked. This involves cookies or similar identifiers set by Google. Analytics data is aggregated and not used to identify you personally by us.</p>
 
-        <h2>Outbound retailer links</h2>
-        <p>"Buy now" buttons take you to third-party retailers (such as Banana Fingers, La Sportiva, Scarpa, Adidas/Five Ten, or Evolv). These links may include tracking parameters (UTM tags, and in future, affiliate identifiers) so we can see which products are popular and, where applicable, earn a commission. Once you leave our site, the retailer's own privacy policy applies — we have no control over their data practices.</p>
+      <h2>Outbound retailer links</h2>
+      <p>"Buy now" buttons take you to third-party retailers (such as Banana Fingers, La Sportiva, Scarpa, Adidas/Five Ten, or Evolv). These links may include tracking parameters (UTM tags, and in future, affiliate identifiers) so we can see which products are popular and, where applicable, earn a commission. Once you leave our site, the retailer's own privacy policy applies — we have no control over their data practices.</p>
 
-        <h2>Cookies</h2>
-        <p>This site uses cookies set by Google Analytics to recognise repeat visits and measure usage. We don't currently use cookies for advertising or to identify you personally.</p>
+      <h2>Cookies</h2>
+      <p>This site uses cookies set by Google Analytics to recognise repeat visits and measure usage. We don't currently use cookies for advertising or to identify you personally.</p>
 
-        <h2>Legal basis for processing</h2>
-        <p>Where UK/EU GDPR applies, we rely on:</p>
-        <ul>
-          <li><strong>Consent</strong> — for feedback you choose to submit, including your name if provided.</li>
-          <li><strong>Legitimate interests</strong> — for analytics and outbound click tracking, to understand and improve the tool, balanced against your privacy.</li>
-        </ul>
+      <h2>Legal basis for processing</h2>
+      <p>Where UK/EU GDPR applies, we rely on:</p>
+      <ul>
+        <li><strong>Consent</strong> — for feedback you choose to submit, including your name if provided.</li>
+        <li><strong>Legitimate interests</strong> — for analytics and outbound click tracking, to understand and improve the tool, balanced against your privacy.</li>
+      </ul>
 
-        <h2>How long we keep data</h2>
-        <p>Feedback submissions are kept only as long as useful for improving the site, and are deleted periodically. Analytics data is retained according to Google Analytics' standard retention settings.</p>
+      <h2>How long we keep data</h2>
+      <p>Feedback submissions are kept only as long as useful for improving the site, and are deleted periodically. Analytics data is retained according to Google Analytics' standard retention settings.</p>
 
-        <h2>Your rights</h2>
-        <p>If UK/EU data protection law applies to you, you have the right to ask us to access, correct, or delete personal data we hold about you (such as a feedback submission), and to object to or restrict certain processing. To make a request, use the Feedback button to contact us with enough detail (e.g. your name and approximate submission date) for us to find your entry.</p>
+      <h2>Your rights</h2>
+      <p>If UK/EU data protection law applies to you, you have the right to ask us to access, correct, or delete personal data we hold about you (such as a feedback submission), and to object to or restrict certain processing. To make a request, use the Feedback button to contact us with enough detail (e.g. your name and approximate submission date) for us to find your entry.</p>
 
-        <h2>Third parties we use</h2>
-        <ul>
-          <li><strong>Formspree</strong> — processes feedback form submissions</li>
-          <li><strong>Google Analytics</strong> — usage analytics</li>
-          <li><strong>GoDaddy</strong> — website hosting</li>
-        </ul>
+      <h2>Third parties we use</h2>
+      <ul>
+        <li><strong>Formspree</strong> — processes feedback form submissions</li>
+        <li><strong>Google Analytics</strong> — usage analytics</li>
+        <li><strong>GoDaddy</strong> — website hosting</li>
+      </ul>
 
-        <h2>Changes to this policy</h2>
-        <p>We may update this page as the site evolves — for example, when we add affiliate tracking. We'll update the "last updated" date above when we do.</p>
+      <h2>Changes to this policy</h2>
+      <p>We may update this page as the site evolves — for example, when we add affiliate tracking. We'll update the "last updated" date above when we do.</p>
 
-        <div class="policy-back">
-          <a class="btn btn-primary" href="/">Back to base camp</a>
-        </div>
-      </section>
-    </main>
-  </div>
+      <div class="policy-back">
+        <a class="btn-primary" href="/">Back to base camp</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-text">
+      © Rocksy Adventures · Shoe Finder · rocksyadventures.com
+    </div>
+    <div class="footer-links">
+      <a href="/">Back to base camp</a>
+    </div>
+    <div class="footer-seal">
+      <span id="siteseal">
+        <script async type="text/javascript" src="https://seal.godaddy.com/getSealBasic?sealID=sRAIJ3iP81kLWVIz3jKGw4wqrbfOmntVC7QA6QcdEz3OLfDJgqazzaxlDTfU">
+        </script>
+      </span>
+    </div>
+  </footer>
 </body>
 </html>
