@@ -1555,10 +1555,6 @@
         <input type="text" id="fb-shoe" readonly>
       </div>
       <div class="fb-field">
-        <label>Your name <span class="fb-optional">(optional)</span></label>
-        <input type="text" id="fb-name" placeholder="e.g. Sarah">
-      </div>
-      <div class="fb-field">
         <label id="fb-message-label">Your feedback <span class="fb-required">*</span></label>
         <textarea id="fb-message" rows="5" placeholder="What worked well? What could be better? What models would you like to see added?"></textarea>
       </div>
@@ -2542,7 +2538,6 @@ function disagreeWithShoe(brand, model) {
 async function sendFeedback() {
   const shoe = document.getElementById('fb-shoe').value.trim();
   const message = document.getElementById('fb-message').value.trim();
-  const name = document.getElementById('fb-name').value.trim();
   const errEl = document.getElementById('fb-error');
 
   if (!message) { errEl.textContent = 'Please write something before sending!'; return; }
@@ -2557,7 +2552,6 @@ async function sendFeedback() {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
       body: JSON.stringify({
-        name: name || 'Anonymous',
         shoe: shoe || undefined,
         message,
       })
@@ -2567,7 +2561,6 @@ async function sendFeedback() {
       document.getElementById('fb-form-view').style.display = 'none';
       document.getElementById('fb-success-view').style.display = 'block';
       document.getElementById('fb-message').value = '';
-      document.getElementById('fb-name').value = '';
       document.getElementById('fb-shoe').value = '';
     } else {
       errEl.textContent = 'Something went wrong — please try again.';

@@ -220,51 +220,53 @@
   <main class="policy-wrap" id="privacy">
     <section class="policy-card">
       <h1>Privacy Policy</h1>
-      <p class="policy-updated">Last updated: 21 June 2026</p>
+      <p class="policy-updated">Last updated: 26 June 2026</p>
 
-      <p>Rocksy Adventures ("we", "us", "our") runs the Climbing Shoe Finder at rocksyadventures.com. This page explains what data we collect, why, and what choices you have. We're a small business — we keep this simple, and we don't collect more than we need.</p>
+      <p>Rocksy Adventures ("we", "us", "our") runs the Climbing Shoe Finder at rocksyadventures.com. This page explains what data we collect, why, and what choices you have. We're a small business, not a data broker, so the honest version of this policy is also the short one.</p>
 
       <h2>Who we are</h2>
-      <p>Rocksy Adventures is the data controller for the personal data described below. If you have questions, use the Feedback button on the site to get in touch.</p>
+      <p>Rocksy Adventures is the data controller for the personal data described below. If you have questions, use the Feedback button on the site to get in touch — it goes to an actual person, not a ticketing system.</p>
 
       <h2>What we collect</h2>
       <table>
         <tr><th>Data</th><th>When</th><th>Why</th></tr>
-        <tr><td>Name (optional)</td><td>If you submit the feedback form</td><td>So we can credit or follow up with you, if you choose to share it</td></tr>
         <tr><td>Feedback message</td><td>If you submit the feedback form</td><td>To improve the quiz and our shoe recommendations</td></tr>
-        <tr><td>Star rating</td><td>If you submit the feedback form</td><td>To gauge how well the tool is working</td></tr>
+        <tr><td>Shoe name (optional)</td><td>If your feedback is about a specific shoe</td><td>So we know which recommendation you're talking about</td></tr>
         <tr><td>Quiz answers (experience, style, foot width, budget, etc.)</td><td>While using the quiz</td><td>To generate your shoe recommendations — processed in your browser, not stored by us</td></tr>
-        <tr><td>Usage data (pages viewed, button clicks, approximate location/device)</td><td>Automatically, via Google Analytics</td><td>To understand how the tool is used and improve it</td></tr>
+        <tr><td>Usage data (pages viewed, button clicks, approximate location/device)</td><td>Automatically, via Google Analytics, only if you accept cookies</td><td>To understand how the tool is used and improve it</td></tr>
+        <tr><td>"Try it on here" clicks</td><td>When you click a gym/location button</td><td>To see which shops/gyms people want to try shoes on at</td></tr>
         <tr><td>Outbound link clicks ("Buy now")</td><td>When you click through to a retailer</td><td>To understand which shoes are popular and measure referral activity</td></tr>
       </table>
 
+      <p>Notably absent from this table: your name. We didn't ask, and the feedback form no longer has anywhere to put it even if you wanted to give it.</p>
+
       <h2>Quiz answers aren't stored</h2>
-      <p>Your answers to the shoe-finder questions stay in your browser to generate results. We don't save your quiz answers on our servers.</p>
+      <p>Your answers to the shoe-finder questions stay in your browser long enough to generate results, then they're gone. We don't save them on our servers, mostly because we have nowhere to put them and no particular reason to want to.</p>
 
       <h2>Feedback form</h2>
-      <p>If you use the Feedback button, your name (if given), message, and rating are sent via Formspree, a third-party form processing service, to our inbox. Formspree processes this data on our behalf as a data processor. We don't sell or share this information with anyone else. We periodically delete old feedback submissions we no longer need.</p>
+      <p>If you use the Feedback button, your message (and, if relevant, the shoe you're talking about) is sent via Formspree, a third-party form processing service, to our inbox. Formspree processes this data on our behalf as a data processor. We don't sell or share it with anyone else — there's no third market for "the Katanas run narrow" anyway. We periodically delete old feedback submissions we no longer need.</p>
 
       <h2>Analytics</h2>
-      <p>We use Google Analytics 4 to understand how people use the quiz — for example, which questions cause drop-off, and which "Buy now" links get clicked. This involves cookies or similar identifiers set by Google. Analytics data is aggregated and not used to identify you personally by us.</p>
+      <p>We use Google Analytics 4 to understand how people use the quiz — for example, which questions cause drop-off, and which "Buy now" or "Try it on here" buttons get clicked. This involves cookies or similar identifiers set by Google, and only loads after you accept the cookie banner. Analytics data is aggregated and not used to identify you personally by us.</p>
 
       <h2>Outbound retailer links</h2>
-      <p>"Buy now" buttons take you to third-party retailers (such as Banana Fingers, La Sportiva, Scarpa, Adidas/Five Ten, or Evolv). These links may include tracking parameters (UTM tags, and in future, affiliate identifiers) so we can see which products are popular and, where applicable, earn a commission. Once you leave our site, the retailer's own privacy policy applies — we have no control over their data practices.</p>
+      <p>"Buy now" buttons take you to third-party retailers (such as Banana Fingers, La Sportiva, Scarpa, Adidas/Five Ten, or Evolv). These links may include tracking parameters (UTM tags, and in future, affiliate identifiers) so we can see which products are popular and, where applicable, earn a commission. Once you leave our site, the retailer's own privacy policy applies — we have no control over their data practices, and frankly no jurisdiction either.</p>
 
       <h2>Cookies</h2>
-      <p>This site uses cookies set by Google Analytics to recognise repeat visits and measure usage. We don't currently use cookies for advertising or to identify you personally.</p>
+      <p>This site uses cookies set by Google Analytics, only once you've accepted them, to recognise repeat visits and measure usage. We don't currently use cookies for advertising or to identify you personally — we're trying to sell you climbing shoes, not follow you around the internet.</p>
 
       <h2>Legal basis for processing</h2>
       <p>Where UK/EU GDPR applies, we rely on:</p>
       <ul>
-        <li><strong>Consent</strong> — for feedback you choose to submit, including your name if provided.</li>
-        <li><strong>Legitimate interests</strong> — for analytics and outbound click tracking, to understand and improve the tool, balanced against your privacy.</li>
+        <li><strong>Consent</strong> — for feedback you choose to submit, and for analytics cookies, which only load after you accept the banner.</li>
+        <li><strong>Legitimate interests</strong> — for outbound click tracking, to understand and improve the tool, balanced against your privacy.</li>
       </ul>
 
       <h2>How long we keep data</h2>
       <p>Feedback submissions are kept only as long as useful for improving the site, and are deleted periodically. Analytics data is retained according to Google Analytics' standard retention settings.</p>
 
       <h2>Your rights</h2>
-      <p>If UK/EU data protection law applies to you, you have the right to ask us to access, correct, or delete personal data we hold about you (such as a feedback submission), and to object to or restrict certain processing. To make a request, use the Feedback button to contact us with enough detail (e.g. your name and approximate submission date) for us to find your entry.</p>
+      <p>If UK/EU data protection law applies to you, you have the right to ask us to access, correct, or delete personal data we hold about you (such as a feedback submission), and to object to or restrict certain processing. To make a request, use the Feedback button to contact us with enough detail — roughly when you wrote in and what you said — for us to find your entry. Since we don't collect names, that's genuinely the best identifier either of us has.</p>
 
       <h2>Third parties we use</h2>
       <ul>
@@ -274,7 +276,7 @@
       </ul>
 
       <h2>Changes to this policy</h2>
-      <p>We may update this page as the site evolves — for example, when we add affiliate tracking. We'll update the "last updated" date above when we do.</p>
+      <p>We may update this page as the site evolves — for example, when we add affiliate tracking. We'll update the "last updated" date above when we do, rather than quietly changing what this page says and hoping nobody notices.</p>
 
       <div class="policy-back">
         <a class="btn-primary" href="/">Back to base camp</a>
