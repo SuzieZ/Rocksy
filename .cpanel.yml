@@ -1,7 +1,8 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/l3ttwd5wuz56/public_html/
+    - export DEPLOYPATH=/home/l3ttwd5wuz56/public_html/staging/
+    - /bin/mkdir -p $DEPLOYPATH
     - /bin/cp -v index.html $DEPLOYPATH
     - /bin/cp -v 404.shtml $DEPLOYPATH
     - /bin/cp -v privacy.shtml $DEPLOYPATH
