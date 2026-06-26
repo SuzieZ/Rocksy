@@ -1701,7 +1701,6 @@ function rowToShoe(r) {
     downturn:      r.downturn  !== '' ? parseInt(r.downturn)  : null,
     heel:          r.heel      !== '' ? parseInt(r.heel)      : null,
     stiffness:     r.stiffness,
-    experience:    r.experience  ? r.experience.split('|').map(s=>s.trim())  : [],
     width:         r.width        ? r.width.split('|').map(s=>s.trim())       : ['medium'],
     climbType:     r.climbing_types ? r.climbing_types.split('|').map(s=>s.trim()) : [],
     rock_type:     r.rock_type,
@@ -1828,10 +1827,8 @@ const questions = [
     text:"How much climbing experience do you have?",
     hint:"Be honest — the right shoe for your level makes a huge difference in comfort and progress.",
     options:[
-      { label:"Complete beginner", desc:"First time, or fewer than 6 months", value:"beginner" },
-      { label:"Intermediate", desc:"1–3 years, climbing 5.9–5.11 or V0–V4", value:"intermediate" },
-      { label:"Advanced", desc:"3+ years, pushing your grade consistently", value:"advanced" },
-      { label:"Expert / competition", desc:"Climbing hard routes and boulders regularly", value:"expert" },
+      { label:"Beginner", desc:"Make this simple and painless", value:"beginner" },
+      { label:"Non-beginner", desc:"Ask me all the questions", value:"non-beginner" },
     ]
   },
   {
@@ -2222,7 +2219,7 @@ function scoreShoe(shoe) {
   const reasons = [];
 
   // ── Experience target aggression ──────────────────────────────────────────
-  const expAggr = { beginner:0, intermediate:1, advanced:1.5, expert:2 };
+  const expAggr = { beginner:0, 'non-beginner':1 };
   const targetAggr = expAggr[a.experience] ?? 1;
   const asym = shoe.asym ?? 0;
   const down = shoe.downturn ?? 0;
