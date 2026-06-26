@@ -146,6 +146,8 @@
     font-family: 'Nunito', sans-serif;
     min-height: 100vh;
     overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
   }
 
   /* decorative top stripe */
@@ -1082,6 +1084,7 @@
 
   /* FOOTER */
   footer {
+    margin-top: auto;
     background: #1a1a1a;
     border-top: none;
     padding: 2rem 2.5rem;
@@ -1464,8 +1467,8 @@
   <div class="fun-item"><div class="fun-dot"></div>Suitable for all levels</div>
 </div>
 
-<!-- SEO content block — visible to crawlers, hidden once quiz starts -->
-<section id="seo-intro" aria-label="About this climbing shoe finder">
+<!-- SEO content block — crawlable/screen-reader text, visually hidden from sighted users -->
+<section id="seo-intro" aria-label="About this climbing shoe finder" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;">
   <div style="max-width:700px;margin:0 auto;padding:2.5rem 2rem 0;text-align:center;">
     <h2 style="font-family:'Oswald',sans-serif;font-size:clamp(1.3rem,3vw,1.8rem);font-weight:700;text-transform:uppercase;color:var(--ink);margin-bottom:0.8rem;">The best climbing shoes for <em style="font-style:normal;color:var(--moss);">your</em> level</h2>
     <p style="color:var(--stone);font-size:0.92rem;line-height:1.75;max-width:580px;margin:0 auto;">Whether you're buying your first pair of climbing shoes or upgrading to something more aggressive, this free tool cuts through the noise. We cover 100+ shoes — from beginner-friendly flat shoes like the <strong>La Sportiva Tarantula</strong> and <strong>Scarpa Origin</strong>, to expert-level performers like the <strong>Evolv Zenist Pro</strong> and <strong>La Sportiva Solution Comp</strong>. Brands include La Sportiva, Scarpa, Evolv, Five Ten, and more.</p>
@@ -1923,7 +1926,6 @@ function updateStepIcons() {
 async function startQuiz() {
   document.getElementById('hero').style.display = 'none';
   document.querySelector('.fun-strip').style.display = 'none';
-  document.getElementById('seo-intro').style.display = 'none';
   document.getElementById('quiz').style.display = 'block';
 
   if (shoes.length === 0) {
@@ -2501,7 +2503,6 @@ function restart() {
   document.getElementById('quiz').style.display = 'none';
   document.getElementById('hero').style.display = 'block';
   document.querySelector('.fun-strip').style.display = 'flex';
-  document.getElementById('seo-intro').style.display = 'block';
   window.scrollTo({ top:0, behavior:'smooth' });
 }
 </script>
