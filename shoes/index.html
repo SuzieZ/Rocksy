@@ -14,13 +14,17 @@
 <meta property="og:url" content="https://rocksyadventures.com/shoes/">
 <meta property="og:title" content="What Climbing Shoes Should I Buy? | Rocksy Adventures">
 <meta property="og:description" content="Answer 6 quick questions and get a personalised climbing shoe recommendation from 95+ shoes. Free tool — no email required.">
-<meta property="og:image" content="https://rocksyadventures.com/og-image.jpg">
+<meta property="og:image" content="https://rocksyadventures.com/shoes/images/me.jpg">
+<meta property="og:image:width" content="745">
+<meta property="og:image:height" content="496">
+<meta property="og:image:alt" content="Rocksy Adventures">
 <meta property="og:site_name" content="Rocksy Adventures">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="What Climbing Shoes Should I Buy? | Rocksy Adventures">
 <meta name="twitter:description" content="Answer 6 quick questions and get a personalised climbing shoe recommendation from 95+ shoes. Free — no email required.">
+<meta name="twitter:image" content="https://rocksyadventures.com/shoes/images/me.jpg">
 
 <!-- Structured Data: FAQ -->
 <script type="application/ld+json">
@@ -231,7 +235,7 @@
   .hero-banner {
     background:
       linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.45) 100%),
-      url('/images/me.jpg') center/cover no-repeat;
+      url('images/me.jpg') center/cover no-repeat;
     min-height: 520px;
     display: flex;
     align-items: center;
@@ -1443,7 +1447,7 @@
 
 <!-- Castle in-store banner (shown only when ?location=castle is in the URL) -->
 <div class="castle-banner" id="castle-banner">
-  <img src="/images/Castle.png" alt="The Castle">
+  <img src="images/Castle.png" alt="The Castle">
   <span>In-store at The Castle — showing shoes available in our shop right now</span>
 </div>
 
@@ -1596,7 +1600,7 @@ const CASTLE_MODE = new URLSearchParams(window.location.search).get('location') 
 // clickable and opens that location in Google Maps in a new tab.
 const LOCATION_LOGOS = {
   castle: {
-    src: '/images/Castle.png',
+    src: 'images/Castle.png',
     alt: 'The Castle',
     mapsUrl: 'https://maps.app.goo.gl/S6nRdjQ2aDFUnTbW7',
   },
@@ -2481,8 +2485,8 @@ function buildCard({ shoe, score, reasons }, rank, maxScore) {
     shoe.stiffness ? `<div class="attr"><span class="attr-label">Stiffness</span><span class="attr-val">${shoe.stiffness}</span></div>` : '',
   ].filter(Boolean).join('');
 
-  const imgSrc = shoe.imageUrl || '/images/NoPicture.png';
-  const img = `<img class="shoe-img" src="${imgSrc}" alt="${shoe.brand} ${shoe.model}" loading="lazy" onerror="this.onerror=null;this.src='/images/NoPicture.png';">`;
+  const imgSrc = shoe.imageUrl || 'images/NoPicture.png';
+  const img = `<img class="shoe-img" src="${imgSrc}" alt="${shoe.brand} ${shoe.model}" loading="lazy" onerror="this.onerror=null;this.src='images/NoPicture.png';">`;
   const imgHtml = hasLink
     ? `<button type="button" class="shoe-img-btn" aria-label="View ${shoe.brand} ${shoe.model} online" onclick="trackClick('${safeBrand}','${safeModel}','${url}')">${img}</button>`
     : img;
