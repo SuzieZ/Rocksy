@@ -700,13 +700,19 @@
     line-height: 1.1;
     margin-bottom: 0.9rem;
   }
+  .shoe-name-wrap {
+    position: relative;
+    padding-right: 3.6rem;
+  }
   .vegan-badge {
+    position: absolute;
+    top: 0.1rem;
+    right: 0;
     font-size: 0.68rem;
     font-weight: 800;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: var(--moss);
-    margin-bottom: 0.6rem;
+    color: #2e7d32;
   }
   .shoe-tags {
     display: flex;
@@ -2727,9 +2733,11 @@ function buildCard({ shoe, score, reasons, aggressionBadMismatch }, rank, maxSco
       ${isTop ? '<div class="top-pick-badge">Best match</div>' : ''}
       <div class="match-badge">${matchPct}% match</div>
       <div class="shoe-img-wrap">${imgHtml}</div>
-      <p class="shoe-brand">${shoe.brand}</p>
-      <h3 class="shoe-name">${shoe.model}</h3>
-      ${shoe.vegan ? '<p class="vegan-badge">Vegan</p>' : ''}
+      <div class="shoe-name-wrap">
+        <p class="shoe-brand">${shoe.brand}</p>
+        <h3 class="shoe-name">${shoe.model}</h3>
+        ${shoe.vegan ? '<span class="vegan-badge">Vegan</span>' : ''}
+      </div>
       <div class="shoe-tags">
         ${tagHtml}
       </div>
