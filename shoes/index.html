@@ -1352,6 +1352,7 @@
   .compare-table th, .compare-table td { border: 1px solid var(--warm); padding: 0.5rem 0.7rem; text-align: left; vertical-align: top; }
   .compare-table th { background: var(--warm); font-weight: 700; }
   .compare-table td:first-child, .compare-table th:first-child { font-weight: 700; white-space: nowrap; }
+  .compare-table td.compare-match { background: #e6f4ea; color: #2e7d32; font-weight: 700; }
 
   .sizing-note {
     font-size: 0.74rem;
@@ -1795,6 +1796,21 @@ const LOCATION_LOGOS = {
     mapsUrl: 'https://maps.app.goo.gl/S6nRdjQ2aDFUnTbW7',
   },
 };
+
+// Same generic brand fit tendencies shown in the Sizing Guide modal, surfaced
+// directly on each shoe's card so people don't have to cross-reference both.
+const BRAND_FIT_TENDENCY = {
+  'la sportiva':   'Narrow, low-volume — often sized close to street size on performance models.',
+  'scarpa':        'Slightly roomier toe box — many size down a bit more than with La Sportiva.',
+  'five ten':      'Runs true to size to slightly large, wider fit overall.',
+  'evolv':         'Narrow, low-volume — similar profile to La Sportiva.',
+  'tenaya':        'Medium volume, often true to size.',
+  'black diamond': 'Medium-to-wide volume, true to size.',
+};
+
+function brandFitTip(brand) {
+  return BRAND_FIT_TENDENCY[(brand || '').trim().toLowerCase()] || '';
+}
 
 function shoeIsAtLocation(shoe, name) {
   return (shoe.locations || []).some(l => l.toLowerCase() === name.toLowerCase());
@@ -2718,6 +2734,7 @@ function buildCard({ shoe, score, reasons, aggressionBadMismatch }, rank, maxSco
   ].filter(Boolean).join('');
 
   const edgeTipText = edgeTip(shoe, answers);
+  const brandTipText = brandFitTip(shoe.brand);
 
   const imgSrc = shoe.imageUrl || 'images/NoPicture.png';
   const img = `<img class="shoe-img" src="${imgSrc}" alt="${shoe.brand} ${shoe.model}" loading="lazy" onerror="this.onerror=null;this.src='images/NoPicture.png';">`;
@@ -2747,6 +2764,7 @@ function buildCard({ shoe, score, reasons, aggressionBadMismatch }, rank, maxSco
         <span class="currency">£</span>${shoe.price ? shoe.price.toFixed(0) : '—'}
       </div>
       ${shoe.sizingNote ? `<p class="sizing-note">📏 ${shoe.sizingNote}</p>` : ''}
+      ${brandTipText ? `<p class="sizing-note">📐 ${shoe.brand} fit: ${brandTipText}</p>` : ''}
       <div class="shoe-actions">
         ${buyButtonHtml}
         ${tryOnHtml}
@@ -2829,23 +2847,39 @@ function openCompare() {
   if (selected.length < 2) return;
 
   const fmtDots = (val, max=2) => (val === null || val === undefined) ? '—' : `${val} / ${max}`;
+
+  // What the user actually answered in the quiz, so we can show it alongside
+  // each shoe's attributes and highlight where a shoe matches their answer.
+  const a = answers;
+  const aggressionPref = a.experience === 'beginner' ? 'flat' : a.aggression;
+  const wantedAggr = { flat:0, moderate:1, aggressive:2 }[aggressionPref] ?? null;
+  const aggressionLabel = aggressionPref ? aggressionPref.charAt(0).toUpperCase() + aggressionPref.slice(1) : '—';
+  const userWidth = (a.footWidth || '').toLowerCase();
+  const widthLabel = userWidth ? userWidth.charAt(0).toUpperCase() + userWidth.slice(1) : '—';
+  const userFastenings = (Array.isArray(a.fastening) ? a.fastening : (a.fastening ? [a.fastening] : [])).filter(f => f !== 'any');
+  const fasteningLabel = userFastenings.length
+    ? userFastenings.map(f => f.charAt(0).toUpperCase() + f.slice(1)).join(', ')
+    : 'Any';
+
   const rows = [
-    ['Price', s => s.price ? `£${s.price.toFixed(0)}` : '—'],
-    ['Downturn', s => fmtDots(s.downturn)],
-    ['Asymmetry', s => fmtDots(s.asym)],
-    ['Heel', s => fmtDots(s.heel)],
-    ['Width', s => (s.width || []).map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(', ') || '—'],
-    ['Fastening', s => s.fastening || '—'],
-    ['Stiffness', s => s.stiffness || '—'],
-    ['Toe Shape', s => s.footShape ? s.footShape.charAt(0).toUpperCase() + s.footShape.slice(1) : '—'],
-    ['Resoleable', s => s.resoleableRaw ? (['true','yes','y','1'].includes(s.resoleableRaw) ? 'Yes' : (['false','no','n','0'].includes(s.resoleableRaw) ? 'No' : s.resoleableRaw)) : '—'],
-    ['Lining', s => s.lining || '—'],
-    ['Vegan', s => s.vegan ? 'Yes' : 'No'],
-    ['Women\'s', s => s.womens ? 'Yes' : 'No'],
+    ['Price', s => s.price ? `£${s.price.toFixed(0)}` : '—', null, '—'],
+    ['Downturn', s => fmtDots(s.downturn), s => wantedAggr !== null && s.downturn !== null && s.downturn !== undefined && Math.round(s.downturn) === wantedAggr, aggressionLabel],
+    ['Asymmetry', s => fmtDots(s.asym), s => wantedAggr !== null && s.asym !== null && s.asym !== undefined && Math.round(s.asym) === wantedAggr, aggressionLabel],
+    ['Heel', s => fmtDots(s.heel), null, '—'],
+    ['Width', s => (s.width || []).map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(', ') || '—', s => userWidth && s.width.map(w => w.toLowerCase()).includes(userWidth), widthLabel],
+    ['Fastening', s => s.fastening || '—', s => userFastenings.length && (s.fastening || '').toLowerCase().split(/[,/]\s*/).some(f => userFastenings.includes(f.trim())), fasteningLabel],
+    ['Stiffness', s => s.stiffness || '—', null, '—'],
+    ['Toe Shape', s => s.footShape ? s.footShape.charAt(0).toUpperCase() + s.footShape.slice(1) : '—', null, '—'],
+    ['Resoleable', s => s.resoleableRaw ? (['true','yes','y','1'].includes(s.resoleableRaw) ? 'Yes' : (['false','no','n','0'].includes(s.resoleableRaw) ? 'No' : s.resoleableRaw)) : '—', null, '—'],
+    ['Lining', s => s.lining || '—', null, '—'],
+    ['Vegan', s => s.vegan ? 'Yes' : 'No', null, '—'],
   ];
 
-  const headerHtml = `<tr><th></th>${selected.map(s => `<th>${s.brand}<br>${s.model}</th>`).join('')}</tr>`;
-  const rowsHtml = rows.map(([label, fn]) => `<tr><td>${label}</td>${selected.map(s => `<td>${fn(s)}</td>`).join('')}</tr>`).join('');
+  const headerHtml = `<tr><th></th><th>Your answer</th>${selected.map(s => `<th>${s.brand}<br>${s.model}</th>`).join('')}</tr>`;
+  const rowsHtml = rows.map(([label, fn, matchFn, userVal]) => {
+    const cells = selected.map(s => `<td class="${matchFn && matchFn(s) ? 'compare-match' : ''}">${fn(s)}</td>`).join('');
+    return `<tr><td>${label}</td><td>${userVal}</td>${cells}</tr>`;
+  }).join('');
 
   document.getElementById('compare-table-wrap').innerHTML = `<table class="compare-table">${headerHtml}${rowsHtml}</table>`;
   document.getElementById('compare-overlay').classList.add('open');
