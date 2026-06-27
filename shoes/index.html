@@ -1247,6 +1247,7 @@
     letter-spacing: 0.03em;
   }
   .feedback-fab:hover { background: var(--moss-light); transform: translateY(-2px); }
+  .feedback-fab.shifted { bottom: 4.6rem; transition: bottom 0.2s; }
 
   /* FEEDBACK MODAL */
   .fb-overlay {
@@ -2802,6 +2803,7 @@ function renderCompareBar() {
   document.getElementById('compare-bar-label').textContent = `${n} shoe${n === 1 ? '' : 's'} selected`;
   document.getElementById('compare-bar-view').disabled = n < 2;
   bar.classList.toggle('open', n > 0);
+  document.querySelector('.feedback-fab').classList.toggle('shifted', n > 0);
 }
 
 function openCompare() {
