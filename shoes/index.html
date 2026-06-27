@@ -690,6 +690,14 @@
     line-height: 1.1;
     margin-bottom: 0.9rem;
   }
+  .vegan-badge {
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--moss);
+    margin-bottom: 0.6rem;
+  }
   .shoe-tags {
     display: flex;
     flex-wrap: wrap;
@@ -1712,6 +1720,7 @@ function rowToShoe(r) {
     buyUrl:        r.buy_url,
     imageUrl:      r.image_url,
     locations:     r.locations ? r.locations.split('|').map(s=>s.trim()) : [],
+    vegan:         ['true','yes','y','1'].includes((r.vegan || '').trim().toLowerCase()),
   };
 }
 
@@ -2222,6 +2231,18 @@ function scoreShoe(shoe) {
   let score = 0;
   const reasons = [];
 
+  // ── Indoor-only restriction ────────────────────────────────────────────────
+  // If the user didn't say they climb trad or outdoors, assume they're
+  // climbing indoors and only show shoes explicitly tagged for indoor use.
+  const styleAnswers = Array.isArray(a.style) ? a.style : (a.style ? [a.style] : []);
+  const climbsOutside = styleAnswers.includes('trad') || styleAnswers.includes('outdoor');
+  if (!climbsOutside) {
+    const shoeRockTypes = shoe.rock_type ? shoe.rock_type.split('|').map(rt => rt.trim().toLowerCase()) : [];
+    if (!shoeRockTypes.includes('indoor')) {
+      return { shoe, score: -999, reasons: ['Not tagged for indoor climbing'] };
+    }
+  }
+
   // ── Experience target aggression ──────────────────────────────────────────
   const expAggr = { beginner:0, 'non-beginner':1 };
   const targetAggr = expAggr[a.experience] ?? 1;
@@ -2498,6 +2519,7 @@ function buildCard({ shoe, score, reasons }, rank, maxScore) {
       <div class="shoe-img-wrap">${imgHtml}</div>
       <p class="shoe-brand">${shoe.brand}</p>
       <h3 class="shoe-name">${shoe.model}</h3>
+      ${shoe.vegan ? '<p class="vegan-badge">Vegan</p>' : ''}
       <div class="shoe-tags">
         ${tagHtml}
       </div>
