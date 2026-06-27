@@ -1587,6 +1587,14 @@
   </div>
 </div>
 
+<!-- NOT-A-WOMAN POPUP -->
+<div class="fb-overlay" id="notwoman-overlay" onclick="closeNotWomanPopup(event)">
+  <div class="fb-modal" style="max-width:320px; text-align:center;">
+    <button class="fb-close" onclick="closeNotWomanPopup()">&times;</button>
+    <h3 class="fb-title">Get over it</h3>
+  </div>
+</div>
+
 <script>
 
 // ═══════════════════════════════════════════════════════════════════════════
@@ -1721,6 +1729,7 @@ function rowToShoe(r) {
     imageUrl:      r.image_url,
     locations:     r.locations ? r.locations.split('|').map(s=>s.trim()) : [],
     vegan:         ['true','yes','y','1'].includes((r.vegan || '').trim().toLowerCase()),
+    womens:        ['true','yes','y','1'].includes((r.Womens || '').trim().toLowerCase()),
   };
 }
 
@@ -2547,6 +2556,7 @@ function buildCard({ shoe, score, reasons, aggressionBadMismatch }, rank, maxSco
         ${tryOnHtml}
       </div>
       <button class="btn-disagree" onclick="disagreeWithShoe('${safeBrand}','${safeModel}')">Disagree with this?</button>
+      ${shoe.womens ? `<button class="btn-disagree btn-not-woman" onclick="openNotWomanPopup()">But I'm not a woman!</button>` : ''}
     </div>`;
 }
 
@@ -2579,6 +2589,14 @@ function openFeedback() {
 function closeFeedback(e) {
   if (e && e.target !== document.getElementById('fb-overlay')) return;
   document.getElementById('fb-overlay').classList.remove('open');
+}
+
+function openNotWomanPopup() {
+  document.getElementById('notwoman-overlay').classList.add('open');
+}
+function closeNotWomanPopup(e) {
+  if (e && e.target !== document.getElementById('notwoman-overlay')) return;
+  document.getElementById('notwoman-overlay').classList.remove('open');
 }
 
 function disagreeWithShoe(brand, model) {
