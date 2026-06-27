@@ -1743,12 +1743,12 @@
     <p class="sizeguide-text" style="font-size:0.78rem;color:var(--stone);margin-bottom:0.6rem;">Commonly reported by climbers — varies by specific model, so treat this as a rough steer rather than a guarantee.</p>
     <table class="sizeguide-table">
       <tr><th>Brand</th><th>General tendency</th></tr>
-      <tr><td>La Sportiva</td><td>Narrow, low-volume — performance models often sized close to street size</td></tr>
-      <tr><td>Scarpa</td><td>Slightly roomier toe box — many climbers size down about half a size from street shoe size</td></tr>
-      <tr><td>Five Ten</td><td>Runs true to size to slightly large, wider fit overall</td></tr>
-      <tr><td>Evolv</td><td>Narrow, low-volume — performance models often sized close to street size</td></tr>
-      <tr><td>Tenaya</td><td>Medium volume, often true to size</td></tr>
-      <tr><td>Black Diamond</td><td>Medium-to-wide volume, true to size</td></tr>
+      <tr><td>La Sportiva</td><td>Narrower, lower-volume than average</td></tr>
+      <tr><td>Scarpa</td><td>Slightly roomier toe box than average</td></tr>
+      <tr><td>Five Ten</td><td>Wider, roomier fit than average</td></tr>
+      <tr><td>Evolv</td><td>Narrower, lower-volume than average</td></tr>
+      <tr><td>Tenaya</td><td>About average volume</td></tr>
+      <tr><td>Black Diamond</td><td>Slightly wider than average</td></tr>
     </table>
 
     <h4 class="sizeguide-subhead">EU / UK / US size reference</h4>
@@ -1800,12 +1800,12 @@ const LOCATION_LOGOS = {
 // Same generic brand fit tendencies shown in the Sizing Guide modal, surfaced
 // directly on each shoe's card so people don't have to cross-reference both.
 const BRAND_FIT_TENDENCY = {
-  'la sportiva':   'Narrow, low-volume — performance models often sized close to street size.',
-  'scarpa':        'Slightly roomier toe box — many climbers size down about half a size from street shoe size.',
-  'five ten':      'Runs true to size to slightly large, wider fit overall.',
-  'evolv':         'Narrow, low-volume — performance models often sized close to street size.',
-  'tenaya':        'Medium volume, often true to size.',
-  'black diamond': 'Medium-to-wide volume, true to size.',
+  'la sportiva':   'Narrower, lower-volume than average.',
+  'scarpa':        'Slightly roomier toe box than average.',
+  'five ten':      'Wider, roomier fit than average.',
+  'evolv':         'Narrower, lower-volume than average.',
+  'tenaya':        'About average volume.',
+  'black diamond': 'Slightly wider than average.',
 };
 
 function brandFitTip(brand) {
@@ -2733,7 +2733,6 @@ function buildCard({ shoe, score, reasons, aggressionBadMismatch }, rank, maxSco
     shoe.lining ? `<div class="attr"><span class="attr-label">Lining</span><span class="attr-val">${shoe.lining}</span></div>` : '',
   ].filter(Boolean).join('');
 
-  const edgeTipText = edgeTip(shoe, answers);
   const brandTipText = brandFitTip(shoe.brand);
 
   const imgSrc = shoe.imageUrl || 'images/NoPicture.png';
@@ -2759,12 +2758,11 @@ function buildCard({ shoe, score, reasons, aggressionBadMismatch }, rank, maxSco
         ${tagHtml}
       </div>
       <div class="shoe-attrs">${attrHtml}</div>
-      ${edgeTipText ? `<p class="sizing-note">🧗 ${edgeTipText}</p>` : ''}
       <div class="shoe-price">
         <span class="currency">£</span>${shoe.price ? shoe.price.toFixed(0) : '—'}
       </div>
       ${shoe.sizingNote ? `<p class="sizing-note">📏 ${shoe.sizingNote}</p>` : ''}
-      ${brandTipText ? `<p class="sizing-note">📐 ${shoe.brand} fit: ${brandTipText}</p>` : ''}
+      ${brandTipText ? `<p class="sizing-note">📐 ${shoe.brand}: ${brandTipText}</p>` : ''}
       <div class="shoe-actions">
         ${buyButtonHtml}
         ${tryOnHtml}
@@ -2888,29 +2886,6 @@ function openCompare() {
 function closeCompare(e) {
   if (e && e.target !== document.getElementById('compare-overlay')) return;
   document.getElementById('compare-overlay').classList.remove('open');
-}
-
-// A short, generic tip about edging/durability based on data we already have
-// (stiffness, rock type answer, indoor/outdoor) — no extra sheet column needed.
-function edgeTip(shoe, a) {
-  const stiffness = (shoe.stiffness || '').toLowerCase();
-  if (!stiffness) return '';
-  const isStiff = stiffness.includes('stiff');
-  const isSoft = stiffness.includes('soft');
-  const styleAnswers = Array.isArray(a.style) ? a.style : (a.style ? [a.style] : []);
-  const climbsOutside = styleAnswers.includes('trad') || styleAnswers.includes('outdoor');
-  const rockTypes = Array.isArray(a.rockType) ? a.rockType : (a.rockType ? [a.rockType] : []);
-
-  if (!climbsOutside) {
-    return isStiff ? 'Stiffer soles like this one tend to hold their edging power longer on gym volumes and repeated top-roping.' : '';
-  }
-  if ((rockTypes.includes('granite') || rockTypes.includes('gritstone')) && isStiff) {
-    return 'A stiffer sole gives more precise edging power on technical rock like granite and gritstone.';
-  }
-  if ((rockTypes.includes('limestone') || rockTypes.includes('sandstone')) && isSoft) {
-    return 'A softer, sensitive sole helps with smearing and reading pockets on limestone and sandstone.';
-  }
-  return '';
 }
 
 function openSizeGuide() {
