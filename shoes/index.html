@@ -201,7 +201,16 @@
     background: #fff;
     padding: 0.3rem 1rem;
     border-radius: 0;
-    margin-right: 2rem;
+    margin-right: 0.6rem;
+    cursor: pointer;
+    border: none;
+    font-family: inherit;
+  }
+  .header-actions { display: flex; align-items: center; margin-right: 1.4rem; }
+  .header-tag-outline {
+    background: none;
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.55);
   }
 
   @media (max-width: 768px) {
@@ -214,6 +223,7 @@
       width: 16px;
       height: 16px;
     }
+    .header-actions { margin-right: 0.6rem; }
     .header-tag {
       font-size: 0.62rem;
       padding: 0.22rem 0.6rem;
@@ -1274,6 +1284,96 @@
     transition: background 0.1s;
   }
   .fb-close:hover { background: var(--warm); }
+  .sizeguide-modal { max-width: 560px; max-height: 85vh; overflow-y: auto; text-align: left; }
+  .sizeguide-subhead {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--ink);
+    margin: 1.2rem 0 0.5rem;
+  }
+  .sizeguide-text { color: var(--stone); font-size: 0.85rem; line-height: 1.55; margin-bottom: 0.5rem; }
+  .sizeguide-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; margin-bottom: 0.4rem; }
+  .sizeguide-table th, .sizeguide-table td { border: 1px solid var(--warm); padding: 0.4rem 0.6rem; text-align: left; }
+  .sizeguide-table th { background: var(--warm); font-weight: 700; }
+
+  /* COMPARE */
+  .compare-check {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    justify-content: center;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--stone);
+    margin-top: 0.6rem;
+    cursor: pointer;
+  }
+  .compare-check input { width: 15px; height: 15px; cursor: pointer; }
+
+  .compare-bar {
+    display: none;
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: var(--ink);
+    color: #fff;
+    padding: 0.9rem 1.5rem;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 200;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.2);
+  }
+  .compare-bar.open { display: flex; }
+  .compare-bar-actions { display: flex; gap: 0.6rem; }
+  .compare-bar-clear, .compare-bar-view {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 0.82rem;
+    border-radius: 50px;
+    padding: 0.5rem 1.1rem;
+    cursor: pointer;
+    border: none;
+  }
+  .compare-bar-clear { background: none; color: #fff; border: 1px solid rgba(255,255,255,0.4); }
+  .compare-bar-view { background: var(--moss); color: #fff; }
+  .compare-bar-view:disabled { opacity: 0.5; cursor: not-allowed; }
+
+  .compare-modal { max-width: 680px; max-height: 85vh; overflow-y: auto; text-align: left; }
+  .compare-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; margin-top: 1rem; }
+  .compare-table th, .compare-table td { border: 1px solid var(--warm); padding: 0.5rem 0.7rem; text-align: left; vertical-align: top; }
+  .compare-table th { background: var(--warm); font-weight: 700; }
+  .compare-table td:first-child, .compare-table th:first-child { font-weight: 700; white-space: nowrap; }
+
+  .sizing-note {
+    font-size: 0.74rem;
+    color: var(--stone);
+    text-align: center;
+    margin: 0.3rem 0 0.4rem;
+    font-style: italic;
+  }
+
+  .info-accordion {
+    max-width: 640px;
+    margin: 1.5rem auto 0;
+    background: #fff;
+    border: 1px solid var(--warm);
+    border-radius: 10px;
+    padding: 0.9rem 1.2rem;
+  }
+  .info-accordion summary {
+    font-weight: 700;
+    font-size: 0.88rem;
+    cursor: pointer;
+    color: var(--ink);
+  }
+  .info-accordion p {
+    font-size: 0.84rem;
+    color: var(--stone);
+    line-height: 1.6;
+    margin-top: 0.7rem;
+  }
   .fb-title {
     font-family: 'Oswald', sans-serif;
     font-weight: 600;
@@ -1445,7 +1545,10 @@
   <a class="logo" href="/">
     Rocksy Adventures
   </a>
-  <div class="header-tag" onclick="restart()">Shoe Finder</div>
+  <div class="header-actions">
+    <button class="header-tag header-tag-outline" onclick="openSizeGuide()">Sizing Guide</button>
+    <div class="header-tag" onclick="restart()">Shoe Finder</div>
+  </div>
 </header>
 
 <!-- Data load error banner (hidden unless fetch fails) -->
@@ -1521,6 +1624,28 @@
   <div class="colour-wrap" style="text-align:center;margin-top:1rem;">
     <a href="https://www.timpson.co.uk/shoe-care/dye" target="_blank" rel="noopener noreferrer" class="btn-colour">🎨 Don't like the colour?</a>
   </div>
+  <details class="info-accordion">
+    <summary>👟 Worn through the rubber? Most climbing shoes can be resoled</summary>
+    <p>Rand and sole rubber wears down with use, but the leather/synthetic upper usually outlasts it by a long way — that's why resoling instead of rebuying is normal in climbing. Most shoes can take 2–3 resoles before the upper gives out, though stiffer, board-lasted shoes resole more easily than very soft, slipper-like ones. A local resoler can usually tell you whether a specific pair is worth it. Where we know a shoe's resoleability, you'll see it listed under its attributes above.</p>
+  </details>
+</div>
+
+<!-- COMPARE BAR -->
+<div class="compare-bar" id="compare-bar">
+  <span id="compare-bar-label">0 shoes selected</span>
+  <div class="compare-bar-actions">
+    <button class="compare-bar-clear" onclick="clearCompare()">Clear</button>
+    <button class="compare-bar-view" id="compare-bar-view" onclick="openCompare()" disabled>Compare →</button>
+  </div>
+</div>
+
+<!-- COMPARE MODAL -->
+<div class="fb-overlay" id="compare-overlay" onclick="closeCompare(event)">
+  <div class="fb-modal compare-modal">
+    <button class="fb-close" onclick="closeCompare()">&times;</button>
+    <h3 class="fb-title">Compare shoes</h3>
+    <div id="compare-table-wrap"></div>
+  </div>
 </div>
 
 <!-- COOKIE CONSENT BANNER -->
@@ -1592,6 +1717,48 @@
   <div class="fb-modal" style="max-width:320px; text-align:center;">
     <button class="fb-close" onclick="closeNotWomanPopup()">&times;</button>
     <h3 class="fb-title">Get over it</h3>
+  </div>
+</div>
+
+<!-- SIZING GUIDE MODAL -->
+<div class="fb-overlay" id="sizeguide-overlay" onclick="closeSizeGuide(event)">
+  <div class="fb-modal sizeguide-modal">
+    <button class="fb-close" onclick="closeSizeGuide()">&times;</button>
+    <h3 class="fb-title">Sizing Guide</h3>
+    <p class="fb-sub">Climbing shoe sizing varies a lot by brand and last shape — use this as a starting point, then try the shoe on if you can.</p>
+
+    <h4 class="sizeguide-subhead">Fit for your level</h4>
+    <p class="sizeguide-text"><strong>New to climbing?</strong> Go snug, not painful — like a firm street shoe. You should be able to stand flat with toes lightly touching the end, no folding or curling required.</p>
+    <p class="sizeguide-text"><strong>Climbing regularly?</strong> Performance and downturned shoes are usually sized tighter, with little to no dead space and toes gently curled — tight enough to edge precisely, not so tight you can't climb a full session.</p>
+
+    <h4 class="sizeguide-subhead">General brand fit tendencies</h4>
+    <p class="sizeguide-text" style="font-size:0.78rem;color:var(--stone);margin-bottom:0.6rem;">Commonly reported by climbers — varies by specific model, so treat this as a rough steer rather than a guarantee.</p>
+    <table class="sizeguide-table">
+      <tr><th>Brand</th><th>General tendency</th></tr>
+      <tr><td>La Sportiva</td><td>Narrow, low-volume — often sized close to street size on performance models</td></tr>
+      <tr><td>Scarpa</td><td>Slightly roomier toe box — many size down a bit more than with La Sportiva</td></tr>
+      <tr><td>Five Ten</td><td>Runs true to size to slightly large, wider fit overall</td></tr>
+      <tr><td>Evolv</td><td>Narrow, low-volume — similar profile to La Sportiva</td></tr>
+      <tr><td>Tenaya</td><td>Medium volume, often true to size</td></tr>
+      <tr><td>Black Diamond</td><td>Medium-to-wide volume, true to size</td></tr>
+    </table>
+
+    <h4 class="sizeguide-subhead">EU / UK / US size reference</h4>
+    <table class="sizeguide-table">
+      <tr><th>EU</th><th>UK</th><th>US (M)</th></tr>
+      <tr><td>36</td><td>3.5</td><td>4.5</td></tr>
+      <tr><td>37</td><td>4</td><td>5</td></tr>
+      <tr><td>38</td><td>5</td><td>6</td></tr>
+      <tr><td>39</td><td>6</td><td>7</td></tr>
+      <tr><td>40</td><td>6.5</td><td>7.5</td></tr>
+      <tr><td>41</td><td>7.5</td><td>8.5</td></tr>
+      <tr><td>42</td><td>8</td><td>9</td></tr>
+      <tr><td>43</td><td>9</td><td>10</td></tr>
+      <tr><td>44</td><td>9.5</td><td>10.5</td></tr>
+      <tr><td>45</td><td>10.5</td><td>11.5</td></tr>
+      <tr><td>46</td><td>11</td><td>12</td></tr>
+    </table>
+    <p class="sizeguide-text" style="font-size:0.72rem;color:var(--stone);margin-top:0.6rem;">Standard unisex shoe-size conversion — not specific to any one climbing shoe brand or last.</p>
   </div>
 </div>
 
@@ -1684,6 +1851,7 @@ loadShoes().then(renderFunStrip);
 let shoes = [];   // populated on load from Google Sheet
 let current = 0;
 let answers = {};
+let compareSet = new Set();   // keys are `${brand}|||${model}`, max 3
 
 // ── CSV parser (handles quoted fields with commas) ───────────────────────────
 function parseCSV(text) {
@@ -1730,6 +1898,9 @@ function rowToShoe(r) {
     locations:     r.locations ? r.locations.split('|').map(s=>s.trim()) : [],
     vegan:         ['true','yes','y','1'].includes((r.vegan || '').trim().toLowerCase()),
     womens:        ['true','yes','y','1'].includes((r.Womens || '').trim().toLowerCase()),
+    resoleableRaw: (r.resoleable || '').trim().toLowerCase(),
+    lining:        (r.lining || '').trim(),
+    sizingNote:    (r.sizing_note || '').trim(),
   };
 }
 
@@ -2528,13 +2699,20 @@ function buildCard({ shoe, score, reasons, aggressionBadMismatch }, rank, maxSco
     widthDisplay ? `<div class="attr"><span class="attr-label">Width</span><span class="attr-val">${widthDisplay}</span></div>` : '',
     shoe.footShape ? `<div class="attr"><span class="attr-label">Toe Shape</span><span class="attr-val">${shoe.footShape.charAt(0).toUpperCase() + shoe.footShape.slice(1)}</span></div>` : '',
     shoe.stiffness ? `<div class="attr"><span class="attr-label">Stiffness</span><span class="attr-val">${shoe.stiffness}</span></div>` : '',
+    shoe.resoleableRaw ? `<div class="attr"><span class="attr-label">Resoleable</span><span class="attr-val">${['true','yes','y','1'].includes(shoe.resoleableRaw) ? 'Yes' : (['false','no','n','0'].includes(shoe.resoleableRaw) ? 'No' : shoe.resoleableRaw)}</span></div>` : '',
+    shoe.lining ? `<div class="attr"><span class="attr-label">Lining</span><span class="attr-val">${shoe.lining}</span></div>` : '',
   ].filter(Boolean).join('');
+
+  const edgeTipText = edgeTip(shoe, answers);
 
   const imgSrc = shoe.imageUrl || 'images/NoPicture.png';
   const img = `<img class="shoe-img" src="${imgSrc}" alt="${shoe.brand} ${shoe.model}" loading="lazy" onerror="this.onerror=null;this.src='images/NoPicture.png';">`;
   const imgHtml = hasLink
     ? `<button type="button" class="shoe-img-btn" aria-label="View ${shoe.brand} ${shoe.model} online" onclick="trackClick('${safeBrand}','${safeModel}','${url}')">${img}</button>`
     : img;
+
+  const compareKey = `${shoe.brand}|||${shoe.model}`;
+  const safeKey = compareKey.replace(/'/g,"\\'");
 
   return `
     <div class="shoe-card ${isTop ? 'top-pick' : ''}">
@@ -2548,13 +2726,19 @@ function buildCard({ shoe, score, reasons, aggressionBadMismatch }, rank, maxSco
         ${tagHtml}
       </div>
       <div class="shoe-attrs">${attrHtml}</div>
+      ${edgeTipText ? `<p class="sizing-note">🧗 ${edgeTipText}</p>` : ''}
       <div class="shoe-price">
         <span class="currency">£</span>${shoe.price ? shoe.price.toFixed(0) : '—'}
       </div>
+      ${shoe.sizingNote ? `<p class="sizing-note">📏 ${shoe.sizingNote}</p>` : ''}
       <div class="shoe-actions">
         ${buyButtonHtml}
         ${tryOnHtml}
       </div>
+      <label class="compare-check">
+        <input type="checkbox" onchange="toggleCompare(this,'${safeKey}')">
+        Compare this shoe
+      </label>
       <button class="btn-disagree" onclick="disagreeWithShoe('${safeBrand}','${safeModel}')">Disagree with this?</button>
       ${shoe.womens ? `<button class="btn-disagree btn-not-woman" onclick="openNotWomanPopup()">But I'm not a woman!</button>` : ''}
     </div>`;
@@ -2563,6 +2747,7 @@ function buildCard({ shoe, score, reasons, aggressionBadMismatch }, rank, maxSco
 function restart() {
   current = 0;
   answers = {};
+  clearCompare();
   document.getElementById('results').style.display = 'none';
   document.getElementById('quiz').style.display = 'none';
   document.getElementById('hero').style.display = 'block';
@@ -2589,6 +2774,100 @@ function openFeedback() {
 function closeFeedback(e) {
   if (e && e.target !== document.getElementById('fb-overlay')) return;
   document.getElementById('fb-overlay').classList.remove('open');
+}
+
+function toggleCompare(checkbox, key) {
+  if (checkbox.checked) {
+    if (compareSet.size >= 3) {
+      checkbox.checked = false;
+      alert('You can compare up to 3 shoes at a time.');
+      return;
+    }
+    compareSet.add(key);
+  } else {
+    compareSet.delete(key);
+  }
+  renderCompareBar();
+}
+
+function clearCompare() {
+  compareSet.clear();
+  document.querySelectorAll('.compare-check input').forEach(cb => cb.checked = false);
+  renderCompareBar();
+}
+
+function renderCompareBar() {
+  const bar = document.getElementById('compare-bar');
+  const n = compareSet.size;
+  document.getElementById('compare-bar-label').textContent = `${n} shoe${n === 1 ? '' : 's'} selected`;
+  document.getElementById('compare-bar-view').disabled = n < 2;
+  bar.classList.toggle('open', n > 0);
+}
+
+function openCompare() {
+  const selected = [...compareSet].map(key => {
+    const [brand, model] = key.split('|||');
+    return shoes.find(s => s.brand === brand && s.model === model);
+  }).filter(Boolean);
+  if (selected.length < 2) return;
+
+  const fmtDots = (val, max=2) => (val === null || val === undefined) ? '—' : `${val} / ${max}`;
+  const rows = [
+    ['Price', s => s.price ? `£${s.price.toFixed(0)}` : '—'],
+    ['Downturn', s => fmtDots(s.downturn)],
+    ['Asymmetry', s => fmtDots(s.asym)],
+    ['Heel', s => fmtDots(s.heel)],
+    ['Width', s => (s.width || []).map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(', ') || '—'],
+    ['Fastening', s => s.fastening || '—'],
+    ['Stiffness', s => s.stiffness || '—'],
+    ['Toe Shape', s => s.footShape ? s.footShape.charAt(0).toUpperCase() + s.footShape.slice(1) : '—'],
+    ['Resoleable', s => s.resoleableRaw ? (['true','yes','y','1'].includes(s.resoleableRaw) ? 'Yes' : (['false','no','n','0'].includes(s.resoleableRaw) ? 'No' : s.resoleableRaw)) : '—'],
+    ['Lining', s => s.lining || '—'],
+    ['Vegan', s => s.vegan ? 'Yes' : 'No'],
+    ['Women\'s', s => s.womens ? 'Yes' : 'No'],
+  ];
+
+  const headerHtml = `<tr><th></th>${selected.map(s => `<th>${s.brand}<br>${s.model}</th>`).join('')}</tr>`;
+  const rowsHtml = rows.map(([label, fn]) => `<tr><td>${label}</td>${selected.map(s => `<td>${fn(s)}</td>`).join('')}</tr>`).join('');
+
+  document.getElementById('compare-table-wrap').innerHTML = `<table class="compare-table">${headerHtml}${rowsHtml}</table>`;
+  document.getElementById('compare-overlay').classList.add('open');
+}
+
+function closeCompare(e) {
+  if (e && e.target !== document.getElementById('compare-overlay')) return;
+  document.getElementById('compare-overlay').classList.remove('open');
+}
+
+// A short, generic tip about edging/durability based on data we already have
+// (stiffness, rock type answer, indoor/outdoor) — no extra sheet column needed.
+function edgeTip(shoe, a) {
+  const stiffness = (shoe.stiffness || '').toLowerCase();
+  if (!stiffness) return '';
+  const isStiff = stiffness.includes('stiff');
+  const isSoft = stiffness.includes('soft');
+  const styleAnswers = Array.isArray(a.style) ? a.style : (a.style ? [a.style] : []);
+  const climbsOutside = styleAnswers.includes('trad') || styleAnswers.includes('outdoor');
+  const rockTypes = Array.isArray(a.rockType) ? a.rockType : (a.rockType ? [a.rockType] : []);
+
+  if (!climbsOutside) {
+    return isStiff ? 'Stiffer soles like this one tend to hold their edging power longer on gym volumes and repeated top-roping.' : '';
+  }
+  if ((rockTypes.includes('granite') || rockTypes.includes('gritstone')) && isStiff) {
+    return 'A stiffer sole gives more precise edging power on technical rock like granite and gritstone.';
+  }
+  if ((rockTypes.includes('limestone') || rockTypes.includes('sandstone')) && isSoft) {
+    return 'A softer, sensitive sole helps with smearing and reading pockets on limestone and sandstone.';
+  }
+  return '';
+}
+
+function openSizeGuide() {
+  document.getElementById('sizeguide-overlay').classList.add('open');
+}
+function closeSizeGuide(e) {
+  if (e && e.target !== document.getElementById('sizeguide-overlay')) return;
+  document.getElementById('sizeguide-overlay').classList.remove('open');
 }
 
 function openNotWomanPopup() {
