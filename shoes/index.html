@@ -1862,6 +1862,13 @@ function parseCSV(text) {
     const vals = splitCSVLine(line);
     const obj = {};
     headers.forEach((h, i) => obj[h.trim()] = (vals[i] || '').trim());
+    // Also expose every column under its lowercased name, so lookups like
+    // r.vegan work regardless of how the header is capitalised in the sheet
+    // (without clobbering exact-case keys already set above, e.g. r.Womens).
+    headers.forEach((h, i) => {
+      const lower = h.trim().toLowerCase();
+      if (!(lower in obj)) obj[lower] = (vals[i] || '').trim();
+    });
     return obj;
   }).filter(r => r.brand && r.model);
 }
