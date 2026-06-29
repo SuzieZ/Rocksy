@@ -2683,6 +2683,19 @@ function editAnswer(qid) {
 }
 
 const MAX_RESULTS = 10;
+const MAX_PER_BRAND = 3;
+
+// Keeps list order (so highest-scoring shoes win) but drops any shoe past
+// the Nth one from the same brand, so results don't get dominated by a
+// single brand's range.
+function capByBrand(list, maxPerBrand) {
+  const counts = {};
+  return list.filter(item => {
+    const brand = item.shoe.brand;
+    counts[brand] = (counts[brand] || 0) + 1;
+    return counts[brand] <= maxPerBrand;
+  });
+}
 
 function showResults() {
   document.getElementById('quiz').style.display = 'none';
@@ -2702,7 +2715,7 @@ function showResults() {
   // Prefer strong (70%+) matches, but if fewer than 3 shoes clear that bar,
   // backfill with the next-best eligible shoes so the user still gets at
   // least 3 to try on (hard-excluded shoes, score -999, never show).
-  const eligible = scoredWithPct.filter(item => item.score > -999);
+  const eligible = capByBrand(scoredWithPct.filter(item => item.score > -999), MAX_PER_BRAND);
   let top = eligible.filter(item => item.matchPct >= 70);
   if (top.length < 3) top = eligible.slice(0, 3);
   top = top.slice(0, MAX_RESULTS);
