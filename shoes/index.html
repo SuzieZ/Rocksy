@@ -1515,7 +1515,7 @@
     align-items: center;
     justify-content: center;
     gap: 0.6rem;
-    background: #1a1a1a;
+    background: var(--loc-banner-bg, #1a1a1a);
     color: #fff;
     text-align: center;
     padding: 0.6rem 1rem;
@@ -1809,6 +1809,7 @@ const LOCATIONS = {
     accentLight: '#ff8c47',
     accentPale: '#fed3ac',
     shadow: '#c2490d',
+    bannerBg: '#0f4647',
     heroSub: "Answer 6 quick questions and we'll show you the best matches available right here at Rise — pick them up and try them on today.",
     resultsSubtitle: "Here's what we've got in stock at Rise that matches your climbing style, foot shape, and goals — head to the front desk to try them on.",
   },
@@ -1877,6 +1878,7 @@ function initLocationMode() {
   document.body.style.setProperty('--loc-accent-light', loc.accentLight);
   document.body.style.setProperty('--loc-accent-pale', loc.accentPale);
   document.body.style.setProperty('--loc-shadow', loc.shadow);
+  document.body.style.setProperty('--loc-banner-bg', loc.bannerBg || '#1a1a1a');
   const bannerLogo = document.getElementById('location-banner-logo');
   if (loc.logo) {
     bannerLogo.src = loc.logo;
