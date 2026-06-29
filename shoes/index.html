@@ -1368,27 +1368,29 @@
     opacity: 1;
   }
 
-  /* ── Castle in-store mode ──────────────────────────────────────────────── */
-  body.castle-mode {
-    --moss: #e07b35;
-    --moss-light: #ec9a5e;
-    --moss-pale: #fbe6d3;
-    --sky: #e07b35;
-    --sky-pale: #fbe6d3;
-    --gold: #e07b35;
-    --gold-pale: #fbe6d3;
+  /* ── In-store location mode ──────────────────────────────────────────────
+     Colours come from --loc-accent/--loc-accent-light/--loc-accent-pale/
+     --loc-shadow, set per-gym in the LOCATIONS config (see script below). */
+  body.location-mode {
+    --moss: var(--loc-accent);
+    --moss-light: var(--loc-accent-light);
+    --moss-pale: var(--loc-accent-pale);
+    --sky: var(--loc-accent);
+    --sky-pale: var(--loc-accent-pale);
+    --gold: var(--loc-accent);
+    --gold-pale: var(--loc-accent-pale);
   }
-  body.castle-mode .btn-start,
-  body.castle-mode .btn-buy,
-  body.castle-mode .btn-next.active,
-  body.castle-mode .fb-send {
-    box-shadow: 0 4px 0 #a8531a;
+  body.location-mode .btn-start,
+  body.location-mode .btn-buy,
+  body.location-mode .btn-next.active,
+  body.location-mode .fb-send {
+    box-shadow: 0 4px 0 var(--loc-shadow, #a8531a);
   }
-  body.castle-mode .btn-start:active,
-  body.castle-mode .btn-next.active:active {
-    box-shadow: 0 2px 0 #a8531a;
+  body.location-mode .btn-start:active,
+  body.location-mode .btn-next.active:active {
+    box-shadow: 0 2px 0 var(--loc-shadow, #a8531a);
   }
-  .castle-banner {
+  .location-banner {
     display: none;
     align-items: center;
     justify-content: center;
@@ -1401,7 +1403,7 @@
     font-weight: 700;
     letter-spacing: 0.03em;
   }
-  .castle-banner img {
+  .location-banner img {
     height: 24px;
     border-radius: 4px;
     background: #fff;
@@ -1441,10 +1443,10 @@
   ⚠ Could not load shoe data. Check your Google Sheet URL is published and try refreshing.
 </div>
 
-<!-- Castle in-store banner (shown only when ?location=castle is in the URL) -->
-<div class="castle-banner" id="castle-banner">
-  <img src="/images/Castle.png" alt="The Castle">
-  <span>In-store at The Castle — showing shoes available in our shop right now</span>
+<!-- In-store banner (shown only when ?location=<key> is in the URL) -->
+<div class="location-banner" id="location-banner">
+  <img id="location-banner-logo" src="" alt="" style="display:none;">
+  <span id="location-banner-text"></span>
 </div>
 
 <!-- HERO BANNER -->
@@ -1454,9 +1456,10 @@
       <h1>Which Climbing Shoes<br><span class="accent">Should I Buy?</span></h1>
       <p class="hero-sub">When it comes to climbing shoes, you really want to try them on before you commit, but this quiz will help point you in the right direction!</p>
       <button class="btn-start" onclick="startQuiz()">Find my shoes →</button>
-      <div style="margin-top:1rem;">
-        <button class="btn-colour" id="castle-toggle-btn" onclick="goCastleMode()" style="background:none;color:rgba(255,255,255,0.85);border-color:rgba(255,255,255,0.4);">I'm at the Castle</button>
-        <button class="btn-colour" id="castle-exit-btn" onclick="exitCastleMode()" style="display:none;background:none;color:rgba(255,255,255,0.85);border-color:rgba(255,255,255,0.4);">Exit Castle mode</button>
+      <div style="margin-top:1rem;" id="location-buttons">
+        <button class="btn-colour location-enter-btn" data-location="castle" style="background:none;color:rgba(255,255,255,0.85);border-color:rgba(255,255,255,0.4);">I'm at the Castle</button>
+        <button class="btn-colour location-enter-btn" data-location="rise" style="background:none;color:rgba(255,255,255,0.85);border-color:rgba(255,255,255,0.4);">I'm at Rise</button>
+        <button class="btn-colour" id="location-exit-btn" onclick="exitLocationMode()" style="display:none;background:none;color:rgba(255,255,255,0.85);border-color:rgba(255,255,255,0.4);">Exit location mode</button>
       </div>
     </div>
   </div>
@@ -1504,7 +1507,7 @@
   <div class="shoes-grid" id="shoes-grid"></div>
   <div class="restart-wrap">
     <button class="btn-restart" onclick="restart()">↺ Start over</button>
-    <button class="btn-restart" id="castle-exit-btn-results" onclick="exitCastleMode()" style="display:none;">Exit Castle mode</button>
+    <button class="btn-restart" id="location-exit-btn-results" onclick="exitLocationMode()" style="display:none;">Exit location mode</button>
   </div>
   <div class="colour-wrap" style="text-align:center;margin-top:1rem;">
     <a href="https://www.timpson.co.uk/shoe-care/dye" target="_blank" rel="noopener noreferrer" class="btn-colour">🎨 Don't like the colour?</a>
@@ -1584,53 +1587,100 @@
 const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRmxyA2EDSWy23EqRbxYxdmM3IuHCL1Jg3sKgCx2Xle2RYfEZjN_60LCBbH1fl_7HVr_fboYQmOCBfE/pub?output=csv';
 
 // ═══════════════════════════════════════════════════════════════════════════
-// CASTLE IN-STORE MODE — activated via ?location=castle in the URL (QR code)
-// Restricts results to shoes whose "locations" column includes Castle and
-// re-themes to match The Castle's branding.
+// IN-STORE LOCATION MODE — activated via ?location=<key> in the URL (QR code)
+// Restricts results to shoes whose "locations" column includes that gym and
+// re-themes the page to match that gym's branding. To add a new gym, add an
+// entry to LOCATIONS below (and the matching value to the sheet's locations
+// column) — no other code changes needed.
 // ═══════════════════════════════════════════════════════════════════════════
-const CASTLE_MODE = new URLSearchParams(window.location.search).get('location') === 'castle';
-
-// Logos shown in the "Try it on here" section for each gym a shoe is
-// stocked at. Add an entry here when a new gym is added to the sheet's
-// locations column — mapsUrl is optional, but if set the logo becomes
-// clickable and opens that location in Google Maps in a new tab.
-const LOCATION_LOGOS = {
+const LOCATIONS = {
   castle: {
-    src: '/images/Castle.png',
-    alt: 'The Castle',
+    name: 'The Castle',
+    logo: '/images/Castle.png',
     mapsUrl: 'https://maps.app.goo.gl/S6nRdjQ2aDFUnTbW7',
+    accent: '#e07b35',
+    accentLight: '#ec9a5e',
+    accentPale: '#fbe6d3',
+    shadow: '#a8531a',
+    heroSub: "Answer 6 quick questions and we'll show you the best matches available right here in The Castle shop — pick them up and try them on today.",
+    resultsSubtitle: "Here's what we've got in stock at The Castle that matches your climbing style, foot shape, and goals — head to the shop counter to try them on.",
+  },
+  rise: {
+    name: 'Rise',
+    // TODO: swap in Rise's real logo (/images/Rise.png) and Google Maps link
+    // once we have their brand assets — placeholder palette for now.
+    logo: null,
+    mapsUrl: null,
+    accent: '#4f46e5',
+    accentLight: '#7c75ec',
+    accentPale: '#e3e1fa',
+    shadow: '#312e81',
+    heroSub: "Answer 6 quick questions and we'll show you the best matches available right here at Rise — pick them up and try them on today.",
+    resultsSubtitle: "Here's what we've got in stock at Rise that matches your climbing style, foot shape, and goals — head to the front desk to try them on.",
   },
 };
+
+const ACTIVE_LOCATION = (() => {
+  const key = new URLSearchParams(window.location.search).get('location');
+  return key && LOCATIONS[key] ? key : null;
+})();
+
+// Logos shown in the "Try it on here" section for each gym a shoe is
+// stocked at, derived from LOCATIONS — mapsUrl is optional, but if set the
+// logo becomes clickable and opens that location in Google Maps in a new tab.
+const LOCATION_LOGOS = Object.fromEntries(
+  Object.entries(LOCATIONS)
+    .filter(([, l]) => l.logo)
+    .map(([key, l]) => [key, { src: l.logo, alt: l.name, mapsUrl: l.mapsUrl }])
+);
 
 function shoeIsAtLocation(shoe, name) {
   return (shoe.locations || []).some(l => l.toLowerCase() === name.toLowerCase());
 }
 
-function goCastleMode() {
+function goLocationMode(key) {
   const url = new URL(window.location.href);
-  url.searchParams.set('location', 'castle');
+  url.searchParams.set('location', key);
   window.location.href = url.toString();
 }
 
-function exitCastleMode() {
+function exitLocationMode() {
   const url = new URL(window.location.href);
   url.searchParams.delete('location');
   window.location.href = url.toString();
 }
 
-function initCastleMode() {
-  if (!CASTLE_MODE) return;
-  document.getElementById('castle-toggle-btn').style.display = 'none';
-  document.getElementById('castle-exit-btn').style.display = 'inline-block';
-  document.getElementById('castle-exit-btn-results').style.display = 'inline-block';
-  document.body.classList.add('castle-mode');
-  document.getElementById('castle-banner').style.display = 'flex';
-  document.querySelector('.hero-sub').textContent =
-    "Answer 6 quick questions and we'll show you the best matches available right here in The Castle shop — pick them up and try them on today.";
-  document.getElementById('results-subtitle').textContent =
-    "Here's what we've got in stock at The Castle that matches your climbing style, foot shape, and goals — head to the shop counter to try them on.";
+function initLocationMode() {
+  document.querySelectorAll('.location-enter-btn').forEach(btn => {
+    btn.addEventListener('click', () => goLocationMode(btn.dataset.location));
+  });
+  if (!ACTIVE_LOCATION) return;
+  const loc = LOCATIONS[ACTIVE_LOCATION];
+  document.querySelectorAll('.location-enter-btn').forEach(btn => btn.style.display = 'none');
+  const exitBtn = document.getElementById('location-exit-btn');
+  const exitBtnResults = document.getElementById('location-exit-btn-results');
+  exitBtn.textContent = `Exit ${loc.name} mode`;
+  exitBtn.style.display = 'inline-block';
+  exitBtnResults.textContent = `Exit ${loc.name} mode`;
+  exitBtnResults.style.display = 'inline-block';
+  document.body.classList.add('location-mode');
+  document.body.style.setProperty('--loc-accent', loc.accent);
+  document.body.style.setProperty('--loc-accent-light', loc.accentLight);
+  document.body.style.setProperty('--loc-accent-pale', loc.accentPale);
+  document.body.style.setProperty('--loc-shadow', loc.shadow);
+  const bannerLogo = document.getElementById('location-banner-logo');
+  if (loc.logo) {
+    bannerLogo.src = loc.logo;
+    bannerLogo.alt = loc.name;
+    bannerLogo.style.display = 'inline-block';
+  }
+  document.getElementById('location-banner-text').textContent =
+    `In-store at ${loc.name} — showing shoes available in our shop right now`;
+  document.getElementById('location-banner').style.display = 'flex';
+  document.querySelector('.hero-sub').textContent = loc.heroSub;
+  document.getElementById('results-subtitle').textContent = loc.resultsSubtitle;
 }
-initCastleMode();
+initLocationMode();
 
 // ── Cookie consent ───────────────────────────────────────────────────────────
 const COOKIE_CONSENT_KEY = 'rocksy-cookie-consent';
@@ -1726,12 +1776,12 @@ async function loadShoes() {
   }
 }
 
-// In Castle mode the hero stats should reflect what's actually in stock
+// In location mode the hero stats should reflect what's actually in stock
 // there, not the site-wide marketing copy — everywhere else the "95+
 // shoes / 6 brands" line stays as-is.
 function renderFunStrip() {
-  if (!CASTLE_MODE || shoes.length === 0) return;
-  const pool = shoes.filter(s => shoeIsAtLocation(s, 'castle'));
+  if (!ACTIVE_LOCATION || shoes.length === 0) return;
+  const pool = shoes.filter(s => shoeIsAtLocation(s, ACTIVE_LOCATION));
   const shoeCount = pool.length;
   const brandCount = new Set(pool.map(s => s.brand)).size;
   document.getElementById('fun-shoe-count').textContent =
@@ -2139,8 +2189,8 @@ function initBudgetSlider(q) {
       if (p === 0) return true;
       return p >= mn && p <= mx;
     };
-    const pool = CASTLE_MODE
-      ? shoes.filter(s => shoeIsAtLocation(s, 'castle'))
+    const pool = ACTIVE_LOCATION
+      ? shoes.filter(s => shoeIsAtLocation(s, ACTIVE_LOCATION))
       : shoes;
     const totalCount = pool.filter(inRange).length;
     const matchCount = pool.filter(s => inRange(s) && scoreShoe(s).score >= 20).length;
@@ -2201,8 +2251,8 @@ function prevQuestion() {
 function computeBudgetRange() {
   const savedBudget = answers.budget;
   answers.budget = { min: 0, max: 999999 };
-  const pool = CASTLE_MODE
-    ? shoes.filter(s => shoeIsAtLocation(s, 'castle'))
+  const pool = ACTIVE_LOCATION
+    ? shoes.filter(s => shoeIsAtLocation(s, ACTIVE_LOCATION))
     : shoes;
   const prices = pool
     .filter(s => scoreShoe(s).score > -999)
@@ -2332,8 +2382,8 @@ function scoreShoe(shoe) {
   else if (price < minP)                  score -= 5;
   else                                    score -= 15;
 
-  // ── Castle Rock stock bonus ───────────────────────────────────────────────
-  if (shoeIsAtLocation(shoe, 'castle')) score += 3;
+  // ── In-store stock bonus ──────────────────────────────────────────────────
+  if (ACTIVE_LOCATION && shoeIsAtLocation(shoe, ACTIVE_LOCATION)) score += 3;
 
   return { shoe, score, reasons };
 }
@@ -2400,8 +2450,8 @@ function showResults() {
   window.scrollTo({ top:0, behavior:'smooth' });
   renderAnswersSummary();
   // show only items that meet a minimum match percentage (70%)
-  const pool = CASTLE_MODE
-    ? shoes.filter(s => shoeIsAtLocation(s, 'castle'))
+  const pool = ACTIVE_LOCATION
+    ? shoes.filter(s => shoeIsAtLocation(s, ACTIVE_LOCATION))
     : shoes;
   const scored = pool.map(scoreShoe).sort((a,b) => b.score - a.score);
   const maxScore = scored[0]?.score || 0;
@@ -2419,8 +2469,8 @@ function showResults() {
   trackQuizCompleted(scoredWithPct, top);
   const grid = document.getElementById('shoes-grid');
   if (!top.length) {
-    grid.innerHTML = CASTLE_MODE
-      ? `<div class="no-results"><h3>No exact match in-store</h3><p>None of the shoes currently in stock at The Castle quite match your answers. Try adjusting your preferences, or ask a member of staff — they may have something that's just arrived.</p></div>`
+    grid.innerHTML = ACTIVE_LOCATION
+      ? `<div class="no-results"><h3>No exact match in-store</h3><p>None of the shoes currently in stock at ${LOCATIONS[ACTIVE_LOCATION].name} quite match your answers. Try adjusting your preferences, or ask a member of staff — they may have something that's just arrived.</p></div>`
       : `<div class="no-results"><h3>Hmm, no perfect match...</h3><p>Try relaxing some of your preferences and starting over.</p></div>`;
     return;
   }
@@ -2447,8 +2497,8 @@ function buildCard({ shoe, score, reasons }, rank, maxScore) {
 
   // "Try it on here" — one pill button per stocked location, sized to match
   // the buy button so trying-on-locally reads as an equally valid choice,
-  // not an afterthought. Shown outside Castle mode (you're already there).
-  const tryOnHtml = CASTLE_MODE ? '' : (shoe.locations || [])
+  // not an afterthought. Shown outside location mode (you're already there).
+  const tryOnHtml = ACTIVE_LOCATION ? '' : (shoe.locations || [])
     .map(loc => LOCATION_LOGOS[loc.toLowerCase()])
     .filter(Boolean)
     .map(l => {
@@ -2465,7 +2515,7 @@ function buildCard({ shoe, score, reasons }, rank, maxScore) {
   const hasLink = url && url !== '#';
   const buyLabel = hasLink ? 'View Online →' : 'Coming soon';
   const buyClass = hasLink ? '' : 'no-stock';
-  const buyButtonHtml = CASTLE_MODE
+  const buyButtonHtml = ACTIVE_LOCATION
     ? (hasLink ? `<button onclick="trackClick('${safeBrand}','${safeModel}','${url}')" class="btn-buy btn-buy-outline">View Online →</button>` : '')
     : `<button onclick="trackClick('${safeBrand}','${safeModel}','${url}')" class="btn-buy ${buyClass}">${buyLabel}</button>`;
 
