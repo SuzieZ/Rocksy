@@ -8,3 +8,7 @@ deployment:
     - /bin/cp -v privacy.shtml $DEPLOYPATH
     - /bin/mkdir -p $DEPLOYPATH/shoes
     - /bin/cp -v shoes/index.html $DEPLOYPATH/shoes/
+    - /bin/mkdir -p $DEPLOYPATH/images
+    - /bin/cp -rv images/. $DEPLOYPATH/images/
+    - /bin/mkdir -p $DEPLOYPATH/shoes/images
+    - /bin/cp -rv shoes/images/. $DEPLOYPATH/shoes/images/
