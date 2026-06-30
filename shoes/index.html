@@ -1912,10 +1912,9 @@
 <script>
 
 // ═══════════════════════════════════════════════════════════════════════════
-// DATA SOURCE — replace SHEET_CSV_URL with your Google Sheet publish URL
-// See setup instructions in the README / GoDaddy instructions document
+// DATA SOURCE
 // ═══════════════════════════════════════════════════════════════════════════
-const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRmxyA2EDSWy23EqRbxYxdmM3IuHCL1Jg3sKgCx2Xle2RYfEZjN_60LCBbH1fl_7HVr_fboYQmOCBfE/pub?output=csv';
+const PROXY_URL = 'proxy.php?k=d440719bc18135dd547592fb0aaa365a94baec13';
 
 // ═══════════════════════════════════════════════════════════════════════════
 // IN-STORE LOCATION MODE — activated via ?location=<key> in the URL (QR code)
@@ -2161,9 +2160,7 @@ function rowToShoe(r) {
 // ── Load data then start ─────────────────────────────────────────────────────
 async function loadShoes() {
   try {
-    // Bust caching (browser and Google's CDN) so edits to the sheet show up
-    // immediately instead of waiting out a stale cached CSV response.
-    const res = await fetch(`${SHEET_CSV_URL}&_=${Date.now()}`, { cache: 'no-store' });
+    const res = await fetch(PROXY_URL, { cache: 'no-store' });
     if (!res.ok) throw new Error('fetch failed');
     const text = await res.text();
     shoes = parseCSV(text).map(rowToShoe);
