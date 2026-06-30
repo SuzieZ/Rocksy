@@ -1111,6 +1111,48 @@
   .brand-filter-reason textarea:focus { outline: none; border-color: var(--moss); }
 
   /* RESTART */
+  .results-topbar {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1rem;
+  }
+  .btn-brand-filter {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    background: none;
+    border: 2px solid var(--pebble);
+    color: var(--stone);
+    padding: 0.5rem 1.1rem;
+    cursor: pointer;
+    border-radius: 50px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    transition: border-color 0.15s, color 0.15s, background 0.15s;
+    position: relative;
+  }
+  .btn-brand-filter:hover { border-color: var(--moss); color: var(--moss); }
+  .btn-brand-filter.active {
+    border-color: var(--moss);
+    color: var(--moss);
+    background: var(--moss-pale, #e8f4f0);
+  }
+  .brand-filter-badge {
+    display: none;
+    background: var(--moss);
+    color: #fff;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+  }
+  .btn-brand-filter.active .brand-filter-badge { display: flex; }
+
   .restart-wrap { text-align: center; margin-top: 1rem; }
   .btn-restart {
     background: none;
@@ -1693,6 +1735,12 @@
 
 <!-- RESULTS -->
 <div id="results">
+  <div class="results-topbar">
+    <button type="button" class="btn-brand-filter" id="btn-brand-filter" onclick="openBrandFilter()">
+      ⚙ Filter brands
+      <span class="brand-filter-badge" id="brand-filter-badge"></span>
+    </button>
+  </div>
   <div class="results-header">
     <p class="kicker" style="color:var(--moss);background:var(--moss-pale);">Your matches are in!</p>
     <h2>Here are your <span class="accent">perfect shoes</span></h2>
@@ -1706,7 +1754,6 @@
   <div class="restart-wrap">
     <button class="btn-restart" onclick="restart()">↺ Start over</button>
     <button class="btn-restart" id="location-exit-btn-results" onclick="exitLocationMode()" style="display:none;">Exit location mode</button>
-    <button class="btn-restart" onclick="openBrandFilter()">⚙ Filter brands</button>
   </div>
   <div class="shoes-grid" id="shoes-grid"></div>
   <div class="colour-wrap" style="text-align:center;margin-top:1rem;">
@@ -2842,12 +2889,28 @@ function updateBroadenSearchBanner() {
   }
 }
 
+function updateBrandFilterBtn() {
+  const excluded = getExcludedBrands();
+  const count = Object.keys(excluded).length;
+  const btn = document.getElementById('btn-brand-filter');
+  const badge = document.getElementById('brand-filter-badge');
+  if (!btn) return;
+  if (count > 0) {
+    btn.classList.add('active');
+    badge.textContent = count;
+  } else {
+    btn.classList.remove('active');
+    badge.textContent = '';
+  }
+}
+
 function showResults() {
   document.getElementById('quiz').style.display = 'none';
   document.getElementById('results').style.display = 'block';
   window.scrollTo({ top:0, behavior:'smooth' });
   renderAnswersSummary();
   updateBroadenSearchBanner();
+  updateBrandFilterBtn();
   // show only items that meet a minimum match percentage (70%)
   const pool = applyBrandExclusion(locationPool(BROADEN_SEARCH));
   const scored = pool.map(scoreShoe).sort((a,b) => b.score - a.score);
