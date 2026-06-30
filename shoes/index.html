@@ -1038,6 +1038,78 @@
     text-align: center;
   }
 
+  /* BROADEN SEARCH (order-in brands banner, location mode results) */
+  .broaden-search-banner {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    background: var(--loc-accent-pale, var(--moss-pale));
+    border: 1.5px solid var(--loc-accent, var(--moss));
+    border-radius: 10px;
+    padding: 1rem 1.3rem;
+    margin: 0 auto 2rem;
+    max-width: 640px;
+    text-align: center;
+  }
+  .broaden-search-banner p {
+    margin: 0;
+    font-size: 0.88rem;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+  .broaden-search-banner button {
+    background: var(--loc-accent, var(--moss));
+    color: #fff;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 50px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 800;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: opacity 0.15s, transform 0.1s;
+  }
+  .broaden-search-banner button:hover { opacity: 0.9; transform: translateY(-1px); }
+
+  /* BRAND FILTER MODAL */
+  .brand-filter-list {
+    max-height: 320px;
+    overflow-y: auto;
+    margin-bottom: 1rem;
+    padding-right: 0.3rem;
+  }
+  .brand-filter-row {
+    border-bottom: 1px solid var(--warm);
+    padding: 0.6rem 0;
+  }
+  .brand-filter-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--ink);
+    cursor: pointer;
+  }
+  .brand-filter-checkbox input { width: 17px; height: 17px; cursor: pointer; }
+  .brand-filter-reason { margin-top: 0.5rem; }
+  .brand-filter-reason textarea {
+    width: 100%;
+    border: 1.5px solid var(--pebble);
+    border-radius: 6px;
+    padding: 0.55rem 0.7rem;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.85rem;
+    color: var(--ink);
+    background: #fff;
+    resize: vertical;
+    min-height: 2.4rem;
+  }
+  .brand-filter-reason textarea:focus { outline: none; border-color: var(--moss); }
+
   /* RESTART */
   .restart-wrap { text-align: center; margin-top: 1rem; }
   .btn-restart {
@@ -1114,7 +1186,7 @@
   /* FOOTER */
   footer {
     margin-top: auto;
-    background: #1a1a1a;
+    background: var(--loc-banner-bg, #1a1a1a);
     border-top: none;
     padding: 2rem 2.5rem;
     text-align: center;
@@ -1627,10 +1699,15 @@
     <p id="results-subtitle">We've matched you from our full range — based on your climbing style, foot shape, and goals.</p>
     <div class="answers-summary" id="answers-summary"></div>
   </div>
+  <div class="broaden-search-banner" id="broaden-search-banner">
+    <p id="broaden-search-text"></p>
+    <button type="button" id="broaden-search-btn"></button>
+  </div>
   <div class="shoes-grid" id="shoes-grid"></div>
   <div class="restart-wrap">
     <button class="btn-restart" onclick="restart()">↺ Start over</button>
     <button class="btn-restart" id="location-exit-btn-results" onclick="exitLocationMode()" style="display:none;">Exit location mode</button>
+    <button class="btn-restart" onclick="openBrandFilter()">⚙ Filter brands</button>
   </div>
   <div class="colour-wrap" style="text-align:center;margin-top:1rem;">
     <a href="https://www.timpson.co.uk/shoe-care/dye" target="_blank" rel="noopener noreferrer" class="btn-colour">🎨 Don't like the colour?</a>
@@ -1773,6 +1850,18 @@
   </div>
 </div>
 
+<!-- BRAND FILTER MODAL -->
+<div class="fb-overlay" id="brand-filter-overlay" onclick="closeBrandFilter(event)">
+  <div class="fb-modal">
+    <button class="fb-close" onclick="closeBrandFilter()">&times;</button>
+    <h3 class="fb-title">Filter brands</h3>
+    <p class="fb-sub">All brands are shown by default. Untick a brand to hide it from your results from now on — tell us why and we'll pass it on.</p>
+    <div class="brand-filter-list" id="brand-filter-list"></div>
+    <p class="fb-error" id="brand-filter-error"></p>
+    <button class="fb-send" id="brand-filter-apply-btn" onclick="applyBrandFilter()">Apply filters →</button>
+  </div>
+</div>
+
 <script>
 
 // ═══════════════════════════════════════════════════════════════════════════
@@ -1812,6 +1901,10 @@ const LOCATIONS = {
     bannerBg: '#0f4647',
     heroSub: "Answer 6 quick questions and we'll show you the best matches available right here at Rise — pick them up and try them on today.",
     resultsSubtitle: "Here's what we've got in stock at Rise that matches your climbing style, foot shape, and goals — head to the front desk to try them on.",
+    // Brands Rise doesn't stock in full but is happy to special-order — see
+    // the "broaden your search" banner on the results page.
+    orderInBrands: ['La Sportiva', 'Scarpa', 'Evolv'],
+    orderInMessage: "Rise will order in any shoe from La Sportiva, Scarpa or Evolv — if you're willing to wait, broaden your search!",
   },
 };
 
@@ -1846,6 +1939,40 @@ function brandFitTip(brand) {
 
 function shoeIsAtLocation(shoe, name) {
   return (shoe.locations || []).some(l => l.toLowerCase() === name.toLowerCase());
+}
+
+// ── Brand filter ──────────────────────────────────────────────────────────
+// Lets a visitor hide brands they don't want to see. Persisted in
+// localStorage (there's no backend here, so this is per-browser, not
+// per-IP) so excluded brands stay hidden on future visits from this device.
+const EXCLUDED_BRANDS_KEY = 'rocksy-excluded-brands';
+
+function getExcludedBrands() {
+  try { return JSON.parse(localStorage.getItem(EXCLUDED_BRANDS_KEY) || '{}'); }
+  catch { return {}; }
+}
+function saveExcludedBrands(obj) {
+  localStorage.setItem(EXCLUDED_BRANDS_KEY, JSON.stringify(obj));
+}
+function applyBrandExclusion(pool) {
+  const excluded = getExcludedBrands();
+  return pool.filter(s => !excluded[s.brand]);
+}
+
+// Set true once the visitor clicks "Broaden your search" in location mode —
+// shows order-in shoes (LOCATIONS[key].orderInBrands) alongside in-stock ones.
+let BROADEN_SEARCH = false;
+function broadenSearch() { BROADEN_SEARCH = true; showResults(); }
+function narrowSearch() { BROADEN_SEARCH = false; showResults(); }
+
+// Shoes available in the current location mode. With includeOrderIn=true
+// (only used once "broaden your search" is clicked) it also includes every
+// shoe from that location's order-in brands, even if not in stock.
+function locationPool(includeOrderIn) {
+  if (!ACTIVE_LOCATION) return shoes;
+  const loc = LOCATIONS[ACTIVE_LOCATION];
+  const orderIn = (includeOrderIn && loc.orderInBrands) || [];
+  return shoes.filter(s => shoeIsAtLocation(s, ACTIVE_LOCATION) || orderIn.includes(s.brand));
 }
 
 function goLocationMode(key) {
@@ -2005,7 +2132,7 @@ async function loadShoes() {
 // shoes / 6 brands" line stays as-is.
 function renderFunStrip() {
   if (!ACTIVE_LOCATION || shoes.length === 0) return;
-  const pool = shoes.filter(s => shoeIsAtLocation(s, ACTIVE_LOCATION));
+  const pool = applyBrandExclusion(locationPool(false));
   const shoeCount = pool.length;
   const brandCount = new Set(pool.map(s => s.brand)).size;
   document.getElementById('fun-shoe-count').textContent =
@@ -2413,9 +2540,7 @@ function initBudgetSlider(q) {
       if (p === 0) return true;
       return p >= mn && p <= mx;
     };
-    const pool = ACTIVE_LOCATION
-      ? shoes.filter(s => shoeIsAtLocation(s, ACTIVE_LOCATION))
-      : shoes;
+    const pool = applyBrandExclusion(locationPool(false));
     const totalCount = pool.filter(inRange).length;
     const matchCount = pool.filter(s => inRange(s) && scoreShoe(s).score >= 20).length;
 
@@ -2475,9 +2600,7 @@ function prevQuestion() {
 function computeBudgetRange() {
   const savedBudget = answers.budget;
   answers.budget = { min: 0, max: 999999 };
-  const pool = ACTIVE_LOCATION
-    ? shoes.filter(s => shoeIsAtLocation(s, ACTIVE_LOCATION))
-    : shoes;
+  const pool = applyBrandExclusion(locationPool(false));
   const prices = pool
     .filter(s => scoreShoe(s).score > -999)
     .map(s => s.price)
@@ -2699,15 +2822,35 @@ function capByBrand(list, maxPerBrand) {
   });
 }
 
+function updateBroadenSearchBanner() {
+  const banner = document.getElementById('broaden-search-banner');
+  const loc = ACTIVE_LOCATION ? LOCATIONS[ACTIVE_LOCATION] : null;
+  if (!loc || !loc.orderInBrands || !loc.orderInBrands.length) {
+    banner.style.display = 'none';
+    return;
+  }
+  banner.style.display = 'flex';
+  const text = document.getElementById('broaden-search-text');
+  const btn = document.getElementById('broaden-search-btn');
+  if (BROADEN_SEARCH) {
+    text.textContent = `Showing every ${loc.orderInBrands.join(', ')} shoe, including ones we'd need to order in.`;
+    btn.textContent = 'Show in-stock only';
+    btn.onclick = narrowSearch;
+  } else {
+    text.textContent = loc.orderInMessage;
+    btn.textContent = 'Broaden your search →';
+    btn.onclick = broadenSearch;
+  }
+}
+
 function showResults() {
   document.getElementById('quiz').style.display = 'none';
   document.getElementById('results').style.display = 'block';
   window.scrollTo({ top:0, behavior:'smooth' });
   renderAnswersSummary();
+  updateBroadenSearchBanner();
   // show only items that meet a minimum match percentage (70%)
-  const pool = ACTIVE_LOCATION
-    ? shoes.filter(s => shoeIsAtLocation(s, ACTIVE_LOCATION))
-    : shoes;
+  const pool = applyBrandExclusion(locationPool(BROADEN_SEARCH));
   const scored = pool.map(scoreShoe).sort((a,b) => b.score - a.score);
   const maxScore = scored[0]?.score || 0;
   const scoredWithPct = scored.map(item => ({
@@ -2844,6 +2987,7 @@ function restart() {
   current = 0;
   answers = {};
   clearCompare();
+  BROADEN_SEARCH = false;
   document.getElementById('results').style.display = 'none';
   document.getElementById('quiz').style.display = 'none';
   document.getElementById('hero').style.display = 'block';
@@ -3013,6 +3157,93 @@ async function sendFeedback() {
 
   btn.disabled = false;
   btn.textContent = 'Send Feedback →';
+}
+
+// ─── BRAND FILTER ─────────────────────────────────────────────────────────────
+// pendingExclusions holds { brand: reason } for the modal currently open —
+// applyBrandFilter() commits it to localStorage and sends a feedback report
+// for any brand newly hidden in this session.
+let pendingExclusions = {};
+
+function cssSafeId(s) { return s.replace(/[^a-z0-9]/gi, '-'); }
+
+function openBrandFilter() {
+  const excluded = getExcludedBrands();
+  pendingExclusions = { ...excluded };
+  const brands = [...new Set(shoes.map(s => s.brand))].filter(Boolean).sort();
+  const list = document.getElementById('brand-filter-list');
+  list.innerHTML = brands.map(b => {
+    const isExcluded = Object.prototype.hasOwnProperty.call(excluded, b);
+    const safe = b.replace(/'/g, "\\'");
+    const safeId = cssSafeId(b);
+    const safeHtml = b.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    return `
+      <div class="brand-filter-row">
+        <label class="brand-filter-checkbox">
+          <input type="checkbox" ${isExcluded ? '' : 'checked'} onchange="toggleBrandFilter('${safe}', this.checked)">
+          ${safeHtml}
+        </label>
+        <div class="brand-filter-reason" id="brand-reason-${safeId}" style="display:${isExcluded ? 'block' : 'none'}">
+          <textarea placeholder="Why are you hiding ${safeHtml}? (required)" oninput="pendingExclusions['${safe}'] = this.value">${(excluded[b] || '').replace(/</g,'&lt;')}</textarea>
+        </div>
+      </div>`;
+  }).join('');
+  document.getElementById('brand-filter-error').textContent = '';
+  document.getElementById('brand-filter-overlay').classList.add('open');
+}
+
+function closeBrandFilter(e) {
+  if (e && e.target !== document.getElementById('brand-filter-overlay')) return;
+  document.getElementById('brand-filter-overlay').classList.remove('open');
+}
+
+function toggleBrandFilter(brand, checked) {
+  const reasonEl = document.getElementById(`brand-reason-${cssSafeId(brand)}`);
+  if (checked) {
+    delete pendingExclusions[brand];
+    reasonEl.style.display = 'none';
+  } else {
+    if (!(brand in pendingExclusions)) pendingExclusions[brand] = '';
+    reasonEl.style.display = 'block';
+  }
+}
+
+async function applyBrandFilter() {
+  const errEl = document.getElementById('brand-filter-error');
+  const missingReason = Object.entries(pendingExclusions).filter(([, reason]) => !reason || !reason.trim());
+  if (missingReason.length) {
+    errEl.textContent = `Please give a reason for hiding: ${missingReason.map(([b]) => b).join(', ')}`;
+    return;
+  }
+
+  const previouslyExcluded = getExcludedBrands();
+  const newlyExcluded = Object.keys(pendingExclusions).filter(b => !(b in previouslyExcluded));
+
+  const btn = document.getElementById('brand-filter-apply-btn');
+  btn.disabled = true;
+  btn.textContent = 'Saving...';
+
+  saveExcludedBrands(pendingExclusions);
+
+  // Best-effort: tell us which brands got hidden and why, but don't block
+  // the UI on it — the filter applies locally regardless of whether this
+  // succeeds.
+  for (const brand of newlyExcluded) {
+    try {
+      await fetch(FORMSPREE_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          message: `Brand filtered out via "Filter brands": ${brand}\nReason: ${pendingExclusions[brand]}`,
+        })
+      });
+    } catch (e) { /* ignore — filter is already saved locally */ }
+  }
+
+  btn.disabled = false;
+  btn.textContent = 'Apply filters →';
+  document.getElementById('brand-filter-overlay').classList.remove('open');
+  if (document.getElementById('results').style.display !== 'none') showResults();
 }
 </script>
 </body>
