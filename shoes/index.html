@@ -1703,12 +1703,12 @@
     <p id="broaden-search-text"></p>
     <button type="button" id="broaden-search-btn"></button>
   </div>
-  <div class="shoes-grid" id="shoes-grid"></div>
   <div class="restart-wrap">
     <button class="btn-restart" onclick="restart()">↺ Start over</button>
     <button class="btn-restart" id="location-exit-btn-results" onclick="exitLocationMode()" style="display:none;">Exit location mode</button>
     <button class="btn-restart" onclick="openBrandFilter()">⚙ Filter brands</button>
   </div>
+  <div class="shoes-grid" id="shoes-grid"></div>
   <div class="colour-wrap" style="text-align:center;margin-top:1rem;">
     <a href="https://www.timpson.co.uk/shoe-care/dye" target="_blank" rel="noopener noreferrer" class="btn-colour">🎨 Don't like the colour?</a>
   </div>
@@ -1892,8 +1892,7 @@ const LOCATIONS = {
   rise: {
     name: 'Rise',
     logo: '/images/Rise.png',
-    // TODO: add Rise's Google Maps link once we have it (Canning Town, E16)
-    mapsUrl: null,
+    mapsUrl: 'https://maps.app.goo.gl/gHCAG6CSNeryUEBW6',
     accent: '#ff6714',
     accentLight: '#ff8c47',
     accentPale: '#fed3ac',
@@ -2942,8 +2941,8 @@ function buildCard({ shoe, score, reasons, aggressionBadMismatch }, rank, maxSco
 
   const brandTipText = brandFitTip(shoe.brand);
 
-  const imgSrc = shoe.imageUrl || 'images/NoPicture.png';
-  const img = `<img class="shoe-img" src="${imgSrc}" alt="${shoe.brand} ${shoe.model}" loading="lazy" onerror="this.onerror=null;this.src='images/NoPicture.png';">`;
+  const imgSrc = shoe.imageUrl || 'images/NoImage.png';
+  const img = `<img class="shoe-img" src="${imgSrc}" alt="${shoe.brand} ${shoe.model}" loading="lazy" onerror="this.onerror=null;this.src='images/NoImage.png';">`;
   const imgHtml = hasLink
     ? `<button type="button" class="shoe-img-btn" aria-label="View ${shoe.brand} ${shoe.model} online" onclick="trackClick('${safeBrand}','${safeModel}','${url}')">${img}</button>`
     : img;
