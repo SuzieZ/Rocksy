@@ -2941,8 +2941,8 @@ function buildCard({ shoe, score, reasons, aggressionBadMismatch }, rank, maxSco
 
   const brandTipText = brandFitTip(shoe.brand);
 
-  const imgSrc = shoe.imageUrl || 'images/NoImage.png';
-  const img = `<img class="shoe-img" src="${imgSrc}" alt="${shoe.brand} ${shoe.model}" loading="lazy" onerror="this.onerror=null;this.src='images/NoImage.png';">`;
+  const imgSrc = shoe.imageUrl || 'images/NoImage.svg';
+  const img = `<img class="shoe-img" src="${imgSrc}" alt="${shoe.brand} ${shoe.model}" loading="lazy" onerror="this.onerror=null;this.src='images/NoImage.svg';">`;
   const imgHtml = hasLink
     ? `<button type="button" class="shoe-img-btn" aria-label="View ${shoe.brand} ${shoe.model} online" onclick="trackClick('${safeBrand}','${safeModel}','${url}')">${img}</button>`
     : img;
