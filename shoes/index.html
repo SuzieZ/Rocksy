@@ -1467,6 +1467,102 @@
   .compare-table th { background: var(--warm); font-weight: 700; }
   .compare-table td:first-child, .compare-table th:first-child { font-weight: 700; white-space: nowrap; }
   .compare-table td.compare-match { background: #e6f4ea; color: #2e7d32; font-weight: 700; }
+  .compare-table th.compare-ref-col { background: var(--moss); color: #fff; }
+  .compare-table td.compare-ref-col { background: #f0faf8; font-weight: 600; }
+
+  /* SIMILAR MODE */
+  #similar-mode {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2.5rem 1.2rem 3rem;
+  }
+  .similar-back {
+    background: none;
+    border: none;
+    color: rgba(255,255,255,0.75);
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 0;
+    margin-bottom: 1.5rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    transition: color 0.15s;
+  }
+  .similar-back:hover { color: #fff; }
+  .similar-heading {
+    color: #fff;
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+  .similar-heading .accent { color: var(--moss-light); }
+  .similar-sub {
+    color: rgba(255,255,255,0.75);
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+  .similar-search-row {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .similar-input {
+    flex: 1;
+    min-width: 220px;
+    padding: 0.75rem 1.1rem;
+    border-radius: 50px;
+    border: 2px solid rgba(255,255,255,0.25);
+    background: rgba(255,255,255,0.12);
+    color: #fff;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    outline: none;
+    transition: border-color 0.15s;
+  }
+  .similar-input::placeholder { color: rgba(255,255,255,0.45); }
+  .similar-input:focus { border-color: var(--moss-light); }
+  .similar-error {
+    color: #ffb3a7;
+    font-size: 0.85rem;
+    margin-top: 0.6rem;
+    min-height: 1.2em;
+  }
+  #similar-results {
+    margin-top: 2rem;
+    overflow-x: auto;
+  }
+  .similar-results-label {
+    color: rgba(255,255,255,0.6);
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.75rem;
+  }
+  .btn-hero-secondary {
+    background: none;
+    border: none;
+    color: rgba(255,255,255,0.65);
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 0.5rem 0;
+    margin-top: 0.75rem;
+    display: inline-block;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.15s;
+  }
+  .btn-hero-secondary:hover { color: #fff; }
 
   .sizing-note {
     font-size: 0.74rem;
@@ -1689,16 +1785,34 @@
 <!-- HERO BANNER -->
 <section id="hero">
   <div class="hero-banner">
-    <div class="hero-banner-inner">
+
+    <!-- SIMILAR MODE — shown instead of the main hero copy -->
+    <div id="similar-mode" style="display:none;">
+      <button class="similar-back" onclick="closeSimilarMode()">← Back</button>
+      <h2 class="similar-heading">Find shoes <span class="accent">similar to</span> one you love</h2>
+      <p class="similar-sub">Pick a shoe you already know — we'll find the closest alternatives across every brand in the database.</p>
+      <div class="similar-search-row">
+        <input type="text" id="similar-input" list="similar-datalist" class="similar-input"
+               placeholder="Type a shoe name or brand…" autocomplete="off"
+               onkeydown="if(event.key==='Enter')showSimilarResults()">
+        <datalist id="similar-datalist"></datalist>
+        <button class="btn-start" onclick="showSimilarResults()">Find similar →</button>
+      </div>
+      <p class="similar-error" id="similar-error"></p>
+      <div id="similar-results"></div>
+    </div>
+
+    <div class="hero-banner-inner" id="hero-main">
       <h1>Which Climbing Shoes<br><span class="accent">Should I Buy?</span></h1>
       <p class="hero-sub">When it comes to climbing shoes, you really want to try them on before you commit, but this quiz will help point you in the right direction!</p>
       <button class="btn-start" onclick="startQuiz()">Find my shoes →</button>
+      <div><button class="btn-hero-secondary" onclick="openSimilarMode()">Already have a favourite? Find something similar →</button></div>
       <div style="margin-top:1rem;" id="location-buttons">
         <button class="btn-colour location-enter-btn" data-location="castle" style="background:none;color:rgba(255,255,255,0.85);border-color:rgba(255,255,255,0.4);">I'm at the Castle</button>
         <button class="btn-colour location-enter-btn" data-location="rise" style="background:none;color:rgba(255,255,255,0.85);border-color:rgba(255,255,255,0.4);">I'm at Rise</button>
         <button class="btn-colour" id="location-exit-btn" onclick="exitLocationMode()" style="display:none;background:none;color:rgba(255,255,255,0.85);border-color:rgba(255,255,255,0.4);">Exit location mode</button>
       </div>
-    </div>
+    </div><!-- /.hero-banner-inner -->
   </div>
 </section>
 
@@ -3153,6 +3267,173 @@ function openCompare() {
 function closeCompare(e) {
   if (e && e.target !== document.getElementById('compare-overlay')) return;
   document.getElementById('compare-overlay').classList.remove('open');
+}
+
+// ── SIMILAR SHOE MODE ─────────────────────────────────────────────────────────
+
+function openSimilarMode() {
+  document.getElementById('hero-main').style.display = 'none';
+  document.getElementById('similar-mode').style.display = 'block';
+  document.getElementById('similar-error').textContent = '';
+  document.getElementById('similar-results').innerHTML = '';
+  document.getElementById('similar-input').value = '';
+  populateSimilarDatalist();
+  document.getElementById('similar-input').focus();
+}
+
+function closeSimilarMode() {
+  document.getElementById('similar-mode').style.display = 'none';
+  document.getElementById('hero-main').style.display = 'block';
+}
+
+function populateSimilarDatalist() {
+  const dl = document.getElementById('similar-datalist');
+  dl.innerHTML = '';
+  const sorted = [...shoes].sort((a, b) =>
+    a.brand.localeCompare(b.brand) || a.model.localeCompare(b.model));
+  sorted.forEach(s => {
+    const opt = document.createElement('option');
+    opt.value = `${s.brand} ${s.model}`;
+    dl.appendChild(opt);
+  });
+}
+
+function similarityScore(ref, cand) {
+  if (ref.brand === cand.brand && ref.model === cand.model) return -Infinity;
+  let score = 0;
+
+  // Gentle same-brand penalty — prefer cross-brand alternatives
+  if (ref.brand === cand.brand) score -= 15;
+
+  // Climbing type overlap
+  const refTypes = ref.climbType || [];
+  const candTypes = cand.climbType || [];
+  const typeMatches = refTypes.filter(t => candTypes.includes(t)).length;
+  score += typeMatches * 8;
+  if (typeMatches === refTypes.length && refTypes.length > 0) score += 10;
+
+  // Downturn
+  if (ref.downturn != null && cand.downturn != null) {
+    const d = Math.abs(ref.downturn - cand.downturn);
+    score += d === 0 ? 25 : d <= 0.5 ? 18 : d <= 1 ? 10 : d <= 1.5 ? 4 : -5;
+  }
+
+  // Asymmetry
+  if (ref.asym != null && cand.asym != null) {
+    const d = Math.abs(ref.asym - cand.asym);
+    score += d === 0 ? 15 : d <= 0.5 ? 10 : d <= 1 ? 5 : -3;
+  }
+
+  // Width overlap
+  const rw = (ref.width || []).map(w => w.toLowerCase());
+  const cw = (cand.width || []).map(w => w.toLowerCase());
+  if (rw.some(w => cw.includes(w))) score += 15;
+
+  // Fastening
+  if (ref.fastening && cand.fastening &&
+      ref.fastening.toLowerCase() === cand.fastening.toLowerCase()) score += 10;
+
+  // Foot shape
+  if (ref.footShape && cand.footShape && ref.footShape === cand.footShape) score += 10;
+
+  // Stiffness
+  if (ref.stiffness && cand.stiffness &&
+      ref.stiffness.toLowerCase() === cand.stiffness.toLowerCase()) score += 8;
+
+  // Price proximity
+  if (ref.price && cand.price) {
+    const d = Math.abs(ref.price - cand.price);
+    score += d <= 15 ? 8 : d <= 35 ? 4 : 0;
+  }
+
+  return score;
+}
+
+async function showSimilarResults() {
+  const errEl = document.getElementById('similar-error');
+  errEl.textContent = '';
+
+  if (shoes.length === 0) {
+    errEl.textContent = 'Still loading shoe data — please try again in a moment.';
+    await loadShoes();
+    populateSimilarDatalist();
+  }
+
+  const raw = (document.getElementById('similar-input').value || '').trim().toLowerCase();
+  if (!raw) { errEl.textContent = 'Please type a shoe name first.'; return; }
+
+  const ref = shoes.find(s => `${s.brand} ${s.model}`.toLowerCase() === raw);
+  if (!ref) {
+    errEl.textContent = 'Shoe not found — pick one from the suggestions as you type.';
+    return;
+  }
+
+  const scored = shoes
+    .map(s => ({ shoe: s, score: similarityScore(ref, s) }))
+    .filter(x => x.score > -Infinity)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 5)
+    .map(x => x.shoe);
+
+  const fmtDots = (val, max = 2) =>
+    (val == null) ? '—' : `${val} / ${max}`;
+  const fmtWidth = s =>
+    (s.width || []).map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(', ') || '—';
+  const fmtResole = s =>
+    s.resoleableRaw
+      ? (['true','yes','y','1'].includes(s.resoleableRaw) ? 'Yes'
+        : ['false','no','n','0'].includes(s.resoleableRaw) ? 'No'
+        : s.resoleableRaw)
+      : '—';
+
+  const rows = [
+    ['Price',       s => s.price ? `£${s.price.toFixed(0)}` : '—',
+                    (r, c) => r.price && c.price && Math.abs(r.price - c.price) <= 15],
+    ['Climbing for', s => (s.climbType || []).join(', ') || '—',
+                    (r, c) => (r.climbType || []).some(t => (c.climbType || []).includes(t))],
+    ['Downturn',    s => fmtDots(s.downturn),
+                    (r, c) => r.downturn != null && c.downturn != null && r.downturn === c.downturn],
+    ['Asymmetry',   s => fmtDots(s.asym),
+                    (r, c) => r.asym != null && c.asym != null && r.asym === c.asym],
+    ['Heel',        s => fmtDots(s.heel), null],
+    ['Width',       fmtWidth,
+                    (r, c) => (r.width||[]).map(w=>w.toLowerCase()).some(w => (c.width||[]).map(w2=>w2.toLowerCase()).includes(w))],
+    ['Fastening',   s => s.fastening || '—',
+                    (r, c) => r.fastening && c.fastening && r.fastening.toLowerCase() === c.fastening.toLowerCase()],
+    ['Stiffness',   s => s.stiffness || '—',
+                    (r, c) => r.stiffness && c.stiffness && r.stiffness.toLowerCase() === c.stiffness.toLowerCase()],
+    ['Toe Shape',   s => s.footShape ? s.footShape.charAt(0).toUpperCase() + s.footShape.slice(1) : '—',
+                    (r, c) => r.footShape && c.footShape && r.footShape === c.footShape],
+    ['Lining',      s => s.lining || '—', null],
+    ['Resoleable',  fmtResole, null],
+    ['Vegan',       s => s.vegan ? 'Yes' : 'No', null],
+  ];
+
+  const headerHtml = `<tr>
+    <th></th>
+    <th class="compare-ref-col">${ref.brand}<br>${ref.model}<br><small style="font-weight:400;opacity:0.8">Your reference</small></th>
+    ${scored.map(s => `<th>${s.brand}<br>${s.model}</th>`).join('')}
+  </tr>`;
+
+  const rowsHtml = rows.map(([label, fn, matchFn]) => {
+    const refCell = `<td class="compare-ref-col">${fn(ref)}</td>`;
+    const candCells = scored.map(s => {
+      const isMatch = matchFn ? matchFn(ref, s) : false;
+      return `<td class="${isMatch ? 'compare-match' : ''}">${fn(s)}</td>`;
+    }).join('');
+    return `<tr><td>${label}</td>${refCell}${candCells}</tr>`;
+  }).join('');
+
+  const buyRow = `<tr><td>Buy</td>
+    <td class="compare-ref-col">${ref.buyUrl ? `<a href="${ref.buyUrl}" target="_blank" rel="noopener" style="color:var(--moss)">View →</a>` : '—'}</td>
+    ${scored.map(s => `<td>${s.buyUrl ? `<a href="${s.buyUrl}" target="_blank" rel="noopener" style="color:var(--moss)">View →</a>` : '—'}</td>`).join('')}
+  </tr>`;
+
+  document.getElementById('similar-results').innerHTML = `
+    <p class="similar-results-label">Showing ${scored.length} closest match${scored.length === 1 ? '' : 'es'} to the ${ref.brand} ${ref.model}</p>
+    <div style="overflow-x:auto;">
+      <table class="compare-table">${headerHtml}${rowsHtml}${buyRow}</table>
+    </div>`;
 }
 
 function openSizeGuide() {
