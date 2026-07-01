@@ -1467,86 +1467,6 @@
   .compare-table th { background: var(--warm); font-weight: 700; }
   .compare-table td:first-child, .compare-table th:first-child { font-weight: 700; white-space: nowrap; }
   .compare-table td.compare-match { background: #e6f4ea; color: #2e7d32; font-weight: 700; }
-  .compare-table th.compare-ref-col { background: var(--moss); color: #fff; }
-  .compare-table td.compare-ref-col { background: #f0faf8; font-weight: 600; }
-
-  /* SIMILAR MODE */
-  #similar-mode {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 2.5rem 1.2rem 3rem;
-  }
-  .similar-back {
-    background: none;
-    border: none;
-    color: rgba(255,255,255,0.75);
-    font-family: 'Nunito', sans-serif;
-    font-size: 0.9rem;
-    font-weight: 700;
-    cursor: pointer;
-    padding: 0;
-    margin-bottom: 1.5rem;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.3rem;
-    transition: color 0.15s;
-  }
-  .similar-back:hover { color: #fff; }
-  .similar-heading {
-    color: #fff;
-    font-family: 'Oswald', sans-serif;
-    font-size: clamp(1.5rem, 4vw, 2.2rem);
-    font-weight: 700;
-    text-transform: uppercase;
-    margin-bottom: 0.5rem;
-  }
-  .similar-heading .accent { color: var(--moss-light); }
-  .similar-sub {
-    color: rgba(255,255,255,0.75);
-    font-size: 0.95rem;
-    margin-bottom: 2rem;
-    line-height: 1.6;
-  }
-  .similar-search-row {
-    display: flex;
-    gap: 0.75rem;
-    flex-wrap: wrap;
-    align-items: center;
-  }
-  .similar-input {
-    flex: 1;
-    min-width: 220px;
-    padding: 0.75rem 1.1rem;
-    border-radius: 50px;
-    border: 2px solid rgba(255,255,255,0.25);
-    background: rgba(255,255,255,0.12);
-    color: #fff;
-    font-family: 'Nunito', sans-serif;
-    font-size: 0.95rem;
-    font-weight: 600;
-    outline: none;
-    transition: border-color 0.15s;
-  }
-  .similar-input::placeholder { color: rgba(255,255,255,0.45); }
-  .similar-input:focus { border-color: var(--moss-light); }
-  .similar-error {
-    color: #ffb3a7;
-    font-size: 0.85rem;
-    margin-top: 0.6rem;
-    min-height: 1.2em;
-  }
-  #similar-results {
-    margin-top: 2rem;
-    overflow-x: auto;
-  }
-  .similar-results-label {
-    color: rgba(255,255,255,0.6);
-    font-size: 0.8rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    margin-bottom: 0.75rem;
-  }
   .btn-hero-secondary {
     background: none;
     border: none;
@@ -1563,6 +1483,151 @@
     transition: color 0.15s;
   }
   .btn-hero-secondary:hover { color: #fff; }
+  body.location-mode .btn-hero-secondary { display: none; }
+
+  /* SIMILAR MODE */
+  #similar-mode { padding: 2.5rem 1.2rem 3rem; max-width: 700px; margin: 0 auto; }
+  .similar-search-section { text-align: center; margin-bottom: 2.5rem; }
+  .similar-search-section h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+  }
+  .similar-search-section h2 .accent { color: var(--moss); }
+  .similar-search-section p { color: var(--stone); font-size: 0.92rem; margin-bottom: 1.5rem; line-height: 1.6; }
+  .similar-input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.85rem 1.2rem;
+    border-radius: 50px;
+    border: 2px solid var(--pebble);
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--ink);
+    outline: none;
+    margin-bottom: 0.75rem;
+    transition: border-color 0.15s;
+  }
+  .similar-input:focus { border-color: var(--moss); }
+  .similar-error { color: #c0392b; font-size: 0.85rem; margin-top: 0.4rem; min-height: 1.2em; }
+
+  .similar-ref-card {
+    border: 2px solid var(--moss);
+    border-radius: 14px;
+    padding: 1.1rem 1.2rem;
+    background: #f0faf8;
+    margin-bottom: 1.5rem;
+  }
+  .similar-ref-label {
+    font-size: 0.72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--moss);
+    margin-bottom: 0.3rem;
+  }
+  .similar-ref-name {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin-bottom: 0.7rem;
+  }
+  .similar-ref-chips { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .similar-ref-chip {
+    background: #fff;
+    border: 1px solid var(--moss);
+    color: var(--moss);
+    border-radius: 50px;
+    padding: 0.2rem 0.7rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+  }
+
+  .similar-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1rem;
+  }
+  .similar-card {
+    border: 1px solid var(--warm);
+    border-radius: 14px;
+    overflow: hidden;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+  }
+  .similar-card-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 1rem 1.1rem 0.8rem;
+    background: var(--warm);
+  }
+  .similar-card-brand {
+    font-size: 0.68rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    color: var(--stone);
+    margin-bottom: 0.15rem;
+  }
+  .similar-card-model {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+  .similar-card-price {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--ink);
+    white-space: nowrap;
+    margin-left: 0.5rem;
+  }
+  .similar-card-attrs { padding: 0.6rem 1.1rem; flex: 1; }
+  .similar-attr {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0.5rem;
+    padding: 0.35rem 0;
+    border-bottom: 1px solid var(--warm);
+    font-size: 0.82rem;
+  }
+  .similar-attr:last-child { border-bottom: none; }
+  .similar-attr-label { color: var(--stone); font-weight: 600; flex-shrink: 0; }
+  .similar-attr-val { font-weight: 700; color: var(--ink); text-align: right; }
+  .similar-attr.match .similar-attr-val { color: var(--moss); }
+  .similar-attr.match .similar-attr-label::before { content: '✓ '; color: var(--moss); }
+  .similar-card-buy {
+    display: block;
+    text-align: center;
+    padding: 0.7rem;
+    background: var(--moss);
+    color: #fff;
+    text-decoration: none;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 0.85rem;
+    transition: background 0.15s;
+  }
+  .similar-card-buy:hover { background: var(--moss-light); }
+  .similar-results-kicker {
+    font-size: 0.78rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--stone);
+    margin-bottom: 1rem;
+  }
 
   .sizing-note {
     font-size: 0.74rem;
@@ -1785,24 +1850,7 @@
 <!-- HERO BANNER -->
 <section id="hero">
   <div class="hero-banner">
-
-    <!-- SIMILAR MODE — shown instead of the main hero copy -->
-    <div id="similar-mode" style="display:none;">
-      <button class="similar-back" onclick="closeSimilarMode()">← Back</button>
-      <h2 class="similar-heading">Find shoes <span class="accent">similar to</span> one you love</h2>
-      <p class="similar-sub">Pick a shoe you already know — we'll find the closest alternatives across every brand in the database.</p>
-      <div class="similar-search-row">
-        <input type="text" id="similar-input" list="similar-datalist" class="similar-input"
-               placeholder="Type a shoe name or brand…" autocomplete="off"
-               onkeydown="if(event.key==='Enter')showSimilarResults()">
-        <datalist id="similar-datalist"></datalist>
-        <button class="btn-start" onclick="showSimilarResults()">Find similar →</button>
-      </div>
-      <p class="similar-error" id="similar-error"></p>
-      <div id="similar-results"></div>
-    </div>
-
-    <div class="hero-banner-inner" id="hero-main">
+    <div class="hero-banner-inner">
       <h1>Which Climbing Shoes<br><span class="accent">Should I Buy?</span></h1>
       <p class="hero-sub">When it comes to climbing shoes, you really want to try them on before you commit, but this quiz will help point you in the right direction!</p>
       <button class="btn-start" onclick="startQuiz()">Find my shoes →</button>
@@ -1812,7 +1860,7 @@
         <button class="btn-colour location-enter-btn" data-location="rise" style="background:none;color:rgba(255,255,255,0.85);border-color:rgba(255,255,255,0.4);">I'm at Rise</button>
         <button class="btn-colour" id="location-exit-btn" onclick="exitLocationMode()" style="display:none;background:none;color:rgba(255,255,255,0.85);border-color:rgba(255,255,255,0.4);">Exit location mode</button>
       </div>
-    </div><!-- /.hero-banner-inner -->
+    </div>
   </div>
 </section>
 
@@ -1877,6 +1925,22 @@
     <summary>👟 Worn through the rubber? Most climbing shoes can be resoled</summary>
     <p>Rand and sole rubber wears down with use, but the leather/synthetic upper usually outlasts it by a long way — that's why resoling instead of rebuying is normal in climbing. Most shoes can take 2–3 resoles before the upper gives out, though stiffer, board-lasted shoes resole more easily than very soft, slipper-like ones. A local resoler can usually tell you whether a specific pair is worth it. Where we know a shoe's resoleability, you'll see it listed under its attributes above.</p>
   </details>
+</div>
+
+<!-- SIMILAR MODE -->
+<div id="similar-mode" style="display:none;">
+  <div class="similar-search-section">
+    <button class="btn-restart" onclick="closeSimilarMode()" style="margin-bottom:1.5rem;">← Back</button>
+    <h2>Find shoes <span class="accent">similar to</span> one you love</h2>
+    <p>Pick a shoe you already know — we'll find the closest alternatives across every brand in our database.</p>
+    <input type="text" id="similar-input" list="similar-datalist" class="similar-input"
+           placeholder="Type a shoe name or brand…" autocomplete="off"
+           onkeydown="if(event.key==='Enter')showSimilarResults()">
+    <datalist id="similar-datalist"></datalist>
+    <button class="btn-start" onclick="showSimilarResults()">Find similar →</button>
+    <p class="similar-error" id="similar-error"></p>
+  </div>
+  <div id="similar-results"></div>
 </div>
 
 <!-- COMPARE BAR -->
@@ -3272,18 +3336,21 @@ function closeCompare(e) {
 // ── SIMILAR SHOE MODE ─────────────────────────────────────────────────────────
 
 function openSimilarMode() {
-  document.getElementById('hero-main').style.display = 'none';
+  document.getElementById('hero').style.display = 'none';
+  document.querySelector('.fun-strip').style.display = 'none';
   document.getElementById('similar-mode').style.display = 'block';
   document.getElementById('similar-error').textContent = '';
   document.getElementById('similar-results').innerHTML = '';
   document.getElementById('similar-input').value = '';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
   populateSimilarDatalist();
   document.getElementById('similar-input').focus();
 }
 
 function closeSimilarMode() {
   document.getElementById('similar-mode').style.display = 'none';
-  document.getElementById('hero-main').style.display = 'block';
+  document.getElementById('hero').style.display = 'block';
+  document.querySelector('.fun-strip').style.display = '';
 }
 
 function populateSimilarDatalist() {
@@ -3375,65 +3442,95 @@ async function showSimilarResults() {
     .slice(0, 5)
     .map(x => x.shoe);
 
-  const fmtDots = (val, max = 2) =>
-    (val == null) ? '—' : `${val} / ${max}`;
-  const fmtWidth = s =>
-    (s.width || []).map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(', ') || '—';
-  const fmtResole = s =>
-    s.resoleableRaw
-      ? (['true','yes','y','1'].includes(s.resoleableRaw) ? 'Yes'
-        : ['false','no','n','0'].includes(s.resoleableRaw) ? 'No'
-        : s.resoleableRaw)
-      : '—';
+  const cap = s => s ? s.charAt(0).toUpperCase() + s.slice(1) : '';
+  const fmtWidth = s => (s.width || []).map(cap).join(', ') || '—';
+  const aggrLabel = n => n == null ? null : n <= 0 ? 'Flat' : n === 1 ? 'Moderate' : 'Aggressive';
 
-  const rows = [
-    ['Price',       s => s.price ? `£${s.price.toFixed(0)}` : '—',
-                    (r, c) => r.price && c.price && Math.abs(r.price - c.price) <= 15],
-    ['Climbing for', s => (s.climbType || []).join(', ') || '—',
-                    (r, c) => (r.climbType || []).some(t => (c.climbType || []).includes(t))],
-    ['Downturn',    s => fmtDots(s.downturn),
-                    (r, c) => r.downturn != null && c.downturn != null && r.downturn === c.downturn],
-    ['Asymmetry',   s => fmtDots(s.asym),
-                    (r, c) => r.asym != null && c.asym != null && r.asym === c.asym],
-    ['Heel',        s => fmtDots(s.heel), null],
-    ['Width',       fmtWidth,
-                    (r, c) => (r.width||[]).map(w=>w.toLowerCase()).some(w => (c.width||[]).map(w2=>w2.toLowerCase()).includes(w))],
-    ['Fastening',   s => s.fastening || '—',
-                    (r, c) => r.fastening && c.fastening && r.fastening.toLowerCase() === c.fastening.toLowerCase()],
-    ['Stiffness',   s => s.stiffness || '—',
-                    (r, c) => r.stiffness && c.stiffness && r.stiffness.toLowerCase() === c.stiffness.toLowerCase()],
-    ['Toe Shape',   s => s.footShape ? s.footShape.charAt(0).toUpperCase() + s.footShape.slice(1) : '—',
-                    (r, c) => r.footShape && c.footShape && r.footShape === c.footShape],
-    ['Lining',      s => s.lining || '—', null],
-    ['Resoleable',  fmtResole, null],
-    ['Vegan',       s => s.vegan ? 'Yes' : 'No', null],
-  ];
+  function buildAttrRows(ref, cand) {
+    const rows = [];
+    const push = (label, refVal, candVal, isMatch) =>
+      rows.push(`<div class="similar-attr${isMatch ? ' match' : ''}">
+        <span class="similar-attr-label">${label}</span>
+        <span class="similar-attr-val">${candVal}</span>
+      </div>`);
 
-  const headerHtml = `<tr>
-    <th></th>
-    <th class="compare-ref-col">${ref.brand}<br>${ref.model}<br><small style="font-weight:400;opacity:0.8">Your reference</small></th>
-    ${scored.map(s => `<th>${s.brand}<br>${s.model}</th>`).join('')}
-  </tr>`;
+    // Climbing types
+    const refTypes = (ref.climbType || []).join(', ') || '—';
+    const candTypes = (cand.climbType || []).join(', ') || '—';
+    const typesMatch = (ref.climbType || []).some(t => (cand.climbType || []).includes(t));
+    push('Climbing', refTypes, candTypes, typesMatch && candTypes === refTypes);
 
-  const rowsHtml = rows.map(([label, fn, matchFn]) => {
-    const refCell = `<td class="compare-ref-col">${fn(ref)}</td>`;
-    const candCells = scored.map(s => {
-      const isMatch = matchFn ? matchFn(ref, s) : false;
-      return `<td class="${isMatch ? 'compare-match' : ''}">${fn(s)}</td>`;
-    }).join('');
-    return `<tr><td>${label}</td>${refCell}${candCells}</tr>`;
-  }).join('');
+    // Downturn
+    const refAggr = aggrLabel(ref.downturn);
+    const candAggr = aggrLabel(cand.downturn);
+    if (refAggr || candAggr)
+      push('Downturn', refAggr || '—', candAggr || '—', refAggr && refAggr === candAggr);
 
-  const buyRow = `<tr><td>Buy</td>
-    <td class="compare-ref-col">${ref.buyUrl ? `<a href="${ref.buyUrl}" target="_blank" rel="noopener" style="color:var(--moss)">View →</a>` : '—'}</td>
-    ${scored.map(s => `<td>${s.buyUrl ? `<a href="${s.buyUrl}" target="_blank" rel="noopener" style="color:var(--moss)">View →</a>` : '—'}</td>`).join('')}
-  </tr>`;
+    // Asymmetry
+    const refAsym = aggrLabel(ref.asym);
+    const candAsym = aggrLabel(cand.asym);
+    if (refAsym || candAsym)
+      push('Asymmetry', refAsym || '—', candAsym || '—', refAsym && refAsym === candAsym);
+
+    // Width
+    const rw = fmtWidth(ref), cw = fmtWidth(cand);
+    const widthMatch = (ref.width||[]).map(w=>w.toLowerCase()).some(w=>(cand.width||[]).map(w2=>w2.toLowerCase()).includes(w));
+    push('Width', rw, cw, widthMatch);
+
+    // Fastening
+    const fMatch = ref.fastening && cand.fastening && ref.fastening.toLowerCase() === cand.fastening.toLowerCase();
+    push('Fastening', ref.fastening || '—', cand.fastening || '—', fMatch);
+
+    // Stiffness
+    const sMatch = ref.stiffness && cand.stiffness && ref.stiffness.toLowerCase() === cand.stiffness.toLowerCase();
+    push('Stiffness', ref.stiffness || '—', cand.stiffness || '—', !!sMatch);
+
+    // Toe shape (only if either has a value)
+    if (ref.footShape || cand.footShape)
+      push('Toe shape', cap(ref.footShape) || '—', cap(cand.footShape) || '—',
+           !!(ref.footShape && cand.footShape && ref.footShape === cand.footShape));
+
+    return rows.join('');
+  }
+
+  // Reference shoe chips
+  const refChips = [
+    ref.price ? `£${ref.price}` : null,
+    aggrLabel(ref.downturn) ? `${aggrLabel(ref.downturn)} downturn` : null,
+    fmtWidth(ref) !== '—' ? fmtWidth(ref) : null,
+    ref.fastening || null,
+    ref.stiffness ? cap(ref.stiffness) : null,
+    ...(ref.climbType || []),
+  ].filter(Boolean);
+
+  const refCard = `
+    <div class="similar-ref-card">
+      <div class="similar-ref-label">Your reference shoe</div>
+      <div class="similar-ref-name">${ref.brand} ${ref.model}</div>
+      <div class="similar-ref-chips">
+        ${refChips.map(c => `<span class="similar-ref-chip">${c}</span>`).join('')}
+      </div>
+    </div>`;
+
+  const cards = scored.map(s => `
+    <div class="similar-card">
+      <div class="similar-card-head">
+        <div>
+          <div class="similar-card-brand">${s.brand}</div>
+          <div class="similar-card-model">${s.model}</div>
+        </div>
+        ${s.price ? `<div class="similar-card-price">£${s.price}</div>` : ''}
+      </div>
+      <div class="similar-card-attrs">${buildAttrRows(ref, s)}</div>
+      ${s.buyUrl
+        ? `<a href="${s.buyUrl}" target="_blank" rel="noopener" class="similar-card-buy">View shoe →</a>`
+        : ''}
+    </div>`).join('');
 
   document.getElementById('similar-results').innerHTML = `
-    <p class="similar-results-label">Showing ${scored.length} closest match${scored.length === 1 ? '' : 'es'} to the ${ref.brand} ${ref.model}</p>
-    <div style="overflow-x:auto;">
-      <table class="compare-table">${headerHtml}${rowsHtml}${buyRow}</table>
-    </div>`;
+    ${refCard}
+    <p class="similar-results-kicker">${scored.length} closest alternative${scored.length === 1 ? '' : 's'}</p>
+    <div class="similar-cards">${cards}</div>`;
 }
 
 function openSizeGuide() {
