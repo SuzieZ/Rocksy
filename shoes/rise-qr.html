@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Find Your Perfect Climbing Shoes — Rise</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background: #ffffff;
+    color: #0f4647;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    padding: 20mm 18mm;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+  }
+
+  .logo-bar {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 10mm;
+  }
+
+  .logo-icon {
+    width: 52px;
+    height: 52px;
+    background: #0f4647;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .logo-icon svg { display: block; }
+
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .logo-text .site-name {
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    color: #0f4647;
+    line-height: 1;
+  }
+
+  .logo-text .site-name span {
+    color: #ff6714;
+  }
+
+  .logo-text .tagline {
+    font-size: 13px;
+    color: #5a8a8b;
+    margin-top: 3px;
+    letter-spacing: 0.3px;
+  }
+
+  .divider {
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to right, #0f4647, #ff6714);
+    border-radius: 2px;
+    margin-bottom: 10mm;
+  }
+
+  .headline {
+    text-align: center;
+    margin-bottom: 8mm;
+  }
+
+  .headline h1 {
+    font-size: 38px;
+    font-weight: 800;
+    color: #0f4647;
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+  }
+
+  .headline h1 em {
+    font-style: normal;
+    color: #ff6714;
+  }
+
+  .headline p {
+    font-size: 16px;
+    color: #3d7273;
+    margin-top: 6px;
+    line-height: 1.5;
+  }
+
+  .qr-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5mm;
+    margin-bottom: 8mm;
+  }
+
+  .qr-frame {
+    border: 4px solid #0f4647;
+    border-radius: 16px;
+    padding: 10px;
+    background: #ffffff;
+    box-shadow: 0 4px 24px rgba(15,70,71,0.12);
+  }
+
+  .qr-frame svg {
+    display: block;
+    width: 220px;
+    height: 220px;
+  }
+
+  .scan-label {
+    font-size: 15px;
+    font-weight: 600;
+    color: #0f4647;
+    text-align: center;
+    letter-spacing: 0.3px;
+  }
+
+  .url-chip {
+    font-size: 11px;
+    color: #5a8a8b;
+    background: #f0f7f7;
+    border: 1px solid #c0dede;
+    border-radius: 20px;
+    padding: 4px 14px;
+    letter-spacing: 0.3px;
+    text-align: center;
+  }
+
+  .steps {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    margin-bottom: 9mm;
+  }
+
+  .step {
+    flex: 1;
+    background: #f0f7f7;
+    border-radius: 12px;
+    padding: 14px 12px;
+    text-align: center;
+    border-top: 3px solid #0f4647;
+  }
+
+  .step .num {
+    width: 28px;
+    height: 28px;
+    background: #0f4647;
+    color: #ffffff;
+    border-radius: 50%;
+    font-size: 14px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 7px;
+  }
+
+  .step p {
+    font-size: 12.5px;
+    color: #0f4647;
+    line-height: 1.45;
+  }
+
+  .cta-banner {
+    width: 100%;
+    background: #0f4647;
+    color: #ffffff;
+    border-radius: 12px;
+    padding: 14px 20px;
+    text-align: center;
+    margin-bottom: 8mm;
+  }
+
+  .cta-banner p {
+    font-size: 14px;
+    line-height: 1.5;
+    opacity: 0.9;
+  }
+
+  .cta-banner strong {
+    color: #ff6714;
+    font-size: 15px;
+  }
+
+  .footer {
+    text-align: center;
+    font-size: 11px;
+    color: #9bbcbc;
+    line-height: 1.6;
+  }
+
+  @media print {
+    @page {
+      size: A4 portrait;
+      margin: 0;
+    }
+
+    body {
+      print-color-adjust: exact;
+      -webkit-print-color-adjust: exact;
+    }
+
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      page-break-inside: avoid;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="logo-bar">
+    <div class="logo-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <path d="M8 26 C8 26 6 18 10 12 C14 6 20 5 24 8 C28 11 28 17 24 21 C22 23 20 24 16 24 C14 24 12 24 12 24 L12 26 Z" fill="#ff6714"/>
+        <circle cx="19" cy="12" r="3" fill="#ffffff" opacity="0.85"/>
+        <path d="M12 24 L12 28 M10 28 L14 28" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="logo-text">
+      <div class="site-name">Rocksy<span>.</span></div>
+      <div class="tagline">Climbing shoe finder · rocksyadventures.com</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="headline">
+    <h1>Find your <em>perfect</em><br>climbing shoes</h1>
+    <p>Answer a few quick questions and get personalised recommendations<br>stocked right here at Rise.</p>
+  </div>
+
+  <div class="qr-block">
+    <div class="qr-frame">
+      <svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 37 37" shape-rendering="crispEdges"><path fill="#ffffff" d="M0 0h37v37H0z"/><path stroke="#0f4647" d="M2 2.5h7m4 0h1m2 0h1m1 0h1m2 0h2m1 0h2m2 0h7M2 3.5h1m5 0h1m3 0h1m4 0h2m1 0h1m1 0h3m3 0h1m5 0h1M2 4.5h1m1 0h3m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m3 0h5m1 0h1m1 0h3m1 0h1M2 5.5h1m1 0h3m1 0h1m1 0h3m1 0h1m5 0h1m3 0h1m3 0h1m1 0h3m1 0h1M2 6.5h1m1 0h3m1 0h1m1 0h5m1 0h3m3 0h1m1 0h3m1 0h1m1 0h3m1 0h1M2 7.5h1m5 0h1m1 0h1m1 0h4m3 0h3m1 0h1m2 0h1m1 0h1m5 0h1M2 8.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M10 9.5h1m2 0h2m1 0h1m1 0h1m1 0h6M2 10.5h1m1 0h5m2 0h6m2 0h1m1 0h2m1 0h2m2 0h5M3 11.5h2m1 0h1m2 0h1m1 0h1m2 0h2m3 0h5m1 0h1m2 0h2m1 0h4M4 12.5h1m2 0h2m3 0h2m1 0h5m10 0h1m1 0h2M2 13.5h4m5 0h1m2 0h2m1 0h4m1 0h2m1 0h4m1 0h4M2 14.5h1m2 0h1m1 0h4m1 0h1m1 0h1m1 0h1m1 0h1m3 0h1m1 0h4m1 0h3m1 0h1M3 15.5h1m2 0h1m2 0h1m5 0h1m1 0h1m2 0h1m2 0h1m1 0h1m2 0h1m3 0h3M2 16.5h2m1 0h1m2 0h1m2 0h3m1 0h1m1 0h2m3 0h2m3 0h2m1 0h2m1 0h1M3 17.5h1m3 0h1m4 0h1m1 0h1m2 0h1m5 0h3m1 0h2m1 0h1m1 0h1M3 18.5h2m1 0h5m3 0h1m1 0h2m1 0h1m2 0h1m1 0h4m1 0h2m3 0h1M5 19.5h2m5 0h1m1 0h1m3 0h1m2 0h2m2 0h1m1 0h3m1 0h2m1 0h1M2 20.5h8m3 0h2m2 0h2m1 0h1m2 0h1m5 0h2m1 0h2M2 21.5h4m1 0h1m1 0h1m3 0h3m2 0h1m2 0h7m1 0h6M4 22.5h1m2 0h2m1 0h3m1 0h2m4 0h2m2 0h1m1 0h2m1 0h3m1 0h2M2 23.5h3m2 0h1m1 0h1m1 0h8m3 0h4m1 0h2m2 0h1m2 0h1M2 24.5h1m2 0h2m1 0h1m3 0h2m1 0h2m2 0h3m1 0h2m4 0h1m1 0h1m1 0h1M2 25.5h1m1 0h1m1 0h2m1 0h1m1 0h4m3 0h1m2 0h3m2 0h1m1 0h1m1 0h1m1 0h2M2 26.5h1m1 0h5m1 0h4m1 0h2m2 0h3m2 0h8M10 27.5h6m2 0h7m1 0h1m3 0h1m1 0h1m1 0h1M2 28.5h7m6 0h1m1 0h3m2 0h1m2 0h2m1 0h1m1 0h1m1 0h2M2 29.5h1m5 0h1m1 0h2m2 0h1m4 0h2m1 0h5m3 0h3M2 30.5h1m1 0h3m1 0h1m1 0h2m2 0h2m1 0h2m5 0h1m1 0h6m2 0h1M2 31.5h1m1 0h3m1 0h1m1 0h2m1 0h5m1 0h2m2 0h1m1 0h1m1 0h1m2 0h2m1 0h2M2 32.5h1m1 0h3m1 0h1m1 0h2m1 0h3m1 0h3m2 0h1m1 0h2m2 0h2m1 0h1M2 33.5h1m5 0h1m2 0h2m2 0h3m2 0h1m1 0h2m3 0h1m2 0h3M2 34.5h7m1 0h3m1 0h2m1 0h1m1 0h1m4 0h3m2 0h1m3 0h1"/></svg>
+    </div>
+    <div class="scan-label">Point your phone camera at the code to get started</div>
+    <div class="url-chip">rocksyadventures.com/shoes/?location=rise</div>
+  </div>
+
+  <div class="steps">
+    <div class="step">
+      <div class="num">1</div>
+      <p><strong>Tell us about your climbing</strong> — sport, bouldering, multi-pitch?</p>
+    </div>
+    <div class="step">
+      <div class="num">2</div>
+      <p><strong>Describe your feet</strong> — width, downturn preference, fastening style.</p>
+    </div>
+    <div class="step">
+      <div class="num">3</div>
+      <p><strong>Get your matches</strong> — ranked recommendations from brands we stock.</p>
+    </div>
+  </div>
+
+  <div class="cta-banner">
+    <p>Not sure where to start? <strong>Our team at Rise are happy to help.</strong><br>
+    The quiz takes about 60 seconds and filters to shoes available in-store.</p>
+  </div>
+
+  <div class="footer">
+    <p>rocksyadventures.com &nbsp;·&nbsp; Rocksy Shoe Finder &nbsp;·&nbsp; Rise Climbing</p>
+  </div>
+
+</div>
+</body>
+</html>
