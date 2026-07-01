@@ -2136,6 +2136,24 @@ const ACTIVE_LOCATION = (() => {
   return key && LOCATIONS[key] ? key : null;
 })();
 
+// IP geolocation — all try-on locations are in London, so only show try-on
+// buttons to users who appear to be in London. Cached in sessionStorage so the
+// lookup only fires once per browser session. Fails silently (hides buttons).
+let userIsInLondon = false;
+(async () => {
+  if (ACTIVE_LOCATION) return; // in-store mode: try-on buttons already hidden
+  const cached = sessionStorage.getItem('geo_london');
+  if (cached !== null) { userIsInLondon = cached === '1'; return; }
+  try {
+    const r = await fetch('https://ipapi.co/json/');
+    if (r.ok) {
+      const d = await r.json();
+      userIsInLondon = (d.city || '').toLowerCase().includes('london');
+      sessionStorage.setItem('geo_london', userIsInLondon ? '1' : '0');
+    }
+  } catch (_) { /* fail silently — try-on buttons stay hidden */ }
+})();
+
 // Logos shown in the "Try it on here" section for each gym a shoe is
 // stocked at, derived from LOCATIONS — mapsUrl is optional, but if set the
 // logo becomes clickable and opens that location in Google Maps in a new tab.
@@ -3142,7 +3160,7 @@ function buildCard({ shoe, score, reasons, aggressionBadMismatch }, rank, maxSco
   // "Try it on here" — one pill button per stocked location, sized to match
   // the buy button so trying-on-locally reads as an equally valid choice,
   // not an afterthought. Shown outside location mode (you're already there).
-  const tryOnHtml = ACTIVE_LOCATION ? '' : (shoe.locations || [])
+  const tryOnHtml = (ACTIVE_LOCATION || !userIsInLondon) ? '' : (shoe.locations || [])
     .map(loc => LOCATION_LOGOS[loc.toLowerCase()])
     .filter(Boolean)
     .map(l => {
