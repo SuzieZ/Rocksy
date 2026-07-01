@@ -885,7 +885,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--warm);
+    background: #fff;
     border-radius: 12px;
     margin-bottom: 0.9rem;
     overflow: hidden;
@@ -1111,10 +1111,16 @@
   .brand-filter-reason textarea:focus { outline: none; border-color: var(--moss); }
 
   /* RESTART */
-  .results-topbar {
+  .summary-filter-row {
     display: flex;
-    justify-content: flex-end;
-    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.6rem;
+    margin-top: 1.2rem;
+  }
+  .summary-filter-row .answers-summary {
+    margin-top: 0;
   }
   .btn-brand-filter {
     display: flex;
@@ -1897,27 +1903,26 @@
 
 <!-- RESULTS -->
 <div id="results">
-  <div class="results-topbar">
-    <button type="button" class="btn-brand-filter" id="btn-brand-filter" onclick="openBrandFilter()">
-      ⚙ Filter brands
-      <span class="brand-filter-badge" id="brand-filter-badge"></span>
-    </button>
-  </div>
   <div class="results-header">
     <p class="kicker" style="color:var(--moss);background:var(--moss-pale);">Your matches are in!</p>
-    <h2>Here are your <span class="accent">perfect shoes</span></h2>
-    <p id="results-subtitle">We've matched you from our full range — based on your climbing style, foot shape, and goals.</p>
-    <div class="answers-summary" id="answers-summary"></div>
+    <h2>Here are your <span class="accent">shoes</span></h2>
+    <div class="summary-filter-row">
+      <div class="answers-summary" id="answers-summary"></div>
+      <button type="button" class="btn-brand-filter" id="btn-brand-filter" onclick="openBrandFilter()">
+        ⚙ Filter brands
+        <span class="brand-filter-badge" id="brand-filter-badge"></span>
+      </button>
+    </div>
   </div>
   <div class="broaden-search-banner" id="broaden-search-banner">
     <p id="broaden-search-text"></p>
     <button type="button" id="broaden-search-btn"></button>
   </div>
+  <div class="shoes-grid" id="shoes-grid"></div>
   <div class="restart-wrap">
     <button class="btn-restart" onclick="restart()">↺ Start over</button>
     <button class="btn-restart" id="location-exit-btn-results" onclick="exitLocationMode()" style="display:none;">Exit location mode</button>
   </div>
-  <div class="shoes-grid" id="shoes-grid"></div>
   <div class="colour-wrap" style="text-align:center;margin-top:1rem;">
     <a href="https://www.timpson.co.uk/shoe-care/dye" target="_blank" rel="noopener noreferrer" class="btn-colour">🎨 Don't like the colour?</a>
   </div>
@@ -2260,7 +2265,6 @@ function initLocationMode() {
     `In-store at ${loc.name} — showing shoes available in our shop right now`;
   document.getElementById('location-banner').style.display = 'flex';
   document.querySelector('.hero-sub').textContent = loc.heroSub;
-  document.getElementById('results-subtitle').textContent = loc.resultsSubtitle;
 }
 initLocationMode();
 
