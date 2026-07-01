@@ -2148,7 +2148,10 @@ let userIsInLondon = false;
     const r = await fetch('https://ipapi.co/json/');
     if (r.ok) {
       const d = await r.json();
-      userIsInLondon = (d.city || '').toLowerCase().includes('london');
+      // Greater London bounding box — more reliable than city name, which is
+      // often a borough (Hackney, Islington, etc.) rather than "London".
+      const lat = parseFloat(d.latitude), lon = parseFloat(d.longitude);
+      userIsInLondon = lat >= 51.25 && lat <= 51.70 && lon >= -0.55 && lon <= 0.35;
       sessionStorage.setItem('geo_london', userIsInLondon ? '1' : '0');
     }
   } catch (_) { /* fail silently — try-on buttons stay hidden */ }
