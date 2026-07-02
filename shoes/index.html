@@ -2301,6 +2301,10 @@ let shoes = [];   // populated on load from Google Sheet
 let current = 0;
 let answers = {};
 let compareSet = new Set();   // keys are `${brand}|||${model}`, max 3
+let lastResults = [];         // top-ranked items from the last showResults() call
+let _quizStartTime = null;    // Date.now() when startQuiz() fires
+let _quizCompleted = false;   // set true in trackQuizCompleted; guards quiz_abandoned
+let _budgetTrackTimer = null; // debounce handle for budget slider quiz_answer events
 
 // ── CSV parser (handles quoted fields with commas) ───────────────────────────
 function parseCSV(text) {
@@ -2392,7 +2396,18 @@ const UTM = '?utm_source=rocksy-shoe-finder&utm_medium=referral&utm_campaign=sho
 
 function trackClick(brand, model, url) {
   if (typeof gtag !== 'undefined') {
-    gtag('event', 'buy_click', { shoe_brand: brand, shoe_model: model, outbound_url: url });
+    const item = lastResults.find(r => r.shoe.brand === brand && r.shoe.model === model);
+    const rank = item ? lastResults.indexOf(item) + 1 : null;
+    gtag('event', 'shoe_clicked', {
+      brand,
+      model,
+      rank,
+      match_pct:  item?.matchPct ?? null,
+      price:      item?.shoe.price ?? null,
+      currency:   'GBP',
+      outbound_url: url,
+      ...(item ? shoeToParams(item.shoe) : {}),
+    });
   }
   const dest = (url && url !== '#') ? url + UTM : url;
   window.open(dest, '_blank');
@@ -2403,6 +2418,39 @@ function trackTryOn(brand, model, location, mapsUrl) {
     gtag('event', 'try_on_click', { shoe_brand: brand, shoe_model: model, try_on_location: location });
   }
   window.open(mapsUrl, '_blank', 'noopener');
+}
+
+// Flatten a shoe object into GA4-safe event params. Arrays become pipe-joined
+// strings. Any new attribute added to the sheet is picked up automatically.
+function shoeToParams(shoe) {
+  const p = {};
+  Object.entries(shoe).forEach(([k, v]) => {
+    if (v === null || v === undefined) return;
+    p[k] = Array.isArray(v) ? v.join('|') : v;
+  });
+  return p;
+}
+
+// Fire a quiz_answer GA4 event. Called from selectOption() and the budget
+// slider. Converts multi-select arrays and budget objects to strings.
+function fireQuizAnswer(qid, value) {
+  if (typeof gtag === 'undefined') return;
+  const active = getActiveQuestions();
+  const qIndex = active.findIndex(q => q.id === qid);
+  let answerValue;
+  if (Array.isArray(value)) {
+    answerValue = value.join('|') || 'n/a';
+  } else if (value && typeof value === 'object') {
+    answerValue = `${value.min}-${value.max}`;
+  } else {
+    answerValue = String(value ?? '');
+  }
+  gtag('event', 'quiz_answer', {
+    question_id:            qid,
+    question_number:        qIndex + 1,
+    answer_value:           answerValue,
+    experience_level_so_far: answers.experience || 'n/a',
+  });
 }
 
 // Buckets a quiz session's budget range for friendlier GA4 breakdowns,
@@ -2429,7 +2477,9 @@ function trackQuizCompleted(scoredWithPct, top) {
   // something nobody stocks", the core supply-gap signal for demand reports.
   const bestShoe = top[0]?.shoe;
   const bestHasStock = !!(bestShoe && (bestShoe.buyUrl || (bestShoe.locations || []).length));
+  const totalTimeSecs = _quizStartTime ? Math.round((Date.now() - _quizStartTime) / 1000) : null;
   gtag('event', 'quiz_completed', {
+    total_time_seconds:      totalTimeSecs,
     experience:              a.experience || 'n/a',
     style:                    join(a.style),
     foot_width:               a.footWidth || 'n/a',
@@ -2448,6 +2498,7 @@ function trackQuizCompleted(scoredWithPct, top) {
     best_match_try_on_count:  bestShoe ? (bestShoe.locations || []).length : 0,
     best_match_unstocked:     bestShoe ? (bestHasStock ? 'false' : 'true') : 'n/a',
   });
+  _quizCompleted = true;
 }
 
 // Builds the little foot-outline icon used on the foot-shape question.
@@ -2584,6 +2635,8 @@ function updateStepIcons() {
 }
 
 async function startQuiz() {
+  _quizStartTime = Date.now();
+  _quizCompleted = false;
   document.getElementById('hero').style.display = 'none';
   document.querySelector('.fun-strip').style.display = 'none';
   document.getElementById('quiz').style.display = 'block';
@@ -2746,11 +2799,13 @@ function selectOption(qid, value, el, multi) {
     else { answers[qid].splice(idx, 1); el.classList.remove('selected'); }
     const hasAny = answers[qid].length > 0;
     document.getElementById('btn-next').classList.toggle('active', hasAny);
+    fireQuizAnswer(qid, answers[qid]);
   } else {
     answers[qid] = value;
     document.querySelectorAll('.opt-btn').forEach(b => b.classList.remove('selected'));
     el.classList.add('selected');
     document.getElementById('btn-next').classList.add('active');
+    fireQuizAnswer(qid, value);
     // Single-choice questions advance straight to the next question on click.
     nextQuestion();
   }
@@ -2778,6 +2833,8 @@ function initBudgetSlider(q) {
     minLabel.textContent = '£' + mn;
     maxLabel.textContent = '£' + mx;
     answers['budget'] = { min: mn, max: mx };
+    clearTimeout(_budgetTrackTimer);
+    _budgetTrackTimer = setTimeout(() => fireQuizAnswer('budget', answers['budget']), 800);
 
     // Hint tags — how many shoes fall in this price range, and how many of
     // those also match what they've told us so far.
@@ -3126,14 +3183,53 @@ function showResults() {
   let top = eligible.filter(item => item.matchPct >= 70);
   if (top.length < 3) top = eligible.slice(0, 3);
   top = top.slice(0, MAX_RESULTS);
+  lastResults = top;
   trackQuizCompleted(scoredWithPct, top);
+
+  const a = answers;
+  const _join = v => (Array.isArray(v) ? v : v ? [v] : []).join('|') || 'n/a';
   const grid = document.getElementById('shoes-grid');
   if (!top.length) {
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'no_results', {
+        experience: a.experience || 'n/a',
+        styles:     _join(a.style),
+        foot_width: a.footWidth || 'n/a',
+        aggression: a.aggression || 'n/a',
+        fastening:  _join(a.fastening),
+        budget_min: a.budget?.min ?? 0,
+        budget_max: a.budget?.max ?? 0,
+      });
+    }
     grid.innerHTML = ACTIVE_LOCATION
       ? `<div class="no-results"><h3>No exact match in-store</h3><p>None of the shoes currently in stock at ${LOCATIONS[ACTIVE_LOCATION].name} quite match your answers. Try adjusting your preferences, or ask a member of staff — they may have something that's just arrived.</p></div>`
       : `<div class="no-results"><h3>Hmm, no perfect match...</h3><p>Try relaxing some of your preferences and starting over.</p></div>`;
     return;
   }
+
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'results_shown', {
+      total_shown: top.length,
+      budget_min:  a.budget?.min ?? 0,
+      budget_max:  a.budget?.max ?? 0,
+      experience:  a.experience || 'n/a',
+      styles:      _join(a.style),
+      foot_width:  a.footWidth || 'n/a',
+      aggression:  a.aggression || 'n/a',
+      fastening:   _join(a.fastening),
+    });
+    top.forEach((item, i) => {
+      gtag('event', 'shoe_shown', {
+        brand:     item.shoe.brand,
+        model:     item.shoe.model,
+        rank:      i + 1,
+        score:     Math.round(item.score),
+        match_pct: item.matchPct,
+        ...shoeToParams(item.shoe),
+      });
+    });
+  }
+
   grid.innerHTML = top.map((item, i) => buildCard(item, i, maxScore)).join('');
 }
 
@@ -3246,6 +3342,9 @@ function buildCard({ shoe, score, reasons, aggressionBadMismatch }, rank, maxSco
 }
 
 function restart() {
+  if (typeof gtag !== 'undefined') gtag('event', 'quiz_restarted');
+  _quizStartTime = null;
+  _quizCompleted = false;
   current = 0;
   answers = {};
   clearCompare();
@@ -3256,6 +3355,12 @@ function restart() {
   document.querySelector('.fun-strip').style.display = 'flex';
   window.scrollTo({ top:0, behavior:'smooth' });
 }
+
+window.addEventListener('pagehide', () => {
+  if (!_quizStartTime || _quizCompleted) return;
+  if (typeof gtag === 'undefined') return;
+  gtag('event', 'quiz_abandoned', { last_question_number: current + 1 });
+});
 </script>
 <script>
 // ─── FEEDBACK ─────────────────────────────────────────────────────────────────
