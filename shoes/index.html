@@ -2395,6 +2395,7 @@ function renderFunStrip() {
 const UTM = '?utm_source=rocksy-shoe-finder&utm_medium=referral&utm_campaign=shoe-quiz';
 
 function trackClick(brand, model, url) {
+  const dest = (url && url !== '#') ? url + UTM : url;
   if (typeof gtag !== 'undefined') {
     const item = lastResults.find(r => r.shoe.brand === brand && r.shoe.model === model);
     const rank = item ? lastResults.indexOf(item) + 1 : null;
@@ -2402,14 +2403,31 @@ function trackClick(brand, model, url) {
       brand,
       model,
       rank,
-      match_pct:  item?.matchPct ?? null,
-      price:      item?.shoe.price ?? null,
-      currency:   'GBP',
+      match_pct:    item?.matchPct ?? null,
+      price:        item?.shoe.price ?? null,
+      currency:     'GBP',
       outbound_url: url,
       ...(item ? shoeToParams(item.shoe) : {}),
     });
+    // affiliate_click — separate Key Event for affiliate programme reporting.
+    // Only fires for valid absolute URLs (not '#' / coming-soon placeholders).
+    // Retailer is derived from the hostname so new retailers need no code changes.
+    // GA4: Admin > Key Events > Add > affiliate_click
+    let retailer = null;
+    try { retailer = new URL(url).hostname; } catch (_) {}
+    if (retailer) {
+      gtag('event', 'affiliate_click', {
+        brand,
+        model,
+        retailer,
+        destination_url: dest,
+        price:     item?.shoe.price ?? null,
+        currency:  item?.shoe.currency ?? 'GBP',
+        rank,
+        match_pct: item?.matchPct ?? null,
+      });
+    }
   }
-  const dest = (url && url !== '#') ? url + UTM : url;
   window.open(dest, '_blank');
 }
 
