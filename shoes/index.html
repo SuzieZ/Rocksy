@@ -1074,6 +1074,21 @@
   }
   .broaden-search-banner button:hover { opacity: 0.9; transform: translateY(-1px); }
 
+  /* LOW-MATCH BANNER */
+  .low-match-banner {
+    background: #fffbf2;
+    border: 1.5px solid #f0c060;
+    border-radius: 10px;
+    padding: 1rem 1.3rem;
+    margin: 0 auto 2rem;
+    max-width: 640px;
+    text-align: center;
+    font-size: 0.88rem;
+    color: var(--ink);
+    line-height: 1.6;
+  }
+  .low-match-banner strong { color: var(--terra); }
+
   /* BRAND FILTER MODAL */
   .brand-filter-list {
     max-height: 320px;
@@ -1918,6 +1933,7 @@
     <p id="broaden-search-text"></p>
     <button type="button" id="broaden-search-btn"></button>
   </div>
+  <div class="low-match-banner" id="low-match-banner" style="display:none;"></div>
   <div class="shoes-grid" id="shoes-grid"></div>
   <div class="restart-wrap">
     <button class="btn-restart" onclick="restart()">↺ Start over</button>
@@ -3058,6 +3074,7 @@ function showResults() {
   let top = eligible.filter(item => item.matchPct >= 70);
   if (top.length < 3) top = eligible.slice(0, 3);
   top = top.slice(0, MAX_RESULTS);
+  const lowMatch = top.length > 0 && top[0].matchPct < 70;
   lastResults = top;
   trackQuizCompleted(scoredWithPct, top);
 
@@ -3103,6 +3120,28 @@ function showResults() {
         ...shoeToParams(item.shoe),
       });
     });
+  }
+
+  const lowMatchBanner = document.getElementById('low-match-banner');
+  if (lowMatch) {
+    const a = answers;
+    const fasteningPref = Array.isArray(a.fastening) ? a.fastening : (a.fastening ? [a.fastening] : []);
+    const hasSpecificFastening = fasteningPref.length > 0 && !fasteningPref.includes('any');
+    const hasNarrowBudget = a.budget && a.budget.max != null && a.budget.max < 9999;
+    let tips = [];
+    if (hasSpecificFastening) tips.push('<strong>fastening preference</strong> — try selecting "Any" to open up more options');
+    if (hasNarrowBudget) tips.push('<strong>budget</strong> — a slightly higher ceiling can unlock significantly more choices');
+    if (!tips.length) {
+      tips.push('<strong>fastening preference</strong>');
+      tips.push('<strong>budget</strong>');
+    }
+    const tipText = tips.length === 1
+      ? `Try adjusting your ${tips[0]}.`
+      : `Try adjusting your ${tips[0]}, or widen your ${tips[1]}.`;
+    lowMatchBanner.innerHTML = `These are the closest matches we have — none score above 70%. ${tipText}`;
+    lowMatchBanner.style.display = 'block';
+  } else {
+    lowMatchBanner.style.display = 'none';
   }
 
   grid.innerHTML = top.map((item, i) => buildCard(item, i)).join('');
