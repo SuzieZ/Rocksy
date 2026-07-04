@@ -2092,6 +2092,7 @@
   </div>
 </div>
 
+<script src="score.js"></script>
 <script>
 
 // ═══════════════════════════════════════════════════════════════════════════
@@ -2931,148 +2932,7 @@ function computeBudgetRange() {
   return { min: Math.floor(Math.min(...prices)), max: Math.ceil(Math.max(...prices)) };
 }
 
-function scoreShoe(shoe) {
-  const a = answers;
-  let score = 0;
-  const reasons = [];
-
-  // ── Indoor-only restriction ────────────────────────────────────────────────
-  // If the user didn't say they climb trad or outdoors, assume they're
-  // climbing indoors and only show shoes explicitly tagged for indoor use.
-  const styleAnswers = Array.isArray(a.style) ? a.style : (a.style ? [a.style] : []);
-  const climbsOutside = styleAnswers.includes('trad') || styleAnswers.includes('outdoor');
-  if (!climbsOutside) {
-    const shoeRockTypes = shoe.rock_type ? shoe.rock_type.split('|').map(rt => rt.trim().toLowerCase()) : [];
-    if (!shoeRockTypes.includes('indoor')) {
-      return { shoe, score: -999, reasons: ['Not tagged for indoor climbing'] };
-    }
-  }
-
-  // ── Experience target aggression ──────────────────────────────────────────
-  const expAggr = { beginner:0, 'non-beginner':1 };
-  const targetAggr = expAggr[a.experience] ?? 1;
-  const asym = shoe.asym ?? 0;
-  const down = shoe.downturn ?? 0;
-  const avgAggr = (asym + down) / 2;
-
-  // ── Style match (30 = all match, 20 = partial, 0 = none) ─────────────────
-  // Note: 'outdoor' is used only for the rock type question and is ignored in style matching
-  const styleMap = { sport:'S', boulder:'B', trad:'M', board:'B' };
-  const selected = Array.isArray(a.style) ? a.style : (a.style ? [a.style] : []);
-  const wantedTypes = selected.filter(s => s !== 'outdoor').map(s => styleMap[s]).filter(Boolean);
-  const matchCount = wantedTypes.filter(t => shoe.climbType.includes(t)).length;
-  if (matchCount === wantedTypes.length && matchCount > 0) { score += 30; reasons.push('Great for your style'); }
-  else if (matchCount > 0) { score += 20; reasons.push('Covers some of your climbing'); }
-
-  // ── Aggression match ──────────────────────────────────────────────────────
-  // Beginners are always matched against flat, comfortable shoes — we don't ask them.
-  const aggressionPref = a.experience === 'beginner' ? 'flat' : a.aggression;
-  const wantedAggr = { flat:0, moderate:1, aggressive:2 }[aggressionPref] ?? 1;
-  const aggrDiff = Math.abs(avgAggr - wantedAggr);
-  if (aggrDiff === 0)        { score += 25; reasons.push('Perfect aggression level'); }
-  else if (aggrDiff <= 0.5)    score += 18;
-  else if (aggrDiff <= 1)      score += 8;
-  else                         score -= 20;
-  // A shoe whose shape badly contradicts the aggression level you explicitly
-  // asked for shouldn't be able to coast to a near-top "% match" just because
-  // nothing else in the pool nailed it either — flag it so the percentage
-  // calculation below can cap how high it's allowed to read.
-  const aggressionBadMismatch = aggrDiff > 1;
-
-  // ── Width match
-  const userW = (a.footWidth || '').toLowerCase();
-  const shoeWidths = shoe.width.map(w => w.toLowerCase());
-  const hasNarrow = shoeWidths.includes('narrow');
-  const hasMedium = shoeWidths.includes('medium');
-  const hasWide = shoeWidths.includes('wide');
-
-  if (!shoeWidths.length || shoeWidths[0] === '') {
-    score += 10;
-  } else if (userW === 'wide') {
-    if (hasWide) { score += 20; reasons.push('Good width match'); }
-    else {
-      return { shoe, score: -999, reasons: ['Not suitable for wide feet'] };
-    }
-  } else if (userW === 'narrow') {
-    if (hasNarrow) { score += 20; reasons.push('Good width match'); }
-    else {
-      return { shoe, score: -999, reasons: ['Not suitable for narrow feet'] };
-    }
-  } else if (userW === 'medium') {
-    if (hasMedium) { score += 20; reasons.push('Good width match'); }
-    else if (hasNarrow || hasWide) { score += 10; reasons.push('Specialist width may still fit'); }
-  }
-
-  // ── Foot shape match ─────────────────────────────────────────────────────
-  // Lots of shoes in the sheet don't have a toe_shape value yet, so a
-  // mismatch is a soft penalty rather than a hard exclusion — but a shoe
-  // with no shape data still ranks below one that's a confirmed good match.
-  if (a.footShape) {
-    if (shoe.footShape && shoe.footShape === a.footShape) {
-      score += 12;
-      reasons.push('Great match for your toe shape');
-    } else if (shoe.footShape) {
-      score -= 8;
-    }
-  }
-
-  // ── Fastening ─────────────────────────────────────────────────────────────
-  // Beginners who didn't state a fastening preference get a gentle nudge
-  // toward Velcro/Slip-on for bouldering or Lace for sport climbing —
-  // a soft preference, so it never hard-penalises other shoes.
-  let fasteningPref = Array.isArray(a.fastening) ? a.fastening : (a.fastening ? [a.fastening] : []);
-  let fasteningIsSoftDefault = false;
-  if (a.experience === 'beginner' && (fasteningPref.length === 0 || fasteningPref.includes('any'))) {
-    const stylesForFastening = Array.isArray(a.style) ? a.style : (a.style ? [a.style] : []);
-    const gentle = [];
-    if (stylesForFastening.includes('boulder')) gentle.push('velcro', 'slip-on');
-    if (stylesForFastening.includes('sport')) gentle.push('lace');
-    if (gentle.length) { fasteningPref = gentle; fasteningIsSoftDefault = true; }
-  }
-  const shoeFastening = (shoe.fastening || '').toLowerCase();
-  const fasteningMatches = fasteningPref.some(f => f.toLowerCase() === shoeFastening);
-  if (!fasteningPref.length || fasteningPref.includes('any') || fasteningMatches) score += 15;
-  else if (!fasteningIsSoftDefault) score -= 5;
-
-  // ── Experience fit ────────────────────────────────────────────────────────
-  const expFit = Math.abs(avgAggr - targetAggr);
-  if (expFit < 0.5)      score += 15;
-  else if (expFit < 1)   score += 7;
-  else                   score -= 8;
-
-  // ── Rock type match ──────────────────────────────────────────────────────
-  // Only score if user selected specific rock types (not just 'whatever').
-  // A mismatch is a soft penalty rather than a hard exclusion, since the
-  // sheet doesn't have rock_type data for every shoe — missing data
-  // shouldn't be treated as "definitely doesn't match".
-  const rockTypeAnswers = Array.isArray(a.rockType) ? a.rockType : (a.rockType ? [a.rockType] : []);
-  const hasSpecificRockTypes = rockTypeAnswers.length > 0 && !rockTypeAnswers.every(rt => rt === 'whatever');
-  if (hasSpecificRockTypes) {
-    const shoeRockTypes = shoe.rock_type ? shoe.rock_type.split('|').map(rt => rt.trim().toLowerCase()) : [];
-    const selectedRockTypes = rockTypeAnswers.filter(rt => rt !== 'whatever').map(rt => rt.toLowerCase());
-    const rockTypeMatch = selectedRockTypes.some(rt => shoeRockTypes.some(srt => srt.includes(rt) || rt.includes(srt)));
-    if (rockTypeMatch) {
-      score += 10;
-      reasons.push('Good for your rock type');
-    } else if (shoeRockTypes.length > 0) {
-      score -= 15;
-    }
-  }
-
-  // ── Budget (price already in GBP) ────────────────────────────────────────
-  const price = shoe.price || 0;
-  const minP = a.budget?.min ?? 0;
-  const maxP = a.budget?.max ?? 9999;
-  if (price === 0)                        score += 10;
-  else if (price >= minP && price <= maxP) score += 10;
-  else if (price < minP)                  score -= 5;
-  else                                    score -= 15;
-
-  // ── In-store stock bonus ──────────────────────────────────────────────────
-  if (ACTIVE_LOCATION && shoeIsAtLocation(shoe, ACTIVE_LOCATION)) score += 3;
-
-  return { shoe, score, reasons, aggressionBadMismatch };
-}
+// Scoring logic lives in score.js (loaded separately)
 
 // ── Human-readable summary of the quiz answers, shown at the top of results ──
 function answerLabel(qid, value) {
@@ -3189,11 +3049,8 @@ function showResults() {
   // show only items that meet a minimum match percentage (70%)
   const pool = applyBrandExclusion(locationPool(BROADEN_SEARCH));
   const scored = pool.map(scoreShoe).sort((a,b) => b.score - a.score);
-  const maxScore = scored[0]?.score || 0;
-  const scoredWithPct = scored.map(item => ({
-    ...item,
-    matchPct: capMatchPct(Math.round((item.score / (maxScore + 5)) * 100), item.aggressionBadMismatch)
-  }));
+  // score is already 0-100 (absolute); use it directly as matchPct
+  const scoredWithPct = scored.map(item => ({ ...item, matchPct: item.score }));
   // Prefer strong (70%+) matches, but if fewer than 3 shoes clear that bar,
   // backfill with the next-best eligible shoes so the user still gets at
   // least 3 to try on (hard-excluded shoes, score -999, never show).
@@ -3248,21 +3105,12 @@ function showResults() {
     });
   }
 
-  grid.innerHTML = top.map((item, i) => buildCard(item, i, maxScore)).join('');
+  grid.innerHTML = top.map((item, i) => buildCard(item, i)).join('');
 }
 
-// A bad aggression mismatch (shoe shape badly contradicts what was explicitly
-// asked for) caps how high the displayed "% match" can read, regardless of
-// how it compares to other shoes in the pool — otherwise a weak pool can make
-// a shoe that ignores your preference look like a near-perfect match.
-function capMatchPct(pct, aggressionBadMismatch) {
-  const capped = aggressionBadMismatch ? Math.min(pct, 65) : pct;
-  return Math.min(99, capped);
-}
-
-function buildCard({ shoe, score, reasons, aggressionBadMismatch }, rank, maxScore) {
+function buildCard({ shoe, score, reasons }, rank) {
   const isTop = rank === 0;
-  const matchPct = capMatchPct(Math.round((score / (maxScore + 5)) * 100), aggressionBadMismatch);
+  const matchPct = capMatchPct(score);
 
   const dotHtml = (val, max=2) => {
     if (val === null || val === undefined) return '<span style="color:var(--pebble)">—</span>';
