@@ -3124,20 +3124,49 @@ function showResults() {
 
   const lowMatchBanner = document.getElementById('low-match-banner');
   if (lowMatch) {
-    const a = answers;
-    const fasteningPref = Array.isArray(a.fastening) ? a.fastening : (a.fastening ? [a.fastening] : []);
-    const hasSpecificFastening = fasteningPref.length > 0 && !fasteningPref.includes('any');
-    const hasNarrowBudget = a.budget && a.budget.max != null && a.budget.max < 9999;
-    let tips = [];
-    if (hasSpecificFastening) tips.push('<strong>fastening preference</strong> — try selecting "Any" to open up more options');
-    if (hasNarrowBudget) tips.push('<strong>budget</strong> — a slightly higher ceiling can unlock significantly more choices');
-    if (!tips.length) {
-      tips.push('<strong>fastening preference</strong>');
-      tips.push('<strong>budget</strong>');
+    const _a = answers;
+    const fasteningPref   = Array.isArray(_a.fastening) ? _a.fastening : (_a.fastening ? [_a.fastening] : []);
+    const styleAnswers    = Array.isArray(_a.style)     ? _a.style     : (_a.style     ? [_a.style]     : []);
+    const rockTypeAnswers = Array.isArray(_a.rockType)  ? _a.rockType  : (_a.rockType  ? [_a.rockType]  : []);
+
+    // Detectable root causes (most specific first)
+    const tips = []; // { label, hint }
+
+    // Aggression vs style conflict: aggressive preference + trad/crack climbing
+    if (styleAnswers.includes('trad') && _a.aggression === 'aggressive') {
+      tips.push({ label: 'aggression', hint: 'trad and crack climbing suits flatter shoes — try moderate or flat' });
     }
+
+    // Rock type: user picked a specific type but none of the top shoes match it
+    const selectedRTs = rockTypeAnswers.filter(rt => rt !== 'whatever').map(rt => rt.toLowerCase());
+    if (selectedRTs.length > 0) {
+      const anyRTMatch = top.some(item => {
+        const shoeRTs = item.shoe.rock_type ? item.shoe.rock_type.split('|').map(rt => rt.trim().toLowerCase()) : [];
+        return selectedRTs.some(rt => shoeRTs.some(srt => srt.includes(rt) || rt.includes(srt)));
+      });
+      if (!anyRTMatch) tips.push({ label: 'rock type', hint: 'try "Whatever" to see all available shoes' });
+    }
+
+    // Fastening: user picked a specific type (not "any")
+    if (fasteningPref.length > 0 && !fasteningPref.includes('any')) {
+      tips.push({ label: 'fastening preference', hint: 'try selecting "Any" to open up more options' });
+    }
+
+    // Budget: user set a ceiling below the open-ended default
+    if (_a.budget && _a.budget.max != null && _a.budget.max < 9999) {
+      tips.push({ label: 'budget', hint: 'a slightly higher ceiling can unlock more choices' });
+    }
+
+    // Fallback if nothing specific was detected
+    if (!tips.length) {
+      tips.push({ label: 'fastening preference', hint: null });
+      tips.push({ label: 'budget', hint: null });
+    }
+
+    const fmtTip = t => `<strong>${t.label}</strong>${t.hint ? ` (${t.hint})` : ''}`;
     const tipText = tips.length === 1
-      ? `Try adjusting your ${tips[0]}.`
-      : `Try adjusting your ${tips[0]}, or widen your ${tips[1]}.`;
+      ? `Try adjusting your ${fmtTip(tips[0])}.`
+      : `Try adjusting your ${fmtTip(tips[0])}, or your ${fmtTip(tips[1])}.`;
     lowMatchBanner.innerHTML = `These are the closest matches we have — none score above 70%. ${tipText}`;
     lowMatchBanner.style.display = 'block';
   } else {
