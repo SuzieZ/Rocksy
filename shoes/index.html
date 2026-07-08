@@ -860,6 +860,22 @@
     background: var(--moss-pale);
     transform: translateY(-1px);
   }
+  .btn-specs {
+    display: block;
+    background: none;
+    color: var(--moss);
+    border: 1.5px solid var(--pebble);
+    border-radius: 50px;
+    padding: 0.6rem 1.2rem;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: border-color 0.15s, color 0.15s, transform 0.1s;
+  }
+  .btn-specs:hover { border-color: var(--moss); transform: translateY(-1px); text-decoration: none; }
 
   .btn-disagree {
     display: block;
@@ -3176,6 +3192,16 @@ function showResults() {
   grid.innerHTML = top.map((item, i) => buildCard(item, i)).join('');
 }
 
+function slugify(brand, model) {
+  return `${brand} ${model}`
+    .toLowerCase()
+    .replace(/\./g,  '-')
+    .replace(/[^a-z0-9\s-]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/-+/g,  '-')
+    .replace(/^-|-$/g, '');
+}
+
 function buildCard({ shoe, score, reasons }, rank) {
   const isTop = rank === 0;
   const matchPct = capMatchPct(score);
@@ -3217,6 +3243,8 @@ function buildCard({ shoe, score, reasons }, rank) {
   const buyButtonHtml = ACTIVE_LOCATION
     ? (hasLink ? `<button onclick="trackClick('${safeBrand}','${safeModel}','${url}')" class="btn-buy btn-buy-outline">View Online →</button>` : '')
     : `<button onclick="trackClick('${safeBrand}','${safeModel}','${url}')" class="btn-buy ${buyClass}">${buyLabel}</button>`;
+  const shoeSlug = slugify(shoe.brand, shoe.model);
+  const specsLinkHtml = `<a href="${shoeSlug}.html" class="btn-specs">Full specs →</a>`;
 
   const widthDisplay = shoe.width.map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(', ');
 
@@ -3265,6 +3293,7 @@ function buildCard({ shoe, score, reasons }, rank) {
       <div class="shoe-actions">
         ${buyButtonHtml}
         ${tryOnHtml}
+        ${specsLinkHtml}
       </div>
       <label class="compare-check">
         <input type="checkbox" onchange="toggleCompare(this,'${safeKey}')">
