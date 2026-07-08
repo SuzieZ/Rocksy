@@ -84,7 +84,7 @@ function rowToShoe(r) {
     heel:         r.heel      !== '' ? parseInt(r.heel,      10) : null,
     stiffness:    (r.stiffness || '').trim(),
     width:        r.width          ? r.width.split('|').map(s => s.trim())          : ['medium'],
-    climbType:    r.climbing_types  ? r.climbing_types.split('|').map(s => s.trim()) : [],
+    climbType:    r.climbing_types  ? r.climbing_types.split('|').map(s => { const w={'bouldering':'B','boulder':'B','sport':'S','trad':'M','multi-pitch':'M','multipitch':'M','board':'B'}; const t=s.trim().toLowerCase(); return w[t]||s.trim(); }) : [],
     rock_type:    (r.rock_type || '').trim(),
     footShape:    r.toe_shape ? r.toe_shape.trim().toLowerCase() : '',
     buyUrl:       (r.buy_url    || '').trim(),
