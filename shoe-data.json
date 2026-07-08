@@ -1,0 +1,6044 @@
+[
+  {
+    "brand": "La Sportiva",
+    "model": "Kubo",
+    "price": 140,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 0,
+    "downturn": 1,
+    "heel": 2,
+    "stiffness": "stiff",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "",
+    "buyUrl": "https://www.lasportiva.com/gb/shoes-climbing-kubo-man-zfcs024",
+    "imageUrl": "images/La Sportiva/Kubo.jpg",
+    "locations": [
+      "Castle"
+    ],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Size down ~1 EU; unlined microfiber/suede will stretch up to half a size."
+  },
+  {
+    "brand": "La Sportiva",
+    "model": "Mandala",
+    "price": 165,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "soft",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "B"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "",
+    "buyUrl": "https://www.lasportiva.com/gb/shoes-climbing-mandala-unisex-zfcs041",
+    "imageUrl": "images/La Sportiva/Mandala.jpg",
+    "locations": [
+      "Castle"
+    ],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Size down 1-1.5 EU; unlined microfiber upper, minimal stretch on this stiff No-Edge shoe."
+  },
+  {
+    "brand": "La Sportiva",
+    "model": "Solution",
+    "price": 165,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "stiff",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "classic",
+    "buyUrl": "https://www.lasportiva.com/gb/shoes-climbing-solution-man-zfcs013",
+    "imageUrl": "images/La Sportiva/Solution.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Lined (synthetic)",
+    "sizingNote": "Size down 1.5-2 EU; synthetic lined upper holds shape with little stretch."
+  },
+  {
+    "brand": "La Sportiva",
+    "model": "Solution Comp",
+    "price": 170,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "stiff",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "B"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "classic",
+    "buyUrl": "https://www.lasportiva.com/gb/shoes-climbing-solution-comp-man-zfcs018",
+    "imageUrl": "images/La Sportiva/Solution_Comp.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Lined (synthetic)",
+    "sizingNote": "Size down 1.5-2 EU; lined synthetic upper stays true to size with minimal break-in stretch."
+  },
+  {
+    "brand": "Five Ten",
+    "model": "Hiangle",
+    "price": 160,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "medium",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "B"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "classic",
+    "buyUrl": "https://www.adidas.com/uk/hiangle-climbing-shoes/GW2953.html",
+    "imageUrl": "images/Five Ten/Hiangle.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Runs large; size down 0.5-1 full size from street shoe size for a snug performance fit."
+  },
+  {
+    "brand": "Five Ten",
+    "model": "Hiangle Pro Competition",
+    "price": 170,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "medium",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "B"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "classic",
+    "buyUrl": "https://www.adidas.com/uk/hiangle-pro-climbing-shoes/FV7964.html",
+    "imageUrl": "images/Five Ten/Hiangle_Pro_Competition.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Size down at least 0.5-1 size; extra volume means many go down a full size."
+  },
+  {
+    "brand": "La Sportiva",
+    "model": "Ondra Comp",
+    "price": 195,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "stiff",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "B"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "",
+    "buyUrl": "https://www.lasportiva.com/gb/shoes-climbing-ondra-comp-man-zfcs168",
+    "imageUrl": "images/La Sportiva/Ondra_Comp.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Size down 1-1.5 EU; unlined synthetic upper designed for modern comp volumes and edges."
+  },
+  {
+    "brand": "Evolv",
+    "model": "Shaman Pro",
+    "price": 175,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "soft",
+    "width": [
+      "medium",
+      "wide"
+    ],
+    "climbType": [
+      "B",
+      "B"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "classic",
+    "buyUrl": "https://www.evolvsports.com/shaman-pro-66-0000062301",
+    "imageUrl": "images/Evolv/Shaman_Pro.png",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Synthratek VX upper, minimal stretch; size down 0.5-1 EU for performance fit."
+  },
+  {
+    "brand": "Evolv",
+    "model": "Shaman Lace",
+    "price": 159,
+    "currency": "GBP",
+    "fastening": "Lace",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "soft",
+    "width": [
+      "medium",
+      "wide"
+    ],
+    "climbType": [
+      "B",
+      "B"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "classic",
+    "buyUrl": "https://www.evolvsports.com/shaman-lace-66-0000062206",
+    "imageUrl": "images/Evolv/Shaman_Lace.png",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Unlined synthetic upper; size down 0.5-1 EU, lace allows fine-tuning across the forefoot."
+  },
+  {
+    "brand": "Evolv",
+    "model": "Shaman",
+    "price": 159,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "soft",
+    "width": [
+      "medium",
+      "wide"
+    ],
+    "climbType": [
+      "B",
+      "B"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "classic",
+    "buyUrl": "https://www.evolvsports.com/shaman-66-0000062203",
+    "imageUrl": "images/Evolv/Shaman.png",
+    "locations": [
+      "Castle"
+    ],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Unlined synthetic upper with minimal stretch; size down 0.5-1 EU from street shoe size."
+  },
+  {
+    "brand": "La Sportiva",
+    "model": "Solution WMN",
+    "price": 165,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "stiff",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "classic",
+    "buyUrl": "https://www.lasportiva.com/gb/shoes-climbing-solution-woman-woman-zfcs015",
+    "imageUrl": "images/La Sportiva/Solution_WMN.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": true,
+    "resoleableRaw": "yes",
+    "lining": "Lined (synthetic)",
+    "sizingNote": "Size down 1.5-2 EU; women's last with lined synthetic upper, minimal stretch."
+  },
+  {
+    "brand": "La Sportiva",
+    "model": "Solution Comp WMN",
+    "price": 170,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "stiff",
+    "width": [
+      "narrow"
+    ],
+    "climbType": [
+      "B",
+      "B"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "classic",
+    "buyUrl": "https://www.lasportiva.com/gb/shoes-climbing-solution-comp-woman-woman-zfcs019",
+    "imageUrl": "images/La Sportiva/Solution_Comp_WMN.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": true,
+    "resoleableRaw": "yes",
+    "lining": "Lined (synthetic)",
+    "sizingNote": "Size down 1.5-2 EU; lined synthetic upper holds shape, minimal stretch over time."
+  },
+  {
+    "brand": "Evolv",
+    "model": "Shaman Low Volume",
+    "price": 175,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "soft",
+    "width": [
+      "narrow",
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "B"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "classic",
+    "buyUrl": "https://www.evolvsports.com/shaman-lv-66-0000062211",
+    "imageUrl": "images/Evolv/Shaman_Low_Volume.png",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "LV last suits narrow/low-volume feet; size down 0.5-1 EU, same rubber as standard."
+  },
+  {
+    "brand": "Evolv",
+    "model": "Shaman Lace Low Volume",
+    "price": 159,
+    "currency": "GBP",
+    "fastening": "Lace",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "soft",
+    "width": [
+      "narrow",
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "B"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "classic",
+    "buyUrl": "https://www.evolvsports.com/shaman-lace-lv-66-0000062212",
+    "imageUrl": "images/Evolv/Shaman_Lace_Low_Volume.png",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "LV last with lace closure; size down 0.5-1 EU, suitable for narrow feet."
+  },
+  {
+    "brand": "Evolv",
+    "model": "Shaman Pro LV",
+    "price": 157,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "soft",
+    "width": [
+      "narrow",
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "B"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "classic",
+    "buyUrl": "https://www.evolvsports.com/shaman-pro-lv-66-0000062302",
+    "imageUrl": "images/Evolv/Shaman_Pro_LV.png",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Low-volume last; size down 0.5-1 EU for a precise fit on narrow or low-volume feet."
+  },
+  {
+    "brand": "So iLL",
+    "model": "Roam Soft",
+    "price": 159,
+    "currency": "GBP",
+    "fastening": "Slip-On",
+    "asym": 2,
+    "downturn": 1,
+    "heel": 2,
+    "stiffness": "soft",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "",
+    "buyUrl": "https://soill.co.uk/products/roam-soft",
+    "imageUrl": "images/Soill/Roam_Soft.webp",
+    "locations": [
+      "Castle"
+    ],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Size at street shoe size; unlined vegan microsuede slipper, resoleable via So iLL V12 program."
+  },
+  {
+    "brand": "Ocún",
+    "model": "Havoc",
+    "price": 112,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 1,
+    "downturn": 1,
+    "heel": 1,
+    "stiffness": "medium",
+    "width": [
+      "narrow"
+    ],
+    "climbType": [
+      "B"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "classic",
+    "buyUrl": "https://www.ocun.com/product/havoc3",
+    "imageUrl": "images/Ocun/Havoc.jpg",
+    "locations": [
+      "Castle"
+    ],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Vegan microfiber upper; size at or 0.5 EU below street size for a snug bouldering fit."
+  },
+  {
+    "brand": "Boreal",
+    "model": "Ninja",
+    "price": 120,
+    "currency": "GBP",
+    "fastening": "Slip-On",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "soft",
+    "width": [
+      "narrow",
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "B"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "",
+    "buyUrl": "https://world.borealoutdoor.com/product/ninja/",
+    "imageUrl": "images/Boreal/Ninja.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Unlined synthetic upper; size down 0.5-1 EU for snug bouldering/comp fit."
+  },
+  {
+    "brand": "La Sportiva",
+    "model": "Mantra",
+    "price": 140,
+    "currency": "GBP",
+    "fastening": "Slip-On",
+    "asym": 2,
+    "downturn": 1,
+    "heel": 2,
+    "stiffness": "soft",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone|sandstone|gritstone",
+    "footShape": "",
+    "buyUrl": "https://www.lasportiva.com/gb/shoes-climbing-mantra-unisex-zfcs043",
+    "imageUrl": "images/La Sportiva/Mantra.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Size down 1-1.5 EU; thin unlined microsuede upper stretches slightly over sessions."
+  },
+  {
+    "brand": "La Sportiva",
+    "model": "Otaki",
+    "price": 170,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 1,
+    "heel": 2,
+    "stiffness": "stiff",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "centred",
+    "buyUrl": "https://www.lasportiva.com/gb/shoes-climbing-otaki-man-zfcs003",
+    "imageUrl": "images/La Sportiva/Otaki.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Lined toe box only",
+    "sizingNote": "Size down 1.5-2 EU; synthetic toe lining limits stretch in forefoot, heel may pack out."
+  },
+  {
+    "brand": "Scarpa",
+    "model": "Arpia",
+    "price": 135,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 1,
+    "downturn": 1,
+    "heel": 1,
+    "stiffness": "Medium",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "centred",
+    "buyUrl": "https://www.scarpa.co.uk/products/arpia-velcro-climbing-shoe",
+    "imageUrl": "images/Scarpa/Arpia.webp",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Synthetic microsuede upper resists stretch; size down 1-1.5 EU from street shoe size."
+  },
+  {
+    "brand": "La Sportiva",
+    "model": "Skwama",
+    "price": 160,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "stiff",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "centred",
+    "buyUrl": "https://www.lasportiva.com/gb/shoes-climbing-skwama-man-zfcs005",
+    "imageUrl": "images/La Sportiva/Skwama.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Size down 1.5-2 EU; split-toe construction cannot be replicated exactly on resole."
+  },
+  {
+    "brand": "La Sportiva",
+    "model": "Skwama Vegan",
+    "price": 165,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "stiff",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "S",
+      "B"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "centred",
+    "buyUrl": "https://www.lasportiva.com/gb/shoes-climbing-skwama-vegan-man-zfcs032",
+    "imageUrl": "images/La Sportiva/Skwama_Vegan.jpg",
+    "locations": [
+      "Castle"
+    ],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Size down 1.5-2 EU; vegan microfiber upper behaves similarly to standard Skwama."
+  },
+  {
+    "brand": "Scarpa",
+    "model": "Boostic",
+    "price": 170,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "Stiff",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "classic",
+    "buyUrl": "https://www.scarpa.co.uk/products/boostic-r-climbing-shoe",
+    "imageUrl": "images/Scarpa/Boostic.webp",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Soft comp slipper with Alcantara toe lining; size down 1-1.5 EU from street shoe size."
+  },
+  {
+    "brand": "Scarpa",
+    "model": "Instinct",
+    "price": 155,
+    "currency": "GBP",
+    "fastening": "Lace",
+    "asym": 1,
+    "downturn": 1,
+    "heel": 2,
+    "stiffness": "Stiff",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone|granite",
+    "footShape": "centred",
+    "buyUrl": "https://www.scarpa.co.uk/products/instinct-lace",
+    "imageUrl": "images/Scarpa/Instinct.jpg",
+    "locations": [
+      "Castle"
+    ],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Unlined Lorica synthetic upper; size down 1.5-2 EU for performance edging and sport climbing."
+  },
+  {
+    "brand": "Scarpa",
+    "model": "Instinct S",
+    "price": 145,
+    "currency": "GBP",
+    "fastening": "Slip-On",
+    "asym": 1,
+    "downturn": 1,
+    "heel": 2,
+    "stiffness": "Stiff",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone|granite",
+    "footShape": "centred",
+    "buyUrl": "https://www.scarpa.co.uk/products/instinct-s",
+    "imageUrl": "images/Scarpa/Instinct_S.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Slipper version; size down 1.5-2 EU from street shoe size for a precise fit."
+  },
+  {
+    "brand": "Scarpa",
+    "model": "Mago",
+    "price": 160,
+    "currency": "GBP",
+    "fastening": "Lace",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "Medium",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "classic",
+    "buyUrl": "https://www.scarpa.co.uk/products/mago",
+    "imageUrl": "images/Scarpa/Mago.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "High-performance steep climbing shoe; size down 1.5-2 EU from street shoe size."
+  },
+  {
+    "brand": "La Sportiva",
+    "model": "Theory",
+    "price": 165,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "soft",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "centred",
+    "buyUrl": "https://www.lasportiva.com/gb/shoes-climbing-theory-man-zfcs176",
+    "imageUrl": "images/La Sportiva/Theory.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Size down 1.5-2 EU; No-Edge slipper with unlined synthetic upper, very snug fit required."
+  },
+  {
+    "brand": "La Sportiva",
+    "model": "Miura VS WMN",
+    "price": 160,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 1,
+    "stiffness": "stiff",
+    "width": [
+      "wide"
+    ],
+    "climbType": [
+      "B",
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "classic",
+    "buyUrl": "https://www.lasportiva.com/gb/shoes-climbing-miura-vs-woman-woman-zfcs035",
+    "imageUrl": "images/La Sportiva/Miura_VS_WMN.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": true,
+    "resoleableRaw": "yes",
+    "lining": "Lined (synthetic)",
+    "sizingNote": "Size down 1.5-2 EU; women's last with lined synthetic upper, consistent fit over time."
+  },
+  {
+    "brand": "Boreal",
+    "model": "Nodab V7",
+    "price": 130,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "soft",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "square",
+    "buyUrl": "https://world.borealoutdoor.com/product/nodab-v7/",
+    "imageUrl": "images/Boreal/Nodab_V7.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "High-performance bouldering shoe; size down 0.5-1 EU from street shoe size."
+  },
+  {
+    "brand": "Boreal",
+    "model": "Satori",
+    "price": 160,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 1,
+    "downturn": 1,
+    "heel": 2,
+    "stiffness": "soft",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone|sandstone|gritstone",
+    "footShape": "",
+    "buyUrl": "https://world.borealoutdoor.com/product/satori/",
+    "imageUrl": "images/Boreal/Satori.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Lined (synthetic)",
+    "sizingNote": "Lined synthetic upper; size down 0.5-1 EU; three-quarter midsole for steep ground."
+  },
+  {
+    "brand": "Tenaya",
+    "model": "Mundaka",
+    "price": 160,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "soft",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "centred",
+    "buyUrl": "https://tenaya.net/en/mundaka/",
+    "imageUrl": "images/Tenaya/Mundaka.jpg",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Lined (synthetic)",
+    "sizingNote": "Cotton TXT lining; size down 0.5-1 EU from street shoe size for performance fit."
+  },
+  {
+    "brand": "Tenaya",
+    "model": "Oasi",
+    "price": 145,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "soft",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "centred",
+    "buyUrl": "https://tenaya.net/en/oasi/",
+    "imageUrl": "images/Tenaya/Oasi.jpg",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Lined (synthetic)",
+    "sizingNote": "Lined upper with TXT treatment; size down 0.5-1 EU from street shoe size."
+  },
+  {
+    "brand": "La Sportiva",
+    "model": "Genius",
+    "price": 175,
+    "currency": "GBP",
+    "fastening": "Lace",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "stiff",
+    "width": [
+      "wide"
+    ],
+    "climbType": [
+      "B",
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "",
+    "buyUrl": "https://www.lasportiva.com/gb/genius",
+    "imageUrl": "images/La Sportiva/Genius.webp",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Size down 1.5-2 EU; No-Edge unlined upper, narrow fit suits thin feet best."
+  },
+  {
+    "brand": "Evolv",
+    "model": "Zenist Pro",
+    "price": 175,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "soft",
+    "width": [
+      "medium",
+      "wide"
+    ],
+    "climbType": [
+      "B",
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "",
+    "buyUrl": "https://www.evolvsports.com/climbing-shoes",
+    "imageUrl": "images/Evolv/Zenist_Pro.png",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "",
+    "lining": "",
+    "sizingNote": ""
+  },
+  {
+    "brand": "Evolv",
+    "model": "V6",
+    "price": 140,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 1,
+    "downturn": 1,
+    "heel": 1,
+    "stiffness": "medium",
+    "width": [
+      "medium",
+      "wide"
+    ],
+    "climbType": [
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "",
+    "buyUrl": "https://www.evolvsports.com/v6-_medium-volume_-66-0000062401",
+    "imageUrl": "images/Evolv/V6.png",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Downturned performance shoe; size down 0.5-1 EU from street size for snug fit."
+  },
+  {
+    "brand": "Evolv",
+    "model": "Zenist",
+    "price": 143,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 1,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "soft",
+    "width": [
+      "medium",
+      "wide"
+    ],
+    "climbType": [
+      "B",
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "",
+    "buyUrl": "https://www.evolvsports.com/climbing-shoes",
+    "imageUrl": "images/Evolv/Zenist.png",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Purpose-built for gym/comp; synthetic upper, size down 0.5-1 EU for a snug fit."
+  },
+  {
+    "brand": "Evolv",
+    "model": "Phantom",
+    "price": 167,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 1,
+    "downturn": 1,
+    "heel": 2,
+    "stiffness": "medium",
+    "width": [
+      "medium",
+      "wide"
+    ],
+    "climbType": [
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "classic",
+    "buyUrl": "https://www.evolvsports.com/phantom-66-0000003645",
+    "imageUrl": "images/Evolv/Phantom.png",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Aggressively downturned; size down 0.5-1 EU; vegan synthetic upper minimizes stretch."
+  },
+  {
+    "brand": "Evolv",
+    "model": "Geshido Lace",
+    "price": 144,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 1,
+    "stiffness": "soft",
+    "width": [
+      "medium",
+      "wide"
+    ],
+    "climbType": [
+      "B",
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "",
+    "buyUrl": "https://www.evolvsports.com/geshido-66-0000062110",
+    "imageUrl": "images/Evolv/Geshido_Lace.png",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Unlined synthetic upper; size down 0.5-1 EU for performance fit on technical terrain."
+  },
+  {
+    "brand": "Boreal",
+    "model": "Mutant 3.0",
+    "price": 135,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "soft",
+    "width": [
+      "medium",
+      "wide"
+    ],
+    "climbType": [
+      "B",
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "square",
+    "buyUrl": "https://world.borealoutdoor.com/product/mutant-3-0/",
+    "imageUrl": "images/Boreal/Mutant_3.0.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Updated unlined synthetic slipper; size down 0.5-1 EU for snug bouldering fit."
+  },
+  {
+    "brand": "Boreal",
+    "model": "Mutant",
+    "price": 130,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "soft",
+    "width": [
+      "medium",
+      "wide"
+    ],
+    "climbType": [
+      "B",
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "square",
+    "buyUrl": "https://world.borealoutdoor.com/product/mutant/",
+    "imageUrl": "images/Boreal/Mutant.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Unlined synthetic upper similar to the Ninja; size down 0.5-1 EU from street size."
+  },
+  {
+    "brand": "Boreal",
+    "model": "Dharma",
+    "price": 160,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 1,
+    "downturn": 1,
+    "heel": 1,
+    "stiffness": "medium",
+    "width": [
+      "medium",
+      "wide"
+    ],
+    "climbType": [
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "",
+    "buyUrl": "https://world.borealoutdoor.com/product/dharma/",
+    "imageUrl": "images/Boreal/Dharma.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Lined (synthetic)",
+    "sizingNote": "Mid-range stiffness between Synergy and Satori; size down 0.5-1 EU from street size."
+  },
+  {
+    "brand": "Boreal",
+    "model": "Dharma WMNS",
+    "price": 160,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 1,
+    "downturn": 1,
+    "heel": 1,
+    "stiffness": "medium",
+    "width": [
+      "medium",
+      "wide"
+    ],
+    "climbType": [
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "",
+    "buyUrl": "https://world.borealoutdoor.com/product/dharma-wmns/",
+    "imageUrl": "images/Boreal/Dharma_WMNS.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": true,
+    "resoleableRaw": "yes",
+    "lining": "Lined (synthetic)",
+    "sizingNote": "Women's version of Dharma; size down 0.5-1 EU from street shoe size."
+  },
+  {
+    "brand": "Tenaya",
+    "model": "Tatanka",
+    "price": 130,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 1,
+    "downturn": 1,
+    "heel": 1,
+    "stiffness": "medium",
+    "width": [
+      "medium",
+      "wide"
+    ],
+    "climbType": [
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "",
+    "buyUrl": "https://tenaya.net/en/tatanka/",
+    "imageUrl": "images/Tenaya/Tatanka.webp",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Narrow last; size down 0.5-1 EU; runs narrow, unsuitable for wide feet."
+  },
+  {
+    "brand": "La Sportiva",
+    "model": "Miura",
+    "price": 150,
+    "currency": "GBP",
+    "fastening": "Lace",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "medium",
+    "width": [
+      "narrow"
+    ],
+    "climbType": [
+      "B",
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "classic",
+    "buyUrl": "https://www.lasportiva.com/gb/shoes-climbing-miura-man-zfcs010",
+    "imageUrl": "images/La Sportiva/Miura.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Lined (synthetic)",
+    "sizingNote": "Size down 1.5-2 EU; lined synthetic upper keeps a consistent fit; a classic edging shoe."
+  },
+  {
+    "brand": "La Sportiva",
+    "model": "Otaki WMN",
+    "price": 170,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 1,
+    "heel": 2,
+    "stiffness": "stiff",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "centred",
+    "buyUrl": "https://www.lasportiva.com/gb/shoes-climbing-otaki-woman-woman-zfcs004",
+    "imageUrl": "images/La Sportiva/Otaki_WMN.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": true,
+    "resoleableRaw": "yes",
+    "lining": "Lined toe box only",
+    "sizingNote": "Size down 1.5-2 EU; women's fit with lined toe box to control forefoot stretch."
+  },
+  {
+    "brand": "La Sportiva",
+    "model": "Skwama WMN",
+    "price": 160,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "stiff",
+    "width": [
+      "narrow",
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "centred",
+    "buyUrl": "https://www.lasportiva.com/gb/shoes-climbing-skwama-woman-woman-zfcs012",
+    "imageUrl": "images/La Sportiva/Skwama_WMN.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": true,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Size down 1.5-2 EU; women's last split-toe unlined upper, similar sizing to men's model."
+  },
+  {
+    "brand": "Scarpa",
+    "model": "Arpia LV",
+    "price": 135,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 1,
+    "downturn": 1,
+    "heel": 1,
+    "stiffness": "Medium",
+    "width": [
+      "narrow"
+    ],
+    "climbType": [
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "centred",
+    "buyUrl": "https://www.scarpa.co.uk/products/arpia-lv-low-volume-climbing-shoes",
+    "imageUrl": "images/Scarpa/Arpia_LV.webp",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "LV last for narrow/low-volume feet; size down 1-1.5 EU from street shoe size."
+  },
+  {
+    "brand": "Scarpa",
+    "model": "Chimera",
+    "price": 165,
+    "currency": "GBP",
+    "fastening": "Lace",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "Soft",
+    "width": [
+      "narrow"
+    ],
+    "climbType": [
+      "B",
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "classic",
+    "buyUrl": "https://www.scarpa.co.uk/products/chimera",
+    "imageUrl": "images/Scarpa/Chimera.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Soft lace-up similar to Drago; size down 1.5-2 EU from street shoe size."
+  },
+  {
+    "brand": "Scarpa",
+    "model": "Drago",
+    "price": 160,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 1,
+    "stiffness": "Soft",
+    "width": [
+      "narrow"
+    ],
+    "climbType": [
+      "B",
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "classic",
+    "buyUrl": "https://www.scarpa.co.uk/products/drago",
+    "imageUrl": "images/Scarpa/Drago.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Ultra-soft slipper; size down 1.5-2 EU from street shoe size for a precise hooking fit."
+  },
+  {
+    "brand": "Scarpa",
+    "model": "Drago LV",
+    "price": 160,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 1,
+    "stiffness": "Soft",
+    "width": [
+      "narrow"
+    ],
+    "climbType": [
+      "B",
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "classic",
+    "buyUrl": "https://www.scarpa.co.uk/products/drago-lv",
+    "imageUrl": "images/Scarpa/Drago_LV.jpg",
+    "locations": [
+      "Castle"
+    ],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "LV last for narrow feet; size down 1.5-2 EU, same soft construction as standard Drago."
+  },
+  {
+    "brand": "Scarpa",
+    "model": "Furia Air",
+    "price": 155,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "Soft",
+    "width": [
+      "narrow"
+    ],
+    "climbType": [
+      "B",
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "classic",
+    "buyUrl": "https://www.scarpa.co.uk/products/furia-air",
+    "imageUrl": "images/Scarpa/Furia_Air.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Dual-layer perforated upper with Alcantara toe pocket lining; size down 1.5-2 EU."
+  },
+  {
+    "brand": "Scarpa",
+    "model": "Vapor",
+    "price": 155,
+    "currency": "GBP",
+    "fastening": "Lace",
+    "asym": 2,
+    "downturn": 1,
+    "heel": 1,
+    "stiffness": "Stiff",
+    "width": [
+      "narrow"
+    ],
+    "climbType": [
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone|granite",
+    "footShape": "centred",
+    "buyUrl": "https://www.scarpa.co.uk/products/vapour-lace",
+    "imageUrl": "images/Scarpa/Vapor.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Lined (synthetic)",
+    "sizingNote": "Lined microsuede upper; size down 1-1.5 EU from street shoe size for comfortable performance."
+  },
+  {
+    "brand": "Scarpa",
+    "model": "Vapor S",
+    "price": 145,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 1,
+    "heel": 1,
+    "stiffness": "Medium",
+    "width": [
+      "narrow"
+    ],
+    "climbType": [
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "centred",
+    "buyUrl": "https://www.scarpa.co.uk/products/vapour-s",
+    "imageUrl": "images/Scarpa/Vapor_S.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Lined (synthetic)",
+    "sizingNote": "Slipper Vapor; lined microsuede upper, size down 1-1.5 EU from street size."
+  },
+  {
+    "brand": "Scarpa",
+    "model": "Vapor V",
+    "price": 155,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 1,
+    "heel": 1,
+    "stiffness": "Medium",
+    "width": [
+      "narrow"
+    ],
+    "climbType": [
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "centred",
+    "buyUrl": "https://www.scarpa.co.uk/products/vapour-v-climbing-shoes",
+    "imageUrl": "images/Scarpa/Vapor_V.webp",
+    "locations": [
+      "Castle"
+    ],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Lined (synthetic)",
+    "sizingNote": "Padded lined upper; size down 1-1.5 EU, great all-around shoe for gym and outdoor use."
+  },
+  {
+    "brand": "Scarpa",
+    "model": "Drago XT",
+    "price": 170,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 1,
+    "stiffness": "Soft",
+    "width": [
+      "narrow"
+    ],
+    "climbType": [
+      "B",
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "classic",
+    "buyUrl": "https://www.scarpa.co.uk/products/drago-xt",
+    "imageUrl": "images/Scarpa/Drago_XT.webp",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Stiffened Drago variant; size down 1.5-2 EU for a precise fit on technical terrain."
+  },
+  {
+    "brand": "Scarpa",
+    "model": "Instinct VS WMN",
+    "price": 170,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 1,
+    "downturn": 1,
+    "heel": 2,
+    "stiffness": "Stiff",
+    "width": [
+      "narrow"
+    ],
+    "climbType": [
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone|granite|sandstone",
+    "footShape": "centred",
+    "buyUrl": "https://www.scarpa.co.uk/products/instinct-vs-wmn",
+    "imageUrl": "images/Scarpa/Instinct_VS_WMN.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": true,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Women's Instinct VS; unlined Lorica, size down 1.5-2 EU from street shoe size."
+  },
+  {
+    "brand": "Tenaya",
+    "model": "Indalo",
+    "price": 175,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "soft",
+    "width": [
+      "narrow",
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "classic|centred",
+    "buyUrl": "https://tenaya.net/en/indalo/",
+    "imageUrl": "images/Tenaya/Indalo.jpg",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Lined toe box only",
+    "sizingNote": "Lined heel, unlined forefoot; size down 1-1.5 EU; forefoot molds to foot over time."
+  },
+  {
+    "brand": "Tenaya",
+    "model": "Oasi LV",
+    "price": 145,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "soft",
+    "width": [
+      "narrow"
+    ],
+    "climbType": [
+      "B",
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "centred",
+    "buyUrl": "https://tenaya.net/en/oasi-lv/",
+    "imageUrl": "images/Tenaya/Oasi_LV.jpg",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Lined (synthetic)",
+    "sizingNote": "LV last for narrow feet; size down 0.5-1 EU from street shoe size."
+  },
+  {
+    "brand": "La Sportiva",
+    "model": "Futura",
+    "price": 165,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "stiff",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "",
+    "buyUrl": "https://www.lasportiva.com/gb/shoes-climbing-futura-unisex-zfcs166",
+    "imageUrl": "images/La Sportiva/Futura.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Size down 1.5-2 EU; No-Edge unlined upper, sensitive slipper that runs narrow."
+  },
+  {
+    "brand": "La Sportiva",
+    "model": "Speedster",
+    "price": 120,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "soft",
+    "width": [
+      "narrow",
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "",
+    "buyUrl": "https://www.lasportiva.com/gb/shoes-climbing-speedster-unisex-zfcs190",
+    "imageUrl": "images/La Sportiva/Speedster.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Size down 1.5-2 EU; unlined No-Edge slipper with aggressive downturn, very snug fit."
+  },
+  {
+    "brand": "Evolv",
+    "model": "V6 Low Volume",
+    "price": 140,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 1,
+    "downturn": 1,
+    "heel": 1,
+    "stiffness": "medium",
+    "width": [
+      "narrow",
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "",
+    "buyUrl": "https://www.evolvsports.com/v6-_low-volume_-66-0000062402",
+    "imageUrl": "images/Evolv/V6_Low_Volume.jpg",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "LV fit for narrow feet; size down 0.5-1 EU, same downturn and rubber as standard V6."
+  },
+  {
+    "brand": "Evolv",
+    "model": "Zenist Low Volume",
+    "price": 159,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 1,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "soft",
+    "width": [
+      "narrow",
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "",
+    "buyUrl": "https://www.evolvsports.com/climbing-shoes",
+    "imageUrl": "images/Evolv/Zenist_Low_Volume.png",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "LV last for narrow feet; size down 0.5-1 EU, synthetic upper with minimal stretch."
+  },
+  {
+    "brand": "Evolv",
+    "model": "Zenist Pro Low Volume",
+    "price": 191,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "soft",
+    "width": [
+      "narrow",
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "",
+    "buyUrl": "https://www.evolvsports.com/climbing-shoes",
+    "imageUrl": "images/Evolv/Zenist_Pro_Low_Volume.png",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "High-performance LV comp shoe; size down 0.5-1 EU for precision on gym holds."
+  },
+  {
+    "brand": "Evolv",
+    "model": "Phantom LV",
+    "price": 157,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 1,
+    "downturn": 1,
+    "heel": 2,
+    "stiffness": "medium",
+    "width": [
+      "narrow",
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "classic",
+    "buyUrl": "https://www.evolvsports.com/phantom-lv-66-0000062210",
+    "imageUrl": "images/Evolv/Phantom_LV.png",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "LV last for narrow feet; size down 0.5-1 EU, same aggressive profile as standard Phantom."
+  },
+  {
+    "brand": "Boreal",
+    "model": "Synergy 2.0",
+    "price": 165,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "soft",
+    "width": [
+      "narrow",
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "",
+    "buyUrl": "https://world.borealoutdoor.com/product/synergy-2-0/",
+    "imageUrl": "images/Boreal/Synergy_2.0.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Lined (synthetic)",
+    "sizingNote": "Updated Synergy; lined synthetic upper, size down 0.5-1 EU from street shoe size."
+  },
+  {
+    "brand": "Boreal",
+    "model": "Synergy",
+    "price": 150,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "soft",
+    "width": [
+      "narrow",
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "",
+    "buyUrl": "https://world.borealoutdoor.com/product/synergy/",
+    "imageUrl": "images/Boreal/Synergy.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Lined (synthetic)",
+    "sizingNote": "Lined synthetic upper with elastic tongue; size down 0.5-1 EU from street shoe size."
+  },
+  {
+    "brand": "Boreal",
+    "model": "Mutant 3.0 LV",
+    "price": 135,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "soft",
+    "width": [
+      "narrow",
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "square",
+    "buyUrl": "https://world.borealoutdoor.com/product/mutant-3-0-lv/",
+    "imageUrl": "images/Boreal/Mutant_3.0_LV.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "LV last for narrow feet; size down 0.5-1 EU, same aggressive profile as Mutant 3.0."
+  },
+  {
+    "brand": "Boreal",
+    "model": "Nodab V7 LV",
+    "price": 130,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "soft",
+    "width": [
+      "narrow",
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "square",
+    "buyUrl": "https://world.borealoutdoor.com/product/nodab-v7-lv/",
+    "imageUrl": "images/Boreal/Nodab_V7_LV.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "LV version for narrow feet; size down 0.5-1 EU, same aggressive profile as standard."
+  },
+  {
+    "brand": "Boreal",
+    "model": "Satori WMNS",
+    "price": 160,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 1,
+    "downturn": 1,
+    "heel": 2,
+    "stiffness": "soft",
+    "width": [
+      "narrov",
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone|sandstone|gritstone",
+    "footShape": "",
+    "buyUrl": "https://world.borealoutdoor.com/product/satori-wmns/",
+    "imageUrl": "images/Boreal/Satori_WMNS.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": true,
+    "resoleableRaw": "yes",
+    "lining": "Lined (synthetic)",
+    "sizingNote": "Women's last with lined synthetic upper; size down 0.5-1 EU from street size."
+  },
+  {
+    "brand": "Boreal",
+    "model": "Ballet",
+    "price": 150,
+    "currency": "GBP",
+    "fastening": "Slip-On",
+    "asym": 1,
+    "downturn": 0,
+    "heel": 0,
+    "stiffness": "soft",
+    "width": [
+      "narrow",
+      "medium"
+    ],
+    "climbType": [
+      "M",
+      "S"
+    ],
+    "rock_type": "cracks|limestone|sandstone|gritstone",
+    "footShape": "",
+    "buyUrl": "https://world.borealoutdoor.com/product/ballet/",
+    "imageUrl": "images/Boreal/Ballet.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "no",
+    "lining": "Unlined",
+    "sizingNote": "Beginner slipper; size at street size or slightly up for comfortable all-day use."
+  },
+  {
+    "brand": "Tenaya",
+    "model": "Aruma",
+    "price": 170,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "soft",
+    "width": [
+      "narrow",
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "",
+    "buyUrl": "https://tenaya.net/en/aruma/",
+    "imageUrl": "images/Tenaya/Aruma.webp",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Performance slipper; size down 0.5-1 EU from street shoe size."
+  },
+  {
+    "brand": "Tenaya",
+    "model": "Mastia",
+    "price": 169,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "soft",
+    "width": [
+      "narrow",
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "square",
+    "buyUrl": "https://tenaya.net/en/mastia/",
+    "imageUrl": "images/Tenaya/Mastia.jpg",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Lined (synthetic)",
+    "sizingNote": "High-performance lined shoe; size down 1-1.5 EU from street shoe size."
+  },
+  {
+    "brand": "Tenaya",
+    "model": "Iati",
+    "price": 150,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "soft",
+    "width": [
+      "narrow",
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "classic",
+    "buyUrl": "https://tenaya.net/en/iati/",
+    "imageUrl": "images/Tenaya/Iati.jpg",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Lined (synthetic)",
+    "sizingNote": "Size down about 1 EU from street shoe size; cotton-lined upper stretches minimally."
+  },
+  {
+    "brand": "Tenaya",
+    "model": "Tarifa",
+    "price": 148,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "soft",
+    "width": [
+      "narrow",
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "classic",
+    "buyUrl": "https://tenaya.net/en/tarifa/",
+    "imageUrl": "images/Tenaya/Tarifa.jpg",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Aggressive downturned slipper; size down 1-1.5 EU from street shoe size."
+  },
+  {
+    "brand": "Tenaya",
+    "model": "Inti",
+    "price": 130,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 1,
+    "downturn": 1,
+    "heel": 2,
+    "stiffness": "medium",
+    "width": [
+      "narrow",
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "",
+    "buyUrl": "https://tenaya.net/en/inti/",
+    "imageUrl": "images/Tenaya/Inti.jpg",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Lined (synthetic)",
+    "sizingNote": "Microfiber upper with cotton TXT lining; stretches ~0.25-0.5 EU; size down 0.5-1 EU."
+  },
+  {
+    "brand": "La Sportiva",
+    "model": "Miura VS",
+    "price": 160,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 1,
+    "stiffness": "stiff",
+    "width": [
+      "wide"
+    ],
+    "climbType": [
+      "B",
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "classic",
+    "buyUrl": "https://www.lasportiva.com/gb/shoes-climbing-miura-vs-man-zfcs036",
+    "imageUrl": "images/La Sportiva/Miura_VS.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Lined (synthetic)",
+    "sizingNote": "Size down 1.5-2 EU; synthetic lined upper holds shape well with minimal stretch."
+  },
+  {
+    "brand": "Scarpa",
+    "model": "Instinct VS",
+    "price": 170,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "Stiff",
+    "width": [
+      "wide"
+    ],
+    "climbType": [
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone|granite|sandstone",
+    "footShape": "centred",
+    "buyUrl": "https://www.scarpa.co.uk/products/instinct-vs",
+    "imageUrl": "images/Scarpa/Instinct_VS.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Unlined Lorica upper; size down 1.5-2 EU from street shoe size for edging and sport routes."
+  },
+  {
+    "brand": "Boreal",
+    "model": "Lynx",
+    "price": 145,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 1,
+    "downturn": 1,
+    "heel": 1,
+    "stiffness": "medium",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "",
+    "buyUrl": "https://world.borealoutdoor.com/product/lynx/",
+    "imageUrl": "images/Boreal/Lynx.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Unlined split leather upper; stiff edging shoe, size down 0.5-1 EU from street size."
+  },
+  {
+    "brand": "Boreal",
+    "model": "Indo",
+    "price": 145,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 1,
+    "downturn": 1,
+    "heel": 1,
+    "stiffness": "medium",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "",
+    "buyUrl": "https://world.borealoutdoor.com/product/indo/",
+    "imageUrl": "images/Boreal/Indo.jpg",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Lined (synthetic)",
+    "sizingNote": "Soft knit sock-liner construction; size down 0.5-1 EU for snug fit."
+  },
+  {
+    "brand": "Boreal",
+    "model": "Crux",
+    "price": 145,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 1,
+    "downturn": 1,
+    "heel": 2,
+    "stiffness": "medium",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "centred",
+    "buyUrl": "https://world.borealoutdoor.com/product/crux/",
+    "imageUrl": "images/Boreal/Crux.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Lined (synthetic)",
+    "sizingNote": "Lined microfiber upper; size down 0.5-1 EU from street shoe size."
+  },
+  {
+    "brand": "Boreal",
+    "model": "Crux Lace",
+    "price": 145,
+    "currency": "GBP",
+    "fastening": "Lace",
+    "asym": 1,
+    "downturn": 1,
+    "heel": 2,
+    "stiffness": "medium",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "centred",
+    "buyUrl": "https://world.borealoutdoor.com/product/crux-lace/",
+    "imageUrl": "images/Boreal/Crux_Lace.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Lined (synthetic)",
+    "sizingNote": "Lace version of Crux with lined microfiber upper; size down 0.5-1 EU."
+  },
+  {
+    "brand": "Boreal",
+    "model": "Lynx WMNS",
+    "price": 145,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 1,
+    "downturn": 1,
+    "heel": 1,
+    "stiffness": "medium",
+    "width": [
+      "narrow",
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "",
+    "buyUrl": "https://world.borealoutdoor.com/product/lynx-wmns/",
+    "imageUrl": "images/Boreal/Lynx_WMNS.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": true,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Women's Lynx with unlined split leather; size down 0.5-1 EU from street shoe size."
+  },
+  {
+    "brand": "Boreal",
+    "model": "Indo WMNS",
+    "price": 145,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 1,
+    "downturn": 1,
+    "heel": 1,
+    "stiffness": "medium",
+    "width": [
+      "narrow",
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "",
+    "buyUrl": "https://world.borealoutdoor.com/product/indo-wmns/",
+    "imageUrl": "images/Boreal/Indo_WMNS.jpg",
+    "locations": [],
+    "vegan": true,
+    "womens": true,
+    "resoleableRaw": "yes",
+    "lining": "Lined (synthetic)",
+    "sizingNote": "Women's Indo with knit sock-liner; size down 0.5-1 EU from street shoe size."
+  },
+  {
+    "brand": "Boreal",
+    "model": "Crux WMNS",
+    "price": 145,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 1,
+    "downturn": 1,
+    "heel": 2,
+    "stiffness": "medium",
+    "width": [
+      "narrov",
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "centred",
+    "buyUrl": "https://world.borealoutdoor.com/product/crux-wmns/",
+    "imageUrl": "images/Boreal/Crux_WMNS.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": true,
+    "resoleableRaw": "yes",
+    "lining": "Lined (synthetic)",
+    "sizingNote": "Women's Crux with lined microfiber upper; size down 0.5-1 EU from street size."
+  },
+  {
+    "brand": "Boreal",
+    "model": "Crux Lace WMNS",
+    "price": 145,
+    "currency": "GBP",
+    "fastening": "Lace",
+    "asym": 1,
+    "downturn": 1,
+    "heel": 2,
+    "stiffness": "medium",
+    "width": [
+      "narrow",
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "centred",
+    "buyUrl": "https://world.borealoutdoor.com/product/crux-lace-wmns/",
+    "imageUrl": "images/Boreal/Crux_Lace_WMNS.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": true,
+    "resoleableRaw": "yes",
+    "lining": "Lined (synthetic)",
+    "sizingNote": "Women's lace Crux with lined microfiber upper; size down 0.5-1 EU."
+  },
+  {
+    "brand": "La Sportiva",
+    "model": "Katana Laces",
+    "price": 170,
+    "currency": "GBP",
+    "fastening": "Lace",
+    "asym": 1,
+    "downturn": 1,
+    "heel": 2,
+    "stiffness": "stiff",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "S",
+      "M"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "classic",
+    "buyUrl": "https://www.lasportiva.com/gb/shoes-climbing-katana-laces-man-zfcs029",
+    "imageUrl": "images/La Sportiva/Katana_Laces.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Lined (synthetic)",
+    "sizingNote": "Size down 1.5-2 EU; lace version allows micro-adjustment for fit across the forefoot."
+  },
+  {
+    "brand": "La Sportiva",
+    "model": "Katana",
+    "price": 150,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 1,
+    "downturn": 0,
+    "heel": 1,
+    "stiffness": "stiff",
+    "width": [
+      "narrow"
+    ],
+    "climbType": [
+      "B",
+      "S",
+      "M"
+    ],
+    "rock_type": "indoor|granite|cracks",
+    "footShape": "classic",
+    "buyUrl": "https://www.lasportiva.com/gb/shoes-climbing-katana-man-zfcs080",
+    "imageUrl": "images/La Sportiva/Katana.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Lined (synthetic)",
+    "sizingNote": "Size down 1.5-2 EU; synthetic lined upper holds shape well with minimal stretch over time."
+  },
+  {
+    "brand": "La Sportiva",
+    "model": "Katana WMN",
+    "price": 170,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 1,
+    "downturn": 0,
+    "heel": 1,
+    "stiffness": "stiff",
+    "width": [
+      "narrow"
+    ],
+    "climbType": [
+      "B",
+      "S",
+      "M"
+    ],
+    "rock_type": "indoor|granite|cracks",
+    "footShape": "classic",
+    "buyUrl": "https://www.lasportiva.com/gb/shoes-climbing-katana-woman-woman-zfcs081",
+    "imageUrl": "images/La Sportiva/Katana_WMN.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": true,
+    "resoleableRaw": "yes",
+    "lining": "Lined (synthetic)",
+    "sizingNote": "Size down 1.5-2 EU; women's last with lined synthetic upper, consistent fit."
+  },
+  {
+    "brand": "Tenaya",
+    "model": "Ra Woman",
+    "price": 120,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 1,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "soft",
+    "width": [
+      "narrow"
+    ],
+    "climbType": [
+      "B",
+      "B",
+      "S",
+      "M"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "",
+    "buyUrl": "https://tenaya.net/en/ra-woman/",
+    "imageUrl": "images/Tenaya/Ra_Woman.jpg",
+    "locations": [],
+    "vegan": true,
+    "womens": true,
+    "resoleableRaw": "yes",
+    "lining": "Lined (synthetic)",
+    "sizingNote": "Women's Ra; wider last, size down 0.5-1 EU from street shoe size."
+  },
+  {
+    "brand": "Tenaya",
+    "model": "Ra",
+    "price": 120,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 1,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "soft",
+    "width": [
+      "narrov",
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "B",
+      "S",
+      "M"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "",
+    "buyUrl": "https://tenaya.net/en/ra/",
+    "imageUrl": "images/Tenaya/Ra.jpg",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Lined (synthetic)",
+    "sizingNote": "Wider last; size down 0.5-1 EU from street shoe size; suits wider foot shapes well."
+  },
+  {
+    "brand": "La Sportiva",
+    "model": "Mistral",
+    "price": 130,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 0,
+    "downturn": 0,
+    "heel": 1,
+    "stiffness": "stiff",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B"
+    ],
+    "rock_type": "indoor",
+    "footShape": "",
+    "buyUrl": "https://www.lasportiva.com/gb/shoes-climbing-mistral-man-zfcs034-outlet",
+    "imageUrl": "images/La Sportiva/Mistral.webp",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "no",
+    "lining": "Lined toe box only",
+    "sizingNote": "Size down 0.5-1 EU; microfiber upper with Pacific lining in forefoot; beginner-friendly fit."
+  },
+  {
+    "brand": "La Sportiva",
+    "model": "Tarantula Boulder",
+    "price": 99,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 0,
+    "downturn": 0,
+    "heel": 0,
+    "stiffness": "stiff",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B"
+    ],
+    "rock_type": "indoor",
+    "footShape": "",
+    "buyUrl": "https://www.lasportiva.com/gb/shoes-climbing-tarantula-boulder-man-zfcs143",
+    "imageUrl": "images/La Sportiva/Tarantula_Boulder.webp",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Lined toe box only",
+    "sizingNote": "Similar to Tarantula; unlined leather will stretch, size down at purchase for lasting fit."
+  },
+  {
+    "brand": "Scarpa",
+    "model": "Helix",
+    "price": 120,
+    "currency": "GBP",
+    "fastening": "Lace",
+    "asym": 0,
+    "downturn": 0,
+    "heel": 0,
+    "stiffness": "Stiff",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B"
+    ],
+    "rock_type": "indoor",
+    "footShape": "centred",
+    "buyUrl": "https://www.scarpa.co.uk/products/helix-climbing-shoes",
+    "imageUrl": "images/Scarpa/Helix.webp",
+    "locations": [
+      "Castle"
+    ],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Lined (leather)",
+    "sizingNote": "Lined suede/leather upper; size down 1 EU from street shoe size for comfortable performance."
+  },
+  {
+    "brand": "Scarpa",
+    "model": "Origin VS",
+    "price": 100,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 0,
+    "downturn": 0,
+    "heel": 1,
+    "stiffness": "Stiff",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B"
+    ],
+    "rock_type": "indoor",
+    "footShape": "centred",
+    "buyUrl": "https://www.scarpa.co.uk/products/origin-vs-mens-climbing-shoes",
+    "imageUrl": "images/Scarpa/Origin_VS.webp",
+    "locations": [
+      "Rise"
+    ],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Lined (leather)",
+    "sizingNote": "Lined leather upper; size down 0.5-1 EU from street shoe size for beginner/intermediate fit."
+  },
+  {
+    "brand": "Scarpa",
+    "model": "Reflex V",
+    "price": 85,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 0,
+    "downturn": 0,
+    "heel": 1,
+    "stiffness": "Medium",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B"
+    ],
+    "rock_type": "indoor",
+    "footShape": "centred",
+    "buyUrl": "https://www.scarpa.co.uk/products/reflex-vs",
+    "imageUrl": "images/Scarpa/Reflex_V.webp",
+    "locations": [
+      "Rise"
+    ],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "no",
+    "lining": "Unlined",
+    "sizingNote": "Zonal stretch knit upper; size at street size, washable gym beginner shoe."
+  },
+  {
+    "brand": "La Sportiva",
+    "model": "Tarantulace",
+    "price": 89,
+    "currency": "GBP",
+    "fastening": "Lace",
+    "asym": 0,
+    "downturn": 0,
+    "heel": 0,
+    "stiffness": "medium",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "",
+    "buyUrl": "https://www.lasportiva.com/gb/shoes-climbing-tarantulace-man-zfcs187",
+    "imageUrl": "images/La Sportiva/Tarantulace.webp",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Unlined leather stretches up to 1.5 sizes; size down 1-2 EU from street shoe size."
+  },
+  {
+    "brand": "Scarpa",
+    "model": "Veloce WMN",
+    "price": 140,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 1,
+    "downturn": 1,
+    "heel": 1,
+    "stiffness": "Soft",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "square",
+    "buyUrl": "https://www.scarpa.co.uk/products/veloce-wmn",
+    "imageUrl": "images/Scarpa/Veloce_WMN.jpg",
+    "locations": [
+      "Rise"
+    ],
+    "vegan": false,
+    "womens": true,
+    "resoleableRaw": "no",
+    "lining": "Unlined",
+    "sizingNote": "Women's Veloce; microsuede upper, size down 0.5-1 EU from street shoe size."
+  },
+  {
+    "brand": "Boreal",
+    "model": "Beta 2.0",
+    "price": 100,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 0,
+    "downturn": 0,
+    "heel": 0,
+    "stiffness": "medium",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B"
+    ],
+    "rock_type": "indoor",
+    "footShape": "",
+    "buyUrl": "https://world.borealoutdoor.com/product/beta-2-0-2026/",
+    "imageUrl": "images/Boreal/Beta_2.0.jpg",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "no",
+    "lining": "Unlined",
+    "sizingNote": "Updated Beta; unlined synthetic knit upper, size at street shoe size for comfortable fit."
+  },
+  {
+    "brand": "Boreal",
+    "model": "Beta Eco 2.0",
+    "price": 100,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 0,
+    "downturn": 0,
+    "heel": 0,
+    "stiffness": "medium",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B"
+    ],
+    "rock_type": "indoor",
+    "footShape": "",
+    "buyUrl": "https://world.borealoutdoor.com/product/beta-eco-2-0/",
+    "imageUrl": "images/Boreal/Beta_Eco_2.0.jpg",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "no",
+    "lining": "Unlined",
+    "sizingNote": "Updated eco beginner shoe; size at street shoe size for comfortable all-day wear."
+  },
+  {
+    "brand": "Boreal",
+    "model": "Beta Eco",
+    "price": 90,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 0,
+    "downturn": 0,
+    "heel": 0,
+    "stiffness": "medium",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B"
+    ],
+    "rock_type": "indoor",
+    "footShape": "",
+    "buyUrl": "https://world.borealoutdoor.com/product/beta-eco/",
+    "imageUrl": "images/Boreal/Beta_Eco.jpg",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "no",
+    "lining": "Unlined",
+    "sizingNote": "Eco-constructed beginner shoe; unlined synthetic, size at street size for comfortable fit."
+  },
+  {
+    "brand": "Boreal",
+    "model": "Beta",
+    "price": 80,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 0,
+    "downturn": 0,
+    "heel": 0,
+    "stiffness": "medium",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B"
+    ],
+    "rock_type": "indoor",
+    "footShape": "",
+    "buyUrl": "https://world.borealoutdoor.com/product/beta/",
+    "imageUrl": "images/Boreal/Beta.jpg",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "no",
+    "lining": "Unlined",
+    "sizingNote": "Unlined knitted synthetic beginner shoe; size at street size for comfortable gym use."
+  },
+  {
+    "brand": "Boreal",
+    "model": "Alpha",
+    "price": 80,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 0,
+    "downturn": 0,
+    "heel": 0,
+    "stiffness": "stiff",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B"
+    ],
+    "rock_type": "indoor",
+    "footShape": "",
+    "buyUrl": "https://world.borealoutdoor.com/product/alpha/",
+    "imageUrl": "images/Boreal/Alpha.jpg",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "no",
+    "lining": "Unlined",
+    "sizingNote": "Unlined synthetic microfiber beginner shoe; size at street size for comfortable fit."
+  },
+  {
+    "brand": "Tenaya",
+    "model": "Arai",
+    "price": 115,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 0,
+    "downturn": 0,
+    "heel": 1,
+    "stiffness": "stiff",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B"
+    ],
+    "rock_type": "indoor",
+    "footShape": "",
+    "buyUrl": "https://tenaya.net/en/arai/",
+    "imageUrl": "images/Tenaya/Arai.jpg",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Unlined microfiber upper stretches ~0.5 EU; size down 0.5 EU from street shoe size."
+  },
+  {
+    "brand": "Tenaya",
+    "model": "Tanta",
+    "price": 99,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 0,
+    "downturn": 0,
+    "heel": 0,
+    "stiffness": "stiff",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B"
+    ],
+    "rock_type": "indoor",
+    "footShape": "",
+    "buyUrl": "https://tenaya.net/en/tanta/",
+    "imageUrl": "images/Tenaya/Tanta.jpg",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Lined (synthetic)",
+    "sizingNote": "Fully cotton-lined, minimal stretch; size down a full EU for aggressive fit or half for balance."
+  },
+  {
+    "brand": "Tenaya",
+    "model": "Tanta Green",
+    "price": 100,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 0,
+    "downturn": 0,
+    "heel": 0,
+    "stiffness": "stiff",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B"
+    ],
+    "rock_type": "indoor",
+    "footShape": "",
+    "buyUrl": "https://tenaya.net/en/tanta-green/",
+    "imageUrl": "images/Tenaya/Tanta_Green.jpg",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Lined (synthetic)",
+    "sizingNote": "Eco version of Tanta; fully lined, minimal stretch, same sizing guidance as standard Tanta."
+  },
+  {
+    "brand": "Tenaya",
+    "model": "Tanta Laces",
+    "price": 99,
+    "currency": "GBP",
+    "fastening": "Lace",
+    "asym": 0,
+    "downturn": 0,
+    "heel": 0,
+    "stiffness": "stiff",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B"
+    ],
+    "rock_type": "indoor",
+    "footShape": "",
+    "buyUrl": "https://tenaya.net/en/tanta-laces/",
+    "imageUrl": "images/Tenaya/Tanta_Laces.jpg",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Lined (synthetic)",
+    "sizingNote": "Lace version of Tanta; fully lined cotton, size down 0.5-1 EU from street shoe size."
+  },
+  {
+    "brand": "Tenaya",
+    "model": "Tanta LX Green",
+    "price": 100,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 0,
+    "downturn": 0,
+    "heel": 1,
+    "stiffness": "medium",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B"
+    ],
+    "rock_type": "indoor",
+    "footShape": "",
+    "buyUrl": "https://tenaya.net/en/tanta-lx-green/",
+    "imageUrl": "images/Tenaya/Tanta_LX_Green.jpg",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Lined (synthetic)",
+    "sizingNote": "Eco lace Tanta; fully lined cotton upper, minimal stretch, size down 0.5-1 EU."
+  },
+  {
+    "brand": "La Sportiva",
+    "model": "Aragon",
+    "price": 110,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 0,
+    "downturn": 0,
+    "heel": 1,
+    "stiffness": "stiff",
+    "width": [
+      "medium",
+      "wide"
+    ],
+    "climbType": [
+      "B"
+    ],
+    "rock_type": "indoor",
+    "footShape": "",
+    "buyUrl": "https://www.lasportiva.com/gb/shoes-climbing-aragon-man-zfcs022",
+    "imageUrl": "images/La Sportiva/Aragon.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Unlined suede leather stretches significantly over time; size down 1-1.5 EU at purchase."
+  },
+  {
+    "brand": "La Sportiva",
+    "model": "Finale",
+    "price": 135,
+    "currency": "GBP",
+    "fastening": "Lace",
+    "asym": 1,
+    "downturn": 1,
+    "heel": 0,
+    "stiffness": "stiff",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B"
+    ],
+    "rock_type": "indoor",
+    "footShape": "",
+    "buyUrl": "https://www.lasportiva.com/gb/shoes-climbing-finale-man-zfcs069",
+    "imageUrl": "images/La Sportiva/Finale.jpg",
+    "locations": [
+      "Castle"
+    ],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Unlined suede leather stretches; size down 1-2 EU from street size for a lasting fit."
+  },
+  {
+    "brand": "La Sportiva",
+    "model": "Tarantula",
+    "price": 90,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 0,
+    "downturn": 0,
+    "heel": 0,
+    "stiffness": "stiff",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B"
+    ],
+    "rock_type": "indoor",
+    "footShape": "",
+    "buyUrl": "https://www.lasportiva.com/gb/shoes-climbing-tarantula-man-zfcs131",
+    "imageUrl": "images/La Sportiva/Tarantula.webp",
+    "locations": [
+      "Castle"
+    ],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Lined toe box only",
+    "sizingNote": "Unlined leather stretches up to 1.5 sizes; size down aggressively at purchase."
+  },
+  {
+    "brand": "Evolv",
+    "model": "Defy Lace",
+    "price": 120,
+    "currency": "GBP",
+    "fastening": "Lace",
+    "asym": 1,
+    "downturn": 0,
+    "heel": 1,
+    "stiffness": "medium",
+    "width": [
+      "medium",
+      "wide"
+    ],
+    "climbType": [
+      "B"
+    ],
+    "rock_type": "indoor",
+    "footShape": "",
+    "buyUrl": "https://www.evolvsports.com/defy-lace-66-0000062503",
+    "imageUrl": "images/Evolv/Defy_Lace.png",
+    "locations": [
+      "Castle"
+    ],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "no",
+    "lining": "Lined (synthetic)",
+    "sizingNote": "Entry-level lace shoe; size at street size or 0.5 EU up for comfortable fit."
+  },
+  {
+    "brand": "Evolv",
+    "model": "Defy",
+    "price": 87,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 0,
+    "downturn": 0,
+    "heel": 0,
+    "stiffness": "stiff",
+    "width": [
+      "medium",
+      "wide"
+    ],
+    "climbType": [
+      "B"
+    ],
+    "rock_type": "indoor",
+    "footShape": "",
+    "buyUrl": "https://www.evolvsports.com/defy-_medium-volume_-66-0000062501",
+    "imageUrl": "images/Evolv/Defy.png",
+    "locations": [
+      "Rise"
+    ],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "no",
+    "lining": "Lined (synthetic)",
+    "sizingNote": "Entry-level comfort shoe; size at street size or 0.5 EU up for all-day comfort."
+  },
+  {
+    "brand": "La Sportiva",
+    "model": "Tarantula WMN",
+    "price": 89,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 0,
+    "downturn": 0,
+    "heel": 0,
+    "stiffness": "stiff",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B"
+    ],
+    "rock_type": "indoor",
+    "footShape": "",
+    "buyUrl": "https://www.lasportiva.com/gb/shoes-climbing-tarantula-woman-woman-zfcs157",
+    "imageUrl": "images/La Sportiva/Tarantula_WMN.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": true,
+    "resoleableRaw": "yes",
+    "lining": "Lined toe box only",
+    "sizingNote": "Unlined leather stretches significantly; size down 1-1.5 EU from street size at purchase."
+  },
+  {
+    "brand": "Scarpa",
+    "model": "Origin VS WMN",
+    "price": 110,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 0,
+    "downturn": 0,
+    "heel": 1,
+    "stiffness": "Stiff",
+    "width": [
+      "narrow"
+    ],
+    "climbType": [
+      "B"
+    ],
+    "rock_type": "indoor",
+    "footShape": "centred",
+    "buyUrl": "https://www.scarpa.co.uk/products/origin-vs-wmn",
+    "imageUrl": "images/Scarpa/Origin_VS_WMN.webp",
+    "locations": [
+      "Rise"
+    ],
+    "vegan": false,
+    "womens": true,
+    "resoleableRaw": "yes",
+    "lining": "Lined (leather)",
+    "sizingNote": "Women's lined leather beginner shoe; size down 0.5-1 EU from street shoe size."
+  },
+  {
+    "brand": "La Sportiva",
+    "model": "Tarantula Boulder WMN",
+    "price": 99,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 0,
+    "downturn": 0,
+    "heel": 0,
+    "stiffness": "stiff",
+    "width": [
+      "narrow"
+    ],
+    "climbType": [
+      "B"
+    ],
+    "rock_type": "indoor",
+    "footShape": "",
+    "buyUrl": "https://www.lasportiva.com/gb/shoes-climbing-tarantula-boulder-woman-woman-zfcs144",
+    "imageUrl": "images/La Sportiva/Tarantula_Boulder_WMN.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": true,
+    "resoleableRaw": "yes",
+    "lining": "Lined toe box only",
+    "sizingNote": "Unlined leather upper stretches; size down 1-1.5 EU from street size at purchase."
+  },
+  {
+    "brand": "Evolv",
+    "model": "Defy Lace LV",
+    "price": 120,
+    "currency": "GBP",
+    "fastening": "Lace",
+    "asym": 1,
+    "downturn": 0,
+    "heel": 1,
+    "stiffness": "medium",
+    "width": [
+      "narrow",
+      "medium"
+    ],
+    "climbType": [
+      "B"
+    ],
+    "rock_type": "indoor",
+    "footShape": "",
+    "buyUrl": "https://www.evolvsports.com/defy-lace-_low-volume_-66-0000062504",
+    "imageUrl": "images/Evolv/Defy_Lace.png",
+    "locations": [
+      "Castle"
+    ],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "no",
+    "lining": "Lined (synthetic)",
+    "sizingNote": "LV version for narrower feet; size at street size or 0.5 EU up for comfortable all-day fit."
+  },
+  {
+    "brand": "Evolv",
+    "model": "Kira",
+    "price": 120,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 0,
+    "downturn": 0,
+    "heel": 0,
+    "stiffness": "stiff",
+    "width": [
+      "narrow",
+      "medium"
+    ],
+    "climbType": [
+      "B"
+    ],
+    "rock_type": "indoor",
+    "footShape": "",
+    "buyUrl": "https://www.evolvsports.com/kira-66-0000002485",
+    "imageUrl": "images/Evolv/Kira.png",
+    "locations": [
+      "Castle",
+      "Rise"
+    ],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "no",
+    "lining": "Lined (synthetic)",
+    "sizingNote": "Cambered all-around shoe; size at street size or 0.5 EU up for comfortable performance fit."
+  },
+  {
+    "brand": "Boreal",
+    "model": "Beta 2.0 LV",
+    "price": 100,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 0,
+    "downturn": 0,
+    "heel": 0,
+    "stiffness": "medium",
+    "width": [
+      "narrow",
+      "medium"
+    ],
+    "climbType": [
+      "B"
+    ],
+    "rock_type": "indoor",
+    "footShape": "",
+    "buyUrl": "https://world.borealoutdoor.com/product/beta-2-0-lv/",
+    "imageUrl": "images/Boreal/Beta_2.0_LV.jpg",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "no",
+    "lining": "Unlined",
+    "sizingNote": "LV version for narrow feet; size at street shoe size for comfortable fit."
+  },
+  {
+    "brand": "Boreal",
+    "model": "Beta Eco WMNS 2.0",
+    "price": 100,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 0,
+    "downturn": 0,
+    "heel": 0,
+    "stiffness": "medium",
+    "width": [
+      "narrow",
+      "medium"
+    ],
+    "climbType": [
+      "B"
+    ],
+    "rock_type": "indoor",
+    "footShape": "",
+    "buyUrl": "https://world.borealoutdoor.com/product/beta-eco-wmns-2-0/",
+    "imageUrl": "images/Boreal/Beta_Eco_WMNS_2.0.jpg",
+    "locations": [],
+    "vegan": true,
+    "womens": true,
+    "resoleableRaw": "no",
+    "lining": "Unlined",
+    "sizingNote": "Women's updated eco beginner shoe; size at street shoe size for comfortable all-day fit."
+  },
+  {
+    "brand": "Boreal",
+    "model": "Beta Eco WMNS",
+    "price": 90,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 0,
+    "downturn": 0,
+    "heel": 0,
+    "stiffness": "medium",
+    "width": [
+      "narrow",
+      "medium"
+    ],
+    "climbType": [
+      "B"
+    ],
+    "rock_type": "indoor",
+    "footShape": "",
+    "buyUrl": "https://world.borealoutdoor.com/product/beta-eco-wmns/",
+    "imageUrl": "images/Boreal/Beta_Eco_WMNS.jpg",
+    "locations": [],
+    "vegan": true,
+    "womens": true,
+    "resoleableRaw": "no",
+    "lining": "Unlined",
+    "sizingNote": "Women's eco beginner shoe; size at street shoe size for comfortable fit."
+  },
+  {
+    "brand": "Boreal",
+    "model": "Beta WMNS",
+    "price": 80,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 0,
+    "downturn": 0,
+    "heel": 0,
+    "stiffness": "medium",
+    "width": [
+      "narrow",
+      "medium"
+    ],
+    "climbType": [
+      "B"
+    ],
+    "rock_type": "indoor",
+    "footShape": "",
+    "buyUrl": "https://world.borealoutdoor.com/product/beta-wmns/",
+    "imageUrl": "images/Boreal/Beta_WMNS.jpg",
+    "locations": [],
+    "vegan": true,
+    "womens": true,
+    "resoleableRaw": "no",
+    "lining": "Unlined",
+    "sizingNote": "Women's Beta; unlined synthetic knit, size at street shoe size for comfortable gym use."
+  },
+  {
+    "brand": "Boreal",
+    "model": "Alpha WMNS",
+    "price": 80,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 0,
+    "downturn": 0,
+    "heel": 0,
+    "stiffness": "stiff",
+    "width": [
+      "narrow",
+      "medium"
+    ],
+    "climbType": [
+      "B"
+    ],
+    "rock_type": "indoor",
+    "footShape": "",
+    "buyUrl": "https://world.borealoutdoor.com/product/alpha-wmns/",
+    "imageUrl": "images/Boreal/Alpha_WMNS.jpg",
+    "locations": [],
+    "vegan": true,
+    "womens": true,
+    "resoleableRaw": "no",
+    "lining": "Unlined",
+    "sizingNote": "Women's entry shoe with unlined synthetic upper; size at street size for comfortable fit."
+  },
+  {
+    "brand": "Scarpa",
+    "model": "Veloce",
+    "price": 140,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 1,
+    "downturn": 1,
+    "heel": 1,
+    "stiffness": "Soft",
+    "width": [
+      "wide"
+    ],
+    "climbType": [
+      "B"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "square",
+    "buyUrl": "https://www.scarpa.co.uk/products/veloce",
+    "imageUrl": "images/Scarpa/Veloce.jpg",
+    "locations": [
+      "Rise"
+    ],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "no",
+    "lining": "Unlined",
+    "sizingNote": "Microsuede upper adapts to foot; size down 0.5-1 EU from street size for snug gym fit."
+  },
+  {
+    "brand": "Scarpa",
+    "model": "Veloce L",
+    "price": 140,
+    "currency": "GBP",
+    "fastening": "Lace",
+    "asym": 1,
+    "downturn": 1,
+    "heel": 1,
+    "stiffness": "Soft",
+    "width": [
+      "wide"
+    ],
+    "climbType": [
+      "B"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "square",
+    "buyUrl": "https://www.scarpa.co.uk/products/veloce-l",
+    "imageUrl": "images/Scarpa/Veloce_L.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "no",
+    "lining": "Unlined",
+    "sizingNote": "Lace Veloce; flexible microsuede conforms to foot, size down 0.5-1 EU from street size."
+  },
+  {
+    "brand": "Five Ten",
+    "model": "Kirigami",
+    "price": 85,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 0,
+    "downturn": 0,
+    "heel": 1,
+    "stiffness": "Medium",
+    "width": [
+      "wide"
+    ],
+    "climbType": [
+      "B"
+    ],
+    "rock_type": "indoor",
+    "footShape": "square",
+    "buyUrl": "https://www.adidas.com/uk/kirigami-climbing-shoes/GX6666.html",
+    "imageUrl": "images/Five Ten/Kirigami.avif",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Lined (synthetic)",
+    "sizingNote": "Minimal stretch; size true to street shoe or half size down for snug fit."
+  },
+  {
+    "brand": "La Sportiva",
+    "model": "Cobra",
+    "price": 100,
+    "currency": "GBP",
+    "fastening": "Slip-On",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "soft",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "",
+    "buyUrl": "https://www.lasportiva.com/gb/shoes-climbing-cobra-unisex-zfcs008",
+    "imageUrl": "images/La Sportiva/Cobra.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Unlined suede leather upper stretches; size down 1-1.5 EU from street shoe size."
+  },
+  {
+    "brand": "La Sportiva",
+    "model": "Cobra 4.99",
+    "price": 130,
+    "currency": "GBP",
+    "fastening": "Slip-On",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 1,
+    "stiffness": "soft",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "",
+    "buyUrl": "https://www.lasportiva.com/gb/shoes-climbing-cobra-4-99-unisex-zfcs017",
+    "imageUrl": "images/La Sportiva/Cobra_4.99.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Unlined suede upper stretches; size down 1-1.5 EU; budget-friendly all-rounder."
+  },
+  {
+    "brand": "Boreal",
+    "model": "Ace",
+    "price": 135,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 1,
+    "downturn": 0,
+    "heel": 1,
+    "stiffness": "stiff",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|granite|cracks",
+    "footShape": "",
+    "buyUrl": "https://world.borealoutdoor.com/product/ace/",
+    "imageUrl": "images/Boreal/Ace.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Lined (synthetic)",
+    "sizingNote": "Performance all-around shoe; size down 0.5-1 EU from street shoe size."
+  },
+  {
+    "brand": "Evolv",
+    "model": "Elektra Lace",
+    "price": 103,
+    "currency": "GBP",
+    "fastening": "Lace",
+    "asym": 1,
+    "downturn": 0,
+    "heel": 1,
+    "stiffness": "medium",
+    "width": [
+      "medium",
+      "wide"
+    ],
+    "climbType": [
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|granite|sandstone|gritstone|cracks",
+    "footShape": "",
+    "buyUrl": "https://www.evolvsports.com/climbing-shoes",
+    "imageUrl": "images/Evolv/Elektra_Lace.avif",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "no",
+    "lining": "Lined (synthetic)",
+    "sizingNote": "Narrow-fit lace entry shoe; size at street size or 0.5 EU up for comfortable fit."
+  },
+  {
+    "brand": "Evolv",
+    "model": "Rave",
+    "price": 111,
+    "currency": "GBP",
+    "fastening": "Slip-On",
+    "asym": 1,
+    "downturn": 0,
+    "heel": 1,
+    "stiffness": "soft",
+    "width": [
+      "medium",
+      "wide"
+    ],
+    "climbType": [
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|granite|sandstone|gritstone|cracks",
+    "footShape": "",
+    "buyUrl": "https://www.evolvsports.com/rave-66-0000004105",
+    "imageUrl": "images/Evolv/Rave.png",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Intermediate performance shoe; size down 0.5-1 EU for snug technical fit."
+  },
+  {
+    "brand": "Evolv",
+    "model": "Kronos",
+    "price": 120,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 1,
+    "downturn": 0,
+    "heel": 1,
+    "stiffness": "stiff",
+    "width": [
+      "medium",
+      "wide"
+    ],
+    "climbType": [
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|granite|cracks",
+    "footShape": "classic",
+    "buyUrl": "https://www.evolvsports.com/kronos-66-0000002475",
+    "imageUrl": "images/Evolv/Kronos.avif",
+    "locations": [
+      "Castle"
+    ],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Lined (synthetic)",
+    "sizingNote": "Cambered all-around shoe with lined synthetic upper; size at street size or 0.5 EU up."
+  },
+  {
+    "brand": "La Sportiva",
+    "model": "Mythos",
+    "price": 125,
+    "currency": "GBP",
+    "fastening": "Lace",
+    "asym": 1,
+    "downturn": 1,
+    "heel": 0,
+    "stiffness": "stiff",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "S",
+      "M"
+    ],
+    "rock_type": "indoor|granite|sandstone|gritstone|cracks",
+    "footShape": "",
+    "buyUrl": "https://www.lasportiva.com/gb/shoes-climbing-mythos-unisex-zfcs001",
+    "imageUrl": "images/La Sportiva/Mythos.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Unlined leather can stretch up to 1.5-2 sizes; size down aggressively at first purchase."
+  },
+  {
+    "brand": "La Sportiva",
+    "model": "Mythos Eco",
+    "price": 135,
+    "currency": "GBP",
+    "fastening": "Lace",
+    "asym": 1,
+    "downturn": 1,
+    "heel": 0,
+    "stiffness": "stiff",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "S",
+      "M"
+    ],
+    "rock_type": "indoor|granite|sandstone|gritstone|cracks",
+    "footShape": "",
+    "buyUrl": "https://www.lasportiva.com/gb/shoes-climbing-mythos-eco-man-zfcs006",
+    "imageUrl": "images/La Sportiva/Mythos_Eco.webp",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Unlined ECO leather stretches significantly; size down aggressively at purchase."
+  },
+  {
+    "brand": "Scarpa",
+    "model": "Generator",
+    "price": 160,
+    "currency": "GBP",
+    "fastening": "Lace",
+    "asym": 0,
+    "downturn": 0,
+    "heel": 0,
+    "stiffness": "Stiff",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "S",
+      "M"
+    ],
+    "rock_type": "indoor|granite|cracks",
+    "footShape": "centred",
+    "buyUrl": "https://www.scarpa.co.uk/products/generator",
+    "imageUrl": "images/Scarpa/Generator.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Lined (leather)",
+    "sizingNote": "Eco suede upper with recycled microfiber backing; size down 0.5-1 EU from street size."
+  },
+  {
+    "brand": "Scarpa",
+    "model": "Generator Mid",
+    "price": 170,
+    "currency": "GBP",
+    "fastening": "Lace",
+    "asym": 0,
+    "downturn": 0,
+    "heel": 0,
+    "stiffness": "Stiff",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "S",
+      "M"
+    ],
+    "rock_type": "granite|cracks",
+    "footShape": "centred",
+    "buyUrl": "https://www.scarpa.co.uk/products/generator-mid",
+    "imageUrl": "images/Scarpa/Generator_Mid.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Lined (leather)",
+    "sizingNote": "Mid-cut trad/multi-pitch shoe; lined eco suede, size down 0.5-1 EU from street size."
+  },
+  {
+    "brand": "Scarpa",
+    "model": "Generator WMN",
+    "price": 160,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 0,
+    "downturn": 0,
+    "heel": 0,
+    "stiffness": "Stiff",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "S",
+      "M"
+    ],
+    "rock_type": "indoor|granite|cracks",
+    "footShape": "centred",
+    "buyUrl": "https://www.scarpa.co.uk/products/generator-wmn",
+    "imageUrl": "images/Scarpa/Generator_WMN.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": true,
+    "resoleableRaw": "yes",
+    "lining": "Lined (leather)",
+    "sizingNote": "Women's Generator; lined eco suede upper, size down 0.5-1 EU from street shoe size."
+  },
+  {
+    "brand": "Five Ten",
+    "model": "NIAD VCS",
+    "price": 130,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 1,
+    "downturn": 0,
+    "heel": 1,
+    "stiffness": "stiff",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "S",
+      "M"
+    ],
+    "rock_type": "indoor|granite|sandstone|gritstone|cracks",
+    "footShape": "square",
+    "buyUrl": "https://www.adidas.com/uk/niad-vcs-climbing-shoes/GW2959.html",
+    "imageUrl": "images/Five Ten/NIAD_VCS.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Lined (synthetic)",
+    "sizingNote": "Size at street shoe size or half size down; synthetic lined upper holds shape well."
+  },
+  {
+    "brand": "Five Ten",
+    "model": "NIAD Lace",
+    "price": 130,
+    "currency": "GBP",
+    "fastening": "Lace",
+    "asym": 1,
+    "downturn": 0,
+    "heel": 1,
+    "stiffness": "stiff",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "S",
+      "M"
+    ],
+    "rock_type": "indoor|granite|sandstone|gritstone|cracks",
+    "footShape": "square",
+    "buyUrl": "https://www.adidas.com/uk/niad-lace-climbing-shoes/GW2958.html",
+    "imageUrl": "images/Five Ten/NIAD Lace.avif",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Lined (synthetic)",
+    "sizingNote": "Size at street shoe size or half size down; lace closure allows micro-fit adjustment."
+  },
+  {
+    "brand": "La Sportiva",
+    "model": "TC Pro",
+    "price": 180,
+    "currency": "GBP",
+    "fastening": "Lace",
+    "asym": 1,
+    "downturn": 1,
+    "heel": 1,
+    "stiffness": "stiff",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "S",
+      "M"
+    ],
+    "rock_type": "indoor|granite|cracks",
+    "footShape": "",
+    "buyUrl": "https://www.lasportiva.com/gb/shoes-climbing-tc-pro-man-zfcs025",
+    "imageUrl": "images/La Sportiva/TC_Pro.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Many wear at street size or 0.5 EU down, especially with socks, for crack climbing comfort."
+  },
+  {
+    "brand": "Boreal",
+    "model": "Silex Lace",
+    "price": 120,
+    "currency": "GBP",
+    "fastening": "Lace",
+    "asym": 0,
+    "downturn": 0,
+    "heel": 0,
+    "stiffness": "stiff",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "S",
+      "M"
+    ],
+    "rock_type": "indoor|granite|cracks",
+    "footShape": "",
+    "buyUrl": "https://world.borealoutdoor.com/product/silex-lace/",
+    "imageUrl": "images/Boreal/Silex_Lace.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Lined (leather)",
+    "sizingNote": "Lace version of Silex; lined split leather, size down 0.5-1 EU from street size."
+  },
+  {
+    "brand": "Boreal",
+    "model": "Silex",
+    "price": 120,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 0,
+    "downturn": 0,
+    "heel": 0,
+    "stiffness": "stiff",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "S",
+      "M"
+    ],
+    "rock_type": "indoor|granite|cracks",
+    "footShape": "",
+    "buyUrl": "https://world.borealoutdoor.com/product/silex/",
+    "imageUrl": "images/Boreal/Silex.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Lined (leather)",
+    "sizingNote": "Split leather upper with 3D recycled lining; size down 0.5-1 EU from street shoe size."
+  },
+  {
+    "brand": "Evolv",
+    "model": "Yosemite Bum",
+    "price": 175,
+    "currency": "GBP",
+    "fastening": "Lace",
+    "asym": 0,
+    "downturn": 0,
+    "heel": 0,
+    "stiffness": "stiff",
+    "width": [
+      "medium",
+      "wide"
+    ],
+    "climbType": [
+      "S",
+      "M"
+    ],
+    "rock_type": "granite|sandstone|cracks",
+    "footShape": "",
+    "buyUrl": "https://www.evolvsports.com/yosemite-bum-_medium-volume_-66-0000062303",
+    "imageUrl": "images/Evolv/Yosemite_Bum.png",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Lined (synthetic microfibre)",
+    "sizingNote": "Wide toe box trad shoe; size at street size or half size down for snug crack-climbing fit."
+  },
+  {
+    "brand": "Scarpa",
+    "model": "Instinct VS-R LV",
+    "price": 170,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 1,
+    "downturn": 1,
+    "heel": 2,
+    "stiffness": "Medium",
+    "width": [
+      "narrow"
+    ],
+    "climbType": [
+      "S",
+      "M"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "centred",
+    "buyUrl": "https://www.scarpa.co.uk/products/instinct-vs-r-lv-climbing-shoe",
+    "imageUrl": "images/Scarpa/Instinct_VS-R_LV.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "LV Instinct with rand reinforcement; size down 1.5-2 EU for narrow low-volume feet."
+  },
+  {
+    "brand": "Boreal",
+    "model": "Joker Lace WMNS",
+    "price": 90,
+    "currency": "GBP",
+    "fastening": "Lace",
+    "asym": 0,
+    "downturn": 0,
+    "heel": 0,
+    "stiffness": "medium",
+    "width": [
+      "narrow"
+    ],
+    "climbType": [
+      "S",
+      "M"
+    ],
+    "rock_type": "indoor|granite|sandstone|gritstone|cracks",
+    "footShape": "centred",
+    "buyUrl": "https://world.borealoutdoor.com/product/joker-lace-wmns/",
+    "imageUrl": "images/Boreal/Joker_Lace_WMNS.jpg",
+    "locations": [
+      "Castle"
+    ],
+    "vegan": false,
+    "womens": true,
+    "resoleableRaw": "yes",
+    "lining": "Lined (leather)",
+    "sizingNote": "Women's Joker lace; lined split leather with 3D lining, size down 0.5-1 EU from street size."
+  },
+  {
+    "brand": "Boreal",
+    "model": "Joker WMNS",
+    "price": 110,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 0,
+    "downturn": 0,
+    "heel": 0,
+    "stiffness": "medium",
+    "width": [
+      "narrow"
+    ],
+    "climbType": [
+      "S",
+      "M"
+    ],
+    "rock_type": "indoor|granite|sandstone|gritstone|cracks",
+    "footShape": "centred",
+    "buyUrl": "https://world.borealoutdoor.com/product/joker-wmns/",
+    "imageUrl": "images/Boreal/Joker_WMNS.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": true,
+    "resoleableRaw": "yes",
+    "lining": "Lined (leather)",
+    "sizingNote": "Women's Joker strap; lined split leather with 3D lining, size down 0.5-1 EU."
+  },
+  {
+    "brand": "Tenaya",
+    "model": "Masai",
+    "price": 130,
+    "currency": "GBP",
+    "fastening": "Lace",
+    "asym": 1,
+    "downturn": 0,
+    "heel": 0,
+    "stiffness": "medium",
+    "width": [
+      "narrow"
+    ],
+    "climbType": [
+      "S",
+      "M"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "centred",
+    "buyUrl": "https://tenaya.net/en/masai/",
+    "imageUrl": "images/Tenaya/Masai.jpg",
+    "locations": [
+      "Castle"
+    ],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "",
+    "lining": "",
+    "sizingNote": ""
+  },
+  {
+    "brand": "Evolv",
+    "model": "Yosemite Bum Low Volume",
+    "price": 175,
+    "currency": "GBP",
+    "fastening": "Lace",
+    "asym": 0,
+    "downturn": 0,
+    "heel": 0,
+    "stiffness": "stiff",
+    "width": [
+      "narrow",
+      "medium"
+    ],
+    "climbType": [
+      "S",
+      "M"
+    ],
+    "rock_type": "granite|sandstone|cracks",
+    "footShape": "",
+    "buyUrl": "https://www.evolvsports.com/yosemite-bum-lv-66-0000062304",
+    "imageUrl": "images/Evolv/Yosemite_Bum_Low_Volume.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "",
+    "lining": "",
+    "sizingNote": ""
+  },
+  {
+    "brand": "Boreal",
+    "model": "Silex Lace WMNS",
+    "price": 120,
+    "currency": "GBP",
+    "fastening": "Lace",
+    "asym": 0,
+    "downturn": 0,
+    "heel": 0,
+    "stiffness": "stiff",
+    "width": [
+      "narrow",
+      "medium"
+    ],
+    "climbType": [
+      "S",
+      "M"
+    ],
+    "rock_type": "indoor|granite|cracks",
+    "footShape": "",
+    "buyUrl": "https://world.borealoutdoor.com/product/silex-lace-wmns/",
+    "imageUrl": "images/Boreal/Silex_Lace_WMNS.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": true,
+    "resoleableRaw": "",
+    "lining": "",
+    "sizingNote": ""
+  },
+  {
+    "brand": "Boreal",
+    "model": "Silex WMNS",
+    "price": 120,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 0,
+    "downturn": 0,
+    "heel": 0,
+    "stiffness": "stiff",
+    "width": [
+      "narrow",
+      "medium"
+    ],
+    "climbType": [
+      "S",
+      "M"
+    ],
+    "rock_type": "indoor|granite|cracks",
+    "footShape": "",
+    "buyUrl": "https://world.borealoutdoor.com/product/silex-wmns/",
+    "imageUrl": "images/Boreal/Silex_WMNS.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": true,
+    "resoleableRaw": "",
+    "lining": "",
+    "sizingNote": ""
+  },
+  {
+    "brand": "Boreal",
+    "model": "Joker Lace",
+    "price": 90,
+    "currency": "GBP",
+    "fastening": "Lace",
+    "asym": 0,
+    "downturn": 0,
+    "heel": 0,
+    "stiffness": "medium",
+    "width": [
+      "narrow",
+      "medium"
+    ],
+    "climbType": [
+      "S",
+      "M"
+    ],
+    "rock_type": "indoor|granite|sandstone|gritstone|cracks",
+    "footShape": "centred",
+    "buyUrl": "https://world.borealoutdoor.com/product/joker-lace/",
+    "imageUrl": "images/Boreal/Joker_Lace.jpg",
+    "locations": [
+      "Castle"
+    ],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "",
+    "lining": "",
+    "sizingNote": ""
+  },
+  {
+    "brand": "Boreal",
+    "model": "Joker",
+    "price": 110,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 0,
+    "downturn": 0,
+    "heel": 0,
+    "stiffness": "medium",
+    "width": [
+      "narrow",
+      "medium"
+    ],
+    "climbType": [
+      "S",
+      "M"
+    ],
+    "rock_type": "indoor|granite|sandstone|gritstone|cracks",
+    "footShape": "centred",
+    "buyUrl": "https://world.borealoutdoor.com/product/joker/",
+    "imageUrl": "images/Boreal/Joker.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "",
+    "lining": "",
+    "sizingNote": ""
+  },
+  {
+    "brand": "Scarpa",
+    "model": "Instinct VSR",
+    "price": 170,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 1,
+    "downturn": 1,
+    "heel": 2,
+    "stiffness": "Medium",
+    "width": [
+      "wide"
+    ],
+    "climbType": [
+      "S",
+      "M"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "centred",
+    "buyUrl": "https://www.scarpa.co.uk/products/instinct-vs-r",
+    "imageUrl": "images/Scarpa/Instinct_VSR.jpg",
+    "locations": [
+      "Castle"
+    ],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "",
+    "lining": "",
+    "sizingNote": ""
+  },
+  {
+    "brand": "La Sportiva",
+    "model": "Testarossa",
+    "price": 175,
+    "currency": "GBP",
+    "fastening": "Lace",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "stiff",
+    "width": [
+      "wide"
+    ],
+    "climbType": [
+      "S",
+      "M"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "square",
+    "buyUrl": "https://www.lasportiva.com/gb/shoes-climbing-testarossa-man-zfcs014",
+    "imageUrl": "images/La Sportiva/Testarossa.webp",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "",
+    "lining": "",
+    "sizingNote": ""
+  },
+  {
+    "brand": "Ocún",
+    "model": "Sigma",
+    "price": 146,
+    "currency": "GBP",
+    "fastening": "Lace",
+    "asym": 2,
+    "downturn": 1,
+    "heel": 1,
+    "stiffness": "stiff",
+    "width": [
+      "narrow",
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "S",
+      "B"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "classic",
+    "buyUrl": "https://www.ocun.com/product/sigma6",
+    "imageUrl": "images/Ocun/Sigma.jpg",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Stiff performance shoe; size down 0.5-1 EU from street size for precise edging fit."
+  },
+  {
+    "brand": "Ocún",
+    "model": "Ozone",
+    "price": 129,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 1,
+    "heel": 1,
+    "stiffness": "stiff",
+    "width": [
+      "narrow",
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "classic",
+    "buyUrl": "https://www.ocun.com/product/ozone3",
+    "imageUrl": "images/Ocun/Ozone.jpg",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Sport climbing all-rounder; size down 0.5-1 EU from street shoe size."
+  },
+  {
+    "brand": "Ocún",
+    "model": "Ozone HV",
+    "price": 129,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 1,
+    "heel": 1,
+    "stiffness": "stiff",
+    "width": [
+      "wide"
+    ],
+    "climbType": [
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "classic",
+    "buyUrl": "https://www.ocun.com/product/ozone-hv3",
+    "imageUrl": "images/Ocun/Ozone_HV.jpg",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "High-volume last for wider feet; size at street size or 0.5 EU down."
+  },
+  {
+    "brand": "Ocún",
+    "model": "Diamond S",
+    "price": 146,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 1,
+    "heel": 1,
+    "stiffness": "medium",
+    "width": [
+      "narrow",
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "classic",
+    "buyUrl": "https://www.ocun.com/product/diamond-s3",
+    "imageUrl": "images/Ocun/Diamond_S.jpg",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Mid-stiffness bouldering shoe; size down 0.5-1 EU for a close technical fit."
+  },
+  {
+    "brand": "Ocún",
+    "model": "Fury",
+    "price": 137,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "soft",
+    "width": [
+      "narrow",
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "B"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "classic",
+    "buyUrl": "https://www.ocun.com/product/fury3",
+    "imageUrl": "images/Ocun/Fury.jpg",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Soft comp-style bouldering shoe; size down 0.5-1 EU for toe power on volumes."
+  },
+  {
+    "brand": "Ocún",
+    "model": "Bullit",
+    "price": 120,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 1,
+    "heel": 0,
+    "stiffness": "soft",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "classic",
+    "buyUrl": "https://www.ocun.com/product/bullit3",
+    "imageUrl": "images/Ocun/Bullit.jpg",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Soft bouldering slipper with thick rubber; size down 0.5-1 EU from street size."
+  },
+  {
+    "brand": "Ocún",
+    "model": "Iris",
+    "price": 112,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 1,
+    "downturn": 0,
+    "heel": 0,
+    "stiffness": "soft",
+    "width": [
+      "narrow"
+    ],
+    "climbType": [
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "classic",
+    "buyUrl": "https://www.ocun.com/product/iris3",
+    "imageUrl": "images/Ocun/Iris.jpg",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Women's performance shoe; size down 0.5-1 EU from street size for snug fit."
+  },
+  {
+    "brand": "Ocún",
+    "model": "Pearl",
+    "price": 103,
+    "currency": "GBP",
+    "fastening": "Lace",
+    "asym": 1,
+    "downturn": 2,
+    "heel": 1,
+    "stiffness": "soft",
+    "width": [
+      "narrow",
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "classic",
+    "buyUrl": "https://www.ocun.com/product/pearl-20th-anniversary3",
+    "imageUrl": "images/Ocun/Pearl.jpg",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Women's all-around shoe; size down 0.5-1 EU from street shoe size."
+  },
+  {
+    "brand": "Ocún",
+    "model": "Jett S",
+    "price": 94,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 1,
+    "downturn": 0,
+    "heel": 1,
+    "stiffness": "stiff",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "B"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "classic",
+    "buyUrl": "https://www.ocun.com/product/jett-s",
+    "imageUrl": "images/Ocun/Jett_S.jpg",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Beginner slipper; size at street size or 0.5 EU up for comfortable all-day fit."
+  },
+  {
+    "brand": "Ocún",
+    "model": "Jett QC",
+    "price": 94,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 1,
+    "downturn": 0,
+    "heel": 1,
+    "stiffness": "stiff",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "classic",
+    "buyUrl": "https://www.ocun.com/product/jett-qc",
+    "imageUrl": "images/Ocun/Jett_QC.jpg",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Entry-level Velcro shoe; size at street size or 0.5 EU up for comfortable fit."
+  },
+  {
+    "brand": "Ocún",
+    "model": "Jett LU",
+    "price": 94,
+    "currency": "GBP",
+    "fastening": "Lace",
+    "asym": 1,
+    "downturn": 0,
+    "heel": 1,
+    "stiffness": "stiff",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "S",
+      "M"
+    ],
+    "rock_type": "indoor|limestone|granite",
+    "footShape": "classic",
+    "buyUrl": "https://www.ocun.com/product/jett-lu",
+    "imageUrl": "images/Ocun/Jett_LU.jpg",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Entry-level lace shoe; size at street size or 0.5 EU up for comfortable all-day fit."
+  },
+  {
+    "brand": "Ocún",
+    "model": "Jett Crack",
+    "price": 135,
+    "currency": "GBP",
+    "fastening": "Lace",
+    "asym": 1,
+    "downturn": 0,
+    "heel": 1,
+    "stiffness": "stiff",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "M"
+    ],
+    "rock_type": "granite|cracks",
+    "footShape": "classic",
+    "buyUrl": "https://www.ocun.com/product/jett-crack3",
+    "imageUrl": "images/Ocun/Jett_Crack.jpg",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Crack-specific flat last; size at or slightly above street size for comfort in jams."
+  },
+  {
+    "brand": "Ocún",
+    "model": "Advancer QC",
+    "price": 90,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 1,
+    "downturn": 1,
+    "heel": 1,
+    "stiffness": "stiff",
+    "width": [
+      "narrow",
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "classic",
+    "buyUrl": "https://www.ocun.com/product/advancer-qc3",
+    "imageUrl": "images/Ocun/Advancer_QC.jpg",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Flat all-around shoe ideal for Greek/cube toe shape; fits close to street shoe size."
+  },
+  {
+    "brand": "Ocún",
+    "model": "Advancer LU",
+    "price": 86,
+    "currency": "GBP",
+    "fastening": "Lace",
+    "asym": 1,
+    "downturn": 1,
+    "heel": 1,
+    "stiffness": "stiff",
+    "width": [
+      "narrow",
+      "medium"
+    ],
+    "climbType": [
+      "S",
+      "M"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "classic",
+    "buyUrl": "https://www.ocun.com/product/advancer-lu3",
+    "imageUrl": "images/Ocun/Advancer_LU.jpg",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Flat lace-up all-around shoe; size at or 0.5 EU below street shoe size."
+  },
+  {
+    "brand": "Ocún",
+    "model": "Striker QC",
+    "price": 77,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 0,
+    "downturn": 0,
+    "heel": 0,
+    "stiffness": "medium",
+    "width": [
+      "narrow",
+      "medium",
+      "wide"
+    ],
+    "climbType": [
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "classic",
+    "buyUrl": "https://www.ocun.com/product/striker-qc3",
+    "imageUrl": "images/Ocun/Striker_QC.jpg",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "no",
+    "lining": "Unlined",
+    "sizingNote": "Beginner Velcro shoe with relaxed heel; size at street size for comfortable all-day wear."
+  },
+  {
+    "brand": "Ocún",
+    "model": "Striker LU",
+    "price": 77,
+    "currency": "GBP",
+    "fastening": "Lace",
+    "asym": 0,
+    "downturn": 0,
+    "heel": 0,
+    "stiffness": "medium",
+    "width": [
+      "narrow",
+      "medium",
+      "wide"
+    ],
+    "climbType": [
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "classic",
+    "buyUrl": "https://www.ocun.com/product/striker-lu3",
+    "imageUrl": "images/Ocun/Striker_LU.jpg",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "no",
+    "lining": "Unlined",
+    "sizingNote": "Beginner lace shoe with flat last; size at street shoe size for comfortable fit."
+  },
+  {
+    "brand": "Unparallel",
+    "model": "TN-Finity",
+    "price": 163,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "medium",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "classic",
+    "buyUrl": "https://www.unparallelsports.com/product/tn-finity/",
+    "imageUrl": "images/Unparallel/tn-finity.jpg",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Unlined synthetic; RH/RS split sole"
+  },
+  {
+    "brand": "Unparallel",
+    "model": "Orbit",
+    "price": 163,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "stiff",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "classic",
+    "buyUrl": "https://www.unparallelsports.com/product/orbit/",
+    "imageUrl": "images/Unparallel/orbit.jpg",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Split sole; 2025 model"
+  },
+  {
+    "brand": "Unparallel",
+    "model": "Flagship Pro",
+    "price": 155,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "stiff",
+    "width": [
+      "narrow"
+    ],
+    "climbType": [
+      "B",
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "classic",
+    "buyUrl": "https://www.unparallelsports.com/product/flagship-pro/",
+    "imageUrl": "images/Unparallel/flagship-pro.jpg",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Lined",
+    "sizingNote": ""
+  },
+  {
+    "brand": "Unparallel",
+    "model": "Flagship Pro LV",
+    "price": 155,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "stiff",
+    "width": [
+      "narrow"
+    ],
+    "climbType": [
+      "B",
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "classic",
+    "buyUrl": "https://www.unparallelsports.com/product/flagship-pro-lv/",
+    "imageUrl": "images/Unparallel/flagship-pro-lv.jpg",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Lined",
+    "sizingNote": "LV of Flagship Pro"
+  },
+  {
+    "brand": "Unparallel",
+    "model": "Qubit",
+    "price": 150,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "stiff",
+    "width": [
+      "narrow"
+    ],
+    "climbType": [
+      "B",
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "classic",
+    "buyUrl": "https://www.unparallelsports.com/product/qubit/",
+    "imageUrl": "images/Unparallel/qubit.jpg",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": ""
+  },
+  {
+    "brand": "Unparallel",
+    "model": "Qubit LV",
+    "price": 150,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "stiff",
+    "width": [
+      "narrow"
+    ],
+    "climbType": [
+      "B",
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "classic",
+    "buyUrl": "https://www.unparallelsports.com/product/qubit-lv/",
+    "imageUrl": "images/Unparallel/qubit-lv.jpg",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "LV of Qubit"
+  },
+  {
+    "brand": "Unparallel",
+    "model": "Souped Up",
+    "price": 147,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "soft",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "classic",
+    "buyUrl": "https://www.unparallelsports.com/product/souped-up/",
+    "imageUrl": "images/Unparallel/souped-up.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Leather suede split upper; not vegan"
+  },
+  {
+    "brand": "Unparallel",
+    "model": "Flagship",
+    "price": 147,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "stiff",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "classic",
+    "buyUrl": "https://www.unparallelsports.com/product/flagship/",
+    "imageUrl": "images/Unparallel/flagship.png",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Lined",
+    "sizingNote": ""
+  },
+  {
+    "brand": "Unparallel",
+    "model": "Flagship Women LV",
+    "price": 147,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "stiff",
+    "width": [
+      "narrow"
+    ],
+    "climbType": [
+      "B",
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "classic",
+    "buyUrl": "https://www.unparallelsports.com/product/flagship-women-lv/",
+    "imageUrl": "images/Unparallel/flagship-women-lv.png",
+    "locations": [],
+    "vegan": true,
+    "womens": true,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Women's-specific sizing"
+  },
+  {
+    "brand": "Unparallel",
+    "model": "TN Pro",
+    "price": 142,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "stiff",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "classic",
+    "buyUrl": "https://www.unparallelsports.com/product/tn-pro/",
+    "imageUrl": "images/Unparallel/tn-pro.png",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": ""
+  },
+  {
+    "brand": "Unparallel",
+    "model": "TN Pro LV",
+    "price": 142,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "stiff",
+    "width": [
+      "narrow"
+    ],
+    "climbType": [
+      "B",
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "classic",
+    "buyUrl": "https://www.unparallelsports.com/product/tn-pro-lv/",
+    "imageUrl": "images/Unparallel/tn-pro-lv.png",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "LV of TN Pro"
+  },
+  {
+    "brand": "Unparallel",
+    "model": "NewTro Lace",
+    "price": 132,
+    "currency": "GBP",
+    "fastening": "Lace",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "stiff",
+    "width": [
+      "narrow"
+    ],
+    "climbType": [
+      "B",
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "classic",
+    "buyUrl": "https://www.unparallelsports.com/product/newtro-lace-up/",
+    "imageUrl": "images/Unparallel/newtro-lace.png",
+    "locations": [],
+    "vegan": false,
+    "womens": true,
+    "resoleableRaw": "yes",
+    "lining": "Lined",
+    "sizingNote": "RA rubber; vegan status not explicitly listed on page"
+  },
+  {
+    "brand": "Unparallel",
+    "model": "Vega",
+    "price": 139,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 1,
+    "stiffness": "medium",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone|sandstone",
+    "footShape": "classic",
+    "buyUrl": "https://www.unparallelsports.com/product/vega/",
+    "imageUrl": "images/Unparallel/vega.png",
+    "locations": [],
+    "vegan": true,
+    "womens": true,
+    "resoleableRaw": "yes",
+    "lining": "Lined",
+    "sizingNote": "Men's & women's"
+  },
+  {
+    "brand": "Unparallel",
+    "model": "Sirius Lace",
+    "price": 139,
+    "currency": "GBP",
+    "fastening": "Lace",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "medium",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "classic",
+    "buyUrl": "https://www.unparallelsports.com/product/sirius/",
+    "imageUrl": "images/Unparallel/sirius-lace.png",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Lined",
+    "sizingNote": ""
+  },
+  {
+    "brand": "Unparallel",
+    "model": "Sirius Lace LV",
+    "price": 139,
+    "currency": "GBP",
+    "fastening": "Lace",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "medium",
+    "width": [
+      "narrow"
+    ],
+    "climbType": [
+      "B",
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "classic",
+    "buyUrl": "https://www.unparallelsports.com/product/sirius-lv/",
+    "imageUrl": "images/Unparallel/sirius-lace-lv.png",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Lined",
+    "sizingNote": "LV of Sirius Lace"
+  },
+  {
+    "brand": "Unparallel",
+    "model": "Leopard II",
+    "price": 139,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "soft",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "B"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "classic",
+    "buyUrl": "https://www.unparallelsports.com/product/leopard/",
+    "imageUrl": "images/Unparallel/leopard-ii.png",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "C-shape midsole"
+  },
+  {
+    "brand": "Unparallel",
+    "model": "Up-Rise Pro",
+    "price": 134,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 1,
+    "downturn": 0,
+    "heel": 1,
+    "stiffness": "stiff",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "S",
+      "M"
+    ],
+    "rock_type": "indoor|limestone|granite|cracks",
+    "footShape": "centred",
+    "buyUrl": "https://www.unparallelsports.com/product/up-rise-pro/",
+    "imageUrl": "images/Unparallel/up-rise-pro.png",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Lined",
+    "sizingNote": "Crack/multi-pitch; moccasin-style fit"
+  },
+  {
+    "brand": "Unparallel",
+    "model": "NewTro VCS",
+    "price": 132,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "stiff",
+    "width": [
+      "narrow"
+    ],
+    "climbType": [
+      "B",
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "classic",
+    "buyUrl": "https://www.unparallelsports.com/product/newtro-vcs/",
+    "imageUrl": "images/Unparallel/newtro-vcs.png",
+    "locations": [],
+    "vegan": true,
+    "womens": true,
+    "resoleableRaw": "yes",
+    "lining": "Lined",
+    "sizingNote": "Men's & women's"
+  },
+  {
+    "brand": "Unparallel",
+    "model": "UP PIVOT",
+    "price": 132,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "stiff",
+    "width": [
+      "wide"
+    ],
+    "climbType": [
+      "B",
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "classic",
+    "buyUrl": "https://www.unparallelsports.com/product/up-pivot/",
+    "imageUrl": "images/Unparallel/up-pivot.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Wide fit; leather upper; not vegan"
+  },
+  {
+    "brand": "Unparallel",
+    "model": "Regulus",
+    "price": 127,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "stiff",
+    "width": [
+      "narrow"
+    ],
+    "climbType": [
+      "B",
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "classic",
+    "buyUrl": "https://www.unparallelsports.com/product/regulus/",
+    "imageUrl": "images/Unparallel/regulus.png",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Vegan status not listed on product page"
+  },
+  {
+    "brand": "Unparallel",
+    "model": "Regulus LV",
+    "price": 127,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "stiff",
+    "width": [
+      "narrow"
+    ],
+    "climbType": [
+      "B",
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "classic",
+    "buyUrl": "https://www.unparallelsports.com/product/regulus-lv/",
+    "imageUrl": "images/Unparallel/regulus-lv.png",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "LV of Regulus; vegan status not listed"
+  },
+  {
+    "brand": "Unparallel",
+    "model": "UP FLOAT",
+    "price": 126,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "stiff",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "classic",
+    "buyUrl": "https://www.unparallelsports.com/product/up-float/",
+    "imageUrl": "images/Unparallel/up-float.png",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Split sole"
+  },
+  {
+    "brand": "Unparallel",
+    "model": "UP LIFT",
+    "price": 126,
+    "currency": "GBP",
+    "fastening": "Lace",
+    "asym": 0,
+    "downturn": 0,
+    "heel": 0,
+    "stiffness": "stiff",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "S",
+      "M"
+    ],
+    "rock_type": "indoor|granite|sandstone|cracks",
+    "footShape": "centred",
+    "buyUrl": "https://www.unparallelsports.com/product/up-lift/",
+    "imageUrl": "images/Unparallel/up-lift.png",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Multi-pitch; RA rubber (hardest compound)"
+  },
+  {
+    "brand": "Unparallel",
+    "model": "Up Lace",
+    "price": 126,
+    "currency": "GBP",
+    "fastening": "Lace",
+    "asym": 1,
+    "downturn": 0,
+    "heel": 1,
+    "stiffness": "stiff",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "S",
+      "M"
+    ],
+    "rock_type": "indoor|limestone|granite|cracks",
+    "footShape": "centred",
+    "buyUrl": "https://www.unparallelsports.com/product/up-lace/",
+    "imageUrl": "images/Unparallel/up-lace.jpg",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Lined",
+    "sizingNote": "Stiffest midsole in range; crack/trad capable"
+  },
+  {
+    "brand": "Unparallel",
+    "model": "Up Lace LV",
+    "price": 126,
+    "currency": "GBP",
+    "fastening": "Lace",
+    "asym": 1,
+    "downturn": 0,
+    "heel": 1,
+    "stiffness": "stiff",
+    "width": [
+      "narrow"
+    ],
+    "climbType": [
+      "B",
+      "S",
+      "M"
+    ],
+    "rock_type": "indoor|limestone|granite|cracks",
+    "footShape": "centred",
+    "buyUrl": "https://www.unparallelsports.com/product/up-lace-lv/",
+    "imageUrl": "images/Unparallel/up-lace-lv.jpg",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Lined",
+    "sizingNote": "LV of Up Lace"
+  },
+  {
+    "brand": "Unparallel",
+    "model": "Up Rise VCS",
+    "price": 126,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 1,
+    "downturn": 1,
+    "heel": 1,
+    "stiffness": "medium",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "S",
+      "M"
+    ],
+    "rock_type": "indoor|limestone|granite|cracks",
+    "footShape": "centred",
+    "buyUrl": "https://www.unparallelsports.com/product/up-rise-vcs/",
+    "imageUrl": "images/Unparallel/up-rise-vcs.jpg",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Lined",
+    "sizingNote": "All-terrain versatile; crack climbing capable"
+  },
+  {
+    "brand": "Unparallel",
+    "model": "Up Rise VCS LV",
+    "price": 126,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 1,
+    "downturn": 1,
+    "heel": 1,
+    "stiffness": "medium",
+    "width": [
+      "narrow"
+    ],
+    "climbType": [
+      "B",
+      "S",
+      "M"
+    ],
+    "rock_type": "indoor|limestone|granite|cracks",
+    "footShape": "centred",
+    "buyUrl": "https://www.unparallelsports.com/product/up-rise-vcs-lv/",
+    "imageUrl": "images/Unparallel/up-rise-vcs-lv.jpg",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Lined",
+    "sizingNote": "LV of Up Rise VCS"
+  },
+  {
+    "brand": "Unparallel",
+    "model": "Vim",
+    "price": 124,
+    "currency": "GBP",
+    "fastening": "Slip-On",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "soft",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "classic",
+    "buyUrl": "https://www.unparallelsports.com/product/vim/",
+    "imageUrl": "images/Unparallel/vim.png",
+    "locations": [],
+    "vegan": true,
+    "womens": true,
+    "resoleableRaw": "yes",
+    "lining": "Lined",
+    "sizingNote": "Men's & women's"
+  },
+  {
+    "brand": "Unparallel",
+    "model": "UP BEAT",
+    "price": 123,
+    "currency": "GBP",
+    "fastening": "Lace",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "stiff",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "classic",
+    "buyUrl": "https://www.unparallelsports.com/product/up-beat-3/",
+    "imageUrl": "images/Unparallel/up-beat.png",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": ""
+  },
+  {
+    "brand": "Unparallel",
+    "model": "Engage Lace UP",
+    "price": 110,
+    "currency": "GBP",
+    "fastening": "Lace",
+    "asym": 1,
+    "downturn": 0,
+    "heel": 1,
+    "stiffness": "medium",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone|sandstone",
+    "footShape": "centred",
+    "buyUrl": "https://www.unparallelsports.com/product/engage-lace-up/",
+    "imageUrl": "images/Unparallel/engage-lace-up.png",
+    "locations": [],
+    "vegan": false,
+    "womens": true,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Leather upper; not vegan; beginner-friendly"
+  },
+  {
+    "brand": "Unparallel",
+    "model": "UP Duel",
+    "price": 108,
+    "currency": "GBP",
+    "fastening": "Slip-On",
+    "asym": 1,
+    "downturn": 1,
+    "heel": 1,
+    "stiffness": "medium",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "centred",
+    "buyUrl": "https://www.unparallelsports.com/product/up-duel/",
+    "imageUrl": "images/Unparallel/up-duel.jpg",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Speed climbing slipper; great all-around gym shoe"
+  },
+  {
+    "brand": "Unparallel",
+    "model": "Up Mocc",
+    "price": 106,
+    "currency": "GBP",
+    "fastening": "Slip-On",
+    "asym": 1,
+    "downturn": 1,
+    "heel": 1,
+    "stiffness": "soft",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "S",
+      "M"
+    ],
+    "rock_type": "indoor|limestone|granite|cracks",
+    "footShape": "centred",
+    "buyUrl": "https://www.unparallelsports.com/product/up-mocc/",
+    "imageUrl": "images/Unparallel/up-mocc.png",
+    "locations": [],
+    "vegan": false,
+    "womens": true,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Leather moccasin; crack climbing; men's & women's"
+  },
+  {
+    "brand": "Unparallel",
+    "model": "Engage VCS",
+    "price": 106,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 1,
+    "downturn": 1,
+    "heel": 1,
+    "stiffness": "medium",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone|sandstone",
+    "footShape": "centred",
+    "buyUrl": "https://www.unparallelsports.com/product/hold-up-engage/",
+    "imageUrl": "images/Unparallel/engage-vcs.png",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Leather upper; not vegan; beginner-friendly"
+  },
+  {
+    "brand": "Unparallel",
+    "model": "Engage VCS LV",
+    "price": 106,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 1,
+    "downturn": 1,
+    "heel": 1,
+    "stiffness": "medium",
+    "width": [
+      "narrow"
+    ],
+    "climbType": [
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone|sandstone",
+    "footShape": "centred",
+    "buyUrl": "https://www.unparallelsports.com/product/engage-vcs-lv/",
+    "imageUrl": "images/Unparallel/engage-vcs-lv.png",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "LV of Engage VCS; leather upper"
+  },
+  {
+    "brand": "Unparallel",
+    "model": "UP Virtu",
+    "price": 100,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 1,
+    "downturn": 0,
+    "heel": 1,
+    "stiffness": "stiff",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone|sandstone",
+    "footShape": "centred",
+    "buyUrl": "https://www.unparallelsports.com/product/up-virtu/",
+    "imageUrl": "images/Unparallel/up-virtu.png",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "Beginner-intermediate"
+  },
+  {
+    "brand": "Unparallel",
+    "model": "UP Virtu LV",
+    "price": 100,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 1,
+    "downturn": 0,
+    "heel": 1,
+    "stiffness": "stiff",
+    "width": [
+      "narrow"
+    ],
+    "climbType": [
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone|sandstone",
+    "footShape": "centred",
+    "buyUrl": "https://www.unparallelsports.com/product/up-virtu-lv/",
+    "imageUrl": "images/Unparallel/up-virtu-lv.png",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "LV of UP Virtu"
+  },
+  {
+    "brand": "Evolv",
+    "model": "Kronos",
+    "price": 120,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 1,
+    "downturn": 1,
+    "heel": 1,
+    "stiffness": "medium",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "S",
+      "M"
+    ],
+    "rock_type": "limestone|granite|sandstone|gritstone",
+    "footShape": "classic",
+    "buyUrl": "https://bananafingers.co.uk/evolv-kronos",
+    "imageUrl": "images/Evolv/Kronos.jpg",
+    "locations": [
+      "Rise"
+    ],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "yes",
+    "lining": "Unlined",
+    "sizingNote": "All-around single-strap velcro shoe; size down 0.5-1 EU from street shoe size."
+  },
+  {
+    "brand": "Evolv",
+    "model": "Defy LV",
+    "price": 100,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 0,
+    "downturn": 0,
+    "heel": 0,
+    "stiffness": "medium",
+    "width": [
+      "narrow",
+      "medium"
+    ],
+    "climbType": [
+      "B"
+    ],
+    "rock_type": "indoor",
+    "footShape": "",
+    "buyUrl": "https://www.evolvsports.com/defy-_low-volume_-66-0000062502",
+    "imageUrl": "images/Evolv/Defy_LV.jpg",
+    "locations": [
+      "Rise"
+    ],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "no",
+    "lining": "Lined (synthetic)",
+    "sizingNote": "LV version for narrower feet; size at street size or 0.5 EU up for comfortable all-day fit."
+  },
+  {
+    "brand": "Evolv",
+    "model": "Elektra",
+    "price": 95,
+    "currency": "GBP",
+    "fastening": "Lace",
+    "asym": 1,
+    "downturn": 0,
+    "heel": 1,
+    "stiffness": "medium",
+    "width": [
+      "narrow"
+    ],
+    "climbType": [
+      "B",
+      "S"
+    ],
+    "rock_type": "indoor|limestone",
+    "footShape": "",
+    "buyUrl": "https://bananafingers.co.uk/evolv-elektra",
+    "imageUrl": "images/Evolv/Elektra.jpg",
+    "locations": [
+      "Rise"
+    ],
+    "vegan": true,
+    "womens": true,
+    "resoleableRaw": "yes",
+    "lining": "Lined (synthetic)",
+    "sizingNote": "Women's lace shoe; size at street shoe size for comfortable all-around fit."
+  },
+  {
+    "brand": "Scarpa",
+    "model": "Reflex V WMN",
+    "price": 100,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 0,
+    "downturn": 0,
+    "heel": 1,
+    "stiffness": "medium",
+    "width": [
+      "narrow"
+    ],
+    "climbType": [
+      "B"
+    ],
+    "rock_type": "indoor",
+    "footShape": "centred",
+    "buyUrl": "https://bananafingers.co.uk/scarpa-reflex-v-womens",
+    "imageUrl": "images/Scarpa/Reflex_V_WMN.jpg",
+    "locations": [
+      "Rise"
+    ],
+    "vegan": false,
+    "womens": true,
+    "resoleableRaw": "no",
+    "lining": "Lined (synthetic)",
+    "sizingNote": "Women's-specific LV last; size at street shoe size for comfortable gym fit."
+  }
+]
