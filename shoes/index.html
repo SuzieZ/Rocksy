@@ -860,6 +860,22 @@
     background: var(--moss-pale);
     transform: translateY(-1px);
   }
+  .btn-specs {
+    display: block;
+    background: none;
+    color: var(--moss);
+    border: 1.5px solid var(--pebble);
+    border-radius: 50px;
+    padding: 0.6rem 1.2rem;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: border-color 0.15s, color 0.15s, transform 0.1s;
+  }
+  .btn-specs:hover { border-color: var(--moss); transform: translateY(-1px); text-decoration: none; }
 
   .btn-disagree {
     display: block;
@@ -1073,6 +1089,21 @@
     transition: opacity 0.15s, transform 0.1s;
   }
   .broaden-search-banner button:hover { opacity: 0.9; transform: translateY(-1px); }
+
+  /* LOW-MATCH BANNER */
+  .low-match-banner {
+    background: #fffbf2;
+    border: 1.5px solid #f0c060;
+    border-radius: 10px;
+    padding: 1rem 1.3rem;
+    margin: 0 auto 2rem;
+    max-width: 640px;
+    text-align: center;
+    font-size: 0.88rem;
+    color: var(--ink);
+    line-height: 1.6;
+  }
+  .low-match-banner strong { color: var(--terra); }
 
   /* BRAND FILTER MODAL */
   .brand-filter-list {
@@ -1918,6 +1949,7 @@
     <p id="broaden-search-text"></p>
     <button type="button" id="broaden-search-btn"></button>
   </div>
+  <div class="low-match-banner" id="low-match-banner" style="display:none;"></div>
   <div class="shoes-grid" id="shoes-grid"></div>
   <div class="restart-wrap">
     <button class="btn-restart" onclick="restart()">↺ Start over</button>
@@ -3058,6 +3090,7 @@ function showResults() {
   let top = eligible.filter(item => item.matchPct >= 70);
   if (top.length < 3) top = eligible.slice(0, 3);
   top = top.slice(0, MAX_RESULTS);
+  const lowMatch = top.length > 0 && top[0].matchPct < 70;
   lastResults = top;
   trackQuizCompleted(scoredWithPct, top);
 
@@ -3105,7 +3138,68 @@ function showResults() {
     });
   }
 
+  const lowMatchBanner = document.getElementById('low-match-banner');
+  if (lowMatch) {
+    const _a = answers;
+    const fasteningPref   = Array.isArray(_a.fastening) ? _a.fastening : (_a.fastening ? [_a.fastening] : []);
+    const styleAnswers    = Array.isArray(_a.style)     ? _a.style     : (_a.style     ? [_a.style]     : []);
+    const rockTypeAnswers = Array.isArray(_a.rockType)  ? _a.rockType  : (_a.rockType  ? [_a.rockType]  : []);
+
+    // Detectable root causes (most specific first)
+    const tips = []; // { label, hint }
+
+    // Aggression vs style conflict: aggressive preference + trad/crack climbing
+    if (styleAnswers.includes('trad') && _a.aggression === 'aggressive') {
+      tips.push({ label: 'aggression', hint: 'trad and crack climbing suits flatter shoes — try moderate or flat' });
+    }
+
+    // Rock type: user picked a specific type but none of the top shoes match it
+    const selectedRTs = rockTypeAnswers.filter(rt => rt !== 'whatever').map(rt => rt.toLowerCase());
+    if (selectedRTs.length > 0) {
+      const anyRTMatch = top.some(item => {
+        const shoeRTs = item.shoe.rock_type ? item.shoe.rock_type.split('|').map(rt => rt.trim().toLowerCase()) : [];
+        return selectedRTs.some(rt => shoeRTs.some(srt => srt.includes(rt) || rt.includes(srt)));
+      });
+      if (!anyRTMatch) tips.push({ label: 'rock type', hint: 'try "Whatever" to see all available shoes' });
+    }
+
+    // Fastening: user picked a specific type (not "any")
+    if (fasteningPref.length > 0 && !fasteningPref.includes('any')) {
+      tips.push({ label: 'fastening preference', hint: 'try selecting "Any" to open up more options' });
+    }
+
+    // Budget: user set a ceiling below the open-ended default
+    if (_a.budget && _a.budget.max != null && _a.budget.max < 9999) {
+      tips.push({ label: 'budget', hint: 'a slightly higher ceiling can unlock more choices' });
+    }
+
+    // Fallback if nothing specific was detected
+    if (!tips.length) {
+      tips.push({ label: 'fastening preference', hint: null });
+      tips.push({ label: 'budget', hint: null });
+    }
+
+    const fmtTip = t => `<strong>${t.label}</strong>${t.hint ? ` (${t.hint})` : ''}`;
+    const tipText = tips.length === 1
+      ? `Try adjusting your ${fmtTip(tips[0])}.`
+      : `Try adjusting your ${fmtTip(tips[0])}, or your ${fmtTip(tips[1])}.`;
+    lowMatchBanner.innerHTML = `These are the closest matches we have — none score above 70%. ${tipText}`;
+    lowMatchBanner.style.display = 'block';
+  } else {
+    lowMatchBanner.style.display = 'none';
+  }
+
   grid.innerHTML = top.map((item, i) => buildCard(item, i)).join('');
+}
+
+function slugify(brand, model) {
+  return `${brand} ${model}`
+    .toLowerCase()
+    .replace(/\./g,  '-')
+    .replace(/[^a-z0-9\s-]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/-+/g,  '-')
+    .replace(/^-|-$/g, '');
 }
 
 function buildCard({ shoe, score, reasons }, rank) {
@@ -3149,6 +3243,8 @@ function buildCard({ shoe, score, reasons }, rank) {
   const buyButtonHtml = ACTIVE_LOCATION
     ? (hasLink ? `<button onclick="trackClick('${safeBrand}','${safeModel}','${url}')" class="btn-buy btn-buy-outline">View Online →</button>` : '')
     : `<button onclick="trackClick('${safeBrand}','${safeModel}','${url}')" class="btn-buy ${buyClass}">${buyLabel}</button>`;
+  const shoeSlug = slugify(shoe.brand, shoe.model);
+  const specsLinkHtml = `<a href="${shoeSlug}.html" class="btn-specs">Full specs →</a>`;
 
   const widthDisplay = shoe.width.map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(', ');
 
@@ -3197,6 +3293,7 @@ function buildCard({ shoe, score, reasons }, rank) {
       <div class="shoe-actions">
         ${buyButtonHtml}
         ${tryOnHtml}
+        ${specsLinkHtml}
       </div>
       <label class="compare-check">
         <input type="checkbox" onchange="toggleCompare(this,'${safeKey}')">

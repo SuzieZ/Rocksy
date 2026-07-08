@@ -6,11 +6,13 @@ deployment:
     - /bin/cp -v index.html $DEPLOYPATH
     - /bin/cp -v 404.shtml $DEPLOYPATH
     - /bin/cp -v privacy.shtml $DEPLOYPATH
+    - /bin/cp -v sitemap.xml $DEPLOYPATH
     - /bin/mkdir -p $DEPLOYPATH/shoes
     - /bin/cp -v shoes/index.html $DEPLOYPATH/shoes/
     - /bin/cp -v shoes/proxy.php $DEPLOYPATH/shoes/
     - /bin/cp -v shoes/rise-qr.html $DEPLOYPATH/shoes/
     - /bin/cp -v shoes/score.js $DEPLOYPATH/shoes/
+    - /bin/cp -v shoes/*.html $DEPLOYPATH/shoes/
     - /bin/mkdir -p $DEPLOYPATH/images
     - /bin/cp -rv images/. $DEPLOYPATH/images/
     - /bin/mkdir -p $DEPLOYPATH/shoes/images
