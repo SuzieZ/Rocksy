@@ -11,6 +11,7 @@ deployment:
     - /bin/cp -v shoes/index.html $DEPLOYPATH/shoes/
     - /bin/cp -v shoes/proxy.php $DEPLOYPATH/shoes/
     - /bin/cp -v shoes/rise-qr.html $DEPLOYPATH/shoes/
+    - /bin/cp -v shoes/rocksy-qr.html $DEPLOYPATH/shoes/
     - /bin/cp -v shoes/score.js $DEPLOYPATH/shoes/
     - /bin/cp -v shoes/*.html $DEPLOYPATH/shoes/
     - /bin/mkdir -p $DEPLOYPATH/images
