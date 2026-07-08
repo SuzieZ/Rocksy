@@ -575,12 +575,12 @@ footer a{color:rgba(255,255,255,0.8)}footer a:hover{color:#fff}
 <body>
 <header>
   <a class="logo" href="/">Rocksy Adventures</a>
-  <a class="header-btn" href="/">← Shoe Finder Quiz</a>
+  <a class="header-btn" href="/shoes/">← Shoe Finder Quiz</a>
 </header>
 
 <nav class="breadcrumb" aria-label="Breadcrumb">
   <a href="/">Home</a><span aria-hidden="true">›</span>
-  <a href="/">Shoe Finder</a><span aria-hidden="true">›</span>
+  <a href="/shoes/">Shoe Finder</a><span aria-hidden="true">›</span>
   <span>${esc(shoe.brand)} ${esc(shoe.model)}</span>
 </nav>
 
@@ -630,7 +630,7 @@ ${specRows.map(([k, v]) => `        <tr><td>${esc(k)}</td><td>${v}</td></tr>`).j
   <div class="cta-banner">
     <h2>Not sure if this is the right shoe?</h2>
     <p>Answer 6 quick questions and get personalised climbing shoe recommendations based on your experience, climbing style, foot shape, and budget.</p>
-    <a href="/"
+    <a href="/shoes/"
        class="btn-quiz"
        onclick="gtag('event','shoe_page_quiz_cta_click',{brand:'${jsStr(shoe.brand)}',model:'${jsStr(shoe.model)}'});">
       Take the free 60-second quiz →
