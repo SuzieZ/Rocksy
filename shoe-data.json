@@ -1786,7 +1786,7 @@
     "rock_type": "indoor|limestone",
     "footShape": "",
     "buyUrl": "https://www.evolvsports.com/v6-_low-volume_-66-0000062402",
-    "imageUrl": "images/Evolv/V6_Low_Volume.jpg",
+    "imageUrl": "images/Evolv/V6_Low_Volume.avif",
     "locations": [],
     "vegan": true,
     "womens": false,
@@ -5816,7 +5816,7 @@
     "currency": "GBP",
     "fastening": "Velcro",
     "asym": 1,
-    "downturn": 1,
+    "downturn": 0,
     "heel": 1,
     "stiffness": "medium",
     "width": [
@@ -5844,7 +5844,7 @@
     "currency": "GBP",
     "fastening": "Velcro",
     "asym": 1,
-    "downturn": 1,
+    "downturn": 0,
     "heel": 1,
     "stiffness": "medium",
     "width": [
@@ -6040,5 +6040,708 @@
     "resoleableRaw": "no",
     "lining": "Lined (synthetic)",
     "sizingNote": "Women's-specific LV last; size at street shoe size for comfortable gym fit."
+  },
+  {
+    "brand": "Mad Rock",
+    "model": "Drone 2 HV",
+    "price": 159,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "stiff",
+    "width": [
+      "wide"
+    ],
+    "climbType": [
+      "B",
+      "S"
+    ],
+    "rock_type": "limestone",
+    "footShape": "classic",
+    "buyUrl": "https://madrock.com/collections/climbing-shoes/products/drone-2-0-hv",
+    "imageUrl": "images/Mad Rock/Drone_2_HV.jpg",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "",
+    "lining": "Unlined",
+    "sizingNote": ""
+  },
+  {
+    "brand": "Mad Rock",
+    "model": "Drone 2 LV",
+    "price": 159,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "stiff",
+    "width": [
+      "narrow"
+    ],
+    "climbType": [
+      "B",
+      "S"
+    ],
+    "rock_type": "limestone",
+    "footShape": "classic",
+    "buyUrl": "https://madrock.com/collections/climbing-shoes/products/drone-2-0-lv",
+    "imageUrl": "images/Mad Rock/Drone_2_HV.jpg",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "",
+    "lining": "Unlined",
+    "sizingNote": ""
+  },
+  {
+    "brand": "Mad Rock",
+    "model": "Drone CS HV",
+    "price": 169,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "medium",
+    "width": [
+      "wide"
+    ],
+    "climbType": [
+      "B",
+      "B",
+      "S"
+    ],
+    "rock_type": "limestone",
+    "footShape": "classic",
+    "buyUrl": "https://madrock.com/collections/climbing-shoes/products/drone-cs-hv",
+    "imageUrl": "images/Mad Rock/Drone_CS_HV.jpg",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "",
+    "lining": "Unlined",
+    "sizingNote": ""
+  },
+  {
+    "brand": "Mad Rock",
+    "model": "Drone CS LV",
+    "price": 169,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "medium",
+    "width": [
+      "narrow"
+    ],
+    "climbType": [
+      "B",
+      "B",
+      "S"
+    ],
+    "rock_type": "limestone",
+    "footShape": "classic",
+    "buyUrl": "https://madrock.com/collections/climbing-shoes/products/drone-cs-lv",
+    "imageUrl": "images/Mad Rock/Drone_CS_HV.jpg",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "",
+    "lining": "Unlined",
+    "sizingNote": ""
+  },
+  {
+    "brand": "Mad Rock",
+    "model": "Villain HV",
+    "price": 0,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "stiff",
+    "width": [
+      "wide"
+    ],
+    "climbType": [
+      "B",
+      "S"
+    ],
+    "rock_type": "limestone",
+    "footShape": "classic",
+    "buyUrl": "https://madrock.com/collections/climbing-shoes/products/villain",
+    "imageUrl": "images/Mad Rock/Villain.jpg",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "",
+    "lining": "Unlined",
+    "sizingNote": ""
+  },
+  {
+    "brand": "Mad Rock",
+    "model": "Villain LV",
+    "price": 0,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "stiff",
+    "width": [
+      "narrow"
+    ],
+    "climbType": [
+      "B",
+      "S"
+    ],
+    "rock_type": "limestone",
+    "footShape": "classic",
+    "buyUrl": "https://madrock.com/collections/climbing-shoes/products/villain",
+    "imageUrl": "images/Mad Rock/Villain.jpg",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "",
+    "lining": "Unlined",
+    "sizingNote": ""
+  },
+  {
+    "brand": "Mad Rock",
+    "model": "D2.ONE HV",
+    "price": 164,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 1,
+    "heel": 2,
+    "stiffness": "medium",
+    "width": [
+      "wide"
+    ],
+    "climbType": [
+      "B",
+      "S"
+    ],
+    "rock_type": "limestone",
+    "footShape": "classic",
+    "buyUrl": "https://madrock.com/collections/climbing-shoes/products/d2-one-hv",
+    "imageUrl": "images/Mad Rock/D2ONE_HV.jpg",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "",
+    "lining": "Unlined",
+    "sizingNote": ""
+  },
+  {
+    "brand": "Mad Rock",
+    "model": "D2.ONE LV",
+    "price": 164,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 1,
+    "heel": 2,
+    "stiffness": "medium",
+    "width": [
+      "narrow"
+    ],
+    "climbType": [
+      "B",
+      "S"
+    ],
+    "rock_type": "limestone",
+    "footShape": "classic",
+    "buyUrl": "https://madrock.com/collections/climbing-shoes/products/d2-one-lv",
+    "imageUrl": "images/Mad Rock/D2ONE_HV.jpg",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "",
+    "lining": "Unlined",
+    "sizingNote": ""
+  },
+  {
+    "brand": "Mad Rock",
+    "model": "Remora Pro HV",
+    "price": 154,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 1,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "soft",
+    "width": [
+      "wide"
+    ],
+    "climbType": [
+      "B",
+      "S"
+    ],
+    "rock_type": "limestone",
+    "footShape": "classic",
+    "buyUrl": "https://madrock.com/collections/climbing-shoes/products/remora-pro-hv",
+    "imageUrl": "images/Mad Rock/Remora_Pro_HV.jpg",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "",
+    "lining": "Unlined",
+    "sizingNote": ""
+  },
+  {
+    "brand": "Mad Rock",
+    "model": "Remora Pro LV",
+    "price": 154,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 1,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "soft",
+    "width": [
+      "narrow"
+    ],
+    "climbType": [
+      "B",
+      "S"
+    ],
+    "rock_type": "limestone",
+    "footShape": "classic",
+    "buyUrl": "https://madrock.com/collections/climbing-shoes/products/remora-pro-lv",
+    "imageUrl": "images/Mad Rock/Remora_Pro_HV.jpg",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "",
+    "lining": "Unlined",
+    "sizingNote": ""
+  },
+  {
+    "brand": "Mad Rock",
+    "model": "RedLine Strap",
+    "price": 0,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "soft",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "B"
+    ],
+    "rock_type": "limestone",
+    "footShape": "classic",
+    "buyUrl": "https://madrock.com/collections/climbing-shoes/products/redline-strap",
+    "imageUrl": "images/Mad Rock/RedLine_Strap.jpg",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "",
+    "lining": "Unlined",
+    "sizingNote": ""
+  },
+  {
+    "brand": "Mad Rock",
+    "model": "Shark 3 HV",
+    "price": 149,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 1,
+    "downturn": 1,
+    "heel": 2,
+    "stiffness": "medium",
+    "width": [
+      "wide"
+    ],
+    "climbType": [
+      "B",
+      "S"
+    ],
+    "rock_type": "limestone",
+    "footShape": "classic",
+    "buyUrl": "https://madrock.com/collections/climbing-shoes/products/shark-3-hv",
+    "imageUrl": "images/Mad Rock/Shark_3.jpg",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "",
+    "lining": "Unlined",
+    "sizingNote": ""
+  },
+  {
+    "brand": "Mad Rock",
+    "model": "Shark 3 LV",
+    "price": 149,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 1,
+    "downturn": 1,
+    "heel": 2,
+    "stiffness": "medium",
+    "width": [
+      "narrow"
+    ],
+    "climbType": [
+      "B",
+      "S"
+    ],
+    "rock_type": "limestone",
+    "footShape": "classic",
+    "buyUrl": "https://madrock.com/collections/climbing-shoes/products/shark-3-lv",
+    "imageUrl": "images/Mad Rock/Shark_3.jpg",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "",
+    "lining": "Unlined",
+    "sizingNote": ""
+  },
+  {
+    "brand": "Mad Rock",
+    "model": "Remora HV",
+    "price": 0,
+    "currency": "GBP",
+    "fastening": "Slip-On",
+    "asym": 1,
+    "downturn": 0,
+    "heel": 1,
+    "stiffness": "soft",
+    "width": [
+      "wide"
+    ],
+    "climbType": [
+      "B",
+      "S"
+    ],
+    "rock_type": "limestone",
+    "footShape": "classic",
+    "buyUrl": "https://madrock.com/collections/climbing-shoes/products/remora-hv",
+    "imageUrl": "images/Mad Rock/Remora_HV.jpg",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "",
+    "lining": "Unlined",
+    "sizingNote": ""
+  },
+  {
+    "brand": "Mad Rock",
+    "model": "Remora LV",
+    "price": 0,
+    "currency": "GBP",
+    "fastening": "Slip-On",
+    "asym": 1,
+    "downturn": 0,
+    "heel": 1,
+    "stiffness": "soft",
+    "width": [
+      "narrow"
+    ],
+    "climbType": [
+      "B",
+      "S"
+    ],
+    "rock_type": "limestone",
+    "footShape": "classic",
+    "buyUrl": "https://madrock.com/collections/climbing-shoes/products/remora-lv",
+    "imageUrl": "images/Mad Rock/Remora_HV.jpg",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "",
+    "lining": "Unlined",
+    "sizingNote": ""
+  },
+  {
+    "brand": "Mad Rock",
+    "model": "Rover",
+    "price": 104,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 1,
+    "downturn": 0,
+    "heel": 1,
+    "stiffness": "stiff",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "S"
+    ],
+    "rock_type": "limestone",
+    "footShape": "centred",
+    "buyUrl": "https://madrock.com/collections/climbing-shoes/products/rover",
+    "imageUrl": "images/Mad Rock/Rover.webp",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "",
+    "lining": "Unlined",
+    "sizingNote": ""
+  },
+  {
+    "brand": "Red Chili",
+    "model": "Voltage X",
+    "price": 169,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "soft",
+    "width": [
+      "wide"
+    ],
+    "climbType": [
+      "B",
+      "B",
+      "S"
+    ],
+    "rock_type": "limestone",
+    "footShape": "classic",
+    "buyUrl": "https://www.alpinetrek.co.uk/red-chili-voltage-x-climbing-shoes/",
+    "imageUrl": "images/Red Chili/Voltage_X.jpg",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "",
+    "lining": "Unlined",
+    "sizingNote": ""
+  },
+  {
+    "brand": "Red Chili",
+    "model": "Voltage III",
+    "price": 159,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "soft",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "B",
+      "S"
+    ],
+    "rock_type": "limestone",
+    "footShape": "classic",
+    "buyUrl": "https://www.alpinetrek.co.uk/red-chili-voltage-iii-climbing-shoes/",
+    "imageUrl": "images/Red Chili/Voltage_III.jpg",
+    "locations": [],
+    "vegan": true,
+    "womens": false,
+    "resoleableRaw": "",
+    "lining": "Unlined",
+    "sizingNote": ""
+  },
+  {
+    "brand": "Red Chili",
+    "model": "Spirit LV IV",
+    "price": 119,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 0,
+    "downturn": 0,
+    "heel": 1,
+    "stiffness": "medium",
+    "width": [
+      "narrow"
+    ],
+    "climbType": [
+      "B",
+      "S",
+      "M"
+    ],
+    "rock_type": "granite|limestone",
+    "footShape": "centred",
+    "buyUrl": "https://www.alpinetrek.co.uk/red-chili-spirit-lv-iv-climbing-shoes/",
+    "imageUrl": "images/Red Chili/Spirit_LV_IV.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "",
+    "lining": "Lined (synthetic)",
+    "sizingNote": ""
+  },
+  {
+    "brand": "Red Chili",
+    "model": "Charger II",
+    "price": 109,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 0,
+    "downturn": 1,
+    "heel": 1,
+    "stiffness": "medium",
+    "width": [
+      "medium"
+    ],
+    "climbType": [
+      "S",
+      "M"
+    ],
+    "rock_type": "limestone|granite",
+    "footShape": "centred",
+    "buyUrl": "https://www.alpinetrek.co.uk/red-chili-charger-ii-climbing-shoes/",
+    "imageUrl": "images/Red Chili/Charger_II.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "",
+    "lining": "Lined (synthetic)",
+    "sizingNote": ""
+  },
+  {
+    "brand": "Red Chili",
+    "model": "Session",
+    "price": 94,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 0,
+    "downturn": 0,
+    "heel": 0,
+    "stiffness": "stiff",
+    "width": [
+      "wide"
+    ],
+    "climbType": [
+      "S"
+    ],
+    "rock_type": "limestone",
+    "footShape": "centred",
+    "buyUrl": "https://www.alpinetrek.co.uk/red-chili-session-climbing-shoes/",
+    "imageUrl": "images/Red Chili/Session.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "",
+    "lining": "Lined (leather)",
+    "sizingNote": ""
+  },
+  {
+    "brand": "Butora",
+    "model": "Acro Comp",
+    "price": 0,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "soft",
+    "width": [
+      "wide"
+    ],
+    "climbType": [
+      "B",
+      "S"
+    ],
+    "rock_type": "limestone",
+    "footShape": "classic",
+    "buyUrl": "https://butorausa.com/collections/climbing-shoes/products/acro-comp",
+    "imageUrl": "images/Butora/Acro_Comp.png",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "",
+    "lining": "Unlined",
+    "sizingNote": ""
+  },
+  {
+    "brand": "Butora",
+    "model": "Acro Comp (Narrow)",
+    "price": 0,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "soft",
+    "width": [
+      "narrow"
+    ],
+    "climbType": [
+      "B",
+      "S"
+    ],
+    "rock_type": "limestone",
+    "footShape": "classic",
+    "buyUrl": "https://butorausa.com/collections/climbing-shoes/products/acro-comp",
+    "imageUrl": "images/Butora/Acro_Comp.png",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "",
+    "lining": "Unlined",
+    "sizingNote": ""
+  },
+  {
+    "brand": "Butora",
+    "model": "Gomi",
+    "price": 0,
+    "currency": "GBP",
+    "fastening": "Lace",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "soft",
+    "width": [
+      "wide"
+    ],
+    "climbType": [
+      "B",
+      "S"
+    ],
+    "rock_type": "limestone",
+    "footShape": "classic",
+    "buyUrl": "https://butorausa.com/collections/climbing-shoes/products/gomi-1",
+    "imageUrl": "images/Butora/Gomi.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "",
+    "lining": "Unlined",
+    "sizingNote": ""
+  },
+  {
+    "brand": "Butora",
+    "model": "Gomi (Narrow)",
+    "price": 0,
+    "currency": "GBP",
+    "fastening": "Lace",
+    "asym": 2,
+    "downturn": 2,
+    "heel": 2,
+    "stiffness": "soft",
+    "width": [
+      "narrow"
+    ],
+    "climbType": [
+      "B",
+      "S"
+    ],
+    "rock_type": "limestone",
+    "footShape": "classic",
+    "buyUrl": "https://butorausa.com/collections/climbing-shoes/products/gomi-1",
+    "imageUrl": "images/Butora/Gomi.jpg",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "",
+    "lining": "Unlined",
+    "sizingNote": ""
   }
 ]
