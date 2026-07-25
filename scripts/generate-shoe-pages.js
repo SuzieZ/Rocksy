@@ -610,6 +610,8 @@ footer a{color:rgba(255,255,255,0.8)}footer a:hover{color:#fff}
             ? ` href="${esc(buyUrl)}" target="_blank" rel="noopener noreferrer" onclick="gtag('event','buy_click',{shoe_brand:'${jsStr(shoe.brand)}',shoe_model:'${jsStr(shoe.model)}',outbound_url:'${jsStr(shoe.buyUrl)}'});"`
             : ''}
            class="btn-buy${hasLink ? '' : ' no-stock'}">${hasLink ? 'Buy now →' : 'Not yet available'}</a>
+        <a href="compare.html?shoes=${slug}" class="btn-buy" style="background:none;color:var(--moss);border:1.5px solid var(--moss);"
+           onclick="gtag('event','compare_click',{shoe_brand:'${jsStr(shoe.brand)}',shoe_model:'${jsStr(shoe.model)}'});">Compare →</a>
       </div>
 
       ${shoe.sizingNote ? `<div class="sizing-note-box"><strong>Sizing note:</strong> ${esc(shoe.sizingNote)}</div>` : ''}

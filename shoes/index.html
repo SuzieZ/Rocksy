@@ -1985,7 +1985,8 @@
   <span id="compare-bar-label">0 shoes selected</span>
   <div class="compare-bar-actions">
     <button class="compare-bar-clear" onclick="clearCompare()">Clear</button>
-    <button class="compare-bar-view" id="compare-bar-view" onclick="openCompare()" disabled>Compare →</button>
+    <button class="compare-bar-view" id="compare-bar-view" onclick="openCompare()" disabled>Quick compare</button>
+    <button class="compare-bar-view" id="compare-bar-full" onclick="openFullCompare()" disabled style="background:none;border:1px solid rgba(255,255,255,0.5);">Full page →</button>
   </div>
 </div>
 
@@ -3348,9 +3349,9 @@ function closeFeedback(e) {
 
 function toggleCompare(checkbox, key) {
   if (checkbox.checked) {
-    if (compareSet.size >= 3) {
+    if (compareSet.size >= 4) {
       checkbox.checked = false;
-      alert('You can compare up to 3 shoes at a time.');
+      alert('You can compare up to 4 shoes at a time.');
       return;
     }
     compareSet.add(key);
@@ -3371,8 +3372,17 @@ function renderCompareBar() {
   const n = compareSet.size;
   document.getElementById('compare-bar-label').textContent = `${n} shoe${n === 1 ? '' : 's'} selected`;
   document.getElementById('compare-bar-view').disabled = n < 2;
+  document.getElementById('compare-bar-full').disabled = n < 2;
   bar.classList.toggle('open', n > 0);
   document.querySelector('.feedback-fab').classList.toggle('shifted', n > 0);
+}
+
+function openFullCompare() {
+  const slugs = [...compareSet].map(key => {
+    const [brand, model] = key.split('|||');
+    return slugify(brand, model);
+  }).join(',');
+  window.location.href = `compare.html?shoes=${slugs}`;
 }
 
 function openCompare() {
