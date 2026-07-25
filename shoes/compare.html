@@ -367,7 +367,6 @@ function renderTable() {
   }).join('');
 
   const rows = [
-    ['Climbing type', s => fmtClimb(s)],
     ['Downturn',      s => dotsHtml(s.downturn)],
     ['Asymmetry',     s => dotsHtml(s.asym)],
     ['Heel',          s => dotsHtml(s.heel)],
@@ -376,9 +375,7 @@ function renderTable() {
     ['Toe shape',     s => s.footShape ? cap(s.footShape) : '—'],
     ['Stiffness',     s => cap(s.stiffness) || '—'],
     ['Lining',        s => s.lining || '—'],
-    ['Resoleable',    s => resoleLabel(s)],
     ['Vegan',         s => s.vegan ? 'Yes' : 'No'],
-    ["Women's",       s => s.womens ? 'Yes' : '—'],
     ['Sizing note',   s => s.sizingNote || '—'],
   ];
 
