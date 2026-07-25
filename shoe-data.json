@@ -6743,5 +6743,61 @@
     "resoleableRaw": "",
     "lining": "Unlined",
     "sizingNote": ""
+  },
+  {
+    "brand": "Butora",
+    "model": "Rubicon",
+    "price": 0,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 1,
+    "downturn": 1,
+    "heel": 2,
+    "stiffness": "medium",
+    "width": [
+      "wide"
+    ],
+    "climbType": [
+      "B",
+      "S"
+    ],
+    "rock_type": "limestone|granite",
+    "footShape": "centred",
+    "buyUrl": "https://butoraeurope.com/rubicon/",
+    "imageUrl": "images/Butora/Rubicon.png",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "",
+    "lining": "Lined (leather)",
+    "sizingNote": ""
+  },
+  {
+    "brand": "Butora",
+    "model": "Rubicon LV",
+    "price": 0,
+    "currency": "GBP",
+    "fastening": "Velcro",
+    "asym": 1,
+    "downturn": 1,
+    "heel": 2,
+    "stiffness": "medium",
+    "width": [
+      "narrow"
+    ],
+    "climbType": [
+      "B",
+      "S"
+    ],
+    "rock_type": "limestone|granite",
+    "footShape": "centred",
+    "buyUrl": "https://butoraeurope.com/rubicon/",
+    "imageUrl": "images/Butora/Rubicon.png",
+    "locations": [],
+    "vegan": false,
+    "womens": false,
+    "resoleableRaw": "",
+    "lining": "Lined (leather)",
+    "sizingNote": ""
   }
 ]
