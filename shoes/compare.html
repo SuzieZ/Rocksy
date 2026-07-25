@@ -12,6 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+<script src="currency.js"></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -169,6 +170,7 @@ const MAX_COMPARE = 4;
 
 let shoes = [];
 let compareList = []; // array of shoe objects, max 4
+let _fmtP = s => s.price ? '£' + Math.round(s.price) : '—'; // replaced after currency loads
 
 // ── CSV parser ────────────────────────────────────────────────────────────────
 function splitCSVLine(line) {
@@ -200,6 +202,8 @@ function rowToShoe(r) {
     brand:      r.brand,
     model:      r.model,
     price:      r.price_gbp ? parseFloat(r.price_gbp) : 0,
+    priceEur:   r.price_eur ? parseFloat(r.price_eur) : 0,
+    priceUsd:   r.price_usd ? parseFloat(r.price_usd) : 0,
     fastening:  (r.fastening || '').trim(),
     asym:       r.asymmetry !== '' ? parseInt(r.asymmetry, 10) : null,
     downturn:   r.downturn  !== '' ? parseInt(r.downturn,  10) : null,
@@ -235,6 +239,8 @@ function dotsHtml(val, max = 2) {
 
 // ── Data load ─────────────────────────────────────────────────────────────────
 async function init() {
+  const cx = await window.rocksyCurrency;
+  _fmtP = s => cx.fmtPrice(s.price, s.priceEur, s.priceUsd) ?? '—';
   try {
     const res = await fetch(PROXY_URL, { cache: 'no-store' });
     if (!res.ok) throw new Error('fetch failed');
@@ -360,7 +366,7 @@ function renderTable() {
       <img class="shoe-col-img" src="${esc(imgSrc)}" alt="${esc(s.brand)} ${esc(s.model)}" loading="lazy" onerror="this.onerror=null;this.src='images/NoImage.svg';">
       <span class="shoe-col-brand">${esc(s.brand)}</span>
       <span class="shoe-col-model">${esc(s.model)}</span>
-      <span class="shoe-col-price">${s.price ? '£' + s.price.toFixed(0) : '—'}</span>
+      <span class="shoe-col-price">${_fmtP(s)}</span>
       ${buyBtn}
       <button class="btn-col-remove" onclick="removeShoe(${i})">Remove</button>
     </th>`;

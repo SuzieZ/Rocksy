@@ -122,6 +122,7 @@
 </script>
 
 <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400;1,700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+<script src="currency.js"></script>
 <style>
   :root {
     --cream: #ffffff;
@@ -2334,6 +2335,8 @@ loadShoes().then(renderFunStrip);
 
 // ── State ────────────────────────────────────────────────────────────────────
 let shoes = [];   // populated on load from Google Sheet
+let _cx = { currency: 'GBP', rates: { GBP:1, EUR:1.18, USD:1.27 }, fmtPrice: (g) => g > 0 ? '£'+Math.round(g) : null };
+function priceFmt(s) { return _cx.fmtPrice(s.price, s.priceEur, s.priceUsd) ?? '—'; }
 let current = 0;
 let answers = {};
 let compareSet = new Set();   // keys are `${brand}|||${model}`, max 3
@@ -2380,6 +2383,8 @@ function rowToShoe(r) {
     brand:         r.brand,
     model:         r.model,
     price:         r.price_gbp ? parseFloat(r.price_gbp) : 0,
+    priceEur:      r.price_eur ? parseFloat(r.price_eur) : 0,
+    priceUsd:      r.price_usd ? parseFloat(r.price_usd) : 0,
     fastening:     r.fastening,
     asym:          r.asymmetry !== '' ? parseInt(r.asymmetry) : null,
     downturn:      r.downturn  !== '' ? parseInt(r.downturn)  : null,
@@ -2402,15 +2407,20 @@ function rowToShoe(r) {
 
 // ── Load data then start ─────────────────────────────────────────────────────
 async function loadShoes() {
-  try {
-    const res = await fetch(PROXY_URL, { cache: 'no-store' });
-    if (!res.ok) throw new Error('fetch failed');
-    const text = await res.text();
-    shoes = parseCSV(text).map(rowToShoe);
-  } catch (e) {
-    console.error('Could not load shoe data:', e);
-    document.getElementById('data-error').style.display = 'block';
-  }
+  const [cx] = await Promise.all([
+    window.rocksyCurrency,
+    (async () => {
+      try {
+        const res = await fetch(PROXY_URL, { cache: 'no-store' });
+        if (!res.ok) throw new Error('fetch failed');
+        shoes = parseCSV(await res.text()).map(rowToShoe);
+      } catch (e) {
+        console.error('Could not load shoe data:', e);
+        document.getElementById('data-error').style.display = 'block';
+      }
+    })()
+  ]);
+  _cx = cx;
 }
 
 // In location mode the hero stats should reflect what's actually in stock
@@ -2441,7 +2451,7 @@ function trackClick(brand, model, url) {
       rank,
       match_pct:    item?.matchPct ?? null,
       price:        item?.shoe.price ?? null,
-      currency:     'GBP',
+      currency:     _cx.currency,
       outbound_url: url,
       ...(item ? shoeToParams(item.shoe) : {}),
     });
@@ -2458,7 +2468,7 @@ function trackClick(brand, model, url) {
         retailer,
         destination_url: dest,
         price:     item?.shoe.price ?? null,
-        currency:  item?.shoe.currency ?? 'GBP',
+        currency:  _cx.currency,
         rank,
         match_pct: item?.matchPct ?? null,
       });
@@ -3288,9 +3298,7 @@ function buildCard({ shoe, score, reasons }, rank) {
         ${tagHtml}
       </div>
       <div class="shoe-attrs">${attrHtml}</div>
-      <div class="shoe-price">
-        <span class="currency">£</span>${shoe.price ? shoe.price.toFixed(0) : '—'}
-      </div>
+      <div class="shoe-price">${priceFmt(shoe)}</div>
       ${shoe.sizingNote ? `<p class="sizing-note">📏 ${shoe.sizingNote}</p>` : ''}
       ${brandTipText ? `<p class="sizing-note">📐 ${shoe.brand}: ${brandTipText}</p>` : ''}
       <div class="shoe-actions">
@@ -3410,7 +3418,7 @@ function openCompare() {
     : 'Any';
 
   const rows = [
-    ['Price', s => s.price ? `£${s.price.toFixed(0)}` : '—', null, '—'],
+    ['Price', s => priceFmt(s), null, '—'],
     ['Downturn', s => fmtDots(s.downturn), s => wantedAggr !== null && s.downturn !== null && s.downturn !== undefined && Math.round(s.downturn) === wantedAggr, aggressionLabel],
     ['Asymmetry', s => fmtDots(s.asym), s => wantedAggr !== null && s.asym !== null && s.asym !== undefined && Math.round(s.asym) === wantedAggr, aggressionLabel],
     ['Heel', s => fmtDots(s.heel), null, '—'],
@@ -3600,7 +3608,7 @@ async function showSimilarResults() {
 
   // Reference shoe chips
   const refChips = [
-    ref.price ? `£${ref.price}` : null,
+    (ref.price || ref.priceEur || ref.priceUsd) ? priceFmt(ref) : null,
     aggrLabel(ref.downturn) ? `${aggrLabel(ref.downturn)} downturn` : null,
     fmtWidth(ref) !== '—' ? fmtWidth(ref) : null,
     ref.fastening || null,
@@ -3624,7 +3632,7 @@ async function showSimilarResults() {
           <div class="similar-card-brand">${s.brand}</div>
           <div class="similar-card-model">${s.model}</div>
         </div>
-        ${s.price ? `<div class="similar-card-price">£${s.price}</div>` : ''}
+        ${(s.price || s.priceEur || s.priceUsd) ? `<div class="similar-card-price">${priceFmt(s)}</div>` : ''}
       </div>
       <div class="similar-card-attrs">${buildAttrRows(ref, s)}</div>
       ${s.buyUrl

@@ -77,7 +77,8 @@ function rowToShoe(r) {
     brand:        r.brand,
     model:        r.model,
     price:        r.price_gbp ? parseFloat(r.price_gbp) : 0,
-    currency:     'GBP',
+    priceEur:     r.price_eur ? parseFloat(r.price_eur) : 0,
+    priceUsd:     r.price_usd ? parseFloat(r.price_usd) : 0,
     fastening:    (r.fastening || '').trim(),
     asym:         r.asymmetry !== '' ? parseInt(r.asymmetry, 10) : null,
     downturn:     r.downturn  !== '' ? parseInt(r.downturn,  10) : null,
@@ -596,7 +597,7 @@ footer a{color:rgba(255,255,255,0.8)}footer a:hover{color:#fff}
     <div class="shoe-meta">
       <p class="shoe-brand-label">${esc(shoe.brand)}</p>
       <h1 class="shoe-h1">${esc(shoe.model)}</h1>
-      ${shoe.price ? `<div class="shoe-price"><span class="cur">£</span>${shoe.price.toFixed(0)}</div>` : ''}
+      ${(shoe.price || shoe.priceEur || shoe.priceUsd) ? `<div class="shoe-price" data-price-gbp="${shoe.price || 0}" data-price-eur="${shoe.priceEur || 0}" data-price-usd="${shoe.priceUsd || 0}">£${shoe.price ? Math.round(shoe.price) : ''}</div>` : ''}
       <div class="badge-row">${badges}</div>
 
       <p class="shoe-desc-lead">${esc(desc)}</p>
@@ -643,6 +644,7 @@ ${specRows.map(([k, v]) => `        <tr><td>${esc(k)}</td><td>${v}</td></tr>`).j
 <footer>
   <div>© Rocksy Adventures · <a href="/privacy.shtml">Privacy Policy</a></div>
 </footer>
+<script src="currency.js"></script>
 </body>
 </html>`;
 }
