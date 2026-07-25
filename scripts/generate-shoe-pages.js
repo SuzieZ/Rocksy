@@ -574,13 +574,13 @@ footer a{color:rgba(255,255,255,0.8)}footer a:hover{color:#fff}
 </head>
 <body>
 <header>
-  <a class="logo" href="/">Rocksy Adventures</a>
-  <a class="header-btn" href="/">← Shoe Finder Quiz</a>
+  <a class="logo" href="/shoes/">Rocksy Adventures</a>
+  <a class="header-btn" href="/shoes/">← Shoe Finder Quiz</a>
 </header>
 
 <nav class="breadcrumb" aria-label="Breadcrumb">
   <a href="/">Home</a><span aria-hidden="true">›</span>
-  <a href="/">Shoe Finder</a><span aria-hidden="true">›</span>
+  <a href="/shoes/">Shoe Finder</a><span aria-hidden="true">›</span>
   <span>${esc(shoe.brand)} ${esc(shoe.model)}</span>
 </nav>
 
@@ -610,6 +610,8 @@ footer a{color:rgba(255,255,255,0.8)}footer a:hover{color:#fff}
             ? ` href="${esc(buyUrl)}" target="_blank" rel="noopener noreferrer" onclick="gtag('event','buy_click',{shoe_brand:'${jsStr(shoe.brand)}',shoe_model:'${jsStr(shoe.model)}',outbound_url:'${jsStr(shoe.buyUrl)}'});"`
             : ''}
            class="btn-buy${hasLink ? '' : ' no-stock'}">${hasLink ? 'Buy now →' : 'Not yet available'}</a>
+        <a href="compare.html?shoes=${slug}" class="btn-buy" style="background:none;color:var(--moss);border:1.5px solid var(--moss);"
+           onclick="gtag('event','compare_click',{shoe_brand:'${jsStr(shoe.brand)}',shoe_model:'${jsStr(shoe.model)}'});">Compare →</a>
       </div>
 
       ${shoe.sizingNote ? `<div class="sizing-note-box"><strong>Sizing note:</strong> ${esc(shoe.sizingNote)}</div>` : ''}

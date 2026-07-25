@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Compare Climbing Shoes | Rocksy Adventures</title>
+<meta name="description" content="Compare up to 4 climbing shoes side by side. Search any shoe from our database and see specs, price, fit and aggression at a glance.">
+<meta name="robots" content="noindex">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FLGTN7H34C"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-FLGTN7H34C');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --moss:#2eada6;--moss-light:#3dbfb8;--moss-pale:#d6f2f0;
+  --ink:#1a1a1a;--stone:#666;--pebble:#ddd;--warm:#f5f5f5;--bark:#444;
+}
+body{font-family:'Nunito',sans-serif;color:var(--ink);background:#fff;line-height:1.6;min-height:100vh;display:flex;flex-direction:column}
+a{color:var(--moss);text-decoration:none}
+a:hover{text-decoration:underline}
+h2{font-family:'Oswald',sans-serif;font-size:1.3rem;font-weight:700;margin:2rem 0 1rem}
+p{margin-bottom:0.8rem}
+
+/* Header */
+header{background:var(--moss);padding:0.9rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;position:sticky;top:0;z-index:100}
+.logo{font-family:'Oswald',sans-serif;font-size:1.4rem;font-weight:700;color:#fff;letter-spacing:0.5px;text-decoration:none}
+.logo:hover{text-decoration:none;opacity:0.9}
+.header-btn{background:rgba(255,255,255,0.18);color:#fff;border:1.5px solid rgba(255,255,255,0.4);border-radius:20px;padding:0.4rem 1rem;font-family:'Nunito',sans-serif;font-size:0.85rem;font-weight:700;cursor:pointer;text-decoration:none;transition:background 0.15s}
+.header-btn:hover{background:rgba(255,255,255,0.3);text-decoration:none}
+
+/* Main */
+main{max-width:1100px;margin:0 auto;padding:2.5rem 1.2rem 5rem;flex:1}
+.page-title{font-family:'Oswald',sans-serif;font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;text-transform:uppercase;margin-bottom:0.4rem}
+.page-sub{color:var(--stone);font-size:0.95rem;margin-bottom:2rem}
+
+/* Error banner */
+#data-error{display:none;background:#c0392b;color:#fff;text-align:center;padding:0.8rem;font-size:0.9rem;font-weight:700;margin-bottom:1.5rem;border-radius:8px}
+
+/* Search section */
+.search-section{display:flex;gap:0.75rem;flex-wrap:wrap;margin-bottom:1.5rem;align-items:stretch}
+.search-wrap{flex:1 1 280px;position:relative}
+#search-input{width:100%;padding:0.8rem 1.2rem;border:2px solid var(--pebble);border-radius:50px;font-family:'Nunito',sans-serif;font-size:0.95rem;font-weight:600;color:var(--ink);outline:none;transition:border-color 0.15s}
+#search-input:focus{border-color:var(--moss)}
+#search-input::placeholder{color:var(--stone);font-weight:400}
+.btn-add{background:var(--moss);color:#fff;border:none;padding:0.8rem 1.8rem;border-radius:50px;font-family:'Nunito',sans-serif;font-size:0.9rem;font-weight:800;cursor:pointer;transition:background 0.15s,transform 0.1s;white-space:nowrap}
+.btn-add:hover{background:var(--moss-light);transform:translateY(-1px)}
+.btn-add:disabled{background:var(--pebble);color:var(--stone);cursor:not-allowed;transform:none}
+#search-error{color:#c0392b;font-size:0.83rem;margin:-1rem 0 1rem;min-height:1.2em}
+
+/* Selected chips */
+.chips-wrap{display:flex;flex-wrap:wrap;gap:0.6rem;margin-bottom:1.8rem;min-height:2.4rem;align-items:center}
+.chip{display:flex;align-items:center;gap:0.4rem;background:var(--moss-pale);border:1.5px solid var(--moss);border-radius:50px;padding:0.35rem 0.5rem 0.35rem 0.9rem;font-size:0.82rem;font-weight:700;color:var(--moss)}
+.chip-remove{background:none;border:none;cursor:pointer;color:var(--moss);font-size:1rem;line-height:1;padding:0.1rem 0.2rem;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:background 0.12s}
+.chip-remove:hover{background:rgba(46,173,166,0.2)}
+.chips-empty{color:var(--stone);font-size:0.88rem;font-style:italic}
+.slots-label{font-size:0.78rem;color:var(--stone);font-weight:700;letter-spacing:0.03em;white-space:nowrap}
+
+/* Compare table */
+#compare-wrap{overflow-x:auto;margin-bottom:2.5rem}
+.compare-table{width:100%;border-collapse:collapse;font-size:0.88rem;min-width:340px}
+.compare-table th{background:var(--warm);font-weight:700;text-align:left;padding:0.6rem 0.8rem;border:1px solid var(--pebble);vertical-align:top}
+.compare-table td{border:1px solid var(--pebble);padding:0.6rem 0.8rem;vertical-align:middle}
+.compare-table td:first-child{background:var(--warm);font-weight:700;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.5px;color:var(--stone);white-space:nowrap;width:120px}
+.compare-table tr:hover td{background:#fafafa}
+.compare-table tr:hover td:first-child{background:var(--warm)}
+
+/* Shoe column header */
+.shoe-col-head{text-align:center;min-width:160px;max-width:220px}
+.shoe-col-img{width:100%;height:110px;object-fit:contain;display:block;margin:0 auto 0.5rem}
+.shoe-col-brand{font-size:0.68rem;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;color:var(--stone);display:block;margin-bottom:0.15rem}
+.shoe-col-model{font-family:'Oswald',sans-serif;font-size:1.1rem;font-weight:700;text-transform:uppercase;color:var(--ink);display:block;margin-bottom:0.6rem}
+.shoe-col-price{font-family:'Oswald',sans-serif;font-size:1.4rem;font-weight:700;color:var(--moss);display:block;margin-bottom:0.6rem}
+.btn-col-buy{display:inline-block;background:var(--moss);color:#fff;font-family:'Nunito',sans-serif;font-weight:800;font-size:0.78rem;padding:0.45rem 0.9rem;border-radius:50px;text-decoration:none;margin-bottom:0.4rem;transition:background 0.15s}
+.btn-col-buy:hover{background:var(--moss-light);text-decoration:none}
+.btn-col-remove{display:block;background:none;border:1px solid var(--pebble);color:var(--stone);font-family:'Nunito',sans-serif;font-size:0.72rem;font-weight:700;padding:0.28rem 0.7rem;border-radius:50px;cursor:pointer;margin:0.2rem auto 0;transition:border-color 0.15s,color 0.15s}
+.btn-col-remove:hover{border-color:var(--moss);color:var(--moss)}
+
+/* Dot display */
+.dot-row{display:inline-flex;gap:3px;vertical-align:middle}
+.dot{width:10px;height:10px;border-radius:50%;background:var(--pebble);display:inline-block}
+.dot.filled{background:var(--moss)}
+.dot-label{font-size:0.78rem;color:var(--stone);margin-left:5px;vertical-align:middle}
+.no-data{color:var(--pebble)}
+
+/* Empty state */
+#empty-state{text-align:center;padding:3rem 1.5rem;background:var(--warm);border-radius:14px;margin-bottom:2rem}
+#empty-state h2{font-family:'Oswald',sans-serif;font-size:1.4rem;font-weight:700;text-transform:uppercase;color:var(--ink);margin:0 0 0.5rem}
+#empty-state p{color:var(--stone);font-size:0.92rem;margin:0}
+
+/* CTA */
+.cta-banner{background:var(--moss-pale);border:1.5px solid var(--moss);border-radius:14px;padding:2rem;text-align:center;margin-top:3rem}
+.cta-banner h2{margin:0 0 0.5rem;font-size:1.2rem}
+.cta-banner p{font-size:0.95rem;color:#333;margin-bottom:1.2rem}
+.btn-quiz{display:inline-block;background:var(--moss);color:#fff;font-family:'Nunito',sans-serif;font-weight:800;font-size:1rem;padding:0.8rem 2rem;border-radius:50px;text-decoration:none;transition:background 0.15s,transform 0.1s}
+.btn-quiz:hover{background:var(--moss-light);text-decoration:none;transform:translateY(-1px)}
+
+/* Loading */
+.loading{text-align:center;padding:3rem;color:var(--stone);font-size:0.9rem}
+
+/* Footer */
+footer{background:#1a1a1a;color:rgba(255,255,255,0.5);text-align:center;padding:1.5rem 1rem;font-size:0.75rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase}
+footer a{color:rgba(255,255,255,0.6)}
+footer a:hover{color:#fff}
+
+@media(max-width:600px){
+  .search-section{flex-direction:column}
+  .btn-add{width:100%;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <a class="logo" href="/shoes/">Rocksy Adventures</a>
+  <a class="header-btn" href="/shoes/">← Shoe Finder Quiz</a>
+</header>
+
+<main>
+  <h1 class="page-title">Compare Climbing Shoes</h1>
+  <p class="page-sub">Search and add up to 4 shoes to compare their specs side by side.</p>
+
+  <div id="data-error">⚠ Could not load shoe data. Please refresh and try again.</div>
+
+  <div id="loading" class="loading">Loading shoes…</div>
+
+  <div id="compare-ui" style="display:none">
+    <div class="search-section">
+      <div class="search-wrap">
+        <input type="text" id="search-input" list="shoe-datalist"
+               placeholder="Type a shoe name or brand…" autocomplete="off"
+               onkeydown="if(event.key==='Enter')addShoe()">
+        <datalist id="shoe-datalist"></datalist>
+      </div>
+      <button class="btn-add" id="btn-add" onclick="addShoe()">Add shoe</button>
+    </div>
+    <p id="search-error"></p>
+
+    <div class="chips-wrap" id="chips-wrap">
+      <span class="chips-empty">No shoes added yet — search above to start comparing.</span>
+    </div>
+
+    <div id="empty-state">
+      <h2>Add at least 2 shoes to compare</h2>
+      <p>Search for any climbing shoe above and we'll show you specs side by side.</p>
+    </div>
+
+    <div id="compare-wrap" style="display:none">
+      <table class="compare-table" id="compare-table"></table>
+    </div>
+
+    <div class="cta-banner">
+      <h2>Not sure which shoe is right for you?</h2>
+      <p>Answer 6 quick questions and get personalised recommendations based on your experience, style, foot shape, and budget.</p>
+      <a href="/shoes/" class="btn-quiz">Take the free shoe finder quiz →</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  © Rocksy Adventures · <a href="/privacy.shtml">Privacy Policy</a>
+</footer>
+
+<script>
+const PROXY_URL = 'proxy.php?k=d440719bc18135dd547592fb0aaa365a94baec13';
+const MAX_COMPARE = 4;
+
+let shoes = [];
+let compareList = []; // array of shoe objects, max 4
+
+// ── CSV parser ────────────────────────────────────────────────────────────────
+function splitCSVLine(line) {
+  const out = []; let cur = '', inQ = false;
+  for (const c of line) {
+    if (c === '"') inQ = !inQ;
+    else if (c === ',' && !inQ) { out.push(cur); cur = ''; }
+    else cur += c;
+  }
+  out.push(cur);
+  return out;
+}
+function parseCSV(text) {
+  const lines = text.trim().split(/\r?\n/);
+  const hdrs = splitCSVLine(lines[0]).map(h => h.trim());
+  return lines.slice(1).map(line => {
+    const vals = splitCSVLine(line);
+    const obj = {};
+    hdrs.forEach((h, i) => {
+      obj[h] = (vals[i] || '').trim();
+      const lc = h.toLowerCase();
+      if (!(lc in obj)) obj[lc] = (vals[i] || '').trim();
+    });
+    return obj;
+  }).filter(r => r.brand && r.model);
+}
+function rowToShoe(r) {
+  return {
+    brand:      r.brand,
+    model:      r.model,
+    price:      r.price_gbp ? parseFloat(r.price_gbp) : 0,
+    fastening:  (r.fastening || '').trim(),
+    asym:       r.asymmetry !== '' ? parseInt(r.asymmetry, 10) : null,
+    downturn:   r.downturn  !== '' ? parseInt(r.downturn,  10) : null,
+    heel:       r.heel      !== '' ? parseInt(r.heel,      10) : null,
+    stiffness:  (r.stiffness || '').trim(),
+    width:      r.width         ? r.width.split('|').map(s => s.trim())          : ['medium'],
+    climbType:  r.climbing_types ? r.climbing_types.split('|').map(s => s.trim()) : [],
+    rock_type:  (r.rock_type || '').trim(),
+    footShape:  r.toe_shape ? r.toe_shape.trim().toLowerCase() : '',
+    buyUrl:     (r.buy_url   || '').trim(),
+    imageUrl:   (r.image_url || '').trim(),
+    vegan:      ['true','yes','y','1'].includes((r.vegan || '').toLowerCase()),
+    womens:     ['true','yes','y','1'].includes((r.Womens || r.womens || '').toLowerCase()),
+    resoleableRaw: (r.resoleable  || '').trim().toLowerCase(),
+    lining:        (r.lining      || '').trim(),
+    sizingNote:    (r.sizing_note || '').trim(),
+  };
+}
+function slugify(brand, model) {
+  return `${brand} ${model}`
+    .toLowerCase().replace(/\./g,'-').replace(/[^a-z0-9\s-]/g,'')
+    .replace(/\s+/g,'-').replace(/-+/g,'-').replace(/^-|-$/g,'');
+}
+
+// ── Dots ──────────────────────────────────────────────────────────────────────
+function dotsHtml(val, max = 2) {
+  if (val === null || val === undefined) return '<span class="no-data">—</span>';
+  const labels = ['Low', 'Medium', 'High'];
+  let d = '';
+  for (let i = 0; i <= max; i++) d += `<span class="dot${i <= val ? ' filled' : ''}"></span>`;
+  return `<span class="dot-row">${d}</span><span class="dot-label">${labels[val] ?? val}</span>`;
+}
+
+// ── Data load ─────────────────────────────────────────────────────────────────
+async function init() {
+  try {
+    const res = await fetch(PROXY_URL, { cache: 'no-store' });
+    if (!res.ok) throw new Error('fetch failed');
+    shoes = parseCSV(await res.text()).map(rowToShoe);
+  } catch (e) {
+    document.getElementById('data-error').style.display = 'block';
+    document.getElementById('loading').style.display = 'none';
+    return;
+  }
+  document.getElementById('loading').style.display = 'none';
+  document.getElementById('compare-ui').style.display = 'block';
+
+  populateDatalist();
+
+  // Pre-fill from URL ?shoes=slug1,slug2
+  const params = new URLSearchParams(location.search);
+  const slugs = (params.get('shoes') || '').split(',').filter(Boolean);
+  slugs.forEach(slug => {
+    const shoe = shoes.find(s => slugify(s.brand, s.model) === slug.trim());
+    if (shoe && compareList.length < MAX_COMPARE && !compareList.includes(shoe)) {
+      compareList.push(shoe);
+    }
+  });
+  render();
+}
+
+function populateDatalist() {
+  const dl = document.getElementById('shoe-datalist');
+  const sorted = [...shoes].sort((a, b) => a.brand.localeCompare(b.brand) || a.model.localeCompare(b.model));
+  dl.innerHTML = sorted.map(s => `<option value="${esc(s.brand + ' ' + s.model)}">`).join('');
+}
+
+// ── Add / remove ──────────────────────────────────────────────────────────────
+function addShoe() {
+  const errEl = document.getElementById('search-error');
+  errEl.textContent = '';
+  const raw = (document.getElementById('search-input').value || '').trim().toLowerCase();
+  if (!raw) { errEl.textContent = 'Type a shoe name first.'; return; }
+
+  const shoe = shoes.find(s => `${s.brand} ${s.model}`.toLowerCase() === raw);
+  if (!shoe) { errEl.textContent = 'Shoe not found — pick one from the suggestions as you type.'; return; }
+  if (compareList.includes(shoe)) { errEl.textContent = 'That shoe is already in your comparison.'; return; }
+  if (compareList.length >= MAX_COMPARE) { errEl.textContent = `You can compare up to ${MAX_COMPARE} shoes at a time. Remove one first.`; return; }
+
+  compareList.push(shoe);
+  document.getElementById('search-input').value = '';
+  updateURL();
+  render();
+}
+
+function removeShoe(idx) {
+  compareList.splice(idx, 1);
+  updateURL();
+  render();
+}
+
+function updateURL() {
+  const slugs = compareList.map(s => slugify(s.brand, s.model)).join(',');
+  const url = new URL(location.href);
+  if (slugs) url.searchParams.set('shoes', slugs);
+  else url.searchParams.delete('shoes');
+  history.replaceState(null, '', url.toString());
+}
+
+// ── Render ────────────────────────────────────────────────────────────────────
+function render() {
+  renderChips();
+  renderTable();
+  document.getElementById('btn-add').disabled = compareList.length >= MAX_COMPARE;
+}
+
+function renderChips() {
+  const wrap = document.getElementById('chips-wrap');
+  const n = compareList.length;
+  const slots = MAX_COMPARE - n;
+  if (n === 0) {
+    wrap.innerHTML = '<span class="chips-empty">No shoes added yet — search above to start comparing.</span>';
+    return;
+  }
+  const chipHtml = compareList.map((s, i) => `
+    <span class="chip">
+      ${esc(s.brand)} ${esc(s.model)}
+      <button class="chip-remove" onclick="removeShoe(${i})" aria-label="Remove ${esc(s.brand)} ${esc(s.model)}">×</button>
+    </span>`).join('');
+  const slotsHtml = slots > 0
+    ? `<span class="slots-label">${slots} slot${slots > 1 ? 's' : ''} remaining</span>`
+    : '';
+  wrap.innerHTML = chipHtml + slotsHtml;
+}
+
+function renderTable() {
+  const wrap = document.getElementById('compare-wrap');
+  const emptyState = document.getElementById('empty-state');
+  const n = compareList.length;
+
+  if (n < 2) {
+    wrap.style.display = 'none';
+    emptyState.style.display = 'block';
+    return;
+  }
+  emptyState.style.display = 'none';
+  wrap.style.display = 'block';
+
+  const cap = s => s ? s.charAt(0).toUpperCase() + s.slice(1) : '';
+  const resoleLabel = s => {
+    if (['true','yes','y','1'].includes(s.resoleableRaw)) return 'Yes';
+    if (['false','no','n','0'].includes(s.resoleableRaw)) return 'No';
+    return s.resoleableRaw || '—';
+  };
+  const fmtClimb = s => {
+    const map = { S:'Sport', B:'Bouldering', M:'Trad / Multi-pitch', bouldering:'Bouldering', sport:'Sport', trad:'Trad', 'multi-pitch':'Multi-pitch', multipitch:'Multi-pitch' };
+    return s.climbType.map(t => map[t] || t).filter(Boolean).join(', ') || '—';
+  };
+  const UTM = '?utm_source=rocksy-compare&utm_medium=referral&utm_campaign=shoe-compare';
+
+  // Header row
+  const headerCells = compareList.map((s, i) => {
+    const imgSrc = s.imageUrl || 'images/NoImage.svg';
+    const buyBtn = s.buyUrl
+      ? `<a href="${s.buyUrl}${UTM}" target="_blank" rel="noopener" class="btn-col-buy">Buy →</a>`
+      : '';
+    return `<th class="shoe-col-head">
+      <img class="shoe-col-img" src="${esc(imgSrc)}" alt="${esc(s.brand)} ${esc(s.model)}" loading="lazy" onerror="this.onerror=null;this.src='images/NoImage.svg';">
+      <span class="shoe-col-brand">${esc(s.brand)}</span>
+      <span class="shoe-col-model">${esc(s.model)}</span>
+      <span class="shoe-col-price">${s.price ? '£' + s.price.toFixed(0) : '—'}</span>
+      ${buyBtn}
+      <button class="btn-col-remove" onclick="removeShoe(${i})">Remove</button>
+    </th>`;
+  }).join('');
+
+  const rows = [
+    ['Climbing type', s => fmtClimb(s)],
+    ['Downturn',      s => dotsHtml(s.downturn)],
+    ['Asymmetry',     s => dotsHtml(s.asym)],
+    ['Heel',          s => dotsHtml(s.heel)],
+    ['Width',         s => s.width.map(cap).join(', ') || '—'],
+    ['Fastening',     s => cap(s.fastening) || '—'],
+    ['Toe shape',     s => s.footShape ? cap(s.footShape) : '—'],
+    ['Stiffness',     s => cap(s.stiffness) || '—'],
+    ['Lining',        s => s.lining || '—'],
+    ['Resoleable',    s => resoleLabel(s)],
+    ['Vegan',         s => s.vegan ? 'Yes' : 'No'],
+    ["Women's",       s => s.womens ? 'Yes' : '—'],
+    ['Sizing note',   s => s.sizingNote || '—'],
+  ];
+
+  const rowsHtml = rows.map(([label, fn]) => {
+    const cells = compareList.map(s => `<td>${fn(s)}</td>`).join('');
+    return `<tr><td>${label}</td>${cells}</tr>`;
+  }).join('');
+
+  document.getElementById('compare-table').innerHTML =
+    `<thead><tr><th></th>${headerCells}</tr></thead><tbody>${rowsHtml}</tbody>`;
+}
+
+function esc(s) {
+  return String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+init();
+</script>
+</body>
+</html>
