@@ -213,6 +213,19 @@
     color: #fff;
     border: 1px solid rgba(255,255,255,0.55);
   }
+  .shop-picker-trigger { position: relative; cursor: pointer; user-select: none; }
+  .shop-dropdown {
+    display: none; position: absolute; top: calc(100% + 6px); right: 0;
+    background: #fff; border: 1.5px solid var(--pebble); border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.10); z-index: 200; min-width: 140px; overflow: hidden;
+  }
+  .shop-dropdown button {
+    display: block; width: 100%; padding: 0.6rem 1rem; text-align: left;
+    background: none; border: none; font-family: inherit; font-size: 0.82rem; font-weight: 700;
+    cursor: pointer; color: var(--ink); text-transform: none; letter-spacing: 0.03em;
+  }
+  .shop-dropdown button:hover { background: var(--moss-pale); color: var(--moss); }
+  .shop-picker-trigger.open .shop-dropdown { display: block; }
 
   @media (max-width: 768px) {
     header { padding: 0.5rem 1rem; }
@@ -1523,6 +1536,33 @@
   .btn-hero-secondary:hover { color: #fff; }
   body.location-mode .btn-hero-secondary { display: none; }
 
+  .hero-actions {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem;
+    margin-top: 1.2rem;
+  }
+  .hero-chip {
+    background: none;
+    border: 1px solid rgba(255,255,255,0.55);
+    color: rgba(255,255,255,0.9);
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 0.4rem 1rem;
+    border-radius: 50px;
+    text-decoration: none;
+    display: inline-block;
+    transition: border-color 0.15s, color 0.15s, background 0.15s;
+    letter-spacing: 0.02em;
+  }
+  .hero-chip:hover { border-color: #fff; color: #fff; background: rgba(255,255,255,0.1); }
+  .hero-shop-picker {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem;
+    margin-top: 0.75rem;
+  }
+  body.location-mode #hero-shop-btn { display: none; }
+  body.location-mode #hero-shop-picker { display: none !important; }
+
   /* SIMILAR MODE */
   #similar-mode { padding: 2.5rem 1.2rem 3rem; max-width: 700px; margin: 0 auto; }
   .similar-search-section { text-align: center; margin-bottom: 2.5rem; }
@@ -1871,6 +1911,14 @@
   <div class="header-actions">
     <button class="header-tag header-tag-outline" onclick="openSizeGuide()">Sizing Guide</button>
     <a class="header-tag header-tag-outline" href="compare.html" style="text-decoration:none;">Compare models</a>
+    <button class="header-tag header-tag-outline" onclick="openSimilarMode()">Search by similar shoe</button>
+    <div class="header-tag header-tag-outline shop-picker-trigger" onclick="openShopPicker(this)">
+      Search within a shop
+      <div class="shop-dropdown">
+        <button onclick="event.stopPropagation();goLocationMode('rise')">Rise</button>
+        <button onclick="event.stopPropagation();goLocationMode('castle')">The Castle</button>
+      </div>
+    </div>
     <div class="header-tag" onclick="restart()">Quiz</div>
   </div>
 </header>
@@ -1893,12 +1941,18 @@
       <h1>Which Climbing Shoes<br><span class="accent">Should I Buy?</span></h1>
       <p class="hero-sub">When it comes to climbing shoes, you really want to try them on before you commit, but this quiz will help point you in the right direction!</p>
       <button class="btn-start" onclick="startQuiz()">Find my shoes →</button>
-      <div><button class="btn-hero-secondary" onclick="openSimilarMode()">Already have a favourite? Find something similar →</button></div>
-      <div style="margin-top:1rem;" id="location-buttons">
-        <button class="btn-colour location-enter-btn" data-location="castle" style="background:none;color:rgba(255,255,255,0.85);border-color:rgba(255,255,255,0.4);">I'm at the Castle</button>
-        <button class="btn-colour location-enter-btn" data-location="rise" style="background:none;color:rgba(255,255,255,0.85);border-color:rgba(255,255,255,0.4);">I'm at Rise</button>
-        <button class="btn-colour" id="location-exit-btn" onclick="exitLocationMode()" style="display:none;background:none;color:rgba(255,255,255,0.85);border-color:rgba(255,255,255,0.4);">Exit location mode</button>
+      <div class="hero-actions">
+        <button class="hero-chip" onclick="openSizeGuide()">Sizing Guide</button>
+        <a class="hero-chip" href="compare.html">Compare models</a>
+        <button class="hero-chip" onclick="openSimilarMode()">Search by similar shoe</button>
+        <button class="hero-chip" id="hero-shop-btn" onclick="toggleHeroShopPicker()">Search within a shop</button>
       </div>
+      <div class="hero-shop-picker" id="hero-shop-picker" style="display:none;">
+        <button class="btn-colour location-enter-btn" data-location="rise" style="background:none;color:rgba(255,255,255,0.85);border-color:rgba(255,255,255,0.4);">Rise</button>
+        <button class="btn-colour location-enter-btn" data-location="castle" style="background:none;color:rgba(255,255,255,0.85);border-color:rgba(255,255,255,0.4);">The Castle</button>
+        <button class="hero-chip" onclick="toggleHeroShopPicker()">← Back</button>
+      </div>
+      <button class="btn-colour" id="location-exit-btn" onclick="exitLocationMode()" style="display:none;background:none;color:rgba(255,255,255,0.85);border-color:rgba(255,255,255,0.4);">Exit location mode</button>
     </div>
   </div>
 </section>
@@ -2259,6 +2313,27 @@ function locationPool(includeOrderIn) {
   const loc = LOCATIONS[ACTIVE_LOCATION];
   const orderIn = (includeOrderIn && loc.orderInBrands) || [];
   return shoes.filter(s => shoeIsAtLocation(s, ACTIVE_LOCATION) || orderIn.includes(s.brand));
+}
+
+function openShopPicker(el) {
+  const isOpen = el.classList.contains('open');
+  document.querySelectorAll('.shop-picker-trigger.open').forEach(t => t.classList.remove('open'));
+  if (!isOpen) {
+    el.classList.add('open');
+    const dismiss = (e) => {
+      if (!el.contains(e.target)) {
+        el.classList.remove('open');
+        document.removeEventListener('click', dismiss, true);
+      }
+    };
+    setTimeout(() => document.addEventListener('click', dismiss, true), 0);
+  }
+}
+
+function toggleHeroShopPicker() {
+  const picker = document.getElementById('hero-shop-picker');
+  const visible = picker.style.display !== 'none';
+  picker.style.display = visible ? 'none' : 'flex';
 }
 
 function goLocationMode(key) {

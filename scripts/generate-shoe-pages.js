@@ -512,7 +512,7 @@ h3{font-size:1rem;font-weight:700;margin-bottom:0.35rem}
 p{margin-bottom:0.8rem}
 /* Header */
 header{background:var(--moss);padding:0.9rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem}
-.logo{font-family:'Oswald',sans-serif;font-size:1.4rem;font-weight:700;color:#fff;letter-spacing:0.5px;text-decoration:none}
+.logo{font-family:'Oswald',sans-serif;font-size:1.4rem;font-weight:700;color:#fff;letter-spacing:0.5px;text-decoration:none;text-transform:uppercase}
 .logo:hover{text-decoration:none;opacity:0.9}
 .header-btn{background:rgba(255,255,255,0.18);color:#fff;border:1.5px solid rgba(255,255,255,0.4);border-radius:20px;padding:0.4rem 1rem;font-family:'Nunito',sans-serif;font-size:0.85rem;font-weight:700;cursor:pointer;text-decoration:none;transition:background 0.15s}
 .header-btn:hover{background:rgba(255,255,255,0.3);text-decoration:none}
