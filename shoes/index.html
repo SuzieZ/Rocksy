@@ -1870,8 +1870,8 @@
   </a>
   <div class="header-actions">
     <button class="header-tag header-tag-outline" onclick="openSizeGuide()">Sizing Guide</button>
-    <a class="header-tag header-tag-outline" href="compare.html" style="text-decoration:none;">Compare</a>
-    <div class="header-tag" onclick="restart()">Shoe Finder</div>
+    <a class="header-tag header-tag-outline" href="compare.html" style="text-decoration:none;">Compare models</a>
+    <div class="header-tag" onclick="restart()">Quiz</div>
   </div>
 </header>
 
@@ -1904,8 +1904,8 @@
 </section>
 
 <div class="fun-strip">
-  <div class="fun-item"><div class="fun-dot"></div><span id="fun-shoe-count">95+ climbing shoes across 6 brands</span></div>
-  <div class="fun-item"><div class="fun-dot"></div><span id="fun-brand-count">6 brands</span></div>
+  <div class="fun-item"><div class="fun-dot"></div><span id="fun-shoe-count">210+ climbing shoes</span></div>
+  <div class="fun-item"><div class="fun-dot"></div><span id="fun-brand-count">6+ brands</span></div>
   <div class="fun-item"><div class="fun-dot"></div>Suitable for all levels</div>
 </div>
 
@@ -2427,14 +2427,16 @@ async function loadShoes() {
 // there, not the site-wide marketing copy — everywhere else the "95+
 // shoes / 6 brands" line stays as-is.
 function renderFunStrip() {
-  if (!ACTIVE_LOCATION || shoes.length === 0) return;
-  const pool = applyBrandExclusion(locationPool(false));
+  if (shoes.length === 0) return;
+  const pool = ACTIVE_LOCATION ? applyBrandExclusion(locationPool(false)) : shoes;
   const shoeCount = pool.length;
   const brandCount = new Set(pool.map(s => s.brand)).size;
-  document.getElementById('fun-shoe-count').textContent =
-    `${shoeCount} climbing shoe${shoeCount === 1 ? '' : 's'} in stock here`;
-  document.getElementById('fun-brand-count').textContent =
-    `${brandCount} brand${brandCount === 1 ? '' : 's'} in stock`;
+  document.getElementById('fun-shoe-count').textContent = ACTIVE_LOCATION
+    ? `${shoeCount} climbing shoe${shoeCount === 1 ? '' : 's'} in stock here`
+    : `${shoeCount} climbing shoes`;
+  document.getElementById('fun-brand-count').textContent = ACTIVE_LOCATION
+    ? `${brandCount} brand${brandCount === 1 ? '' : 's'} in stock`
+    : `${brandCount} brands`;
 }
 
 // UTM appended to buy links
