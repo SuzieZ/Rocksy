@@ -616,9 +616,14 @@
     justify-content: space-between;
     align-items: center;
     margin-top: 2rem;
-    padding-top: 1.5rem;
+    padding: 1rem 0 1.5rem;
     border-top: 2px dashed var(--pebble);
+    position: sticky;
+    bottom: 0;
+    background: #fff;
+    z-index: 50;
   }
+  body.quiz-active .feedback-fab { display: none; }
   .btn-back {
     background: none;
     border: 2px solid var(--pebble);
@@ -1202,7 +1207,8 @@
     color: var(--ink);
     cursor: pointer;
   }
-  .brand-filter-checkbox input { width: 17px; height: 17px; cursor: pointer; }
+  .brand-filter-checkbox input { width: 17px; height: 17px; cursor: pointer; accent-color: var(--moss); }
+  input[list]::-webkit-calendar-picker-indicator { display: none !important; }
   .brand-filter-reason { margin-top: 0.5rem; }
   .brand-filter-reason textarea {
     width: 100%;
@@ -2008,7 +2014,7 @@
       <button class="mobile-nav-subitem location-enter-btn" data-location="rise">Rise</button>
       <button class="mobile-nav-subitem location-enter-btn" data-location="castle">The Castle</button>
     </div>
-    <button class="mobile-nav-item mobile-nav-quiz" onclick="closeBurger(); restart()">Quiz →</button>
+    <button class="mobile-nav-item mobile-nav-quiz" onclick="closeBurger(); restartToQuiz()">Quiz →</button>
   </nav>
 </header>
 
@@ -2115,7 +2121,7 @@
   <div class="similar-search-section">
     <button class="btn-restart" onclick="closeSimilarMode()" style="margin-bottom:1.5rem;">← Back</button>
     <h2>Find shoes <span class="accent">similar to</span> one you love</h2>
-    <p>Pick a shoe you already know — we'll find the closest alternatives across every brand in our database.</p>
+    <p>Pick a shoe you already know and we'll find the closest alternatives across every brand in our database.</p>
     <input type="text" id="similar-input" list="similar-datalist" class="similar-input"
            placeholder="Type a shoe name or brand…" autocomplete="off"
            onkeydown="if(event.key==='Enter')showSimilarResults()">
@@ -2147,7 +2153,7 @@
 
 <!-- COOKIE CONSENT BANNER -->
 <div class="cookie-banner" id="cookie-banner">
-  <p>🍪 Climbers need cookies. So does this site — just a couple, to see how many of you actually finish the quiz. See our <a href="/privacy.shtml" target="_blank" rel="noopener">Privacy Policy</a> for details.</p>
+  <p>🍪 Climbers need cookies. So does this site, just a couple, to see how many of you actually finish the quiz. See our <a href="/privacy.shtml" target="_blank" rel="noopener">Privacy Policy</a> for details.</p>
   <div class="cookie-actions">
     <button class="btn-cookie-decline" onclick="declineCookies()">Hard pass</button>
     <button class="btn-cookie-accept" onclick="acceptCookies()">Whatever</button>
@@ -2186,7 +2192,7 @@
 
     <div id="fb-form-view">
       <h3 class="fb-title">Share Your Thoughts</h3>
-      <p class="fb-sub">Your feedback goes to an unpaid human - be nice.</p>
+      <p class="fb-sub">Your feedback goes to an unpaid human. Be nice.</p>
 
       <div class="fb-field" id="fb-shoe-field" style="display:none">
         <label>Shoe</label>
@@ -2222,7 +2228,7 @@
   <div class="fb-modal sizeguide-modal">
     <button class="fb-close" onclick="closeSizeGuide()">&times;</button>
     <h3 class="fb-title">Sizing Guide</h3>
-    <p class="fb-sub">Climbing shoe sizing varies a lot by brand and last shape — use this as a starting point, then try the shoe on if you can.</p>
+    <p class="fb-sub">Climbing shoe sizing varies a lot by brand and last shape. Use this as a starting point and try the shoe on if you can.</p>
 
     <h4 class="sizeguide-subhead">Fit for your level</h4>
     <p class="sizeguide-text"><strong>New to climbing?</strong> Go snug, not painful — like a firm street shoe. You should be able to stand flat with toes lightly touching the end, no folding or curling required.</p>
@@ -2264,7 +2270,7 @@
   <div class="fb-modal">
     <button class="fb-close" onclick="closeBrandFilter()">&times;</button>
     <h3 class="fb-title">Filter brands</h3>
-    <p class="fb-sub">All brands are shown by default. Untick a brand to hide it from your results from now on — tell us why and we'll pass it on.</p>
+    <p class="fb-sub">All brands are shown by default. Untick a brand to hide it from your results. Tell us why and we'll pass it on.</p>
     <div class="brand-filter-list" id="brand-filter-list"></div>
     <p class="fb-error" id="brand-filter-error"></p>
     <button class="fb-send" id="brand-filter-apply-btn" onclick="applyBrandFilter()">Apply filters →</button>
@@ -2295,8 +2301,8 @@ const LOCATIONS = {
     accentLight: '#ec9a5e',
     accentPale: '#fbe6d3',
     shadow: '#a8531a',
-    heroSub: "Answer 6 quick questions and we'll show you the best matches available right here in The Castle shop — pick them up and try them on today.",
-    resultsSubtitle: "Here's what we've got in stock at The Castle that matches your climbing style, foot shape, and goals — head to the shop counter to try them on.",
+    heroSub: "Answer 6 quick questions and we'll show you the best matches available right here in The Castle shop. Pick them up and try them on today.",
+    resultsSubtitle: "Here's what we've got in stock at The Castle that matches your climbing style, foot shape, and goals. Head to the shop counter to try them on.",
   },
   rise: {
     name: 'Rise',
@@ -2307,12 +2313,12 @@ const LOCATIONS = {
     accentPale: '#fed3ac',
     shadow: '#c2490d',
     bannerBg: '#0f4647',
-    heroSub: "Answer 6 quick questions and we'll show you the best matches available right here at Rise — pick them up and try them on today.",
-    resultsSubtitle: "Here's what we've got in stock at Rise that matches your climbing style, foot shape, and goals — head to the front desk to try them on.",
+    heroSub: "Answer 6 quick questions and we'll show you the best matches available right here at Rise. Pick them up and try them on today.",
+    resultsSubtitle: "Here's what we've got in stock at Rise that matches your climbing style, foot shape, and goals. Head to the front desk to try them on.",
     // Brands Rise doesn't stock in full but is happy to special-order — see
     // the "broaden your search" banner on the results page.
     orderInBrands: ['La Sportiva', 'Scarpa', 'Evolv'],
-    orderInMessage: "Rise will order in any shoe from La Sportiva, Scarpa or Evolv — if you're willing to wait, broaden your search!",
+    orderInMessage: "Rise will order in any shoe from La Sportiva, Scarpa or Evolv. If you're willing to wait, broaden your search!",
   },
 };
 
@@ -2776,7 +2782,7 @@ const questions = [
   {
     id:"experience",
     text:"How much climbing experience do you have?",
-    hint:"Be honest — the right shoe for your level makes a huge difference in comfort and progress.",
+    hint:"Be honest. The right shoe for your level makes a huge difference in comfort and progress.",
     options:[
       { label:"Beginner", desc:"Make this simple and painless", value:"beginner" },
       { label:"Non-beginner", desc:"Ask me all the questions", value:"non-beginner" },
@@ -2785,10 +2791,10 @@ const questions = [
   {
     id:"style", multi:true,
     text:"What type of climbing do you do?",
-    hint:"Pick as many as apply — we'll find a shoe that works across all your adventures.",
+    hint:"Pick as many as apply and we'll find a shoe that works across all your adventures.",
     options:[
       { label:"Sport climbing", desc:"Anything tall enough to need a rope", value:"sport" },
-      { label:"Bouldering", desc:"Short, powerful problems — in or outdoors", value:"boulder" },
+      { label:"Bouldering", desc:"Short, powerful problems, in or outdoors", value:"boulder" },
       { label:"Multi-pitch / trad", desc:"Long routes where all-day comfort matters", value:"trad" },
       { label:"Board", desc:"Masochists click here", value:"board" },
       { label:"Outdoor", desc:"On real-life actual rocks", value:"outdoor" },
@@ -2796,22 +2802,22 @@ const questions = [
   },
   {
     id:"footWidth",
-    text:"How would you describe your foot shape?",
-    hint:"A shoe that fits well always performs better than one sized purely for pain.",
+    text:"How fat are your feet?",
+    hint:"Remember I do not know your gender!",
     options:[
-      { label:"Narrow", desc:"Slim feet that taper sharply to the toes", value:"narrow" },
-      { label:"Medium", desc:"Average width — most shoes fit well", value:"medium" },
-      { label:"Wide", desc:"Broad across the toes, hard to squeeze in", value:"wide" },
+      { label:"Narrow", desc:"a standard fit for women's shoes or narrow men's", value:"narrow" },
+      { label:"Medium", desc:"or wide women's", value:"medium" },
+      { label:"Wide", desc:"more to smear with", value:"wide" },
     ]
   },
   {
     id:"footShape",
     text:"What shape are your toes?",
-    hint:"This is about toe length, not width — it helps us find a shoe whose toe box matches your foot for a comfier, more precise fit.",
+    hint:"This is about toe length, not width. It helps us find a shoe whose toe box matches your foot for a comfier, more precise fit.",
     options:[
-      { label:"Classic", desc:"Egyptian — big toe longest", value:"classic", img: footShapeSvg([24, 18, 13, 9, 4]) },
-      { label:"Centred", desc:"Greek — second toe longest", value:"centred", img: footShapeSvg([18, 24, 17, 10, 4]) },
-      { label:"Square", desc:"Roman — first three equal", value:"square", img: footShapeSvg([20, 20, 20, 10, 4]) },
+      { label:"Classic", desc:"Egyptian: big toe longest", value:"classic", img: footShapeSvg([24, 18, 13, 9, 4]) },
+      { label:"Centred", desc:"Greek: second toe longest", value:"centred", img: footShapeSvg([18, 24, 17, 10, 4]) },
+      { label:"Square", desc:"Roman: first three equal", value:"square", img: footShapeSvg([20, 20, 20, 10, 4]) },
     ]
   },
   {
@@ -2827,7 +2833,7 @@ const questions = [
   {
     id:"rockType",
     text:"What type of rock do you mostly climb on or is your project on?",
-    hint:"Different rock types suit different shoe shapes — this helps us narrow it down.",
+    hint:"Different rock types suit different shoe shapes. This helps us narrow it down.",
     multi: true,
     options:[
       { label:"Whatever", desc:"I climb everything", value:"whatever" },
@@ -2844,16 +2850,16 @@ const questions = [
     hint:"Velcro is great for bouldering (on/off all day). Laces give the most precise fit.",
     multi: true,
     options:[
-      { label:"Velcro strap", desc:"Quick on and off — brilliant for bouldering", value:"Velcro" },
+      { label:"Velcro strap", desc:"Quick on and off, brilliant for bouldering", value:"Velcro" },
       { label:"Lace up", desc:"Most precise fit, takes a little longer", value:"Lace" },
-      { label:"Slip-on", desc:"Seamless, very sensitive — niche but effective", value:"Slip-On" },
-      { label:"No preference", desc:"Just find me the best shoe!", value:"any" },
+      { label:"Slip-on", desc:"Seamless and very sensitive, niche but effective", value:"Slip-On" },
+      { label:"Whatever", desc:"Just find me the best shoe!", value:"any" },
     ]
   },
   {
     id:"budget", type:"slider",
     text:"What's your budget?",
-    hint:"Drag the handles to set your min and max. Better shoes do last longer — but there's a great option at every price point.",
+    hint:"Drag the handles to set your min and max. Better shoes last longer, but there's a great option at every price point.",
     sliderMin: 80, sliderMax: 250, sliderStep: 5,
     defaultMin: 80, defaultMax: 250,
   },
@@ -2893,6 +2899,7 @@ async function startQuiz() {
   document.getElementById('hero').style.display = 'none';
   document.querySelector('.fun-strip').style.display = 'none';
   document.getElementById('quiz').style.display = 'block';
+  document.body.classList.add('quiz-active');
 
   if (shoes.length === 0) {
     document.getElementById('question-container').innerHTML =
@@ -3019,6 +3026,15 @@ function renderQuestion() {
   if (q.id === 'style' && answers.experience === 'beginner') {
     optsArr = optsArr.filter(o => o.value !== 'board');
   }
+  if (q.id === 'fastening' && shoes.length > 0) {
+    const counts = { Velcro: 0, Lace: 0, 'Slip-On': 0 };
+    shoes.forEach(s => { if (counts[s.fastening] !== undefined) counts[s.fastening]++; });
+    optsArr = optsArr.map(o => {
+      if (o.value === 'any') return o;
+      const c = counts[o.value] || 0;
+      return { ...o, desc: `${o.desc} (${c} shoes)` };
+    });
+  }
 
   const optionsHtml = optsArr.map(opt => `
           <button class="opt-btn ${opt.img ? 'opt-btn-img' : ''} ${isSelected(opt.value) ? 'selected' : ''}"
@@ -3059,8 +3075,6 @@ function selectOption(qid, value, el, multi) {
     el.classList.add('selected');
     document.getElementById('btn-next').classList.add('active');
     fireQuizAnswer(qid, value);
-    // Single-choice questions advance straight to the next question on click.
-    nextQuestion();
   }
 }
 
@@ -3276,6 +3290,7 @@ function updateBrandFilterBtn() {
 function showResults() {
   document.getElementById('quiz').style.display = 'none';
   document.getElementById('results').style.display = 'block';
+  document.body.classList.remove('quiz-active');
   window.scrollTo({ top:0, behavior:'smooth' });
   renderAnswersSummary();
   updateBroadenSearchBanner();
@@ -3352,7 +3367,7 @@ function showResults() {
 
     // Aggression vs style conflict: aggressive preference + trad/crack climbing
     if (styleAnswers.includes('trad') && _a.aggression === 'aggressive') {
-      tips.push({ label: 'aggression', hint: 'trad and crack climbing suits flatter shoes — try moderate or flat' });
+      tips.push({ label: 'aggression', hint: 'trad and crack climbing suits flatter shoes, try moderate or flat' });
     }
 
     // Rock type: user picked a specific type but none of the top shoes match it
@@ -3385,7 +3400,7 @@ function showResults() {
     const tipText = tips.length === 1
       ? `Try adjusting your ${fmtTip(tips[0])}.`
       : `Try adjusting your ${fmtTip(tips[0])}, or your ${fmtTip(tips[1])}.`;
-    lowMatchBanner.innerHTML = `These are the closest matches we have — none score above 70%. ${tipText}`;
+    lowMatchBanner.innerHTML = `These are the closest matches we have. None score above 70%. ${tipText}`;
     lowMatchBanner.style.display = 'block';
   } else {
     lowMatchBanner.style.display = 'none';
@@ -3512,11 +3527,25 @@ function restart() {
   answers = {};
   clearCompare();
   BROADEN_SEARCH = false;
+  document.body.classList.remove('quiz-active');
   document.getElementById('results').style.display = 'none';
   document.getElementById('quiz').style.display = 'none';
   document.getElementById('hero').style.display = 'block';
   document.querySelector('.fun-strip').style.display = 'flex';
   window.scrollTo({ top:0, behavior:'smooth' });
+}
+
+function restartToQuiz() {
+  if (typeof gtag !== 'undefined') gtag('event', 'quiz_restarted');
+  _quizStartTime = null;
+  _quizCompleted = false;
+  current = 0;
+  answers = {};
+  clearCompare();
+  BROADEN_SEARCH = false;
+  document.getElementById('results').style.display = 'none';
+  document.getElementById('similar-mode').style.display = 'none';
+  startQuiz();
 }
 
 window.addEventListener('pagehide', () => {
