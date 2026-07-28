@@ -624,6 +624,14 @@
     z-index: 50;
   }
   body.quiz-active .feedback-fab { display: none; }
+  .quiz-feedback-row { text-align: right; padding: 0.4rem 0 1.5rem; }
+  .quiz-feedback-btn {
+    background: none; border: none; cursor: pointer;
+    font-family: 'Nunito', sans-serif; font-size: 0.78rem; font-weight: 600;
+    color: var(--stone); padding: 0.2rem 0; opacity: 0.65;
+    transition: opacity 0.15s, color 0.15s;
+  }
+  .quiz-feedback-btn:hover { opacity: 1; color: var(--moss); }
   .btn-back {
     background: none;
     border: 2px solid var(--pebble);
@@ -2080,6 +2088,9 @@
   <div class="quiz-nav">
     <button class="btn-back" id="btn-back" onclick="prevQuestion()">← Back</button>
     <button class="btn-next" id="btn-next" onclick="nextQuestion()">Next →</button>
+  </div>
+  <div class="quiz-feedback-row">
+    <button class="quiz-feedback-btn" onclick="openFeedback()">💬 Feedback</button>
   </div>
 </div>
 
