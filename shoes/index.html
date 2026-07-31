@@ -623,7 +623,7 @@
     background: #fff;
     z-index: 50;
   }
-  body.quiz-active .feedback-fab { display: none; }
+  body.quiz-active .feedback-fab { display: none !important; }
   .quiz-feedback-row { text-align: right; padding: 0.4rem 0 1.5rem; }
   .quiz-feedback-btn {
     background: none; border: none; cursor: pointer;
@@ -2911,6 +2911,7 @@ async function startQuiz() {
   document.querySelector('.fun-strip').style.display = 'none';
   document.getElementById('quiz').style.display = 'block';
   document.body.classList.add('quiz-active');
+  document.querySelector('.feedback-fab').style.display = 'none';
 
   if (shoes.length === 0) {
     document.getElementById('question-container').innerHTML =
@@ -3303,6 +3304,7 @@ function showResults() {
   document.getElementById('quiz').style.display = 'none';
   document.getElementById('results').style.display = 'block';
   document.body.classList.remove('quiz-active');
+  document.querySelector('.feedback-fab').style.display = '';
   window.scrollTo({ top:0, behavior:'smooth' });
   renderAnswersSummary();
   updateBroadenSearchBanner();
@@ -3540,6 +3542,7 @@ function restart() {
   clearCompare();
   BROADEN_SEARCH = false;
   document.body.classList.remove('quiz-active');
+  document.querySelector('.feedback-fab').style.display = '';
   document.getElementById('results').style.display = 'none';
   document.getElementById('quiz').style.display = 'none';
   document.getElementById('hero').style.display = 'block';
