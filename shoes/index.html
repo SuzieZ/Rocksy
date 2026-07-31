@@ -2033,7 +2033,7 @@
 
 <!-- In-store banner (shown only when ?location=<key> is in the URL) -->
 <div class="location-banner" id="location-banner">
-  <img id="location-banner-logo" src="" alt="" style="display:none;">
+  <img id="location-banner-logo" src="" alt="" style="display:none;" onerror="this.style.display='none'">
   <span id="location-banner-text"></span>
 </div>
 
@@ -2306,7 +2306,6 @@ const PROXY_URL = 'proxy.php?k=d440719bc18135dd547592fb0aaa365a94baec13';
 const LOCATIONS = {
   castle: {
     name: 'The Castle',
-    logo: '/images/Castle.png',
     mapsUrl: 'https://maps.app.goo.gl/S6nRdjQ2aDFUnTbW7',
     accent: '#e07b35',
     accentLight: '#ec9a5e',
