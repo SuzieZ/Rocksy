@@ -2540,7 +2540,10 @@ loadShoes().then(renderFunStrip);
 // ── State ────────────────────────────────────────────────────────────────────
 let shoes = [];   // populated on load from Google Sheet
 let _cx = { currency: 'GBP', rates: { GBP:1, EUR:1.18, USD:1.27 }, fmtPrice: (g) => g > 0 ? '£'+Math.round(g) : null };
-function priceFmt(s) { return _cx.fmtPrice(s.price, s.priceEur, s.priceUsd) ?? '—'; }
+function priceFmt(s) {
+  if (ACTIVE_LOCATION) return s.price > 0 ? '£' + Math.round(s.price) : '—';
+  return _cx.fmtPrice(s.price, s.priceEur, s.priceUsd) ?? '—';
+}
 let current = 0;
 let answers = {};
 let compareSet = new Set();   // keys are `${brand}|||${model}`, max 3
