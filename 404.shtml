@@ -1,87 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>No adventuring today :( | Rocksy Adventures</title>
+  <meta charset="UTF-8">
+  <title>Page not found | Rocksy Adventures</title>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="layout-styles.css">
-  <style type="text/css">
-    .error-wrap {
-      margin-top: 70px;
-      padding: 0 20px 80px;
+  <meta name="robots" content="noindex">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400;1,700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #ffffff;
+      --moss: #2eada6;
+      --moss-light: #3dbfb8;
+      --ink: #1a1a1a;
+      --stone: #666;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: 'Nunito', sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    body::before {
+      content: '';
+      display: block;
+      height: 4px;
+      background: var(--moss);
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--moss);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 600;
+      font-size: 1.4rem;
+      color: #fff;
+      padding: 0.85rem 2rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+      .logo { font-size: 1rem; padding: 0.65rem 1.2rem; }
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(2rem, 5vw, 3.5rem) clamp(1.2rem, 4vw, 3rem) 5rem;
     }
 
     .error-card {
       max-width: 560px;
+      width: 100%;
       margin: 0 auto;
-      padding: 42px 34px 38px;
+      padding: clamp(1.8rem, 4vw, 3rem) clamp(1.5rem, 5vw, 3.2rem) clamp(2rem, 4vw, 2.8rem);
       background: #ffffff;
-      border-top: 8px solid #7FB141;
+      border-top: 8px solid var(--moss);
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+      text-align: center;
     }
 
-    .error-illustration {
-      font-size: 84px;
+    .error-code {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(4rem, 12vw, 7rem);
+      font-weight: 700;
+      color: var(--moss);
       line-height: 1;
-      margin-bottom: 22px;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.4rem;
+      opacity: 0.18;
     }
 
     .error-card h1 {
-      margin: 0 0 16px;
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.9rem;
     }
 
-    .error-card .lead {
-      font-size: 20px;
-      font-weight: 200;
-      color: #555;
-      margin: 0 auto 24px;
-      max-width: 430px;
+    .error-card p {
+      color: var(--stone);
+      line-height: 1.6;
+      max-width: 420px;
+      margin: 0 auto 1.8rem;
     }
 
-    .error-note {
-      color: #777;
-      margin-bottom: 28px;
+    .btn-primary {
+      display: inline-block;
+      background: var(--moss);
+      color: #fff;
+      border: none;
+      padding: 0.85rem 2.2rem;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 800;
+      border-radius: 50px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+      box-shadow: 0 4px 0 #1d7b76;
+      letter-spacing: 0.03em;
+    }
+    .btn-primary:hover {
+      background: var(--moss-light);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 0 #1d7b76;
+    }
+    .btn-primary:active {
+      transform: translateY(1px);
+      box-shadow: 0 2px 0 #1d7b76;
     }
 
-    .error-actions .btn {
-      margin: 4px;
+    footer {
+      margin-top: auto;
+      background: #1a1a1a;
+      padding: 2rem 2.5rem;
+      text-align: center;
+      color: rgba(255,255,255,0.5);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
     }
-
-    @media (max-width: 600px) {
-      .welcome-container {
-        width: 100%;
-      }
-
-      .error-wrap {
-        margin-top: 40px;
-      }
-
-      .error-card {
-        padding: 34px 22px 32px;
-      }
-
-      .error-illustration {
-        font-size: 68px;
-      }
+    .footer-links {
+      margin-top: 0.6rem;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
     }
+    .footer-links a {
+      color: inherit;
+      font: inherit;
+      letter-spacing: inherit;
+      text-decoration: underline;
+      text-transform: inherit;
+    }
+    .footer-links a:hover { color: #fff; }
+    .footer-seal { margin-top: 10px; }
   </style>
 </head>
 
 <body>
-  <div class="wrap">
-    <div class="top-bar"></div>
+  <header>
+    <a class="logo" href="/">Rocksy Adventures</a>
+  </header>
 
-    <main class="welcome-container error-wrap text-center" id="error">
-      <section class="error-card">
-        <div class="error-illustration" aria-hidden="true">🧗‍♀️</div>
-        <h1>No adventuring today :(</h1>
-        <p class="lead">This Rocksy Adventures trail has gone missing.</p>
-        <p class="error-note">The page may have moved, changed name, or wandered off on its own little expedition.</p>
-        <div class="error-actions">
-          <a class="btn btn-primary" href="/">Back to base camp</a>
-        </div>
-      </section>
-    </main>
-  </div>
+  <main>
+    <section class="error-card">
+      <div class="error-code" aria-hidden="true">404</div>
+      <h1>Trail not found</h1>
+      <p>This page may have moved, changed name, or wandered off on its own expedition. Head back to base camp and try again.</p>
+      <a class="btn-primary" href="/">Back to base camp</a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-text">
+      © Rocksy Adventures · rocksyadventures.com
+    </div>
+    <div class="footer-links">
+      <a href="/privacy.shtml">Privacy Policy</a>
+    </div>
+    <div class="footer-seal">
+      <span id="siteseal">
+        <script async type="text/javascript" src="https://seal.godaddy.com/getSealBasic?sealID=sRAIJ3iP81kLWVIz3jKGw4wqrbfOmntVC7QA6QcdEz3OLfDJgqazzaxlDTfU">
+        </script>
+      </span>
+    </div>
+  </footer>
 </body>
 </html>
