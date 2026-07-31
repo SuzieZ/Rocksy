@@ -3037,8 +3037,9 @@ function renderQuestion() {
     optsArr = optsArr.filter(o => o.value !== 'board');
   }
   if (q.id === 'fastening' && shoes.length > 0) {
+    const pool = ACTIVE_LOCATION ? locationPool(false) : shoes;
     const counts = { Velcro: 0, Lace: 0, 'Slip-On': 0 };
-    shoes.forEach(s => { if (counts[s.fastening] !== undefined) counts[s.fastening]++; });
+    pool.forEach(s => { if (counts[s.fastening] !== undefined) counts[s.fastening]++; });
     optsArr = optsArr.map(o => {
       if (o.value === 'any') return o;
       const c = counts[o.value] || 0;
