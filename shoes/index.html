@@ -2178,6 +2178,7 @@
   <div class="footer-links">
     <a href="/privacy.shtml">Privacy Policy</a>
     <button class="footer-cookie-link" onclick="reopenCookieBanner()">Manage cookies</button>
+    <button class="footer-cookie-link" onclick="openAbout()">About Rocksy</button>
   </div>
   <div class="footer-seal">
     <span id="siteseal">
@@ -2285,6 +2286,24 @@
     <div class="brand-filter-list" id="brand-filter-list"></div>
     <p class="fb-error" id="brand-filter-error"></p>
     <button class="fb-send" id="brand-filter-apply-btn" onclick="applyBrandFilter()">Apply filters →</button>
+  </div>
+</div>
+
+<!-- ABOUT MODAL -->
+<div class="fb-overlay" id="about-overlay" onclick="closeAbout(event)">
+  <div class="fb-modal sizeguide-modal">
+    <button class="fb-close" onclick="closeAbout()">&times;</button>
+    <h3 class="fb-title">About Rocksy</h3>
+
+    <p class="fb-sub">My name isn't actually Rocksy. I think it's a cute name for a climbing website, and if this site turns out to be terrible, I'd quite like you not to know who I am.</p>
+
+    <h4 class="sizeguide-subhead">The money bit</h4>
+    <p class="sizeguide-text">I don't make any money from this right now — no ads, no affiliate deals, nothing. One day I'd love to earn a small commission on online shoe purchases made through this site, but I'll tell you now: commission rates will never affect which shoes come up first. The results are sorted purely by how well a shoe matches your answers.</p>
+    <p class="sizeguide-text">I'll also always encourage you to go to a physical shop and try shoes on first — even though I can't earn a penny that way. It's just genuinely the right advice.</p>
+
+    <h4 class="sizeguide-subhead">A bit about me</h4>
+    <p class="sizeguide-text">I've been climbing since I was 9 years old and have gone through at least 20 pairs of climbing shoes. This site exists because I got fed up answering the same question on climbing forums and thought there had to be a better way.</p>
+    <p class="sizeguide-text">And yes — the bum on the landing page is mine.</p>
   </div>
 </div>
 
@@ -3888,6 +3907,14 @@ function openSizeGuide() {
 function closeSizeGuide(e) {
   if (e && e.target !== document.getElementById('sizeguide-overlay')) return;
   document.getElementById('sizeguide-overlay').classList.remove('open');
+}
+
+function openAbout() {
+  document.getElementById('about-overlay').classList.add('open');
+}
+function closeAbout(e) {
+  if (e && e.target !== document.getElementById('about-overlay')) return;
+  document.getElementById('about-overlay').classList.remove('open');
 }
 
 function openNotWomanPopup() {
