@@ -168,15 +168,143 @@
       justify-content: center;
       gap: 1rem;
     }
-    .footer-links a {
+    .footer-links a, .footer-btn {
       color: inherit;
       font: inherit;
       letter-spacing: inherit;
       text-decoration: underline;
       text-transform: inherit;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
     }
-    .footer-links a:hover { color: #fff; }
+    .footer-links a:hover, .footer-btn:hover { color: #fff; }
     .footer-seal { margin-top: 10px; }
+
+    /* Modal overlay */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      z-index: 300;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal-box {
+      background: #fff;
+      border-radius: 16px;
+      padding: 2rem 2rem 1.8rem;
+      max-width: 520px;
+      width: 100%;
+      max-height: 85vh;
+      overflow-y: auto;
+      position: relative;
+      color: #1a1a1a;
+      font-family: 'Nunito', sans-serif;
+      text-transform: none;
+      letter-spacing: 0;
+      text-align: left;
+    }
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1.2rem;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #666;
+      line-height: 1;
+    }
+    .modal-close:hover { color: #1a1a1a; }
+    .modal-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+      padding-right: 2rem;
+    }
+    .modal-sub {
+      color: #666;
+      font-size: 0.88rem;
+      margin-bottom: 1.2rem;
+      line-height: 1.6;
+    }
+    .modal-subhead {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #1a1a1a;
+      margin: 1.2rem 0 0.4rem;
+    }
+    .modal-text {
+      font-size: 0.88rem;
+      color: #444;
+      line-height: 1.65;
+      margin-bottom: 0.7rem;
+    }
+    .modal-actions {
+      display: flex;
+      gap: 0.7rem;
+      margin-top: 1.4rem;
+      flex-wrap: wrap;
+    }
+    .modal-btn {
+      padding: 0.6rem 1.4rem;
+      border-radius: 50px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 800;
+      cursor: pointer;
+      border: none;
+      letter-spacing: 0.02em;
+    }
+    .modal-btn-primary { background: #2eada6; color: #fff; }
+    .modal-btn-primary:hover { background: #3dbfb8; }
+    .modal-btn-secondary { background: none; border: 2px solid #ddd; color: #666; }
+    .modal-btn-secondary:hover { border-color: #999; color: #1a1a1a; }
+
+    /* Cookie banner */
+    .cookie-banner {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #1a1a1a;
+      color: rgba(255,255,255,0.85);
+      padding: 1rem 1.5rem;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.82rem;
+      z-index: 200;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      text-transform: none;
+      letter-spacing: 0;
+    }
+    .cookie-banner.show { display: flex; }
+    .cookie-banner a { color: #2eada6; }
+    .cookie-banner-btns { display: flex; gap: 0.5rem; flex-shrink: 0; }
+    .cookie-banner-btns button {
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-accept { background: #2eada6; color: #fff; }
+    .btn-decline { background: none; border: 1.5px solid rgba(255,255,255,0.3) !important; color: rgba(255,255,255,0.7); }
 
     @media (max-width: 600px) {
       .hub-card { padding: 1.8rem 1.2rem 2rem; }
@@ -203,6 +331,8 @@
     </div>
     <div class="footer-links">
       <a href="/privacy.shtml">Privacy Policy</a>
+      <button class="footer-btn" onclick="openCookieModal()">Manage cookies</button>
+      <button class="footer-btn" onclick="openAbout()">About Rocksy</button>
     </div>
     <div class="footer-seal">
       <span id="siteseal">
@@ -211,5 +341,100 @@
       </span>
     </div>
   </footer>
+<!-- ABOUT MODAL -->
+<div class="modal-overlay" id="about-overlay" onclick="closeAbout(event)">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeAbout()">&times;</button>
+    <h3 class="modal-title">About Rocksy</h3>
+    <p class="modal-sub">My name isn't actually Rocksy. I think it's a cute name for a climbing website, and if this site turns out to be terrible, I'd quite like you not to know who I am.</p>
+
+    <h4 class="modal-subhead">The money bit</h4>
+    <p class="modal-text">I don't make any money from this right now — no ads, no affiliate deals, nothing. One day I'd love to earn a small commission on online shoe purchases made through this site, but I'll tell you now: commission rates will never affect which shoes come up first. The results are sorted purely by how well a shoe matches your answers.</p>
+    <p class="modal-text">I'll also always encourage you to go to a physical shop and try shoes on first — even though I can't earn a penny that way. It's just genuinely the right advice.</p>
+
+    <h4 class="modal-subhead">A bit about me</h4>
+    <p class="modal-text">I've been climbing since I was 9 years old and have gone through at least 20 pairs of climbing shoes. This site exists because I got fed up answering the same question on climbing forums and thought there had to be a better way.</p>
+    <p class="modal-text">And yes — the bum on the landing page is mine.</p>
+  </div>
+</div>
+
+<!-- COOKIE MODAL -->
+<div class="modal-overlay" id="cookie-overlay" onclick="closeCookieModal(event)">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeCookieModal()">&times;</button>
+    <h3 class="modal-title">Cookie preferences</h3>
+    <p class="modal-sub">Just a couple of analytics cookies to see how many people visit and click through to the Shoe Finder. No advertising, no third-party tracking. See our <a href="/privacy.shtml">Privacy Policy</a> for details.</p>
+    <div class="modal-actions">
+      <button class="modal-btn modal-btn-primary" onclick="acceptCookies()">Accept</button>
+      <button class="modal-btn modal-btn-secondary" onclick="declineCookies()">Decline</button>
+    </div>
+  </div>
+</div>
+
+<!-- COOKIE BANNER -->
+<div class="cookie-banner" id="cookie-banner">
+  <span>Climbers need cookies. So does this site — just a couple, to see how many of you make it to the Shoe Finder. <a href="/privacy.shtml">Privacy Policy</a></span>
+  <div class="cookie-banner-btns">
+    <button class="btn-decline" onclick="declineCookies()">Decline</button>
+    <button class="btn-accept" onclick="acceptCookies()">Accept</button>
+  </div>
+</div>
+
+<script>
+const COOKIE_KEY = 'rocksy-cookie-consent';
+
+function loadGA() {
+  if (document.getElementById('ga-script')) return;
+  const s = document.createElement('script');
+  s.id = 'ga-script';
+  s.async = true;
+  s.src = 'https://www.googletagmanager.com/gtag/js?id=G-FLGTN7H34C';
+  document.head.appendChild(s);
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('js', new Date());
+  gtag('config', 'G-FLGTN7H34C');
+}
+
+function initCookies() {
+  const consent = localStorage.getItem(COOKIE_KEY);
+  if (consent === 'accepted') { loadGA(); return; }
+  if (consent === 'declined') return;
+  document.getElementById('cookie-banner').classList.add('show');
+}
+
+function acceptCookies() {
+  localStorage.setItem(COOKIE_KEY, 'accepted');
+  document.getElementById('cookie-banner').classList.remove('show');
+  closeCookieModal();
+  loadGA();
+}
+
+function declineCookies() {
+  localStorage.setItem(COOKIE_KEY, 'declined');
+  document.getElementById('cookie-banner').classList.remove('show');
+  closeCookieModal();
+}
+
+function openCookieModal() {
+  document.getElementById('cookie-banner').classList.remove('show');
+  document.getElementById('cookie-overlay').classList.add('open');
+}
+function closeCookieModal(e) {
+  if (e && e.target !== document.getElementById('cookie-overlay')) return;
+  document.getElementById('cookie-overlay').classList.remove('open');
+}
+
+function openAbout() {
+  document.getElementById('about-overlay').classList.add('open');
+}
+function closeAbout(e) {
+  if (e && e.target !== document.getElementById('about-overlay')) return;
+  document.getElementById('about-overlay').classList.remove('open');
+}
+
+initCookies();
+</script>
 </body>
 </html>
