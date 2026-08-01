@@ -632,7 +632,7 @@ ${specRows.map(([k, v]) => `        <tr><td>${esc(k)}</td><td>${v}</td></tr>`).j
 
   <div class="cta-banner">
     <h2>Not sure if this is the right shoe?</h2>
-    <p>Answer 6 quick questions and get personalised climbing shoe recommendations based on your experience, climbing style, foot shape, and budget.</p>
+    <p>Answer a few quick questions and get personalised climbing shoe recommendations based on your experience, climbing style, foot shape, and budget.</p>
     <a href="/shoes/"
        class="btn-quiz"
        onclick="gtag('event','shoe_page_quiz_cta_click',{brand:'${jsStr(shoe.brand)}',model:'${jsStr(shoe.model)}'});">
