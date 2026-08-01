@@ -14,6 +14,8 @@ deployment:
     - /bin/cp -v shoes/score.js $DEPLOYPATH/shoes/
     - /bin/cp -v shoes/currency.js $DEPLOYPATH/shoes/
     - /bin/cp -v shoes/*.html $DEPLOYPATH/shoes/
+    - /bin/mkdir -p $DEPLOYPATH/hacks
+    - /bin/cp -v hacks/index.html $DEPLOYPATH/hacks/
     - /bin/mkdir -p $DEPLOYPATH/images
     - /bin/cp -rv images/. $DEPLOYPATH/images/
     - /bin/mkdir -p $DEPLOYPATH/shoes/images
