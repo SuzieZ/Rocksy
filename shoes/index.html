@@ -2094,6 +2094,27 @@
     background: transparent;
     padding: 0;
   }
+  /* Footer */
+  body.location-light-hero footer {
+    background: #f3f3f3;
+    color: rgba(0,0,0,0.4);
+    border-top: 1px solid #e2e2e2;
+  }
+  body.location-light-hero .footer-cookie-link:hover,
+  body.location-light-hero .footer-links a:hover { color: var(--ink); }
+  /* Primary CTA button — flat, restrained instead of chunky 3D press */
+  body.location-light-hero .btn-start {
+    box-shadow: 0 2px 14px rgba(212,66,53,0.25);
+    font-weight: 600;
+  }
+  body.location-light-hero .btn-start:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 18px rgba(212,66,53,0.3);
+  }
+  body.location-light-hero .btn-start:active {
+    transform: none;
+    box-shadow: 0 1px 6px rgba(212,66,53,0.2);
+  }
   /* Cotswold-specific: Montserrat on results heading too */
   body.location-cotswold .results-header h2 {
     font-family: 'Montserrat', sans-serif;
