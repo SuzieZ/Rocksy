@@ -1994,6 +1994,7 @@
       <div class="shop-dropdown">
         <button onclick="event.stopPropagation();goLocationMode('rise')">Rise</button>
         <button onclick="event.stopPropagation();goLocationMode('castle')">The Castle</button>
+        <button onclick="event.stopPropagation();goLocationMode('cotswold')">Cotswold Outdoor</button>
       </div>
     </div>
     <div class="header-tag" onclick="restart()">Quiz</div>
@@ -2021,6 +2022,7 @@
       <div class="mobile-nav-shop-label">Search within a shop</div>
       <button class="mobile-nav-subitem location-enter-btn" data-location="rise">Rise</button>
       <button class="mobile-nav-subitem location-enter-btn" data-location="castle">The Castle</button>
+      <button class="mobile-nav-subitem location-enter-btn" data-location="cotswold">Cotswold Outdoor</button>
     </div>
     <button class="mobile-nav-item mobile-nav-quiz" onclick="closeBurger(); restartToQuiz()">Quiz →</button>
   </nav>
@@ -2053,6 +2055,7 @@
       <div class="hero-shop-picker" id="hero-shop-picker" style="display:none;">
         <button class="btn-colour location-enter-btn" data-location="rise" style="background:none;color:rgba(255,255,255,0.85);border-color:rgba(255,255,255,0.4);">Rise</button>
         <button class="btn-colour location-enter-btn" data-location="castle" style="background:none;color:rgba(255,255,255,0.85);border-color:rgba(255,255,255,0.4);">The Castle</button>
+        <button class="btn-colour location-enter-btn" data-location="cotswold" style="background:none;color:rgba(255,255,255,0.85);border-color:rgba(255,255,255,0.4);">Cotswold Outdoor</button>
         <button class="hero-chip" onclick="toggleHeroShopPicker()">← Back</button>
       </div>
       <button class="btn-colour" id="location-exit-btn" onclick="exitLocationMode()" style="display:none;background:none;color:rgba(255,255,255,0.85);border-color:rgba(255,255,255,0.4);">Exit location mode</button>
@@ -2355,6 +2358,17 @@ const LOCATIONS = {
     // the "broaden your search" banner on the results page.
     orderInBrands: ['La Sportiva', 'Scarpa', 'Evolv'],
     orderInMessage: "Rise will order in any shoe from La Sportiva, Scarpa or Evolv. If you're willing to wait, broaden your search!",
+  },
+  cotswold: {
+    name: 'Cotswold Outdoor',
+    logo: '/images/Cotswold.svg',
+    mapsUrl: 'https://www.cotswoldoutdoor.com/c/climbing.html',
+    accent: '#c94b2d',
+    accentLight: '#d96848',
+    accentPale: '#f8e8e4',
+    shadow: '#963825',
+    heroSub: "Answer a few quick questions and we'll show you the best climbing shoes available from Cotswold Outdoor.",
+    resultsSubtitle: "Here's what matches your climbing style, foot shape, and goals — available from Cotswold Outdoor.",
   },
 };
 
