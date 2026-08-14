@@ -1984,7 +1984,58 @@
   }
   .btn-colour:hover { border-color: var(--moss); color: var(--moss); }
 
-  /* ── Light-hero location mode (e.g. Cotswold Outdoor) ───────────────────── */
+  /* ── Light-theme location mode (e.g. Cotswold Outdoor) ─────────────────── */
+
+  /* Header */
+  body.location-light-hero header {
+    background: #fff;
+    border-bottom: 1px solid #e2e2e2;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+  }
+  .logo-partner-img { height: 34px; display: block; }
+  body.location-light-hero .logo { color: var(--ink); }
+  body.location-light-hero .header-tag-outline {
+    color: rgba(0,0,0,0.65);
+    border-color: rgba(0,0,0,0.18);
+  }
+  body.location-light-hero .header-tag-outline:hover {
+    color: var(--loc-accent);
+    border-color: var(--loc-accent);
+    background: rgba(0,0,0,0.03);
+  }
+  /* Quiz chip: filled Cotswold-red pill on white header */
+  body.location-light-hero .header-tag:not(.header-tag-outline) {
+    background: var(--loc-accent);
+    color: #fff;
+  }
+  body.location-light-hero .burger-btn { color: var(--ink); }
+  /* Mobile nav */
+  body.location-light-hero .mobile-nav {
+    background: #fff;
+    border-top: 1px solid #e2e2e2;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+  }
+  body.location-light-hero .mobile-nav-item {
+    color: var(--ink);
+    border-bottom-color: rgba(0,0,0,0.06);
+  }
+  body.location-light-hero .mobile-nav-item:hover,
+  body.location-light-hero .mobile-nav-item:active { background: rgba(0,0,0,0.04); }
+  body.location-light-hero .mobile-nav-shop-label { color: rgba(0,0,0,0.4); }
+  body.location-light-hero .mobile-nav-subitem {
+    color: rgba(0,0,0,0.7);
+    border-top-color: rgba(0,0,0,0.04);
+  }
+  body.location-light-hero .mobile-nav-subitem:hover,
+  body.location-light-hero .mobile-nav-subitem:active { background: rgba(0,0,0,0.04); }
+  body.location-light-hero .mobile-nav-quiz {
+    background: rgba(0,0,0,0.03);
+    border-bottom: none;
+  }
+  body.location-light-hero .mobile-nav-quiz:hover,
+  body.location-light-hero .mobile-nav-quiz:active { background: rgba(0,0,0,0.08); }
+
+  /* Hero */
   body.location-light-hero .hero-banner {
     background: #f4f4f4;
   }
@@ -2027,7 +2078,8 @@
 
 <header>
   <a class="logo" href="/">
-    Rocksy Adventures
+    <span class="logo-text">Rocksy Adventures</span>
+    <img class="logo-partner-img" id="logo-partner-img" src="" alt="" style="display:none;">
   </a>
   <div class="header-actions">
     <button class="header-tag header-tag-outline" onclick="openSizeGuide()">Sizing Guide</button>
@@ -2578,7 +2630,16 @@ function initLocationMode() {
   exitBtnResults.style.display = 'inline-block';
   document.body.classList.add('location-mode');
   document.body.classList.add(`location-${ACTIVE_LOCATION}`);
-  if (loc.lightHero) document.body.classList.add('location-light-hero');
+  if (loc.lightHero) {
+    document.body.classList.add('location-light-hero');
+    if (loc.logo) {
+      document.querySelector('.logo-text').style.display = 'none';
+      const partnerImg = document.getElementById('logo-partner-img');
+      partnerImg.src = loc.logo;
+      partnerImg.alt = loc.name;
+      partnerImg.style.display = 'block';
+    }
+  }
   document.body.style.setProperty('--loc-accent', loc.accent);
   document.body.style.setProperty('--loc-accent-light', loc.accentLight);
   document.body.style.setProperty('--loc-accent-pale', loc.accentPale);
