@@ -1,8 +1,26 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 70" width="200" height="70">
-  <!-- Arch above text -->
-  <path d="M60 38 Q100 4 140 38" stroke="#c94b2d" stroke-width="4" fill="none" stroke-linecap="round"/>
-  <!-- COTSWOLD text -->
-  <text x="100" y="52" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="22" fill="#c94b2d" text-anchor="middle" letter-spacing="1">COTSWOLD</text>
-  <!-- outdoor text -->
-  <text x="100" y="66" font-family="Arial, Helvetica, sans-serif" font-weight="400" font-size="13" fill="#963825" text-anchor="middle" letter-spacing="2">outdoor</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 180" width="280" height="180">
+  <!-- Background matches their logo card -->
+  <rect width="280" height="180" fill="#eeecea" rx="6"/>
+  <!-- Arch — thin, wide, sweeping -->
+  <path d="M30 90 Q140 28 250 90" stroke="#d44235" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+  <!-- COTSWOLD — bold condensed -->
+  <text
+    x="140" y="128"
+    font-family="'Arial Black', 'Helvetica Neue', Arial, sans-serif"
+    font-weight="900"
+    font-size="44"
+    fill="#d44235"
+    text-anchor="middle"
+    letter-spacing="1"
+  >COTSWOLD</text>
+  <!-- outdoor — lighter weight -->
+  <text
+    x="140" y="158"
+    font-family="Arial, Helvetica, sans-serif"
+    font-weight="400"
+    font-size="26"
+    fill="#d44235"
+    text-anchor="middle"
+    letter-spacing="3"
+  >outdoor</text>
 </svg>
