@@ -121,7 +121,7 @@
   }
 </script>
 
-<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400;1,700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400;1,700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
 <script src="currency.js"></script>
 <style>
   :root {
@@ -700,6 +700,12 @@
     color: var(--stone);
     font-size: 0.92rem;
     line-height: 1.6;
+  }
+  .results-location-sub {
+    color: var(--stone);
+    font-size: 0.92rem;
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
   }
   .answers-summary {
     display: flex;
@@ -1977,6 +1983,50 @@
     transition: border-color 0.15s, color 0.15s;
   }
   .btn-colour:hover { border-color: var(--moss); color: var(--moss); }
+
+  /* ── Light-hero location mode (e.g. Cotswold Outdoor) ───────────────────── */
+  body.location-light-hero .hero-banner {
+    background: #f4f4f4;
+  }
+  body.location-light-hero h1 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--ink);
+  }
+  body.location-light-hero h1 .accent {
+    color: var(--loc-accent, var(--moss));
+  }
+  body.location-light-hero .hero-sub {
+    color: var(--stone);
+  }
+  body.location-light-hero .hero-chip {
+    border-color: rgba(0,0,0,0.2);
+    color: var(--ink);
+    background: rgba(0,0,0,0.03);
+  }
+  body.location-light-hero .hero-chip:hover {
+    border-color: var(--loc-accent, var(--moss));
+    color: var(--loc-accent, var(--moss));
+    background: rgba(0,0,0,0.06);
+  }
+  body.location-light-hero #location-exit-btn {
+    color: rgba(0,0,0,0.55) !important;
+    border-color: rgba(0,0,0,0.18) !important;
+  }
+  body.location-light-hero .hero-shop-picker .btn-colour,
+  body.location-light-hero .hero-shop-picker .hero-chip {
+    color: rgba(0,0,0,0.65) !important;
+    border-color: rgba(0,0,0,0.2) !important;
+  }
+  /* Cotswold-specific: Montserrat on results heading too */
+  body.location-cotswold .results-header h2 {
+    font-family: 'Montserrat', sans-serif;
+  }
+  /* Cotswold location banner: light styling */
+  body.location-cotswold .location-banner {
+    background: #f4f4f4;
+    color: var(--ink);
+    border-bottom: 1px solid #ddd;
+  }
 </style>
 </head>
 <body>
@@ -2102,6 +2152,7 @@
   <div class="results-header">
     <p class="kicker" style="color:var(--moss);background:var(--moss-pale);">Your matches are in!</p>
     <h2>Here are <span class="accent">your</span> shoes</h2>
+    <p class="results-location-sub" id="results-location-sub" style="display:none;"></p>
     <div class="summary-filter-row">
       <div class="answers-summary" id="answers-summary"></div>
       <button type="button" class="btn-brand-filter" id="btn-brand-filter" onclick="openBrandFilter()">
@@ -2367,8 +2418,9 @@ const LOCATIONS = {
     accentLight: '#d96848',
     accentPale: '#f8e8e4',
     shadow: '#963825',
-    heroSub: "Answer a few quick questions and we'll show you the best climbing shoes available from Cotswold Outdoor.",
-    resultsSubtitle: "Here's what matches your climbing style, foot shape, and goals — available from Cotswold Outdoor.",
+    lightHero: true,
+    heroSub: "Answer a few quick questions and we'll show you the best matches available right here at Cotswold Outdoor. Pick them up and try them on today.",
+    resultsSubtitle: "Here's what we've got in stock at Cotswold Outdoor that matches your climbing style, foot shape, and goals. Head to the footwear section to try them on.",
   },
 };
 
@@ -2530,6 +2582,8 @@ function initLocationMode() {
   exitBtnResults.textContent = `Exit ${loc.name} mode`;
   exitBtnResults.style.display = 'inline-block';
   document.body.classList.add('location-mode');
+  document.body.classList.add(`location-${ACTIVE_LOCATION}`);
+  if (loc.lightHero) document.body.classList.add('location-light-hero');
   document.body.style.setProperty('--loc-accent', loc.accent);
   document.body.style.setProperty('--loc-accent-light', loc.accentLight);
   document.body.style.setProperty('--loc-accent-pale', loc.accentPale);
@@ -2545,6 +2599,11 @@ function initLocationMode() {
     `In-store at ${loc.name} — showing shoes available in our shop right now`;
   document.getElementById('location-banner').style.display = 'flex';
   document.querySelector('.hero-sub').textContent = loc.heroSub;
+  if (loc.resultsSubtitle) {
+    const sub = document.getElementById('results-location-sub');
+    sub.textContent = loc.resultsSubtitle;
+    sub.style.display = 'block';
+  }
 }
 initLocationMode();
 
