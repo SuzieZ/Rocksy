@@ -1992,7 +1992,18 @@
     border-bottom: 1px solid #e2e2e2;
     box-shadow: 0 1px 6px rgba(0,0,0,0.06);
   }
-  .logo-partner-img { height: 34px; display: block; }
+  .logo-group {
+    display: flex;
+    align-items: center;
+    gap: 0;
+  }
+  .logo-partner-img {
+    height: 28px;
+    display: none;
+    margin-left: 1rem;
+    padding-left: 1rem;
+    border-left: 1px solid rgba(0,0,0,0.15);
+  }
   body.location-light-hero .logo { color: var(--ink); }
   body.location-light-hero .header-tag-outline {
     color: rgba(0,0,0,0.65);
@@ -2068,6 +2079,21 @@
     color: rgba(0,0,0,0.65) !important;
     border-color: rgba(0,0,0,0.2) !important;
   }
+  /* Subtle indicator strip for light-theme locations */
+  body.location-light-hero .location-banner {
+    background: #f3f3f3;
+    color: rgba(0,0,0,0.55);
+    border-bottom: 1px solid #e2e2e2;
+    font-weight: 400;
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    padding: 0.35rem 1rem;
+  }
+  body.location-light-hero .location-banner img {
+    height: 18px;
+    background: transparent;
+    padding: 0;
+  }
   /* Cotswold-specific: Montserrat on results heading too */
   body.location-cotswold .results-header h2 {
     font-family: 'Montserrat', sans-serif;
@@ -2077,10 +2103,10 @@
 <body>
 
 <header>
-  <a class="logo" href="/">
-    <span class="logo-text">Rocksy Adventures</span>
+  <div class="logo-group">
+    <a class="logo" href="/">Rocksy Adventures</a>
     <img class="logo-partner-img" id="logo-partner-img" src="" alt="" style="display:none;">
-  </a>
+  </div>
   <div class="header-actions">
     <button class="header-tag header-tag-outline" onclick="openSizeGuide()">Sizing Guide</button>
     <a class="header-tag header-tag-outline" href="compare.html" style="text-decoration:none;">Compare models</a>
@@ -2465,7 +2491,6 @@ const LOCATIONS = {
     accentPale: '#fae9e7',
     shadow: '#9e2f24',
     lightHero: true,
-    bannerBg: '#d44235',
     heroSub: "Answer a few quick questions and we'll show you the best matches available right here at Cotswold Outdoor. Pick them up and try them on today.",
     resultsSubtitle: "Here's what we've got in stock at Cotswold Outdoor that matches your climbing style, foot shape, and goals. Head to the footwear section to try them on.",
   },
@@ -2633,7 +2658,6 @@ function initLocationMode() {
   if (loc.lightHero) {
     document.body.classList.add('location-light-hero');
     if (loc.logo) {
-      document.querySelector('.logo-text').style.display = 'none';
       const partnerImg = document.getElementById('logo-partner-img');
       partnerImg.src = loc.logo;
       partnerImg.alt = loc.name;
