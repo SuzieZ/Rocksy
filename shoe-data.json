@@ -21,7 +21,8 @@
     "buyUrl": "https://www.lasportiva.com/gb/shoes-climbing-kubo-man-zfcs024",
     "imageUrl": "images/La Sportiva/Kubo.jpg",
     "locations": [
-      "Castle"
+      "Castle",
+      "Cotswold"
     ],
     "vegan": false,
     "womens": false,
@@ -52,7 +53,8 @@
     "buyUrl": "https://www.lasportiva.com/gb/shoes-climbing-mandala-unisex-zfcs041",
     "imageUrl": "images/La Sportiva/Mandala.jpg",
     "locations": [
-      "Castle"
+      "Castle",
+      "Cotswold"
     ],
     "vegan": false,
     "womens": false,
@@ -81,7 +83,9 @@
     "footShape": "classic",
     "buyUrl": "https://www.lasportiva.com/gb/shoes-climbing-solution-man-zfcs013",
     "imageUrl": "images/La Sportiva/Solution.jpg",
-    "locations": [],
+    "locations": [
+      "Cotswold"
+    ],
     "vegan": false,
     "womens": false,
     "resoleableRaw": "yes",
@@ -1487,7 +1491,9 @@
     "footShape": "classic",
     "buyUrl": "https://www.scarpa.co.uk/products/drago",
     "imageUrl": "images/Scarpa/Drago.jpg",
-    "locations": [],
+    "locations": [
+      "Cotswold"
+    ],
     "vegan": false,
     "womens": false,
     "resoleableRaw": "yes",
@@ -1518,7 +1524,8 @@
     "buyUrl": "https://www.scarpa.co.uk/products/drago-lv",
     "imageUrl": "images/Scarpa/Drago_LV.jpg",
     "locations": [
-      "Castle"
+      "Castle",
+      "Cotswold"
     ],
     "vegan": false,
     "womens": false,
@@ -1637,7 +1644,8 @@
     "buyUrl": "https://www.scarpa.co.uk/products/vapour-v-climbing-shoes",
     "imageUrl": "images/Scarpa/Vapor_V.webp",
     "locations": [
-      "Castle"
+      "Castle",
+      "Cotswold"
     ],
     "vegan": false,
     "womens": false,
@@ -2338,7 +2346,9 @@
     "footShape": "centred",
     "buyUrl": "https://www.scarpa.co.uk/products/instinct-vs",
     "imageUrl": "images/Scarpa/Instinct_VS.jpg",
-    "locations": [],
+    "locations": [
+      "Cotswold"
+    ],
     "vegan": false,
     "womens": false,
     "resoleableRaw": "yes",
@@ -2544,7 +2554,9 @@
     "footShape": "centred",
     "buyUrl": "https://world.borealoutdoor.com/product/crux-wmns/",
     "imageUrl": "images/Boreal/Crux_WMNS.jpg",
-    "locations": [],
+    "locations": [
+      "Cotswold"
+    ],
     "vegan": false,
     "womens": true,
     "resoleableRaw": "yes",
@@ -3299,7 +3311,8 @@
     "buyUrl": "https://www.lasportiva.com/gb/shoes-climbing-tarantula-man-zfcs131",
     "imageUrl": "images/La Sportiva/Tarantula.webp",
     "locations": [
-      "Castle"
+      "Castle",
+      "cotswold"
     ],
     "vegan": false,
     "womens": false,
@@ -3685,7 +3698,8 @@
     "buyUrl": "https://www.scarpa.co.uk/products/veloce",
     "imageUrl": "images/Scarpa/Veloce.jpg",
     "locations": [
-      "Rise"
+      "Rise",
+      "cotswold"
     ],
     "vegan": false,
     "womens": false,
@@ -6799,7 +6813,9 @@
     "footShape": "centred",
     "buyUrl": "https://www.alpinetrek.co.uk/red-chili-spirit-lv-iv-climbing-shoes/",
     "imageUrl": "images/Red Chili/Spirit_LV_IV.jpg",
-    "locations": [],
+    "locations": [
+      "Cotswold"
+    ],
     "vegan": false,
     "womens": false,
     "resoleableRaw": "",
