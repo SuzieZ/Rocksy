@@ -207,7 +207,7 @@
     border: none;
     font-family: inherit;
   }
-  .header-actions { display: flex; align-items: center; margin-right: 1.4rem; }
+  .header-actions { display: none; }
   .header-tag-outline {
     background: none;
     color: #fff;
@@ -229,7 +229,8 @@
 
   /* BURGER / MOBILE NAV */
   .burger-btn {
-    display: none;
+    display: flex;
+    align-items: center;
     background: none;
     border: none;
     color: #fff;
@@ -304,8 +305,7 @@
       width: 16px;
       height: 16px;
     }
-    .header-actions { display: none; }
-    .burger-btn { display: flex; align-items: center; }
+
     #hero { padding: 3rem 1.2rem 2.5rem; }
     #quiz, #results { padding: 2rem 1.2rem 4rem; }
     .options-grid { grid-template-columns: 1fr; }
