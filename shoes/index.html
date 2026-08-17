@@ -2135,6 +2135,37 @@
   body.location-cotswold .results-header h2 {
     font-family: 'Montserrat', sans-serif;
   }
+
+  /* Substation — black/industrial dark theme */
+  body.location-substation header {
+    background: #111;
+    border-bottom: 2px solid #C02828;
+  }
+  body.location-substation .logo { color: #fff; letter-spacing: 0.04em; }
+  body.location-substation .burger-btn { color: #fff; }
+  body.location-substation .hero-banner { background: #0d0d0d; }
+  body.location-substation h1 {
+    font-family: 'Arial Black', 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 900;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  body.location-substation .location-banner {
+    background: #111;
+    color: #fff;
+    border-bottom: 1px solid #333;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+  }
+  body.location-substation .location-banner img { filter: invert(1); }
+  body.location-substation footer { background: #0d0d0d; border-top: 1px solid #222; }
+  body.location-substation .results-header h2 {
+    font-family: 'Arial Black', 'Helvetica Neue', Arial, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
 </style>
 </head>
 <body>
@@ -2154,6 +2185,7 @@
         <button onclick="event.stopPropagation();goLocationMode('rise')">Rise</button>
         <button onclick="event.stopPropagation();goLocationMode('castle')">The Castle</button>
         <button onclick="event.stopPropagation();goLocationMode('cotswold')">Cotswold Outdoor</button>
+        <button onclick="event.stopPropagation();goLocationMode('substation')">Substation</button>
       </div>
     </div>
     <div class="header-tag" onclick="restart()">Quiz</div>
@@ -2182,6 +2214,7 @@
       <button class="mobile-nav-subitem location-enter-btn" data-location="rise">Rise</button>
       <button class="mobile-nav-subitem location-enter-btn" data-location="castle">The Castle</button>
       <button class="mobile-nav-subitem location-enter-btn" data-location="cotswold">Cotswold Outdoor</button>
+      <button class="mobile-nav-subitem location-enter-btn" data-location="substation">Substation</button>
     </div>
     <button class="mobile-nav-item mobile-nav-quiz" onclick="closeBurger(); restartToQuiz()">Quiz →</button>
   </nav>
@@ -2518,6 +2551,18 @@ const LOCATIONS = {
     lightHero: true,
     heroSub: "Answer a few quick questions and we'll show you the best matches available right here at Cotswold Outdoor. Pick them up and try them on today.",
     resultsSubtitle: "Here's what we've got in stock at Cotswold Outdoor that matches your climbing style, foot shape, and goals. Head to the footwear section to try them on.",
+  },
+  substation: {
+    name: 'Substation',
+    logo: '/images/Substation.svg',
+    mapsUrl: 'https://brixton.substation.co.uk',
+    accent: '#C02828',
+    accentLight: '#D83A3A',
+    accentPale: '#f5e0e0',
+    shadow: '#8A1414',
+    bannerBg: '#111111',
+    heroSub: "Answer a few quick questions and we'll show you the best matches available right here at Substation. Pick them up and try them on today.",
+    resultsSubtitle: "Here's what we've got in stock at Substation that matches your climbing style, foot shape, and goals. Head to the shop to try them on.",
   },
 };
 
