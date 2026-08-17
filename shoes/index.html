@@ -2153,7 +2153,13 @@
     letter-spacing: 0.05em;
     font-size: 0.78rem;
   }
-  body.location-substation .location-banner img { filter: invert(1) brightness(2); }
+  body.location-substation .location-banner img {
+    background: transparent;
+    border-radius: 0;
+    padding: 0;
+    height: 20px;
+    filter: none;
+  }
 
   /* Cream/white hero — light background, dark text */
   body.location-substation .hero-banner { background: #F5F2EC; }
