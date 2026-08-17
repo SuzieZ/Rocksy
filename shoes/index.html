@@ -2136,31 +2136,52 @@
     font-family: 'Montserrat', sans-serif;
   }
 
-  /* Substation — black/industrial dark theme */
+  /* Substation — dark header, grey-teal banner, cream hero */
   body.location-substation header {
     background: #111;
     border-bottom: 2px solid #C02828;
   }
   body.location-substation .logo { color: #fff; letter-spacing: 0.04em; }
   body.location-substation .burger-btn { color: #fff; }
-  body.location-substation .hero-banner { background: #0d0d0d; }
+
+  /* Grey-teal banner matching their announcement bar */
+  body.location-substation .location-banner {
+    background: #6E8F96;
+    color: #fff;
+    border-bottom: none;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    font-size: 0.78rem;
+  }
+  body.location-substation .location-banner img { filter: invert(1) brightness(2); }
+
+  /* Cream/white hero — light background, dark text */
+  body.location-substation .hero-banner { background: #F5F2EC; }
   body.location-substation h1 {
     font-family: 'Arial Black', 'Helvetica Neue', Arial, sans-serif;
     font-weight: 900;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.02em;
     text-transform: uppercase;
+    color: #111;
   }
-  body.location-substation .location-banner {
-    background: #111;
-    color: #fff;
-    border-bottom: 1px solid #333;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    font-size: 0.75rem;
+  body.location-substation h1 .accent { color: #C02828; }
+  body.location-substation .hero-sub { color: #444; }
+  body.location-substation .btn-start {
+    box-shadow: 0 2px 14px rgba(192,40,40,0.3);
   }
-  body.location-substation .location-banner img { filter: invert(1); }
-  body.location-substation footer { background: #0d0d0d; border-top: 1px solid #222; }
+  body.location-substation .btn-start:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 20px rgba(192,40,40,0.4);
+  }
+  body.location-substation .btn-start:active {
+    transform: none;
+    box-shadow: 0 1px 6px rgba(192,40,40,0.2);
+  }
+
+  /* Footer */
+  body.location-substation footer { background: #111; border-top: 1px solid #222; color: rgba(255,255,255,0.4); }
+
+  /* Results heading */
   body.location-substation .results-header h2 {
     font-family: 'Arial Black', 'Helvetica Neue', Arial, sans-serif;
     text-transform: uppercase;
