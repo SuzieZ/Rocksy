@@ -22,7 +22,8 @@
     "imageUrl": "images/La Sportiva/Kubo.jpg",
     "locations": [
       "Castle",
-      "Cotswold"
+      "Cotswold",
+      "substation"
     ],
     "vegan": false,
     "womens": false,
@@ -54,7 +55,8 @@
     "imageUrl": "images/La Sportiva/Mandala.jpg",
     "locations": [
       "Castle",
-      "Cotswold"
+      "Cotswold",
+      "substation"
     ],
     "vegan": false,
     "womens": false,
@@ -1525,7 +1527,8 @@
     "imageUrl": "images/Scarpa/Drago_LV.jpg",
     "locations": [
       "Castle",
-      "Cotswold"
+      "Cotswold",
+      "substation"
     ],
     "vegan": false,
     "womens": false,
@@ -1645,7 +1648,8 @@
     "imageUrl": "images/Scarpa/Vapor_V.webp",
     "locations": [
       "Castle",
-      "Cotswold"
+      "Cotswold",
+      "substation"
     ],
     "vegan": false,
     "womens": false,
@@ -3312,7 +3316,8 @@
     "imageUrl": "images/La Sportiva/Tarantula.webp",
     "locations": [
       "Castle",
-      "cotswold"
+      "cotswold",
+      "substation"
     ],
     "vegan": false,
     "womens": false,
@@ -3523,7 +3528,8 @@
     "imageUrl": "images/Evolv/Kira.png",
     "locations": [
       "Castle",
-      "Rise"
+      "Rise",
+      "substation"
     ],
     "vegan": true,
     "womens": false,
@@ -3699,7 +3705,8 @@
     "imageUrl": "images/Scarpa/Veloce.jpg",
     "locations": [
       "Rise",
-      "cotswold"
+      "cotswold",
+      "substation"
     ],
     "vegan": false,
     "womens": false,
